@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}{{ trick.trickName | upper }}{% endblock %}
+
+    {% block content %}
+
+        <div class="row">
+
+    {% for medias in medias %}
+
+            <div class="col-lg-2 col-md-4 col-sm-12">
+                {% if medias.type == 'Image' %}
+                    <img class="img-thumbnail" style="margin-bottom:20px;" src="{{ medias.url }}"/>
+                {% endif %}
+
+                {% if medias.type == 'Vidéo' %}
+                    <div class="embed-responsive embed-responsive-16by9" style="margin-bottom:20px;">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ medias.url }}" allowfullscreen> </iframe>
+                    </div>
+                {% endif %}
+            </div>
+
+    {% endfor %}
+
+        </div><br><br>
+
+        <h1>{{ trick.trickName }} ({{ trick.group.group }})</h1>
+        <p>{{ trick.trickContent }}</p>
+        <em>Proposé par {{ trick.user.pseudo }} - Le {{ trick.trickDate | date ('d/m/Y \\à H\\hi') }}</em><br><br>
+
+        <a href="/"><button type="button" class="btn btn-primary">Retour à la page d'accueil</button></a><br><br><br>
+
+    {% endblock %}
+

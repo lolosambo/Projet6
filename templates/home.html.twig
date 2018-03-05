@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}SNOWTRICKS{% endblock %}
+
+    {% block header %}
+        <div class="col-lg-7 col-md-7 col-sm-12 header-subtitle">
+            Le premier site collaboratif <br>des fans de snowboard<br><br>
+            <a href="/connexion"><button type="button" class="btn btn-lg btn-success">Se connecter</button></a>
+            <a href="/inscription"><button type="button" class="btn btn-lg btn-primary">S'inscrire</button></a>
+        </div>
+        <div class="row">
+            <div class="offset-lg-11 col-lg-1 offset-md-11 col-md-1 offset-sm-11 offset-11 col-sm-1">
+                <div class="arrow"><a href="#content" class="scroll">
+                        <i class="fas fa-caret-square-down" style="font-size:3em; color: greenyellow;"
+                           title="Afficher les figures"></i>
+                    </a></div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block content %}
+        <div class="card-deck">
+        <div class="row">
+             {% for trick in tricks %}
+                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="card border-secondary ">
+                        {% for media in media %}
+                            {% if media.idTrick == trick.id and media.aLaUne == 1 %}
+                                <img class="card-img-top"  src="{{ media.url }}">
+                            {% else %}
+                                <img class="card-img-top" src="images/emptyTrick.png">
+                            {% endif %}
+                        {% endfor %}
+                     <div class="card-body">
+                        <a href="/trick/{{ trick.id }}"><h2 class="card-title"><h2>{{ trick.trickName }} </h2></a>
+                        <i class="fas fa-edit" style="font-size:1.5em; color:Orange" title="Editer la figure"></i>
+                        <i class="fas fa-trash-alt" style="font-size:1.5em; color:SlateGrey" title="Supprimer la figure"></i>
+                        <div class="badge badge-danger trickBadge">{{ trick.group.group }}</div>
+                    </div>
+                    </div>
+                 </div>
+        {% endfor %}
+        </div>
+        </div><br><br><br>
+    {% endblock %}
+
+

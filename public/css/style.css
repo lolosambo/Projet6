@@ -1,0 +1,125 @@
+body {
+    background-image: url("../images/background.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1 {
+    font-family: 'Teko', sans-serif;
+    font-size: 40px;
+    color: #015a98;
+  }
+
+h2 {
+    font-family: 'Teko', sans-serif;
+    font-size: 30px;
+    color: #015a98;
+}
+
+h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+    color: #015a98;
+}
+
+h4 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 25px;
+}
+
+h5 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+}
+
+h6 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+}
+
+p {
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+}
+
+.header {
+    min-height: 900px;
+    /*background-image: url("../images/background-header.png");*/
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+
+}
+
+.header-subtitle {
+     font-family: 'Shadows Into Light', cursive;
+    background-image: url("../images/background-home-subtitle.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+     background-color: #2e3436;
+     min-height: 300px;
+    /*border-radius: 30px;*/
+     opacity: 1;
+    font-size: 45px;
+    text-align: right;
+     color: #ffffff;
+ }
+
+.header-login {
+
+    background-image: url("../images/background-login.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 300px;
+    /*border-radius: 30px;*/
+    opacity: 1;
+    color: #ffffff;
+}
+
+.header-subtitle .btn-lg {
+    font-family: 'Kanit', sans-serif;
+}
+
+.arrow {
+    vertical-align: bottom;
+}
+
+.panel-heading h1{
+    color: #ffffff;
+}
+.panel-default {
+    opacity: 0.9;
+    margin-top:30px;
+}
+
+.form {
+    background-color: #262626;
+    border-radius: 30px;
+}
+
+.form-group.last {
+    margin-bottom:0px;
+}
+
+.card {
+    margin-bottom: 20px !important;
+}
+.thumbnails {
+
+    border: 3px solid black;
+    height : 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.trickBadge {
+
+    float: right;
+}
+
+.footer{
+
+}
