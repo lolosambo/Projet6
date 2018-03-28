@@ -5,8 +5,16 @@
     {% block header %}
         <div class="col-lg-7 col-md-7 col-sm-12 header-subtitle">
             Le premier site collaboratif <br>des fans de snowboard<br><br>
+
+        {% if app.session.get('pseudo') is null %}
             <a href="/connexion"><button type="button" class="btn btn-lg btn-success">Se connecter</button></a>
             <a href="/inscription"><button type="button" class="btn btn-lg btn-primary">S'inscrire</button></a>
+        {% else %}
+            <br><div class="container">
+                <img src="{{ app.session.get('avatar')}}"/> Bonjour {{ app.session.get('pseudo') }}
+            </div>
+            <a href="/deconnexion">Se déconnecter</a>
+        {% endif %}
         </div>
         <div class="row">
             <div class="offset-lg-11 col-lg-1 offset-md-11 col-md-1 offset-sm-11 offset-11 col-sm-1">
@@ -19,28 +27,32 @@
     {% endblock %}
 
     {% block content %}
+        {% if app.session.get('pseudo') is not null %}
+            <a href="/ajouter/figure"><button class="btn btn-success">Ajouter une Figure</button></a><br><br>
+        {% endif %}
         <div class="card-deck">
-        <div class="row">
-             {% for trick in tricks %}
-                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                    <div class="card border-secondary ">
-                        {% for media in media %}
-                            {% if media.idTrick == trick.id and media.aLaUne == 1 %}
-                                <img class="card-img-top"  src="{{ media.url }}">
-                            {% else %}
-                                <img class="card-img-top" src="images/emptyTrick.png">
-                            {% endif %}
-                        {% endfor %}
-                     <div class="card-body">
-                        <a href="/trick/{{ trick.id }}"><h2 class="card-title"><h2>{{ trick.trickName }} </h2></a>
-                        <i class="fas fa-edit" style="font-size:1.5em; color:Orange" title="Editer la figure"></i>
-                        <i class="fas fa-trash-alt" style="font-size:1.5em; color:SlateGrey" title="Supprimer la figure"></i>
-                        <div class="badge badge-danger trickBadge">{{ trick.group.group }}</div>
+            <div class="row">
+                {% for trick in tricks %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                        <div class="card border-secondary ">
+                            {% for media in medias %}
+                                {% if media.trickId == trick.id %}
+                                    <img class="card-img-top"  src="./uploads/{{ media.url }}">
+                                {% endif %}
+                            {% endfor %}
+                    <img class="card-img-top" src="images/emptyTrick.png">
+                            <div class="card-body">
+                                <a href="/trick/{{ trick.id }}"><h2 class="card-title"><h2>{{ trick.name }} </h2></a>
+                                    {% if app.session.get('pseudo') == trick.user.pseudo %}
+                                        <a href="/modifier/figure/{{ trick.id }}"><i class="fas fa-edit" style="font-size:1.5em; color:Orange" title="Editer la figure"></i></a>
+                                        <a href="/supprimer/{{ trick.id }}"><i class="fas fa-trash-alt" style="font-size:1.5em; color:SlateGrey" title="Supprimer la figure"></i></a>
+                                    {% endif %}
+                                <div class="badge badge-danger trickBadge">{{ trick.group.group }}</div>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                 </div>
-        {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
         </div><br><br><br>
     {% endblock %}
 

@@ -19,16 +19,15 @@ class GroupsRepository extends ServiceEntityRepository
         parent::__construct($registry, Groups::class);
     }
 
-    /*
-    public function findBySomething($value)
+    public function findIdByGroup($group)
     {
-        return $this->createQueryBuilder('g')
-            ->where('g.something = :value')->setParameter('value', $value)
-            ->orderBy('g.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder()
+            ->select('id')
+            ->from($this->_entityName, 'g')
+            ->where('g.group = :group')->setParameter('group', $group)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 }

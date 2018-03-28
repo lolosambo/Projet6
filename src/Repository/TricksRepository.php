@@ -19,16 +19,16 @@ class TricksRepository extends ServiceEntityRepository
         parent::__construct($registry, Tricks::class);
     }
 
-    /*
-    public function findBySomething($value)
+    public function deleteTrick($id)
     {
-        return $this->createQueryBuilder('t')
-            ->where('t.something = :value')->setParameter('value', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        return $this->createQueryBuilder()
+            ->delete('Tricks', 't')
+            ->where('t.id = :trick_id')
+            ->setParameter('trick_id', $id)
+            ->getQuery();
+
     }
-    */
+
+
+
 }

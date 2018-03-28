@@ -2,130 +2,134 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\MediasRepository")
- */
 class Medias
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+
+    private $trickId;
+
+
     private $type;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    private $media;
+
+
     private $url;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $aLaUne;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tricks")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    private $aLaUne = 0;
+
+
     private $trick;
 
-    /**
-     * @return mixed
-     */
+    public function __construct($trickId, $media) {
+        $this->setTrickId($trickId);
+        $this->media = $media;
+    }
+
+
     public function getId()
     {
         return $this->id;
     }
 
 
-    /**
-     * @return mixed
-     */
+    public function getTrickId()
+    {
+        return $this->trickId;
+    }
+
+
+    public function setTrickId($trickId)
+    {
+        if (is_int($trickId)) {
+            $this->trickId = $trickId;
+        }
+    }
+
+
     public function getType()
     {
         return $this->type;
     }
 
-    /**
-     * @param mixed $type
-     */
+
     public function setType($type)
     {
-        $this->type = $type;
+        if (($type == 'Image') || ($type == 'Video')) {
+            $this->type = $type;
+        }
     }
 
     /**
      * @return mixed
      */
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    /**
+     * @param mixed $media
+     */
+    public function setMedia($media): void
+    {
+        $this->media = $media;
+    }
+
+
     public function getName()
     {
         return $this->name;
     }
 
-    /**
-     * @param mixed $name
-     */
+
     public function setName($name)
     {
         $this->name = $name;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getUrl()
     {
         return $this->url;
     }
 
-    /**
-     * @param mixed $url
-     */
+
     public function setUrl($url)
     {
-        $this->url = $url;
+        if(preg_match('#^\.\./uploads/([0-9a-zA-Z-_]+)\.jpg|jpeg|png$#', $url)) {
+            $this->url = $url;
+        } else {
+            return false;
+        }
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getALaUne()
     {
         return $this->aLaUne;
     }
 
-    /**
-     * @param mixed $aLaUne
-     */
+
     public function setALaUne($aLaUne)
     {
-        $this->aLaUne = $aLaUne;
+        if (($aLaUne == 0) || ($aLaUne == 1)) {
+            $this->aLaUne = $aLaUne;
+        }
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getTrick()
     {
         return $this->trick;
     }
 
-    /**
-     * @param mixed $trick
-     */
+
     public function setTrick($trick)
     {
         $this->trick = $trick;

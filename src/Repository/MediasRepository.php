@@ -19,6 +19,15 @@ class MediasRepository extends ServiceEntityRepository
         parent::__construct($registry, Medias::class);
     }
 
+
+//    public function findAllTricks() {
+//        $qb =  $this->createQueryBuilder('m')
+//            ->innerJoin('m.trick', 't', 'WITH', 'm.trickId = t.id')
+//            ->getQuery();
+//        return $qb->execute();
+//    }
+
+
     /*
     public function findBySomething($value)
     {

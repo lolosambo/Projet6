@@ -1,0 +1,25 @@
+
+{% if app.session.get('userId') is not null %}
+
+    {{ form_start(addCommentForm) }}
+    {{ form_widget(addCommentForm) }}<br>
+    <button type="submit" name="Comment" class="btn btn-success btn-sm">Commenter</button>
+    <button type="reset" name="reset" class="btn btn-default btn-sm">Effacer</button><br><br>
+    {{ form_end(addCommentForm) }}
+
+
+{% endif %}
+
+{% for comment in comments %}
+    <div class="row comments">
+        <div class="col-md-1">
+            <img src="{{ comment.user.avatar }}"/><br>
+            {{ comment.user.pseudo }}
+        </div>
+        <div class="col-md-11">
+            {{ comment.content }}<br>
+            <em>écrit le {{ comment.commentDate | date ('d/m/Y \\à H\\hi')}}</em>
+        </div>
+    </div><br>
+{% endfor %}
+<br><br>

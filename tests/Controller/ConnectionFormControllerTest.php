@@ -3,7 +3,7 @@
 
 namespace Tests\tests\Controller;
 
-
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ConnectionFormControllerTest extends WebTestCase

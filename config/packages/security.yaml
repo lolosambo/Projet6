@@ -1,13 +1,28 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+            App\Entity\Users: bcrypt
+
     providers:
-        in_memory: { memory: ~ }
+        database_users:
+            entity:
+                class: App\Entity\Users
+                property: pseudo
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            pattern:   ^/
+            form_login: true
             anonymous: true
+            logout:
+                path:       /deconnexion
+                target:     /
+            guard:
+                authenticators:
+                    - App\Security\FormLoginAuthenticator
+
 
             # activate different ways to authenticate
 

@@ -1,176 +1,168 @@
 <?php
 
 namespace App\Entity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
- */
-class Users
-{
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+class Users implements UserInterface, \Serializable {
+
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $pseudo;
 
-    /**
-     * @return mixed
-     */
-    public function getPseudo()
-    {
-        return $this->pseudo;
-    }
-
-    /**
-     * @param mixed $pseudo
-     */
-    public function setPseudo($pseudo)
-    {
-        $this->pseudo = $pseudo;
-    }
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $password;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $mail;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $activationKey;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
     private $verified;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
     private $inscrDate;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $avatar;
+    private $avatar = '../images/avatar.png';
 
-    /**
-     * @return mixed
-     */
+
+
+    public function __construct($pseudo, $password, $mail) {
+        $this->pseudo = $pseudo;
+        $this->password = $password;
+        $this->mail = $mail;
+        $this->verified = 0;
+
+    }
+
+
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
+
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+
+
+    public function setPseudo($pseudo)
+    {
+        if(is_string($pseudo)) {
+            $this->pseudo = $pseudo;
+        }
+    }
+
+
     public function getPassword()
     {
         return $this->password;
     }
 
-    /**
-     * @param mixed $password
-     */
+
     public function setPassword($password)
     {
         $this->password = $password;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getMail()
     {
         return $this->mail;
     }
 
-    /**
-     * @param mixed $mail
-     */
+
     public function setMail($mail)
     {
-        $this->mail = $mail;
+        if (preg_match('#^([0-9a-zA-Z-_]+)@([0-9a-zA-Z-_]+).([a-z]+)$#', $mail)) {
+           $this->mail = $mail;
+           return true;
+        } else {
+            return false;
+        }
     }
 
-    /**
-     * @return mixed
-     */
-    public function getActivationKey()
-    {
-        return $this->activationKey;
-    }
 
-    /**
-     * @param mixed $activationKey
-     */
-    public function setActivationKey($activationKey)
-    {
-        $this->activationKey = $activationKey;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getVerified()
     {
         return $this->verified;
     }
 
-    /**
-     * @param mixed $verified
-     */
+
     public function setVerified($verified)
     {
-        $this->verified = $verified;
+        if(($verified == 0) || ($verified == 1)) {
+            $this->verified = $verified;
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getInscrDate()
     {
         return $this->inscrDate;
     }
 
-    /**
-     * @param mixed $inscrDate
-     */
+
     public function setInscrDate($inscrDate)
     {
         $this->inscrDate = $inscrDate;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getAvatar()
     {
         return $this->avatar;
     }
 
-    /**
-     * @param mixed $avatar
-     */
+
     public function setAvatar($avatar)
     {
-        $this->avatar = $avatar;
+        if(preg_match('#^\.\./uploads/avatars/([0-9a-zA-Z-_]+)\.jpg|jpeg|png$#', $avatar)) {
+            $this->avatar = $avatar;
+        } else {
+            $this->avatar = '../images/avatar.png';
+        }
     }
 
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function getSalt()
+    {
+        return $this->password;
+    }
+
+    public function getUsername()
+    {
+        return $this->pseudo;
+    }
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->pseudo,
+            $this->password,
+            $this->mail
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->pseudo,
+            $this->password,
+            $this->mail
+            ) = unserialize($serialized);
+    }
 
 
 }

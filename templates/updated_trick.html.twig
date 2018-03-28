@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}FIGURE MODIFIEE{% endblock %}
+    {% block content %}
+        <a href="/ajout-medias/{{ trick.id }}"><button type="submit" name="medias" class="btn btn-success btn-sm">Oui</button></a>
+        <a href="/"><button type="submit" name="medias" class="btn btn-warning btn-sm">Non</button></a>
+        <p>La figure a bien été modifiée</p>
+        <a href="/">Revenir à la page d'accueil</a>
+
+    {% endblock %}

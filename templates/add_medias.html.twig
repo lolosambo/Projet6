@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}AJOUTER DES MEDIAS{% endblock %}
+    {% block header %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" name="ajouter" class="btn btn-success btn-sm">Ajouter ces medias</button>
+        {{ form_end(form) }}
+
+    {% endblock %}

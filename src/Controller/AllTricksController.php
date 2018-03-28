@@ -3,19 +3,27 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Twig\Environment;
 
-class AllTricksController extends Controller
-{
+class AllTricksController {
+
 
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="homepage")
+     *
      */
-    public function showAllTricksAction() {
+    public function __invoke(Request $request, Environment $environment, EntityManagerInterface $em) {
 
-        return new Response('coucou');
+        $tricks = $em->getRepository('App\Entity\Tricks')->findBy([], ['trickDate' => 'desc']);
+        $medias = $em->getRepository('App\Entity\Medias')->findBy(['aLaUne' => 1]);
+        $em->flush();
+        return new Response($environment->render('home.html.twig', ['tricks' => $tricks, 'medias' => $medias]));
 
     }
 

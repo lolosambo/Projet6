@@ -2,56 +2,59 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\CommentsRepository")
- */
 class Comments
 {
+
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @var
      */
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var
      */
     private $trickId;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var
      */
     private $userId;
 
     /**
-     * @ORM\Column(type="text")
+     * @var
      */
     private $content;
 
     /**
- * @ORM\Column(type="datetime")
- */
+     * @var
+     */
     private $commentDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @var
      */
     private $commentUpdate;
 
+
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tricks")
-     * @ORM\JoinColumn(nullable=false)
+     * @var
      */
     private $trick;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Users")
-     * @ORM\JoinColumn(nullable=false)
+     * @var
      */
     private $user;
+
+
+    /**
+     * Comments constructor.
+     * @param $content
+     */
+    public function __construct($content) {
+        $this->setContent($content);
+    }
 
     /**
      * @return mixed
@@ -70,13 +73,15 @@ class Comments
         return $this->trickId;
     }
 
+
     /**
-     * @param mixed $trickId
+     * @param $trickId
      */
     public function setTrickId($trickId)
     {
         $this->trickId = $trickId;
     }
+
 
     /**
      * @return mixed
@@ -86,8 +91,9 @@ class Comments
         return $this->userId;
     }
 
+
     /**
-     * @param mixed $userId
+     * @param $userId
      */
     public function setUserId($userId)
     {
@@ -103,7 +109,7 @@ class Comments
     }
 
     /**
-     * @param mixed $content
+     * @param $content
      */
     public function setContent($content)
     {
@@ -119,7 +125,7 @@ class Comments
     }
 
     /**
-     * @param mixed $commentDate
+     * @param $commentDate
      */
     public function setCommentDate($commentDate)
     {
@@ -135,7 +141,7 @@ class Comments
     }
 
     /**
-     * @param mixed $commentUpdate
+     * @param $commentUpdate
      */
     public function setCommentUpdate($commentUpdate)
     {
@@ -151,7 +157,8 @@ class Comments
     }
 
     /**
-     * @param mixed $trick
+     * @param $trick
+     * @return $this
      */
     public function setTrick($trick)
     {
@@ -168,7 +175,8 @@ class Comments
     }
 
     /**
-     * @param mixed $user
+     * @param $user
+     * @return $this
      */
     public function setUser($user)
     {
@@ -176,6 +184,5 @@ class Comments
         return $this;
     }
 
-
-
 }
+
