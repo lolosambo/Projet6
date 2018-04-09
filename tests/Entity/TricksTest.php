@@ -1,20 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace Tests\Entity;
 
 use App\Entity\Tricks;
 use App\Entity\Users;
 use App\Entity\Groups;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
+/**
+ * Class TricksTest
+ */
 class TricksTest extends TestCase
 {
-
+    /**
+     * @var Tricks
+     */
     private $trick;
 
     public function setUp() {
-        $trick = new Tricks('Japan Air', 1,  'japan ou japan air : saisie de l\'avant de la planche, 
+        $collection = new ArrayCollection();
+        $trick = new Tricks($collection, 'Japan Air', 1,  'japan ou japan air : saisie de l\'avant de la planche, 
         avec la main avant, du côté de la carre frontside. Un grab est d\'autant plus réussi que la saisie est longue. 
         De plus, le saut est d\'autant plus esthétique que la saisie du snowboard est franche');
         $this->trick = $trick;
@@ -32,6 +44,7 @@ class TricksTest extends TestCase
         static::assertObjectHasAttribute('content', $this->trick);
         static::assertObjectHasAttribute('trickDate', $this->trick);
         static::assertObjectHasAttribute('trickUpdate', $this->trick);
+        static::assertObjectHasAttribute('medias', $this->trick);
         static::assertObjectHasAttribute('group', $this->trick);
         static::assertObjectHasAttribute('user', $this->trick);
 
@@ -50,6 +63,4 @@ class TricksTest extends TestCase
         static::assertEquals('2018-03-05T11:36:14.328371+0000', $this->trick->getTrickUpdate());
 
     }
-
-
 }

@@ -1,33 +1,46 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
+
 namespace App\Repository;
 
 use App\Entity\Groups;
+use App\Repository\Interfaces\GroupsRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Groups|null find($id, $lockMode = null, $lockVersion = null)
- * @method Groups|null findOneBy(array $criteria, array $orderBy = null)
- * @method Groups[]    findAll()
- * @method Groups[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * Class GroupsRepository.
  */
-class GroupsRepository extends ServiceEntityRepository
+class GroupsRepository extends ServiceEntityRepository implements GroupsRepositoryInterface
 {
+    /**
+     * GroupsRepository constructor.
+     *
+     * @param RegistryInterface $registry
+     */
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Groups::class);
     }
 
-    public function findIdByGroup($group)
+    /**
+     * @param $group
+     *
+     * @return mixed
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findOneByGroup($group)
     {
-        return $this->createQueryBuilder()
-            ->select('id')
-            ->from($this->_entityName, 'g')
-            ->where('g.group = :group')->setParameter('group', $group)
+        return $this->createQueryBuilder('g')
+            ->where('g.group = ?1')
+            ->setParameter(1, $group)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getOneOrNullResult();
     }
-
 }

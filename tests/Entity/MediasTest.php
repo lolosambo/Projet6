@@ -1,38 +1,47 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace Tests\Entity;
 
 use App\Entity\Medias;
 use Symfony\Bundle\TwigBundle\Tests\TestCase;
 
+/**
+ * Class MediasTest
+ */
 class MediasTest extends TestCase
 {
+    /**
+     * @var Medias
+     */
     private $media;
 
     public function setUp() {
-        $media = new Medias(1, 'Image', 'Photo 1');
+        $media = new Medias(1, 'Photo1.jpg');
         $this->media = $media;
     }
+
     public function test_entity_must_be_instancied() {
 
         static::assertInstanceOf(Medias::class, $this->media);
         static::assertObjectHasAttribute('id', $this->media);
         static::assertObjectHasAttribute('trickId', $this->media);
         static::assertObjectHasAttribute('type', $this->media);
-        static::assertObjectHasAttribute('name', $this->media);
+        static::assertObjectHasAttribute('media', $this->media);
         static::assertObjectHasAttribute('url', $this->media);
         static::assertObjectHasAttribute('aLaUne', $this->media);
         static::assertObjectHasAttribute('trick', $this->media);
-
     }
 
     public function test_entity_must_have_valid_attributes() {
 
         static::assertEquals(1, $this->media->getTrickId());
-        static::assertContains('Image', $this->media->getType());
-        static::assertContains('Photo 1', $this->media->getName());
-
+        static::assertContains('Photo1.jpg', $this->media->getMedia());
     }
 
     /** @test */
@@ -40,13 +49,6 @@ class MediasTest extends TestCase
 
         $this->media->setUrl('../uploads/exemple.jpg');
         static::assertContains('../uploads/exemple.jpg', $this->media->getUrl());
-    }
-
-    /** @test */
-    public function media_url_must_return_null_when_non_valid() {
-
-        $this->media->setUrl('uploads/exemple.gifffff');
-        static::assertNull($this->media->getUrl());
     }
 
     /** @test */

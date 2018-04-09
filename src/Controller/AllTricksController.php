@@ -1,30 +1,52 @@
 <?php
 
+declare(strict_types=1);
+
+
 
 namespace App\Controller;
 
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Repository\TricksRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
-class AllTricksController {
+/**
+ * Class AllTricksController.
+ * @Author Laurent BERTON <lolosambo2@gmail.com>
+ */
+class AllTricksController
+{
+    /**
+     * @var Environment
+     */
+    private $twig;
 
+    /**
+     * @var TricksRepository
+     */
+    private $tr;
+
+    /**
+     * AllTricksController constructor.
+     *
+     * @param Environment      $environment
+     * @param TricksRepository $tr
+     */
+    public function __construct(Environment $environment, TricksRepository $tr)
+    {
+        $this->twig = $environment;
+        $this->tr = $tr;
+    }
 
     /**
      * @Route("/", name="homepage")
-     *
      */
-    public function __invoke(Request $request, Environment $environment, EntityManagerInterface $em) {
+    public function __invoke()
+    {
+        $tricks = $this->tr->findAllTricksWithMediasByDate();
+        $this->tr->flush();
 
-        $tricks = $em->getRepository('App\Entity\Tricks')->findBy([], ['trickDate' => 'desc']);
-        $medias = $em->getRepository('App\Entity\Medias')->findBy(['aLaUne' => 1]);
-        $em->flush();
-        return new Response($environment->render('home.html.twig', ['tricks' => $tricks, 'medias' => $medias]));
-
+        return new Response($this->twig->render('home.html.twig', ['tricks' => $tricks]));
     }
-
 }

@@ -1,35 +1,46 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace App\Controller;
 
-use App\Entity\Tricks;
+use App\Repository\Interfaces\TricksRepositoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class DeleteTrickController.
+ */
 class DeleteTrickController
 {
-    private $em;
+    /**
+     * @var TricksRepositoryInterface
+     */
+    private $tr;
 
-    public function __construct(EntityManagerInterface $em) {
-        $this->em = $em;
+    /**
+     * DeleteTrickController constructor.
+     *
+     * @param TricksRepositoryInterface $tr
+     */
+    public function __construct(TricksRepositoryInterface $tr)
+    {
+        $this->tr = $tr;
     }
 
     /**
      * @Route("/supprimer/{id}", name="delete_trick")
      */
-    public function __invoke(int $id, Request $request) {
+    public function __invoke(Request $request)
+    {
+        $this->tr->deleteTrick($request->get('id'));
+        $this->tr->flush();
 
-
-        $trick = $this->em->getRepository('App\Entity\Tricks')->find($id);
-        dump($trick);
-        $this->em->remove($trick);
-        $this->em->flush();
         return new RedirectResponse('/');
-
     }
-
 }

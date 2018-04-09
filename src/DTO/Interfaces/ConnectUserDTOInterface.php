@@ -1,0 +1,28 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
+
+namespace App\DTO\Interfaces;
+
+/**
+ * Interface ConnectUserDTOInterface.
+ */
+interface ConnectUserDTOInterface
+{
+    /**
+     * ConnectUserDTOInterface constructor.
+     *
+     * @param string|null $pseudo
+     * @param string|null $password
+     * @param string|null $mail
+     */
+    public function __construct(
+        string $pseudo = null,
+        string $password = null,
+        string $mail = null
+    );
+}

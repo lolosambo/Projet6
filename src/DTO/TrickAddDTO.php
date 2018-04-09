@@ -1,12 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace App\DTO;
 
+use App\DTO\Interfaces\TricksAddDTOInterface;
 
-use App\Entity\Groups;
-
-class TrickAddDTO
+/**
+ * Class TrickAddDTO.
+ */
+class TrickAddDTO implements TricksAddDTOInterface
 {
     /**
      * @var string
@@ -14,7 +21,7 @@ class TrickAddDTO
     public $name;
 
     /**
-     * @var Groups
+     * @var string
      */
     public $group;
 
@@ -25,14 +32,18 @@ class TrickAddDTO
 
     /**
      * TrickAddDTO constructor.
+     *
      * @param string $name
-     * @param Groups $group
+     * @param string $group
      * @param string $content
      */
-    public function __construct(string $name ='', string $group = '', string $content = '') {
+    public function __construct(
+        string $name = null,
+        string $group = null,
+        string $content = null
+    ) {
         $this->name = $name;
         $this->group = $group;
         $this->content = $content;
     }
-
 }

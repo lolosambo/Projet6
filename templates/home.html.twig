@@ -18,10 +18,12 @@
         </div>
         <div class="row">
             <div class="offset-lg-11 col-lg-1 offset-md-11 col-md-1 offset-sm-11 offset-11 col-sm-1">
-                <div class="arrow"><a href="#content" class="scroll">
+                <div class="arrow">
+                    <a href="#content" class="scroll">
                         <i class="fas fa-caret-square-down" style="font-size:3em; color: greenyellow;"
                            title="Afficher les figures"></i>
-                    </a></div>
+                    </a>
+                </div>
             </div>
         </div>
     {% endblock %}
@@ -35,20 +37,20 @@
                 {% for trick in tricks %}
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                         <div class="card border-secondary ">
-                            {% for media in medias %}
-                                {% if media.trickId == trick.id %}
-                                    <img class="card-img-top"  src="./uploads/{{ media.url }}">
+                            {% for images in trick.medias %}
+                                <img class="card-img-top"  src="./uploads/{{ asset(images.url) }}"/>
+                            {%  endfor %}
+                            {% if trick.medias is empty %}
+                                <img class="card-img-top" src="./images/emptyTrick.png"/>
+                            {% endif %}
+                        <div class="card-body">
+                            <a href="/trick/{{ trick.id }}"><h2 class="card-title"><h2>{{ trick.name }} </h2></a>
+                                {% if app.session.get('pseudo') == trick.user.pseudo %}
+                                    <a href="/modifier/figure/{{ trick.id }}"><i class="fas fa-edit" style="font-size:1.5em; color:Orange" title="Editer la figure"></i></a>
+                                    <a href="/supprimer/{{ trick.id }}"><i class="fas fa-trash-alt" style="font-size:1.5em; color:SlateGrey" title="Supprimer la figure"></i></a>
                                 {% endif %}
-                            {% endfor %}
-                    <img class="card-img-top" src="images/emptyTrick.png">
-                            <div class="card-body">
-                                <a href="/trick/{{ trick.id }}"><h2 class="card-title"><h2>{{ trick.name }} </h2></a>
-                                    {% if app.session.get('pseudo') == trick.user.pseudo %}
-                                        <a href="/modifier/figure/{{ trick.id }}"><i class="fas fa-edit" style="font-size:1.5em; color:Orange" title="Editer la figure"></i></a>
-                                        <a href="/supprimer/{{ trick.id }}"><i class="fas fa-trash-alt" style="font-size:1.5em; color:SlateGrey" title="Supprimer la figure"></i></a>
-                                    {% endif %}
-                                <div class="badge badge-danger trickBadge">{{ trick.group.group }}</div>
-                            </div>
+                            <div class="badge badge-danger trickBadge">{{ trick.group.group }}</div>
+                        </div>
                         </div>
                     </div>
                 {% endfor %}

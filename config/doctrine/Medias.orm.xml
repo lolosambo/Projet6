@@ -12,7 +12,10 @@
         <field name="type" type="string" length="255"/>
         <field name="url" type="string" length="255" />
         <field name="aLaUne" type="string" length="255" />
-        <many-to-one field="trick" target-entity="Tricks" />
+        <many-to-one field="trick" target-entity="App\Entity\Tricks" inversed-by="medias">
+            <join-column name="trick_id" referenced-column-name="id" />
+        </many-to-one>
+
 
     </entity>
 </doctrine-mapping>

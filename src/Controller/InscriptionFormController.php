@@ -1,23 +1,31 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace App\Controller;
 
-use App\DTO\InscriptionUserDTO;
+use App\DTO\Interfaces\InscriptionUserDTOInterface;
 use App\Form\FormHandler\InscriptionTypeHandler;
 use App\Form\Type\InscriptionType;
+use Swift_Mailer;
+use Swift_Message;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
 
+/**
+ * Class InscriptionFormController.
+ */
 class InscriptionFormController
 {
-
     /**
-     * @var InscriptionUserDTO
+     * @var InscriptionUserDTOInterface
      */
     private $dto;
 
@@ -33,12 +41,16 @@ class InscriptionFormController
 
     /**
      * InscriptionFormController constructor.
-     * @param InscriptionUserDTO $dto
-     * @param EntityManagerInterface $em
-     * @param FormFactoryInterface $formFactory
-     * @param Environment $environment
+     *
+     * @param InscriptionUserDTOInterface $dto
+     * @param FormFactoryInterface        $formFactory
+     * @param Environment                 $environment
      */
-    public function __construct(InscriptionUserDTO $dto, FormFactoryInterface $formFactory, Environment $environment) {
+    public function __construct(
+        InscriptionUserDTOInterface $dto,
+        FormFactoryInterface $formFactory,
+        Environment $environment
+    ) {
         $this->dto = $dto;
         $this->formFactory = $formFactory;
         $this->twig = $environment;
@@ -46,18 +58,46 @@ class InscriptionFormController
 
     /**
      * @Route("/inscription", name="inscription")
-     * @Method({"GET", "POST"})
+     *
+     * @param Request                $request
+     * @param InscriptionTypeHandler $InscriptionTypeHandler
+     * @param \Swift_Mailer          $mailer
+     *
+     * @return Response
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
-    public function __invoke(Request $request, InscriptionTypeHandler $InscriptionTypeHandler) {
+    public function __invoke(
+        Request $request,
+        InscriptionTypeHandler $InscriptionTypeHandler,
+        Swift_Mailer $mailer
+    ) {
+        $form = $this->formFactory
+            ->create(InscriptionType::class, $this->dto)
+            ->handleRequest($request);
 
-        $form = $this->formFactory->create(InscriptionType::class, $this->dto)->handleRequest($request);
-        $handledForm = $InscriptionTypeHandler->handle($form);
+        if ($InscriptionTypeHandler->handle($form)) {
+            $message = (new Swift_Message('Nouvelle inscription'))
+                ->setFrom('lolosambo2@gmail.com')
+                ->setTo($this->dto->mail)
+                ->setBody($this->twig->render(
+                    'email_inscription.html.twig',
+                    [
+                        'name' => $this->dto->pseudo,
+                        'token' => '123456789', ]
+                ),
+                    'text/html'
+                );
 
-        if($handledForm) {
+            $mailer->send($message);
 
             return new Response($this->twig->render('inscription_status.html.twig'));
         }
 
-        return  new Response($this->twig->render('inscription.html.twig', ['form' => $form->createView()]));
+        return  new Response($this->twig->render('inscription.html.twig', [
+            'form' => $form->createView(),
+        ]));
     }
 }

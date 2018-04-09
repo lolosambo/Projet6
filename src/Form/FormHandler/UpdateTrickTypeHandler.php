@@ -1,27 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace App\Form\FormHandler;
 
-
-use App\DTO\TrickAddDTO;
-use App\Entity\Tricks;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\Interfaces\TricksRepositoryInterface;
+use App\Repository\Interfaces\UsersRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
-use App\Form\FormHandler\FormTypeHandlerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class UpdateTrickTypeHandler implements FormTypeHandlerInterface
+/**
+ * Class UpdateTrickTypeHandler.
+ */
+class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
 {
     /**
-     * @var EntityManagerInterface
+     * @var TricksRepositoryInterface
      */
-    private $em;
+    private $tr;
 
     /**
-     * @var TrickAddDTO
+     * @var UsersRepositoryInterface
      */
-    private $dto;
+    private $ur;
 
     /**
      * @var SessionInterface
@@ -30,32 +35,35 @@ class UpdateTrickTypeHandler implements FormTypeHandlerInterface
 
     /**
      * UpdateTrickTypeHandler constructor.
-     * @param SessionInterface $session
-     * @param EntityManagerInterface $em
-     * @param TrickAddDTO $dto
+     *
+     * @param SessionInterface          $session
+     * @param TricksRepositoryInterface $tr
      */
-    public function __construct(SessionInterface $session, EntityManagerInterface $em, TrickAddDTO $dto ) {
-        $this->em = $em;
-        $this->dto = $dto;
+    public function __construct(
+        SessionInterface $session,
+        TricksRepositoryInterface $tr,
+        UsersRepositoryInterface $ur
+    ) {
+        $this->tr = $tr;
+        $this->ur = $ur;
         $this->session = $session;
     }
 
     /**
-     * @param FormInterface $formType
+     * @param UpdateTrickTypeHandlerInterface $formType
      */
-    public function handle(FormInterface $updateTrickType) {
-
+    public function handle(FormInterface $updateTrickType, int $trickId)
+    {
         if ($updateTrickType->isSubmitted() && $updateTrickType->isValid()) {
-
-            $newTrick = new Tricks($this->dto->name, $this->dto->group, $this->dto->content);
-            $newTrick->setUserId($this->session->get('userId'));
+            $user = $this->ur->find($this->session->get('userId'));
+            $newTrick = $this->tr->find($trickId);
+            $newTrick->setUser($user);
             $newTrick->setTrickUpdate(new \DateTime('NOW'));
-            $this->em->flush();
+            $this->tr->flush();
 
             return true;
         }
 
         return false;
     }
-
 }

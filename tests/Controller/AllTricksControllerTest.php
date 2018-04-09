@@ -1,20 +1,33 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace Tests\Controller;
 
 use App\Entity\Tricks;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class AllTricksControllerTest
+ */
 class AllTricksControllerTest extends WebTestCase
 {
 
+    /**
+     * @var
+     */
     private $entityManager;
+
+    /**
+     * @var
+     */
     private $trick;
 
-
-    protected function setUp()
-    {
+    protected function setUp() {
         $kernel = self::bootKernel();
 
         $this->entityManager = $kernel->getContainer()
@@ -75,10 +88,7 @@ class AllTricksControllerTest extends WebTestCase
     }
 
 
-
-
-    protected function tearDown()
-    {
+    protected function tearDown() {
         parent::tearDown();
 
         $this->entityManager->close();

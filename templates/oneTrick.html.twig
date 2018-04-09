@@ -4,6 +4,15 @@
 
     {% block content %}
         <div class="row">
+            {% if aLaUne.url is defined %}
+                <div class="offset-md-1 col-md-10 col-sm-12 aLaUne" style="background-image: url('../uploads/{{ aLaUne.url }}');">
+            {% else %}
+                <div class="offset-md-1 col-md-10 col-sm-12 aLaUne" style="background-image: url('../images/empty_alaune.png'); background-size: contain;">
+            {% endif %}
+                <a href="/image_a_la_une/{{ trick.id }}"><button type="submit" class="btn btn-success">Changer l'image</button></a>
+            </div>
+        </div>
+        <div class="row">
     {% for medias in medias %}
             <div class="col-lg-2 col-md-4 col-sm-12">
                 {% if medias.type == 'Image' %}
@@ -12,8 +21,11 @@
 
                 {% if medias.type == 'Video' %}
                     <div class="embed-responsive embed-responsive-16by9" style="margin-bottom:20px;">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ medias.url }}" allowfullscreen> </iframe>
+                        <iframe class="embed-responsive-item" src="{{ medias.url }}" allowfullscreen> </iframe>
                     </div>
+                {% endif %}
+                {% if app.session.get('pseudo') is not null %}
+                    <a href="/supprimer/trick/{{ trick.id }}/medias/{{ medias.id }}"><i class="fas fa-trash-alt" style="font-size:1.5em; color:SlateGrey" title="Supprimer le media"></i></a>
                 {% endif %}
             </div>
     {% endfor %}

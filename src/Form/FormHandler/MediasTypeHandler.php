@@ -1,19 +1,33 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
+
 namespace App\Form\FormHandler;
 
-use App\DTO\MediasDTO;
+use App\DTO\Interfaces\MediasDTOInterface;
 use App\Entity\Medias;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\Interfaces\MediasRepositoryInterface;
+use App\Repository\Interfaces\TricksRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
 
-
+/**
+ * Class MediasTypeHandler.
+ */
 class MediasTypeHandler implements MediasTypeHandlerInterface
 {
     /**
-     * @var EntityManagerInterface
+     * @var MediasRepositoryInterface
      */
-    private $em;
+    private $mr;
+
+    /**
+     * @var TricksRepositoryInterface
+     */
+    private $tr;
 
     /**
      * @var string
@@ -22,57 +36,61 @@ class MediasTypeHandler implements MediasTypeHandlerInterface
 
     /**
      * MediasTypeHandler constructor.
-     * @param EntityManagerInterface $em
-     * @param $mediasPath
+     *
+     * @param MediasRepositoryInterface $mr
+     * @param string                    $mediasPath
      */
-    public function __construct(EntityManagerInterface $em, string $mediasPath)
-    {
-        $this->em = $em;
+    public function __construct(
+        MediasRepositoryInterface $mr,
+        TricksRepositoryInterface $tr,
+        string $mediasPath
+    ) {
+        $this->mr = $mr;
+        $this->tr = $tr;
         $this->mediasPath = $mediasPath;
     }
 
     /**
-     * @param FormInterface $mediasType
-     * @param MediasDTO $dto
+     * @param FormInterface      $mediasType
+     * @param MediasDTOInterface $dto
      * @param $trickId
+     *
      * @return bool
      */
-    public function handle(FormInterface $mediasType, MediasDTO $dto, int $trickId)
-    {
-
+    public function handle(
+        FormInterface $mediasType,
+        MediasDTOInterface $dto,
+        int $trickId
+    ) {
         if ($mediasType->isSubmitted() && $mediasType->isValid()) {
+            $trick = $this->tr->find($trickId);
+            $files = $dto->media;
+            foreach ($files as $file) {
+                $extension = $file->guessExtension();
+                $file->move(
+                    $this->mediasPath,
+                    $file->getClientOriginalName()
+                );
+                $media = new Medias($trickId, $dto->media);
+                $media->setUrl($this->mediasPath);
+                $media->setTrick($trick);
+                $media->setUrl($file->getClientOriginalName());
 
-            $trick = $this->em->getRepository('App\Entity\Tricks')->find($trickId);
-            $file = $dto->media;
-            $extension = $file->guessExtension();
-            $fileName = $file->getClientOriginalName ();
-            $file->move($this->mediasPath, $fileName);
-
-            dump($fileName);
-            $media = new Medias($trickId, $dto->media);
-
-            $media->setUrl($this->mediasPath);
-            $media->setTrickId($trickId);
-            $media->setUrl($fileName);
-            $media->setTrick($trick);
-
-            if (in_array($extension, ['jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'tiff', 'TIFF', 'gif', 'GIF', 'bmp', 'BMP'])) {
-                $media->setType('Image');
-            } elseif (in_array($extension, ['mp4', 'MP4', 'avi', 'AVI', 'mpeg', 'MPEG', 'flv', 'FLV', 'mkv', 'MKV'])) {
-                $media->setType('Video');
+                if (in_array($extension,
+                    ['jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'tiff', 'TIFF', 'gif', 'GIF', 'bmp', 'BMP']
+                )) {
+                    $media->setType('Image');
+                } elseif (in_array($extension,
+                    ['mp4', 'MP4', 'avi', 'AVI', 'mpeg', 'MPEG', 'flv', 'FLV', 'mkv', 'MKV']
+                )) {
+                    $media->setType('Video');
+                }
+                $this->mr->save($media);
             }
-
-            if ($dto->aLaUne === true) {
-                $media->setALaUne(true);
-            }
-
-            $this->em->persist($media);
-            $this->em->flush();
 
             return true;
         }
 
         return false;
-
     }
 }

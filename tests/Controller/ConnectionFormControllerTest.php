@@ -1,13 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace Tests\tests\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class ConnectionFormControllerTest
+ */
 class ConnectionFormControllerTest extends WebTestCase
 {
+
     public function test_Connection_Form_Must_Be_Showed() {
 
         $client = static::createClient();

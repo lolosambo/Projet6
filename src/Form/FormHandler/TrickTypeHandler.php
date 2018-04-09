@@ -1,15 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
+
 namespace App\Form\FormHandler;
 
-use App\DTO\TrickAddDTO;
+use App\DTO\Interfaces\TricksAddDTOInterface;
 use App\Entity\Tricks;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\Interfaces\TricksRepositoryInterface;
+use App\Repository\Interfaces\GroupsRepositoryInterface;
+use App\Repository\Interfaces\UsersRepositoryInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\FormInterface;
-use App\Form\FormHandler\TrickAddTypeHandlerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-
+/**
+ * Class TrickTypeHandler.
+ */
 class TrickTypeHandler implements TrickAddTypeHandlerInterface
 {
     /**
@@ -18,48 +29,75 @@ class TrickTypeHandler implements TrickAddTypeHandlerInterface
     private $session;
 
     /**
-     * @var EntityManagerInterface
+     * @var TricksRepositoryInterface
      */
-    private $em;
+    private $tr;
 
+    /**
+     * @var GroupsRepositoryInterface
+     */
+    private $gr;
+
+    /**
+     * @var UsersRepositoryInterface
+     */
+    private $ur;
 
     /**
      * TrickTypeHandler constructor.
-     * @param SessionInterface $session
-     * @param EntityManagerInterface $em
-     * @param TrickAddDTO $dto
+     *
+     * @param SessionInterface          $session
+     * @param TricksRepositoryInterface $tr
+     * @param GroupsRepositoryInterface $gr
+     * @param UsersRepositoryInterface  $ur
      */
-    public function __construct(SessionInterface $session, EntityManagerInterface $em) {
-        $this->em = $em;
+    public function __construct(
+        SessionInterface $session,
+        TricksRepositoryInterface $tr,
+        GroupsRepositoryInterface $gr,
+        UsersRepositoryInterface $ur
+    ) {
+        $this->tr = $tr;
+        $this->gr = $gr;
+        $this->ur = $ur;
         $this->session = $session;
     }
 
     /**
-     * @param FormInterface $trickType
-     * @return bool
+     * @param Request               $request
+     * @param FormInterface         $trickType
+     * @param TricksAddDTOInterface $dto
+     * @param ArrayCollection|null  $collection
+     *
+     * @return bool|mixed
      */
-    public function handle(FormInterface $trickType, TrickAddDTO $dto) {
-
+    public function handle(
+        Request $request,
+        FormInterface $trickType,
+        TricksAddDTOInterface $dto,
+        ArrayCollection $collection = null
+    ) {
         if ($trickType->isSubmitted() && $trickType->isValid()) {
-
-            $trick = new Tricks($dto->name, $dto->group, $dto->content);
+            $trick = new Tricks(
+                $collection,
+                $dto->name,
+                $dto->group,
+                $dto->content
+            );
             $userId = $this->session->get('userId');
-            $user = $this->em->getRepository('App\Entity\Users')->find($userId);
-            $group = $this->em->getRepository('App\Entity\Groups')->findOneByGroup($dto->group->getGroup());
+            $user = $this->ur->find($userId);
+            $group = $this->gr->findOneByGroup($dto->group->getGroup());
 
             $trick->setUser($user);
             $trick->setGroup($group);
             $trick->setTrickDate(new \DateTime('NOW'));
             $trick->setTrickUpdate(new \DateTime('NOW'));
 
-            $this->em->persist($trick);
-            $this->em->flush();
+            $this->tr->save($trick);
 
             return true;
         }
 
         return false;
-
     }
-
 }

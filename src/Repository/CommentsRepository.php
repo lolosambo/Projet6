@@ -1,34 +1,66 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
+
 namespace App\Repository;
 
 use App\Entity\Comments;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use App\Repository\Interfaces\CommentsRepositoryInterface;
 
 /**
- * @method Comments|null find($id, $lockMode = null, $lockVersion = null)
- * @method Comments|null findOneBy(array $criteria, array $orderBy = null)
- * @method Comments[]    findAll()
- * @method Comments[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * Class CommentsRepository.
  */
-class CommentsRepository extends ServiceEntityRepository
+class CommentsRepository extends ServiceEntityRepository implements CommentsRepositoryInterface
 {
+    /**
+     * CommentsRepository constructor.
+     *
+     * @param RegistryInterface $registry
+     */
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Comments::class);
     }
 
-    /*
-    public function findBySomething($value)
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function findByTrickId($id)
     {
         return $this->createQueryBuilder('c')
-            ->where('c.something = :value')->setParameter('value', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('c.trickId = :trick_id')
+            ->setParameter(':trick_id', $id)
+            ->orderBy('c.commentDate', 'DESC')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
+
+    /**
+     * @param $comment
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function save($comment)
+    {
+        $this->getEntityManager()->persist($comment);
+        $this->getEntityManager()->flush();
+    }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function flush()
+    {
+        $this->getEntityManager()->flush();
+    }
 }

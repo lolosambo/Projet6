@@ -1,54 +1,67 @@
 <?php
+
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
+
 namespace App\Form\FormHandler;
 
-use App\DTO\InscriptionUserDTO;
+use App\DTO\Interfaces\InscriptionUserDTOInterface;
 use App\Entity\Users;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\Interfaces\UsersRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
-use App\Form\FormHandler\FormTypeHandlerInterface;
 
+/**
+ * Class InscriptionTypeHandler.
+ */
 class InscriptionTypeHandler implements FormTypeHandlerInterface
 {
     /**
-     * @var EntityManagerInterface
+     * @var UsersRepositoryInterface
      */
-    private $em;
+    private $ur;
 
     /**
-     * @var InscriptionUserDTO
+     * @var InscriptionUserDTOInterface
      */
     private $dto;
 
     /**
      * InscriptionTypeHandler constructor.
-     * @param EntityManagerInterface $em
-     * @param InscriptionUserDTO $dto
+     *
+     * @param UsersRepositoryInterface    $ur
+     * @param InscriptionUserDTOInterface $dto
      */
-    public function __construct(EntityManagerInterface $em, InscriptionUserDTO $dto ) {
-        $this->em = $em;
+    public function __construct(
+        UsersRepositoryInterface $ur,
+        InscriptionUserDTOInterface $dto
+    ) {
+        $this->ur = $ur;
         $this->dto = $dto;
     }
 
     /**
      * @param FormInterface $inscriptionType
+     *
      * @return bool
      */
-    public function handle(FormInterface $inscriptionType) {
-
+    public function handle(FormInterface $inscriptionType)
+    {
         if ($inscriptionType->isSubmitted() && $inscriptionType->isValid()) {
             $encodedPass = sha1($this->dto->password);
-            $user = new Users($this->dto->pseudo, $encodedPass, $this->dto->mail);
+            $user = new Users(
+                $this->dto->pseudo,
+                $encodedPass,
+                $this->dto->mail
+            );
             $user->setInscrDate(new \DateTime('NOW'));
-            $this->em->persist($user);
-            $this->em->flush();
+            $this->ur->save($user);
 
             return true;
         }
 
         return false;
-
     }
-
-
-
 }

@@ -1,15 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace Tests\Entity;
-
 
 use App\Entity\Users;
 use Symfony\Bundle\FrameworkBundle\Tests\Functional\WebTestCase;
 
-
+/**
+ * Class UsersTest
+ */
 class UsersTest extends WebTestCase
 {
+    /**
+     * @var Users
+     */
     private $user;
     
     public function setUp() {
@@ -17,8 +26,7 @@ class UsersTest extends WebTestCase
         $this->user = $user;
     }
 
-    public function test_entity_must_be_instancied()
-    {
+    public function test_entity_must_be_instancied() {
         static::assertInstanceOf(Users::class, $this->user);
     }
 
@@ -94,6 +102,4 @@ class UsersTest extends WebTestCase
         $this->user->setAvatar('../upload/avatar/bad_exemple.gif');
         static::assertContains('../images/avatar.png', $this->user->getAvatar());
     }
-
-
 }

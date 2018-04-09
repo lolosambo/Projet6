@@ -2,11 +2,9 @@
 
     {% block title %}FIGURE AJOUTEE{% endblock %}
     {% block content %}
-
         <p>La figure a bien été ajoutée</p>
         <p>Voulez-vous ajouter des médias ?</p>
         <a href="/ajout-medias/{{ trick.id }}"><button type="submit" name="medias" class="btn btn-success btn-sm">Oui</button></a>
         <a href="/"><button type="submit" name="medias" class="btn btn-warning btn-sm">Non</button></a>
         <a href="/">Revenir à la page d'accueil</a>
-
     {% endblock %}

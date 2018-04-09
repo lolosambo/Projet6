@@ -1,34 +1,49 @@
 <?php
+
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
+
 namespace App\DTO;
 
+use App\DTO\Interfaces\ConnectUserDTOInterface;
 
-class ConnectUserDTO
+/**
+ * Class ConnectUserDTO.
+ */
+class ConnectUserDTO implements ConnectUserDTOInterface
 {
     /**
-     * @var
+     * @var string
      */
     public $pseudo;
 
     /**
-     * @var
+     * @var string
      */
     public $password;
 
     /**
-     * @var
+     * @var string
      */
     public $mail;
 
     /**
      * ConnectUserDTO constructor.
-     * @param $pseudo
-     * @param $password
-     * @param $mail
+     *
+     * @param string $pseudo
+     * @param string $password
+     * @param string $mail
      */
-    public function __construct($pseudo = null, $password = null, $mail = null) {
+    public function __construct(
+        string $pseudo = null,
+        string $password = null,
+        string $mail = null
+    ) {
         $this->pseudo = $pseudo;
         $this->password = $password;
         $this->mail = $mail;
     }
-
 }

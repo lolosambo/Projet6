@@ -1,31 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace App\DTO;
 
+use App\DTO\Interfaces\MediasDTOInterface;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-
-class MediasDTO
+/**
+ * Class MediasDTO.
+ */
+class MediasDTO implements MediasDTOInterface
 {
     /**
-     * @var UploadedFile
+     * @var \SplFileInfo
      */
     public $media;
 
     /**
-     * @var bool
-     */
-    public $aLaUne;
-
-    /**
      * MediasDTO constructor.
+     *
      * @param null $media
-     * @param $aLaUne
      */
-    public function __construct($media = null, $aLaUne = false) {
+    public function __construct($media = null)
+    {
         $this->media = $media;
-        $this->aLaUne = $aLaUne;
     }
-
 }

@@ -1,0 +1,17 @@
+App\DTO\InscriptionUserDTO:
+    properties:
+        pseudo:
+            - NotBlank: ~
+            - Length:
+                min: 6
+                groups: ['inscription']
+
+        password:
+            - NotBlank: ~
+            - Length:
+                min: 8
+                groups: ['inscription']
+        mail:
+            - NotBlank: ~
+
+

@@ -1,23 +1,39 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace Tests\Controller;
 
 use App\Entity\Tricks;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class OneTrickControllerTest
+ */
 class OneTrickControllerTest extends WebTestCase
 {
 
+    /**
+     * @var EntityManager
+     */
     private $entityManager;
+
+    /**
+     * @var Tricks
+     */
     private $trick;
 
 
-    protected function setUp()
-    {
+    protected function setUp() {
         $kernel = self::bootKernel();
 
-        $this->entityManager = $kernel->getContainer()
+        $this->entityManager = $kernel
+            ->getContainer()
             ->get('doctrine')
             ->getManager();
 
@@ -38,8 +54,7 @@ class OneTrickControllerTest extends WebTestCase
     }
 
     /** @test */
-    public function found_trick_must_be_an_instance_of_trick_entity()
-    {
+    public function found_trick_must_be_an_instance_of_trick_entity() {
 
         $this->assertInstanceOf(Tricks::class, $this->trick);
 
@@ -69,7 +84,7 @@ class OneTrickControllerTest extends WebTestCase
     /** @test */
     public function trick_must_contains_author() {
 
-        $this->assertContains('test2', $this->trick->getUser()->getPseudo());
+        $this->assertContains('lolosambo', $this->trick->getUser()->getPseudo());
 
     }
 
@@ -83,13 +98,10 @@ class OneTrickControllerTest extends WebTestCase
 
     }
 
-    protected function tearDown()
-    {
+    protected function tearDown() {
         parent::tearDown();
 
         $this->entityManager->close();
         $this->entityManager = null;
     }
-
-
 }

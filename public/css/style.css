@@ -87,6 +87,18 @@ p {
     vertical-align: bottom;
 }
 
+.aLaUne {
+    height: 400px;
+    background-color: #ffffff;
+    background-size: cover;
+    margin-bottom: 50px;
+}
+
+.aLaUne .btn{
+   float: right;
+    margin-top: 10px;
+}
+
 .panel-heading h1{
     color: #ffffff;
 }

@@ -9,12 +9,14 @@
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
+
         <field name="userId" type="integer"/>
         <field name="groupId" type="integer"/>
         <field name="name" type="string" length="255" />
         <field name="content" type="text" />
         <field name="trickDate" type="datetime"/>
         <field name="trickUpdate" type="datetime"/>
+        <one-to-many field="medias" target-entity="App\Entity\Medias" mapped-by="trick"/>
         <many-to-one field="user" target-entity="Users" />
         <many-to-one field="group" target-entity="Groups" />
 

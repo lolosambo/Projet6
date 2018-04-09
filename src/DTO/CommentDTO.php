@@ -1,22 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace App\DTO;
 
+use App\DTO\Interfaces\CommentDTOInterface;
 
-class CommentDTO
+/**
+ * Class CommentDTO.
+ */
+class CommentDTO implements CommentDTOInterface
 {
     /**
-     * @var
+     * @var string
      */
     public $content;
 
     /**
      * CommentDTO constructor.
-     * @param $comment
+     *
+     * @param string $comment
      */
-    public function __construct($comment = null) {
+    public function __construct(string $comment = null)
+    {
         $this->content = $comment;
     }
-
 }

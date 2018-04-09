@@ -1,58 +1,65 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
+
 namespace App\Entity;
 
-
+/**
+ * Class Comments.
+ */
 class Comments
 {
-
     /**
-     * @var
+     * @var int
      */
     private $id;
 
     /**
-     * @var
+     * @var int
      */
     private $trickId;
 
     /**
-     * @var
+     * @var int
      */
     private $userId;
 
     /**
-     * @var
+     * @var string
      */
     private $content;
 
     /**
-     * @var
+     * @var \DateTime
      */
     private $commentDate;
 
     /**
-     * @var
+     * @var \DateTime
      */
     private $commentUpdate;
 
-
     /**
-     * @var
+     * @var Tricks
      */
     private $trick;
 
     /**
-     * @var
+     * @var Users
      */
     private $user;
 
-
     /**
      * Comments constructor.
+     *
      * @param $content
      */
-    public function __construct($content) {
+    public function __construct($content)
+    {
         $this->setContent($content);
     }
 
@@ -64,7 +71,6 @@ class Comments
         return $this->id;
     }
 
-
     /**
      * @return mixed
      */
@@ -72,7 +78,6 @@ class Comments
     {
         return $this->trickId;
     }
-
 
     /**
      * @param $trickId
@@ -82,7 +87,6 @@ class Comments
         $this->trickId = $trickId;
     }
 
-
     /**
      * @return mixed
      */
@@ -90,7 +94,6 @@ class Comments
     {
         return $this->userId;
     }
-
 
     /**
      * @param $userId
@@ -158,11 +161,13 @@ class Comments
 
     /**
      * @param $trick
+     *
      * @return $this
      */
     public function setTrick($trick)
     {
         $this->trick = $trick;
+
         return $this;
     }
 
@@ -176,13 +181,13 @@ class Comments
 
     /**
      * @param $user
+     *
      * @return $this
      */
     public function setUser($user)
     {
         $this->user = $user;
+
         return $this;
     }
-
 }
-

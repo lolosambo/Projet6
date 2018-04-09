@@ -1,23 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * (c) Laurent BERTON <lolosambo2@gmail.com>
+ */
 
 namespace App\Controller;
 
-
-use App\DTO\TrickAddDTO;
+use App\DTO\Interfaces\TricksAddDTOInterface;
 use App\Form\FormHandler\TrickAddTypeHandlerInterface;
 use App\Form\Type\TrickType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\Interfaces\TricksRepositoryInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Tricks;
 use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
 
+/**
+ * Class AddTrickController.
+ */
 class AddTrickController
 {
-
     /**
      * @var FormFactoryInterface
      */
@@ -29,37 +35,49 @@ class AddTrickController
     private $twig;
 
     /**
-     * @var EntityManagerInterface
+     * @var TricksRepositoryInterface
      */
-    private $em;
-
+    private $tr;
 
     /**
      * AddTrickController constructor.
-     * @param Environment $twig
-     * @param EntityManagerInterface $em
-     * @param FormFactoryInterface $formFactory
+     *
+     * @param Environment               $twig
+     * @param TricksRepositoryInterface $tr
+     * @param FormFactoryInterface      $formFactory
      */
-    public function __construct(Environment $twig, EntityManagerInterface $em, FormFactoryInterface $formFactory){
+    public function __construct(
+        Environment $twig,
+        TricksRepositoryInterface $tr,
+        FormFactoryInterface $formFactory
+    ) {
         $this->formFactory = $formFactory;
         $this->twig = $twig;
-        $this->em = $em;
+        $this->tr = $tr;
     }
+
     /**
      * @Route("/ajouter/figure", name="add_trick")
      */
-    public function __invoke(Request $request, TrickAddTypeHandlerInterface $TrickTypeHandler, TrickAddDTO $trickDto) {
+    public function __invoke(
+        Request $request,
+        TrickAddTypeHandlerInterface $TrickTypeHandler,
+        TricksAddDTOInterface $trickDto
+    ) {
+        $form = $this->formFactory
+            ->create(TrickType::class, $trickDto)
+            ->handleRequest($request);
 
-        $form = $this->formFactory->create(TrickType::class, $trickDto)->handleRequest($request);
-        $trickHandledForm = $TrickTypeHandler->handle($form, $trickDto);
+        $collection = new ArrayCollection();
 
-        if($trickHandledForm) {
+        if ($TrickTypeHandler->handle($request, $form, $trickDto, $collection)) {
+            $trick = $this->tr->findOneByContent($trickDto->content);
 
-            $trick = $this->em->getRepository('App\Entity\Tricks')->findOneByContent($trickDto->content);
-
-            return new Response($this->twig->render('added_trick.html.twig', ['trick' => $trick]));
+            return new Response($this->twig
+                ->render('added_trick.html.twig', ['trick' => $trick]));
         }
 
-        return new Response($this->twig->render('add_trick.html.twig', ['form' => $form->createView()]));
+        return new Response($this->twig
+            ->render('add_trick.html.twig', ['form' => $form->createView()]));
     }
 }
