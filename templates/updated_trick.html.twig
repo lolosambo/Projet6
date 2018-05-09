@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}FIGURE MODIFIEE{% endblock %}
+    {% block content %}
+        <p>La figure a bien été modifiée</p>
+        <p>Voulez-vous ajouter des médias ?</p>
+        <a href="/ajout-medias/{{ trick.id }}"><button type="submit" name="medias" class="btn btn-success btn-sm">Ajout d'images/Videos</button></a>
+        <a href="/ajout-videos/{{ trick.id }}"><button type="submit" name="videos" class="btn btn-success btn-sm">Youtube/DailyMotion</button></a>
+        <a href="/"><button type="submit" name="medias" class="btn btn-warning btn-sm">Retour à la page d'accueil</button></a>
+    {% endblock %}

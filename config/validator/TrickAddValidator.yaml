@@ -1,0 +1,11 @@
+App\Domain\DTO\TricksAddDTO:
+    properties:
+        name:
+            - NotBlank:
+                groups: ['TricksAdd']
+        group:
+            - NotBlank:
+                groups: ['TricksAdd']
+        content:
+            - NotBlank:
+                groups: ['TricksAdd']

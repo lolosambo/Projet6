@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+    {% block title %}CONNEXION{% endblock %}
+
+
+{% block header %}
+    <div class="col-lg-7 col-md-12 col-sm-12 header-login">
+        <br><div class="container">
+            <img src="{{user.avatar}}"/> Bonjour {{ user.pseudo }}
+            <a href="/">Retourner à la page d'accueil</a>
+        </div>
+    </div>
+{% endblock %}
+

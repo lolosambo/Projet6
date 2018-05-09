@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}CHANGER L'IMAGE A LA UNE{% endblock %}
+    {% block header %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" name="confirmer" class="btn btn-success btn-sm">Mettre ce médias à la une</button>
+        {{ form_end(form) }}
+    {% endblock %}

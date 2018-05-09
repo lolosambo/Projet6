@@ -1,0 +1,7 @@
+App\Domain\DTO\CommentDTO:
+    properties:
+        content:
+            - NotBlank:
+            - Length:
+                min: 6
+                groups: ['comment']

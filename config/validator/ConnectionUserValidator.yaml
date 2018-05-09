@@ -1,0 +1,15 @@
+App\Domain\DTO\ConnectionUserDTO:
+    properties:
+        pseudo:
+            - NotBlank:
+                message: Le pseudo doit contenir au moins 6 caractères
+                groups: ['connection']
+            - Length:
+                min: 6
+                groups: ['connection']
+
+        password:
+            - NotBlank:
+            - Length:
+                min: 8
+                groups: ['connection']

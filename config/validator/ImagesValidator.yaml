@@ -1,0 +1,12 @@
+#App\Domain\DTO\ImagesDTO:
+#    properties:
+#        image:
+#            - Image:
+#                maxSize: 2M
+#                mimeTypes:
+#                    - image/jpg
+#                    - image/tiff
+#                    - image/png
+#                    - image/bmp
+#                mimeTypesMessage: Veuillez uploader un fichier image valide(jpg, png, tiff ou bmp)
+#                groups: ['images']

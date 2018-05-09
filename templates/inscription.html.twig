@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}INSCRIPTION{% endblock %}
+    {% block header %}
+        <div class="col-lg-7 col-md-12 col-sm-12 header-login">
+            <br><div class="container">
+                <div class="row">
+                    <div class="offset-lg-4 col-lg-8 offset-md-2 col-md-8 offset-sm-1 col-sm-10 col-12 form">
+                        {#{{ form_start(form) }}#}
+                        {#{{ form_errors(form) }}#}
+                        {#<div class="panel panel-default">#}
+                            {#<div class="panel-heading">#}
+                                {#<h1><i class="fas fa-unlock-alt" style="font-size: 25px;"></i> S'inscrire</h1></div>#}
+                            {#<div>#}
+                                {#<form class="form-horizontal" role="form">#}
+                                    {#<div class="form-group">#}
+                                        {#<label for="login" class="col-sm-6 control-label">#}
+                                            {#{{ form_label(form.pseudo) }}</label>#}
+                                        {#<div class="col-sm-12">#}
+                                            {#{{ form_errors(form.pseudo) }}#}
+                                            {#{{ form_widget(form.pseudo, {'attr' : {'class' : 'form-control'} }) }}#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<div class="form-group">#}
+                                        {#<label for="password1" class="col-sm-6 control-label">#}
+                                            {#{{ form_label(form.password) }}#}
+                                        {#</label>#}
+                                        {#<div class="col-sm-12">#}
+                                            {#{{ form_errors(form.password) }}#}
+                                            {#{{ form_widget(form.password, {'attr' : {'class' : 'form-control'} }) }}#}
+                                        {#</div>#}
+                                    {#</div>#}
+
+
+                                    {#<div class="form-group">#}
+                                        {#<label for="password2" class="col-sm-6 control-label">#}
+                                            {#{{ form_label(form.password2) }}#}
+                                        {#</label>#}
+                                        {#<div class="col-sm-12">#}
+                                            {#{{ form_errors(form.password2) }}#}
+                                            {#{{ form_widget(form.password2, {'attr' : {'class' : 'form-control'} }) }}#}
+                                        {#</div>#}
+                                    {#</div>#}
+
+                                    {#<div class="form-group">#}
+                                        {#<label for="mail" class="col-sm-6 control-label">#}
+                                            {#{{ form_label(form.mail) }}#}
+                                        {#</label>#}
+                                        {#<div class="col-sm-12">#}
+                                            {#{{ form_errors(form.mail) }}#}
+                                            {#{{ form_widget(form.mail, {'attr' : {'class' : 'form-control'} }) }}#}
+                                        {#</div>#}
+                                    {#</div>#}
+
+                                    {#<div class="form-group last">#}
+                                        {#<div class="col-sm-offset-1 col-sm-11">#}
+                                            {#{{ form_widget(form.inscrire, {'attr' : {'class' : 'btn btn-success btn-sm'} }) }}#}
+                                            {#{{ form_widget(form.reinitialiser, {'attr' : {'class' : 'btn btn-default btn-sm'} }) }}#}
+                                        {#</div><br>#}
+                                    {#</div>#}
+                                {#</form>#}
+                            {#</div>#}
+                            {#<div class="panel-footer">#}
+                               {#<a href="/">Revenir à la page d'accueil</a></div><br>#}
+                        {#</div>#}
+                        {#{{ form_end(form) }}#}
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}<br>
+                            <button type="submit" name="inscrire" class="btn btn-success btn-sm">S'inscrire</button>
+                            <button type="submit" name="reinitialiser" class="btn btn-default btn-sm">Réinitialiser</button><br><br>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div><br><br><br>
+        </div>
+
+    {% endblock %}

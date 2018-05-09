@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}AJOUTER DES MEDIAS{% endblock %}
+    {% block header %}
+        {{ form_start(form) }}
+        <input type="file"
+               id="form_image___name__"
+               name="form[images][__name__]"
+        />
+
+        <ul class="images-list"
+            data-prototype="{{ form_widget(form.image.vars.prototype)|e }}"
+            data-widget-tags="{{ '<li></li>'|e }}">
+            {% for imageField in form.image %}
+                <li>
+                    {{ form_errors(imageField) }}
+                    {{ form_widget(imageField) }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="#"
+           class="add-another-collection-widget"
+           data-list="#images-list">Ajouter une nouvelle image</a>
+
+        {{ form_end(form) }}
+
+        <script src="../public/js/add-images-collection.js"></script>
+
+    {% endblock %}

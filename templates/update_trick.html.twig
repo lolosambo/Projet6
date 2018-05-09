@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}MODIFIER UNE FIGURE{% endblock %}
+    {% block content %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" name="publier" class="btn btn-success btn-sm">Publier</button>
+        <button type="submit" name="reinitialiser" class="btn btn-default btn-sm">Réinitialiser</button><br><br>
+        {{ form_end(form) }}
+    {% endblock %}

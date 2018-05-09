@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Teko:500" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Kanit:200|Teko:500" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+
+    <title><h1>Confirmation d'inscription</h1></title>
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <img src="{{ absolute_url(asset('images/logo.png')) }}"><br><br>
+        </div>
+    </div><br><br>
+
+    <div class="row" id="content">
+        <div class="col-lg-12 col-md-12 col-sm-12 content">
+            <h3>Bienvenue !</h3>
+            <p> Bonjour {{ name }}! Vous êtes désormais enregistré en tant que membre de Snowtricks.</p>
+            <p>Afin d'activer votre compte définitivement, veuillez cliquer sur le lien ci-dessous.</p>
+            <p><a href="/validation_compte/{{ token }}">Valider votre compte</a></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
