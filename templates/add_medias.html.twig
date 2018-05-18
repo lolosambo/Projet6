@@ -1,30 +1,29 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}AJOUTER DES MEDIAS{% endblock %}
-    {% block header %}
-        {{ form_start(form) }}
-        <input type="file"
-               id="form_image___name__"
-               name="form[images][__name__]"
-        />
+{% block title %}AJOUTER DES IMAGES{% endblock %}
 
-        <ul class="images-list"
-            data-prototype="{{ form_widget(form.image.vars.prototype)|e }}"
-            data-widget-tags="{{ '<li></li>'|e }}">
-            {% for imageField in form.image %}
-                <li>
-                    {{ form_errors(imageField) }}
-                    {{ form_widget(imageField) }}
-                </li>
-            {% endfor %}
-        </ul>
+{% block header %}
 
-        <a href="#"
-           class="add-another-collection-widget"
-           data-list="#images-list">Ajouter une nouvelle image</a>
+    {{ form_start(form) }}
 
-        {{ form_end(form) }}
+    <div class="file-field input-field col s12">
+        <div class="btn">+Images
+            <input type="file" multiple>
+            {{ form_widget(form.image) }}
+            {{ form_errors(form.image) }}</input>
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Vous pouvez télécharger plusieurs fichiers">
+        </div>
+    </div>
 
-        <script src="../public/js/add-images-collection.js"></script>
+    <button type="submit" name="publier" class="waves-effect waves-light btn-small green darken-1">
+        Publier
+    </button>
+    <button type="submit" name="reinitialiser" class="waves-effect waves-light btn-small pink darken-1">
+        Réinitialiser
+    </button><br><br>
 
-    {% endblock %}
+    {{ form_end(form) }}
+
+{% endblock %}

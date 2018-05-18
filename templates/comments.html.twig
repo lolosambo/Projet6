@@ -1,25 +1,35 @@
-
 {% if app.session.get('userId') is not null %}
-
-    {{ form_start(addCommentForm) }}
-    {{ form_widget(addCommentForm) }}<br>
-        <button type="submit" name="Comment" class="btn btn-success btn-sm">Commenter</button>
-        <button type="reset" name="reset" class="btn btn-default btn-sm">Effacer</button><br><br>
-    {{ form_end(addCommentForm) }}
-
-
+    <div class="row grey darken-2">
+        <div class="col l10 offset-l1 s12">
+            {% form_theme addCommentForm 'form/theme.html.twig' %}
+            {{ form_start(addCommentForm) }}
+            <div class="input-field col s12">
+                <i class="material-icons prefix white-text">comment</i>
+                <label class="active">{{ form_label(addCommentForm.content) }}</label>
+                {{ form_widget(addCommentForm.content) }}
+                {{ form_errors(addCommentForm.content) }}
+            </div><br>
+                <button type="submit" name="Comment" class="waves-effect waves-light btn-small green darken-1">Commenter</button>
+                <button type="reset" name="reset" class="waves-effect waves-light btn-small pink darken-1">Effacer</button><br><br>
+            {{ form_end(addCommentForm) }}
+        </div>
+    </div>
 {% endif %}
 
-{% for comment in comments %}
-    <div class="row comments">
-        <div class="col-md-1">
-            <img src="{{ comment.user.avatar }}"/><br>
-            {{ comment.user.pseudo }}
-        </div>
-        <div class="col-md-11">
-            {{ comment.content }}<br>
-            <em>écrit le {{ comment.commentDate | date ('d/m/Y \\à H\\hi')}}</em>
-        </div>
-    </div><br>
-{% endfor %}
-<br><br>
+<div class="row grey darken-3 comments">
+    <div class="col l10 offset-l1 s12">
+        {% for comment in comments %}
+            <div class="row single_comment">
+                <div class="col l1 m1 s3 grey lighten-2">
+                    <img class="circle responsive-img" src="{{ comment.user.avatar }}"/><br>
+                </div>
+                <div class="col l11 m11 s9">
+                    {{ comment.content }}<br>
+                </div>
+                <div class="col s12 comment_author">
+                    <em>écrit par {{ comment.user.pseudo }} le {{ comment.commentDate | date ('d/m/Y \\à H\\hi')}}</em>
+                </div>
+            </div><br>
+        {% endfor %}
+    </div><br><br>
+</div>

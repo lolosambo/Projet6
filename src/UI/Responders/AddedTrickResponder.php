@@ -40,6 +40,8 @@ class AddedTrickResponder implements AddedTrickResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('added_trick.html.twig', $data));
+        return new Response(
+            $this->twig->render('added_trick.html.twig', $data)
+        );
     }
 }

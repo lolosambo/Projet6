@@ -79,14 +79,11 @@ class AddTrickAction implements AddTrickActionInterface
             ->create(TrickType::class, $trickDto)
             ->handleRequest($request);
 
-
-
         if ($TrickTypeHandler->handle($request, $form, $trickDto)) {
             $trick = $this->tr->findOneByContent($trickDto->content);
 
             return $addedTrickResponder(['trick' => $trick]);
         }
-
         return $addTrickResponder(['form' => $form->createView()]);
     }
 }

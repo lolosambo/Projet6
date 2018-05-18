@@ -34,7 +34,7 @@ class CommentType extends AbstractType implements FormTypeInterface
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('content', TextareaType::class, ['label' => 'Votre commentaire ']);
+        $builder->add('content', TextareaType::class, ['label' => 'Votre commentaire']);
     }
 
     /**

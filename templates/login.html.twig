@@ -1,48 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SNOWTRICKS{% endblock %}
+{% block title %}SNOWTRICKS LOGIN{% endblock %}
 {% block header %}
-
-<div class="col-lg-7 col-md-12 col-sm-12 header-login">
-    <br><div class="container">
-        <div class="row">
-
+<div class="container">
+    <div class="row">
+        <div class="col l12">
             {% if error %}
                 <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
-
-             <div class="offset-lg-4 col-lg-8 offset-md-2 col-md-8 offset-sm-1 col-sm-10 col-12 form">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h1><i class="fas fa-unlock-alt" style="font-size: 25px;"></i> Se connecter</h1></div>
-                    <div>
-                        <form class="form-horizontal" action="{{ path('login') }}" method="post" role="form">
-                            <div class="form-group">
-                                <label for="pseudo" class="col-sm-6 control-label">
-                                    Utilisateur </label>
-                                <input type="text" name="pseudo" class=" form-control col-sm-12"/>
-                            <div class="form-group">
-                                <label for="password" class="col-sm-6 control-label">
-                                    Mot de passe
-                                    </label>
-                                <input type="password" name="password" class=" form-control col-sm-12"/>
-                            </div>
-
-                            <div class="form-group last">
-                                <div class="col-sm-offset-1 col-sm-11">
-                                   <button type="submit" name="connecter" class="btn btn-success btn-sm">Se connecter</button>
-                                    <button type="submit" name="reinitialiser" class="btn btn-default btn-sm">Réinitialiser</button>
-                                </div><br>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="panel-footer">
-                        Pas encore enregistré ? <a href="/inscription">Inscrivez-vous !</a></div><br>
-                </div>
-                <a href="/">Revenir à la page d'accueil</a>
+        <h2><i class="medium material-icons prefix">person</i> Se connecter</h2></div>
+    </div>
+    <div class="row">
+        <form action="{{ path('login') }}" method="post" role="form">
+            <div class="input-field col s12">
+                <i class="material-icons prefix white-text">account_circle</i>
+                <label for="pseudo" class="active">Pseudo</label>
+                <input name="pseudo" id="last_name" type="text" class="validate white-text"/>
             </div>
-        </div>
-    </div><br><br><br>
+            <div class="input-field col s12">
+                <i class="material-icons prefix white-text">vpn_key</i>
+                <label for="password" class="active">Mot de passe</label>
+                <input name="password" type="password" class="validate white-text"/>
+            </div>
+            <div class="col s12 center-align">
+                <button type="submit" name="connecter" class="waves-effect waves-light btn-small green darken-1">Valider</button>
+                <button type="submit" name="reinitialiser" class="waves-effect waves-light btn-small pink darken-1">Réinitialiser</button>
+            </div><br>
+        </form>
+        <div class="panel-footer white-text">
+            Pas encore enregistré ? <a href="/inscription">Inscrivez-vous !</a>
+        </div><br>
+        <a href="/">Revenir à la page d'accueil</a>
+    </div>
 </div>
 {% endblock %}
+
 

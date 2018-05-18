@@ -13,7 +13,7 @@ services:
         volumes:
             - './:${WORKPATH}:rw,cached'
             - './docker/php/conf/php.ini:/usr/local/etc/php/php.ini'
-            # - './docker/php/conf/production/php.ini:/usr/local/etc/php/php.ini' -> Used for production.
+            - './docker/php/conf/production/php.ini:/usr/local/etc/php/php.ini'
         restart: always
 
     nginx:
@@ -27,7 +27,7 @@ services:
             - './:${WORKPATH}:rw'
             - './docker/nginx/conf/core/core.conf:/etc/nginx/conf/nginx.conf:ro'
             - './docker/nginx/conf/development:/etc/nginx/conf.d:ro'
-            # - './docker/nginx/conf/production:/etc/nginx/conf.d:ro' -> Uncomment this line for production.
+            - './docker/nginx/conf/production:/etc/nginx/conf.d:ro'
             - './docker/nginx/logs/:/var/log/nginx'
         restart: always
 
@@ -54,14 +54,14 @@ services:
 #            - nginx
 #        restart: always
 #
-#    redis:
-#        container_name: ${CONTAINER_NAME}_redis
-#        image: redis:alpine
-#        ports:
-#          - '${REDIS_PORT}:6379'
-#        links:
-#          - php-fpm
-#        restart: always
+    redis:
+        container_name: ${CONTAINER_NAME}_redis
+        image: redis:alpine
+        ports:
+          - '${REDIS_PORT}:6379'
+        links:
+          - php-fpm
+        restart: always
 
     # DB configuration
     postgresql:

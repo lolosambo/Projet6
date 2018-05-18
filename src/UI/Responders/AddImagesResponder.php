@@ -47,6 +47,8 @@ class AddImagesResponder implements AddImagesResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('add_medias.html.twig', $data));
+        return new Response(
+            $this->twig->render('add_medias.html.twig', $data)
+        );
     }
 }

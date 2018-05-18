@@ -48,7 +48,9 @@ class CommentsResponder implements CommentsResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('comments.html.twig', $data));
+        return new Response(
+            $this->twig->render('comments.html.twig', $data)
+        );
     }
 }
 

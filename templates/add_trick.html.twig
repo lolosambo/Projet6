@@ -1,10 +1,38 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}AJOUTER UNE FIGURE{% endblock %}
-    {% block content %}
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button type="submit" name="publier" class="btn btn-success btn-sm">Publier</button>
-        <button type="submit" name="reinitialiser" class="btn btn-default btn-sm">Réinitialiser</button><br><br>
-        {{ form_end(form) }}
-    {% endblock %}
+{% block title %}AJOUTER UNE FIGURE{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col l10 offset-l1 s12">
+            <p>Veuillez remplir tous les champs afin de créer votre fiche "figure"</p>
+            {% form_theme form 'form/theme.html.twig' %}
+            {{ form_start(form) }}
+            <div class="input-field col s12">
+                <i class="material-icons prefix pink-text">text_fields</i>
+                <label class="active">{{ form_label(form.name) }}</label>
+                {{ form_widget(form.name) }}
+                {{ form_errors(form.name) }}
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix pink-text">group</i>
+                {{ form_label(form.group) }}
+                {{ form_widget(form.group) }}
+                {{ form_errors(form.group) }}
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix pink-text">create</i>
+                <label class="active">{{ form_label(form.content) }}</label>
+                {{ form_widget(form.content) }}
+                {{ form_errors(form.content) }}
+            </div>
+
+            <button type="submit" name="publier" class="waves-effect waves-light btn-small green darken-1">
+                Publier
+            </button>
+            <button type="submit" name="reinitialiser" class="waves-effect waves-light btn-small pink darken-1">
+                Réinitialiser
+            </button><br><br>
+            {{ form_end(form) }}
+    </div>
+
+{% endblock %}

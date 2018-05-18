@@ -48,7 +48,9 @@ class UpdateTrickResponder implements UpdateTrickResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('update_trick.html.twig', $data));
+        return new Response(
+            $this->twig->render('update_trick.html.twig', $data)
+        );
     }
 }
 

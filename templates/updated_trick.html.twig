@@ -1,10 +1,21 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}FIGURE MODIFIEE{% endblock %}
-    {% block content %}
-        <p>La figure a bien été modifiée</p>
-        <p>Voulez-vous ajouter des médias ?</p>
-        <a href="/ajout-medias/{{ trick.id }}"><button type="submit" name="medias" class="btn btn-success btn-sm">Ajout d'images/Videos</button></a>
-        <a href="/ajout-videos/{{ trick.id }}"><button type="submit" name="videos" class="btn btn-success btn-sm">Youtube/DailyMotion</button></a>
-        <a href="/"><button type="submit" name="medias" class="btn btn-warning btn-sm">Retour à la page d'accueil</button></a>
-    {% endblock %}
+{% block title %}FIGURE MODIFIEE{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col l10 offset-l1 s12">
+            <p>La figure a bien été modifiée</p>
+            <a href="/ajout-medias/{{ trick.id }}">
+                <button type="submit" name="medias" class="waves-effect waves-light btn-small green darken-1">
+                    <i class="material-icons prefix white-text">add_a_photo</i>
+                    Ajouter des images
+                </button></a>
+            <a href="/ajout-videos/{{ trick.id }}">
+                <button type="submit" name="medias" class=" waves-effect waves-light btn-small pink darken-1">
+                    <i class="material-icons prefix white-text">subscriptions</i>
+                    Ajouter des videos
+                </button></a><br><br>
+            <a href="/">Revenir à la page d'accueil</a><br><br>
+        </div>
+    </div>
+{% endblock %}

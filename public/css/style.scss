@@ -1,0 +1,158 @@
+//variables
+$blue : #01579b;
+$pink: #d81b60;
+$green : #388e3c;
+
+@mixin radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+body {
+  background-color: #2e3436;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+  color: #ffffff;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+h6 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #e65100;
+}
+
+label {
+  font-size: 16px;
+}
+
+.logo {
+  background-image: url("../images/logo.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.card-span {
+  background-color: #5a5a5a;
+  opacity: 0.8;
+  line-height: 5px;
+  width: 100%;
+}
+
+.alaune_wrapper {
+  max-height: 300px;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content_wrapper {
+  background-color: #ffffff;
+}
+
+.content_wrapper p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 60px;
+}
+
+.media_wrapper {
+  background-color: #2e3436;
+}
+
+.thumbnail {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+
+.title {
+  background-color: $blue;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.description {
+  background-color: $blue;
+  text-align: center;
+  margin-top: -20px;
+  line-height: 10px;
+}
+
+.author {
+  background-color: #5a5a5a;
+  color: #ffffff;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: -20px;
+}
+
+.comments {
+  padding-top: 20px;
+  margin-top: -20px;
+}
+
+.comments em {
+  font-size: 11px;
+  color: #ffffff;
+}
+
+.comment_author {
+  background-color: $blue;
+  height: 20px;
+  line-height: 20px;
+}
+
+.comment_content {
+  min-height: 20px;
+}
+
+.single_comment {
+  background-color: #eeeeee;
+}
+.footer{
+
+}

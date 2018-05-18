@@ -1,0 +1,44 @@
+{% block _pseudo_widget %}
+    <input type="text" class="validate white-text" value="{{ value }}"{{ block('widget_attributes') }}></input>
+{% endblock %}
+
+{% block text_widget %}
+    {% set type = type|default('text') %}
+    <input type="text" class="validate" value="{{ value }}"{{ block('widget_attributes') }}></input>
+{% endblock %}
+
+{% block password_widget %}
+    {% set type = type|default('password') %}
+    <input type="password" class="validate white-text"{{ block('widget_attributes') }}>{{ value }}</input>
+{% endblock %}
+
+{% block email_widget %}
+    {% set type = type|default('email') %}
+    <input type="email" class="validate white-text"{{ block('widget_attributes') }}>{{ value }}</input>
+{% endblock %}
+
+{% block textarea_widget %}
+    <textarea class="materialize-textarea" {{ block('widget_attributes') }}>{{ value }}</textarea>
+    <script type="text/javascript">
+        M.textareaAutoResize($('#textarea1'));
+    </script>
+{% endblock %}
+
+{% block choice_widget_collapsed %}
+    <select {{ block('widget_attributes') }}>
+        <option value="" disabled selected></option>
+        {%- if preferred_choices|length > 0 -%}
+            {% set options = preferred_choices %}
+            {{- block('choice_widget_options') -}}
+            {%- if choices|length > 0 and separator is not none -%}
+                <option disabled="disabled">{{ separator }}</option>
+            {%- endif -%}
+        {%- endif -%}
+        {%- set options = choices -%}
+        {{- block('choice_widget_options') -}}
+    </select>
+
+    <script type="text/javascript">$(document).ready(function(){$('select').formSelect();});</script>
+{% endblock choice_widget_collapsed %}
+
+

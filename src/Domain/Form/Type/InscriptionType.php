@@ -38,16 +38,16 @@ class InscriptionType extends AbstractType implements FormTypeInterface
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('pseudo', TextType::class)
-            ->add('password', RepeatedType::class, array(
+            ->add('pseudo', TextType::class, ['label' => 'Pseudo'])
+            ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
-                'options' => array('attr' => array('class' => 'password-field')),
+                'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => array('label' => 'Mot de passe'),
-                'second_options' => array('label' => 'Confirmer le mot de passe')
-            ))
-            ->add('mail', EmailType::class);
+                'first_options'  => ['label' => 'Mot de passe'],
+                'second_options' => ['label' => 'Confirmer le mot de passe']
+            ])
+            ->add('mail', EmailType::class, ['label' => 'E-mail']);
     }
 
     /**

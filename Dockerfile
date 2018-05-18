@@ -31,7 +31,7 @@ RUN set -xe \
 
 COPY docker/php/conf/php.ini /usr/local/etc/php/php.ini
 
-# COPY conf/production/php.ini /usr/local/etc/php/php.ini -> Only for production usage.
+#COPY conf/production/php.ini /usr/local/etc/php/php.ini
 
 # Composer
 ENV COMPOSER_ALLOW_SUPERUSER 1

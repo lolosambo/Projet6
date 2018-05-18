@@ -1,7 +1,5 @@
 <?php
-
 declare(strict_types=1);
-
 /*
  * This file is part of the SnowTricks project.
  *
@@ -10,16 +8,13 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace App\UI\Actions;
-
 use App\UI\Actions\Interfaces\ConnectionFormActionInterface;
 use App\UI\Responders\ConnectionFormResponder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-
 /**
  * Class ConnectionFormAction.
  *
@@ -27,7 +22,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  */
 class ConnectionFormAction implements ConnectionFormActionInterface
 {
-
     /**
      * @Route("/connexion", name="login")
      *
@@ -39,7 +33,6 @@ class ConnectionFormAction implements ConnectionFormActionInterface
     ) {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-
         return $connectionFormResponder(['error' => $error]);
     }
 }

@@ -39,15 +39,9 @@ class ImagesType extends AbstractType implements FormTypeInterface
         array $options
     ) {
         $builder
-            ->add('image', CollectionType::class, [
-                'entry_type' =>FileType::class,
-                'entry_options' => [
-                    'label' => 'Ajouter une image ',
-                    'multiple' => false,
-                    ],
-                'allow_add' =>true,
-                    'prototype' => true,
-                ]
+            ->add('image', FileType::class, [
+                    'multiple' => true,
+                    ]
             );
     }
 

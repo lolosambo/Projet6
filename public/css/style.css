@@ -1,137 +1,122 @@
 body {
-    background-image: url("../images/background.png");
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+  background-color: #2e3436;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
 h1 {
-    font-family: 'Teko', sans-serif;
-    font-size: 40px;
-    color: #015a98;
-  }
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+  color: #ffffff; }
 
 h2 {
-    font-family: 'Teko', sans-serif;
-    font-size: 30px;
-    color: #015a98;
-}
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  color: #ffffff; }
 
 h3 {
-    font-family: 'Teko', sans-serif;
-    font-size: 20px;
-    color: #015a98;
-}
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: white;
+  text-align: center; }
 
 h4 {
-    font-family: 'Kanit', sans-serif;
-    font-size: 25px;
-}
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px; }
 
 h5 {
-    font-family: 'Kanit', sans-serif;
-    font-size: 20px;
-}
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px; }
 
 h6 {
-    font-family: 'Kanit', sans-serif;
-    font-size: 18px;
-}
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px; }
 
 p {
-    font-family: 'Kanit', sans-serif;
-    font-size: 18px;
-}
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px; }
 
-.header {
-    min-height: 900px;
-    /*background-image: url("../images/background-header.png");*/
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: contain;
+a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #e65100; }
 
+label {
+  font-size: 16px; }
 
-}
+.logo {
+  background-image: url("../images/logo.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain; }
 
-.header-subtitle {
-     font-family: 'Shadows Into Light', cursive;
-    background-image: url("../images/background-home-subtitle.png");
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-     background-color: #2e3436;
-     min-height: 300px;
-    /*border-radius: 30px;*/
-     opacity: 1;
-    font-size: 45px;
-    text-align: right;
-     color: #ffffff;
- }
+.card-span {
+  background-color: #5a5a5a;
+  opacity: 0.8;
+  line-height: 5px;
+  width: 100%; }
 
-.header-login {
+.alaune_wrapper {
+  max-height: 300px;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
 
-    background-image: url("../images/background-login.png");
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 300px;
-    /*border-radius: 30px;*/
-    opacity: 1;
-    color: #ffffff;
-}
+.content_wrapper {
+  background-color: #ffffff; }
 
-.header-subtitle .btn-lg {
-    font-family: 'Kanit', sans-serif;
-}
+.content_wrapper p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 60px; }
 
-.arrow {
-    vertical-align: bottom;
-}
+.media_wrapper {
+  background-color: #2e3436; }
 
-.aLaUne {
-    height: 400px;
-    background-color: #ffffff;
-    background-size: cover;
-    margin-bottom: 50px;
-}
+.thumbnail {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: hidden; }
 
-.aLaUne .btn{
-   float: right;
-    margin-top: 10px;
-}
+.title {
+  background-color: #01579b;
+  width: 100%;
+  margin-top: 10px; }
 
-.panel-heading h1{
-    color: #ffffff;
-}
-.panel-default {
-    opacity: 0.9;
-    margin-top:30px;
-}
+.description {
+  background-color: #01579b;
+  text-align: center;
+  margin-top: -20px;
+  line-height: 10px; }
 
-.form {
-    background-color: #262626;
-    border-radius: 30px;
-}
+.author {
+  background-color: #5a5a5a;
+  color: #ffffff;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: -20px; }
 
-.form-group.last {
-    margin-bottom:0px;
-}
+.comments {
+  padding-top: 20px;
+  margin-top: -20px; }
 
-.card {
-    margin-bottom: 20px !important;
-}
-.thumbnails {
+.comments em {
+  font-size: 11px;
+  color: #ffffff; }
 
-    border: 3px solid black;
-    height : 200px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-}
+.comment_author {
+  background-color: #01579b;
+  height: 20px;
+  line-height: 20px; }
 
-.trickBadge {
+.comment_content {
+  min-height: 20px; }
 
-    float: right;
-}
+.single_comment {
+  background-color: #eeeeee; }
 
-.footer{
-
-}
+/*# sourceMappingURL=style.css.map */

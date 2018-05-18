@@ -48,6 +48,11 @@ class OneTrickAction implements OneTrickActionInterface
     private $ir;
 
     /**
+     * @var VideosRepositoryInterface
+     */
+    private $vr;
+
+    /**
      * @var CommentsRepositoryInterface
      */
     private $cr;

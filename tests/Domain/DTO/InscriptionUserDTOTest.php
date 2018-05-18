@@ -33,7 +33,6 @@ class InscriptionUserDTOTest extends WebTestCase
         $dto = new InscriptionUserDTO(
             'lolosambo',
             'a-standard-password',
-            'a-standard-password',
             'lolosambo2@gougueule.com'
         );
         $this->dto = $dto;
@@ -58,22 +57,6 @@ class InscriptionUserDTOTest extends WebTestCase
     /**
      * @test
      */
-    public function password2_attribute_must_be_a_string()
-    {
-        static::assertInternalType('string', $this->dto->password2);
-    }
-
-    /**
-     * @test
-     */
-    public function password_must_be_equals_to_password2()
-    {
-        static::assertEquals($this->dto->password, $this->dto->password2);
-    }
-
-    /**
-     * @test
-     */
     public function mail_attribute_must_be_a_string()
     {
         static::assertInternalType('string', $this->dto->mail);
@@ -83,7 +66,7 @@ class InscriptionUserDTOTest extends WebTestCase
     public function mail_attribute_must_be_compatible_with_regex()
     {
         static::assertRegExp(
-            '/([a-zA-Z0-9-_]+)@([a-zA-Z0-9-_]+).([a-zA-Z]+)/',
+            '#([a-zA-Z0-9-_]+)@([a-zA-Z0-9-_]+).([a-zA-Z]+)#',
             $this->dto->mail
         );
     }

@@ -1,48 +1,87 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}{{ trick.name | upper }}{% endblock %}
+{% block title %}{{ trick.name | upper }}{% endblock %}
 
-    {% block content %}
-        <div class="row">
+{% block content %}
+    <div class="row">
+        <div class="col l10 offset-l1 s12 title center-align"><h1>{{ trick.name }} ({{ trick.group.group }})</h1></div><br>
+        <div class="col l10 offset-l1 s12 alaune_wrapper no-padding">
             {% if aLaUne.url is defined %}
-                <div class="offset-md-1 col-md-10 col-sm-12 aLaUne" style="background-image: url('../uploads/{{ aLaUne.url }}');">
+                <img class="responsive-img" src="{{ asset('../uploads/' ~ aLaUne.url)}}"/>
             {% else %}
-                <div class="offset-md-1 col-md-10 col-sm-12 aLaUne" style="background-image: url('../images/empty_alaune.png'); background-size: contain;">
+                <img src="{{ asset('../images/empty_alaune.png')}}"/>
             {% endif %}
-                <a href="/image_a_la_une/{{ trick.id }}"><button type="submit" class="btn btn-success">Changer l'image</button></a>
+        </div>
+        {% if app.session.get('pseudo') == trick.user.pseudo %}
+            <div class="col l10 offset-l1 s12 alaune_wrapper no-padding">
+                <a href="{{ path('frontPage_image', {'id' : trick.id}) }}">
+                    <button type="submit" class="waves-effect waves-light btn-small pink darken-1">
+                        <i class="material-icons left">camera_alt</i>Changer l'image
+                    </button></a><br><br>
+            </div>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col l10 offset-l1 s12 media_wrapper">
+            <div class="row">
+                <div class="col s12">
+                    {% for image in images %}
+                         <div class="col xl2 l3 m4 s6">
+                             <a href="{{ asset('../uploads/' ~ image.url)}}">
+                                 <img class="materialboxed thumbnail" width="100%" height="150"
+                                      src="{{ asset('../uploads/' ~ image.url)}}"/></a>
+                            {% if app.session.get('pseudo') == trick.user.pseudo %}
+                                <a href="{{ path('delete_images', {'trickId' : trick.id, 'mediaId' : image.id}) }}">
+                                    <i class="material-icons pink-text"  title="Supprimer l'image">cancel</i></a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                    {% if app.session.get('pseudo') == trick.user.pseudo %}
+                        <div class="col s12 center-align">
+                            <a href="{{ path('add_medias', {'id' : trick.id}) }}">
+                                <button type="submit" class="waves-effect waves-light btn-small green darken-1">
+                                    <i class="material-icons left">add</i>Ajouter des images</button><br><br></a>
+                        </div>
+                    {% endif %}
+                <div class="col s12">
+                    {% for video in videos %}
+                        <div class="col xl3 l3 m4 s12">
+                            <div class="video-container">
+                                <iframe class="thumbnail" width="100%" height="250" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            {% if app.session.get('pseudo') == trick.user.pseudo %}
+                                <a href="{{ path('delete_videos', {'trickId' : trick.id, 'mediaId' : video.id}) }}">
+                                     <i class="material-icons pink-text"  title="Supprimer la vidéo">cancel</i></a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                    {% if app.session.get('pseudo') == trick.user.pseudo %}
+                        <div class="col s12 center-align">
+                            <a href="{{ path('add_videos', {'id' : trick.id}) }}">
+                                <button type="submit" class="waves-effect waves-light btn-small green darken-1">
+                                    <i class="material-icons left">add</i>Ajouter des vidéos</button><br><br></a>
+                        </div><br><br>
+                    {% endif %}
             </div>
         </div>
-        <div class="row">
-            {% for image in images %}
-                <div class="col-lg-2 col-md-4 col-sm-12">
-                    <img class="img-thumbnail" style="margin-bottom:20px;" src="../uploads/{{ image.url }}"/>
-                         {% if app.session.get('pseudo') is not null %}
-                             <a href="/supprimer/trick/{{ trick.id }}/images/{{ image.id }}"><i class="fas fa-trash-alt" style="font-size:1.5em; color:SlateGrey" title="Supprimer l'image"></i></a>
-                         {% endif %}
+    </div>
+    <div class="row">
+        <div class="col l10 offset-l1 s12 content_wrapper">
+            <div class="row">
+                <div class="col s12 description white-text">
+                    <h4>Description de la figure</h4>
                 </div>
-            {% endfor %}
-
-            {% for video in videos %}
-                <div class="col-lg-2 col-md-4 col-sm-12">
-                    <div class="embed-responsive embed-responsive-16by9" style="margin-bottom:20px;">
-                        <iframe class="embed-responsive-item" src="{{ video.url }}" allowfullscreen> </iframe>
-                    </div>
-                    {% if app.session.get('pseudo') is not null %}
-                        <a href="/supprimer/trick/{{ trick.id }}/videos/{{ video.id }}"><i class="fas fa-trash-alt" style="font-size:1.5em; color:SlateGrey" title="Supprimer la video"></i></a>
-                    {% endif %}
+                <p>{{ trick.content }}</p>
+                <div class="col s12 author">
+                    <em>Proposé par {{ trick.user.pseudo }} - Le {{ trick.trickDate | date ('d/m/Y \\à H\\hi') }}</em><br><br>
                 </div>
-            {% endfor %}
-        </div><br><br>
-
-        <div class="row">
-            <h1>{{ trick.name }} ({{ trick.group.group }})</h1>
-            <p>{{ trick.content }}</p>
-            <em>Proposé par {{ trick.user.pseudo }} - Le {{ trick.trickDate | date ('d/m/Y \\à H\\hi') }}</em><br><br>
+            </div>
         </div>
+    </div><br><br>
+    {% include 'comments.html.twig' %}
 
-        {% include 'comments.html.twig' %}
-
-        <a href="/"><button type="button" class="btn btn-primary">Retour à la page d'accueil</button></a><br><br><br>
-
-    {% endblock %}
+    <script type="text/javascript">$(document).ready(function(){$('.materialboxed').materialbox();});</script>
+{% endblock %}
 

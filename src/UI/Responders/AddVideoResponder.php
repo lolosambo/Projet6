@@ -47,7 +47,7 @@ class AddVideoResponder implements AddVideoResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('add_trick.html.twig', $data));
+        return new Response($this->twig->render('add_videos.html.twig', $data));
     }
 }
 

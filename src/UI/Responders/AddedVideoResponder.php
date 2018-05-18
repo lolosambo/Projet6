@@ -45,6 +45,8 @@ class AddedVideoResponder implements AddedVideoResponderInterface
      */
     public function __invoke()
     {
-        return new Response($this->twig->render('added_medias.html.twig'));
+        return new Response(
+            $this->twig->render('added_medias.html.twig')
+        );
     }
 }

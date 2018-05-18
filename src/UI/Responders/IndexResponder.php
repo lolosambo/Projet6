@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class IndexResponder implements IndexResponderInterface
+final class IndexResponder implements IndexResponderInterface
 {
     /**
      * @var Environment
@@ -50,6 +50,8 @@ class IndexResponder implements IndexResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('home.html.twig', $data));
+        return new Response(
+            $this->twig->render('home.html.twig', $data)
+        );
     }
 }

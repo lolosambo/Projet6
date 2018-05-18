@@ -50,7 +50,9 @@ class ALaUneResponder implements ALaUneResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('aLaUne.html.twig', $data));
+        return new Response(
+            $this->twig->render('aLaUne.html.twig', $data)
+        );
     }
 }
 

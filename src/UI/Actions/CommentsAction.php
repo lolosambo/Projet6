@@ -42,6 +42,11 @@ class CommentsAction implements CommentsActionInterface
     private $dto;
 
     /**
+     * @var FormFactoryInterface
+     */
+    private $formFactory;
+
+    /**
      * CommentsAction constructor.
      *
      * @param FormFactoryInterface $formFactory
@@ -69,7 +74,7 @@ class CommentsAction implements CommentsActionInterface
         if (null !== $this->session->get('userId')) {
             $addCommentForm = $this->formFactory->create(CommentType::class, $this->dto);
             if ($commentTypeHandler->handle($request, $addCommentForm)) {
-                return $commentsResponder(['addCommentForm' => $addCommentForm]);
+                return $commentsResponder(['addCommentForm' => $addCommentForm->createView()]);
             }
 
             return new \Exception('Le commentaire n\'a pas pu être publié');

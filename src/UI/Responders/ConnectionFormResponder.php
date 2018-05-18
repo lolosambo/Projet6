@@ -48,7 +48,9 @@ class ConnectionFormResponder implements ConnectionFormResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('login.html.twig', $data));
+        return new Response(
+            $this->twig->render('login.html.twig', $data)
+        );
     }
 }
 

@@ -46,6 +46,8 @@ class InscriptionFormResponder implements InscriptionFormResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('inscription.html.twig', $data));
+        return new Response(
+            $this->twig->render('inscription.html.twig', $data)
+        );
     }
 }

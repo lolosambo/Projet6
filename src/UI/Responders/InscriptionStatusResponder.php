@@ -46,6 +46,8 @@ class InscriptionStatusResponder implements InscriptionStatusResponderInterface
      */
     public function __invoke()
     {
-        return new Response($this->twig->render('inscription_status.html.twig'));
+        return new Response(
+            $this->twig->render('inscription_status.html.twig')
+        );
     }
 }

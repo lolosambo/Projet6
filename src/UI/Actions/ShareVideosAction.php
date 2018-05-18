@@ -77,7 +77,7 @@ class ShareVideosAction
             ->create(VideosType::class, $dto)
             ->handleRequest($request);
 
-        if ($mediaHandler->handle($videos, $dto, intval($request->get('id')))) {
+        if ($mediaHandler->handle($videos, intval($request->get('id')))) {
             return $addedVideoResponder();
         }
 

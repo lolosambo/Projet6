@@ -70,7 +70,7 @@ class VideosTypeHandler implements VideosTypeHandlerInterface
 
             foreach ($addresses as $address) {
                 if (null != $address) {
-                    $media = new Videos($trickId, $address);
+                    $media = new Videos();
                     $media->setTrickId($trickId);
                     $media->setTrick($trick);
                     $media->setUrl($address);

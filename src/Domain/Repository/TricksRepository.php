@@ -42,7 +42,6 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
     {
         return $this->createQueryBuilder('t')
             ->leftJoin('t.images', 'ti', 'WITH', 'ti.aLaUne = 1')
-            ->addSelect('ti')
             ->orderBy('t.trickUpdate')
             ->getQuery()
             ->getResult();

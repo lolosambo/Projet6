@@ -47,6 +47,8 @@ class OneTrickResponder implements OneTrickResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('oneTrick.html.twig', $data));
+        return new Response(
+            $this->twig->render('oneTrick.html.twig', $data)
+        );
     }
 }

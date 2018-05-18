@@ -1,61 +1,68 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}SNOWTRICKS{% endblock %}
+{% block title %} SNOWTRICKS {% endblock %}
 
-    {% block header %}
-        <div class="col-lg-7 col-md-7 col-sm-12 header-subtitle">
-            Le premier site collaboratif <br>des fans de snowboard<br><br>
-
-        {% if app.session.get('pseudo') is null %}
-            <a href="/connexion"><button type="button" class="btn btn-lg btn-success">Se connecter</button></a>
-            <a href="/inscription"><button type="button" class="btn btn-lg btn-primary">S'inscrire</button></a>
-        {% else %}
-            <br><div class="container">
-                <img src="{{ app.session.get('avatar')}}"/> Bonjour {{ app.session.get('pseudo') }}
-            </div>
-            <a href="/deconnexion">Se déconnecter</a>
-        {% endif %}
+{% block content %}
+    <br>
+    <div class="row">
+        <div class="col l11">
+            {% if app.session.get('pseudo') is not null %}
+                <a href="{{ path('add_trick') }}">
+                    <button class="waves-effect waves-light btn pink darken-1">
+                        Ajouter une Figure
+                    </button>
+                </a><br><br>
+            {% endif %}
         </div>
-        <div class="row">
-            <div class="offset-lg-11 col-lg-1 offset-md-11 col-md-1 offset-sm-11 offset-11 col-sm-1">
-                <div class="arrow">
-                    <a href="#content" class="scroll">
-                        <i class="fas fa-caret-square-down" style="font-size:3em; color: greenyellow;"
-                           title="Afficher les figures"></i>
-                    </a>
-                </div>
+        <div class="col l1">
+             <div class="arrow">
+                <a href="#content" class="scroll">
+                    <button class="btn-floating btn waves-effect waves-light pink darken-1">
+                        <i class="material-icons center">keyboard_arrow_down</i>
+                    </button></a>
             </div>
         </div>
-    {% endblock %}
-
-    {% block content %}
-        {% if app.session.get('pseudo') is not null %}
-            <a href="/ajouter/figure"><button class="btn btn-success">Ajouter une Figure</button></a><br><br>
-        {% endif %}
-        <div class="card-deck">
-            <div class="row">
-                {% for trick in tricks %}
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="card border-secondary ">
-                            {% for images in trick.images %}
-                                <img class="card-img-top"  src="./uploads/{{ asset(images.url) }}"/>
-                            {%  endfor %}
-                            {% if trick.images is empty %}
-                                <img class="card-img-top" src="./images/emptyTrick.png"/>
-                            {% endif %}
-                        <div class="card-body">
-                            <a href="/trick/{{ trick.id }}"><h2 class="card-title"><h2>{{ trick.name }} </h2></a>
-                                {% if app.session.get('pseudo') == trick.user.pseudo %}
-                                    <a href="/modifier/figure/{{ trick.id }}"><i class="fas fa-edit" style="font-size:1.5em; color:Orange" title="Editer la figure"></i></a>
-                                    <a href="/supprimer/{{ trick.id }}"><i class="fas fa-trash-alt" style="font-size:1.5em; color:SlateGrey" title="Supprimer la figure"></i></a>
-                                {% endif %}
-                            <div class="badge badge-danger trickBadge">{{ trick.group.group }}</div>
+    </div>
+    <div class="row">
+        {% for trick in tricks %}
+            <div class="col xl3 l4 m6 s12">
+                <div class="card">
+                    <div class="card-image">
+                        {% if trick.images is not empty %}
+                            {% for image in trick.images if image.aLaUne == 1  %}
+                                <img src="./uploads/{{ asset(image.url) }}"/>
+                                {% else %}
+                                    <img src="{{ asset('images/emptyTrick.png') }}"/>
+                            {% endfor %}
+                        {% else %}
+                            <img src="{{ asset('images/emptyTrick.png') }}"/>
+                        {% endif %}
+                        <span class="card-title card-span">{{ trick.name }}</span>
+                    </div>
+                    <div class="row">
+                        <div class="col l6">
+                            <div class="card-content">
+                                <a href="{{ path('single_trick', {'id' : trick.id}) }}">
+                                    <p>Voir le détail</p></a>
+                            </div>
                         </div>
+                        <div class="col l6 center-align"><br>
+                            {% if app.session.get('pseudo') == trick.user.pseudo %}
+                                <a href="{{ path('update_trick', {'id' : trick.id}) }}">
+                                    <button class="waves-effect waves-light btn-small pink darken-1">
+                                        <i class="material-icons">create</i>
+                                    </button></a>
+                                <a href="{{ path('delete_trick', {'id' : trick.id}) }}">
+                                    <button class="waves-effect waves-light btn-small green darken-1">
+                                        <i class="material-icons">clear</i>
+                                    </button></a>
+                            {% endif %}
                         </div>
                     </div>
-                {% endfor %}
+                </div>
             </div>
-        </div><br><br><br>
-    {% endblock %}
+        {% endfor %}
+    </div>
+{% endblock %}
 
 
