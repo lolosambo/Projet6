@@ -28,14 +28,20 @@ class ALaUneDTO implements ALaUneDTOInterface
     public $aLaUne = 0;
 
     /**
+     * @var string
+     */
+    public $url;
+
+    /**
      * ALaUneDTO constructor.
      *
      * @param string $aLaUne
      */
-    public function __construct(int $aLaUne = null)
+    public function __construct(int $aLaUne = null, string $url = null)
     {
         if (($aLaUne == 0) || ($aLaUne == 1)) {
             $this->aLaUne = $aLaUne;
         }
+        $this->url = $url;
     }
 }

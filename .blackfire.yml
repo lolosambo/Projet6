@@ -1,0 +1,84 @@
+tests:
+    "Pages should be fast enough":
+        path: "/.*"
+        assertions:
+            - "main.wall_time < 45ms"
+    "Homepage does not hit DB more than 1 time":
+        path: "/"
+        assertions:
+            - "metrics.sql.queries.count == 1"
+            - "main.peak_memory < 4mb"
+            - "metrics.output.network_out < 15kb"
+    "Single Trick page test":
+        path: "/trick/.*"
+        assertions:
+            - "metrics.sql.queries.count <10"
+            - "main.peak_memory < 4mb"
+            - "metrics.output.network_out < 15kb"
+    "Delete Trick page test":
+        path: "/supprimer/.*"
+        assertions:
+            - "metrics.sql.queries.count == 1"
+            - "main.peak_memory < 3mb"
+            - "metrics.output.network_out < 1kb"
+    "Delete Videos page test":
+        path: "/supprimer/trick/.*/videos/.*"
+        assertions:
+            - "metrics.sql.queries.count == 1"
+            - "main.peak_memory < 3mb"
+            - "metrics.output.network_out < 1kb"
+    "Delete Images page test":
+        path: "/supprimer/trick/.*/images/.*"
+        assertions:
+            - "metrics.sql.queries.count == 1"
+            - "main.peak_memory < 3mb"
+            - "metrics.output.network_out < 1kb"
+    "Image a la une page test":
+        path: "/image_a_la_une/.*"
+        assertions:
+            - "metrics.sql.queries.count == 1"
+            - "main.peak_memory < 5mb"
+            - "metrics.output.network_out < 5kb"
+    "Add Images page test":
+        path: "/ajout-medias/.*"
+        assertions:
+            - "metrics.sql.queries.count == 1"
+            - "main.peak_memory < 5mb"
+            - "metrics.output.network_out < 5kb"
+    "Add Videos page test":
+        path: "/ajout-videos/.*"
+        assertions:
+            - "metrics.sql.queries.count == 1"
+            - "main.peak_memory < 5mb"
+            - "metrics.output.network_out < 5kb"
+    "Add Trick page test":
+        path: "/ajouter/figure"
+        assertions:
+            - "metrics.sql.queries.count == 0"
+            - "main.peak_memory < 5mb"
+            - "metrics.output.network_out < 5kb"
+    "Update Trick page test":
+        path: "/modifier/figure/.*"
+        assertions:
+            - "metrics.sql.queries.count <3"
+            - "main.peak_memory < 5mb"
+            - "metrics.output.network_out < 5kb"
+    "Connection page test":
+        path: "/connexion"
+        assertions:
+            - "metrics.sql.queries.count == 0"
+            - "main.peak_memory < 5mb"
+            - "metrics.output.network_out < 5kb"
+    "Inscription page test":
+        path: "/inscription"
+        assertions:
+            - "metrics.sql.queries.count == 0"
+            - "main.peak_memory < 5mb"
+            - "metrics.output.network_out < 5kb"
+    "Logout page test":
+        path: "/deconnexion"
+        assertions:
+            - "metrics.sql.queries.count == 0"
+            - "main.peak_memory < 2mb"
+            - "metrics.output.network_out < 1kb"
+

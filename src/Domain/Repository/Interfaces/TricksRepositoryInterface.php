@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace App\Domain\Repository\Interfaces;
 
+use Doctrine\Common\Cache\Cache;
+use Doctrine\Common\Cache\CacheProvider;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+
 
 /**
  * Interface TricksRepositoryInterface.
@@ -23,6 +26,8 @@ interface TricksRepositoryInterface
     public function __construct(RegistryInterface $registry);
 
     /**
+     * @param Cache $cache
+     *
      * @return mixed
      */
     public function findAllTricksWithMediasByDate();

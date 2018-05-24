@@ -25,5 +25,5 @@ interface ALaUneDTOInterface
      *
      * @param string $aLaUne
      */
-    public function __construct(int $aLaUne = null);
+    public function __construct(int $aLaUne = null, string $url = null);
 }

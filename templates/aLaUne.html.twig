@@ -5,19 +5,19 @@
 
 <div class="row">
    <div class="col l10 offset-l1 s12">
-        {#<p>Veuillez sélectionner l'image de présentation de la figure</p>#}
-        {#{% form_theme form 'form/theme.html.twig' %}#}
-        {#{{ form_start(form) }}#}
+        <p>Veuillez sélectionner l'image de présentation de la figure</p>
+        {% form_theme form 'form/theme.html.twig' %}
+        {{ form_start(form) }}
 
-    {#<div class="input-field col s12">#}
-        {#<i class="material-icons prefix pink-text">group</i>#}
-        {#{{ form_label(form.aLaUne) }}#}
-        {#{{ form_widget(form.aLaUne) }}#}
-        {#{{ form_errors(form.aLaUne) }}#}
-    {#</div>#}
+    <div class="input-field col s12">
+        <i class="material-icons prefix pink-text">group</i>
+        {{ form_label(form.aLaUne) }}
+        {{ form_widget(form.aLaUne) }}
+        {{ form_errors(form.aLaUne) }}
+    </div>
 
         <button type="submit" name="confirmer" class="btn btn-success btn-sm">Mettre ce médias à la une</button>
-        {#{{ form_end(form) }}#}
+        {{ form_end(form) }}
    </div>
 </div>
     {% endblock %}

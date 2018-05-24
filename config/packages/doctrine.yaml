@@ -17,3 +17,4 @@ doctrine:
                 dir: '%kernel.project_dir%/config/doctrine'
                 prefix: 'App\Domain\Models'
                 alias: App
+

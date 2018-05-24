@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Form\FormHandler;
 
-use App\Domain\DTO\Interfaces\ALAUneDTOInterface;
 use App\Domain\Form\FormHandler\Interfaces\ALaUneTypeHandlerInterface;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -55,7 +54,6 @@ class ALaUneTypeHandler implements ALaUneTypeHandlerInterface
                 $image->setALaUne(0);
             }
             $aLaUne = $this->ir->findByUrl($aLaUneType->getData()->aLaUne->getUrl());
-            dump($aLaUne);
             $aLaUne->setALaUne(1);
             $this->ir->flush();
 

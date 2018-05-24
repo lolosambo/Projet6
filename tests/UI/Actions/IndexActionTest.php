@@ -16,6 +16,7 @@ namespace Tests\UI\Actions;
 use App\Domain\Models\Tricks;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+
 /**
  * Class AllTricksControllerTest
  *
@@ -23,7 +24,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class IndexActionTest extends WebTestCase
 {
-
     /**
      * @var
      */
