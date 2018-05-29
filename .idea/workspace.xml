@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6a09f211-d698-4561-add8-044fe8ed5f34" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/CommentsTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/CommentsTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php" />
       <change beforePath="$PROJECT_DIR$/tests/Domain/Models/ImagesTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/ImagesTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/TricksTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/TricksTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/VideosTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/VideosTest.php" />
+      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/UsersTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/UsersTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,12 +74,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentsTest.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CommentsTest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Domain/Models/CommentsTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="27" column="33" lean-forward="false" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="171">
+              <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding>
+                <element signature="e#299#330#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,9 +89,11 @@
       <file leaf-file-name="GroupsTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-              <folding />
+            <state relative-caret-position="345">
+              <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding>
+                <element signature="e#299#328#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,8 +101,8 @@
       <file leaf-file-name="ImagesTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Domain/Models/ImagesTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="36" />
+            <state relative-caret-position="92">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -110,8 +111,8 @@
       <file leaf-file-name="TricksTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Domain/Models/TricksTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+            <state relative-caret-position="262">
+              <caret line="17" column="52" lean-forward="false" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -120,19 +121,23 @@
       <file leaf-file-name="UsersTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Domain/Models/UsersTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="368">
+              <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+              <folding>
+                <element signature="e#299#327#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideosTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VideosTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Domain/Models/VideosTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="92">
+              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+              <folding>
+                <element signature="e#39#68#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -189,7 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/UI/Actions/Interfaces/DeleteVideoActionInterface.php" />
         <option value="$PROJECT_DIR$/src/UI/Actions/DeleteVideoAction.php" />
         <option value="$PROJECT_DIR$/src/UI/Actions/Interfaces/DeleteImageActionInterface.php" />
         <option value="$PROJECT_DIR$/src/UI/Actions/DeleteImageAction.php" />
@@ -237,9 +241,10 @@
         <option value="$PROJECT_DIR$/src/Domain/DataFixtures/ORM/TricksFixtures.php" />
         <option value="$PROJECT_DIR$/tests/Domain/Models/CommentsTest.php" />
         <option value="$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php" />
+        <option value="$PROJECT_DIR$/tests/Domain/Models/VideosTest.php" />
         <option value="$PROJECT_DIR$/tests/Domain/Models/ImagesTest.php" />
         <option value="$PROJECT_DIR$/tests/Domain/Models/TricksTest.php" />
-        <option value="$PROJECT_DIR$/tests/Domain/Models/VideosTest.php" />
+        <option value="$PROJECT_DIR$/tests/Domain/Models/UsersTest.php" />
       </list>
     </option>
   </component>
@@ -680,7 +685,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325984000" />
+    <option name="totallyTimeSpent" value="326506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="42" width="2329" height="1302" extended-state="0" />
@@ -1104,51 +1109,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/CommentsTest.php">
+    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/VideosTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="27" column="33" lean-forward="false" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="92">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding>
+            <element signature="e#39#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php">
+    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/UsersTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        <state relative-caret-position="368">
+          <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+          <folding>
+            <element signature="e#299#327#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/TricksTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="17" column="52" lean-forward="false" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Domain/Models/ImagesTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="36" />
+        <state relative-caret-position="92">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/TricksTest.php">
+    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="345">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding>
+            <element signature="e#299#328#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/UsersTest.php">
+    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/CommentsTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Domain/Models/VideosTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="171">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding>
+            <element signature="e#299#330#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -3,8 +3,8 @@
 namespace Tests\Domain\Models;
 
 use App\Domain\Models\Images;
-use Symfony\Bundle\FrameworkBundle\Tests\Functional\WebTestCase;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+
 
 class ImagesTest extends WebTestCase
 {
