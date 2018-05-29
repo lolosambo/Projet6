@@ -49,7 +49,7 @@ class IndexActionTest extends WebTestCase
             ->getRepository(Tricks::class)
             ->findAll();
 
-        $this->assertCount(9, $tricks);
+        $this->assertCount(10, $tricks);
     }
 
     /** @test */
@@ -68,7 +68,7 @@ class IndexActionTest extends WebTestCase
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)
             ->find(1);
-        $this->assertContains('Japan Air', $this->trick->getName());
+        $this->assertContains('Figure 0', $this->trick->getName());
 
     }
 

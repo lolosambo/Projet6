@@ -59,7 +59,7 @@ class OneTrickActionTest extends WebTestCase
     /** @test */
     public function trickMustContainsTitle() {
 
-        $this->assertContains('Japan Air', $this->trick->getName());
+        $this->assertContains('Figure 0', $this->trick->getName());
 
     }
 
@@ -73,14 +73,14 @@ class OneTrickActionTest extends WebTestCase
     /** @test */
     public function trickMustContainsContent() {
 
-        $this->assertContains('japan ou japan air : saisie de l\'avant de la planche', $this->trick->getContent());
+        $this->assertContains('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', $this->trick->getContent());
 
     }
 
     /** @test */
     public function trickMustContainsAuthor() {
 
-        $this->assertContains('lolosambo', $this->trick->getUser()->getPseudo());
+        $this->assertContains('User', $this->trick->getUser()->getPseudo());
 
     }
 
@@ -90,7 +90,7 @@ class OneTrickActionTest extends WebTestCase
         $this->assertInstanceOf(\DateTime::class, $this->trick->getTrickDate());
         $date = $this->trick->getTrickDate();
         $formated_date = $date->format('Y-m-d H:i:s');
-        $this->assertEquals('2018-01-09 06:31:24', $formated_date);
+        $this->assertEquals('2018-06-04 10:39:00', $formated_date);
 
     }
 
