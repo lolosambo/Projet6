@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Tests\Domain\Models;
 
 use App\Domain\Models\Comments;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Bundle\TwigBundle\Tests\TestCase;
 
 /**
@@ -21,7 +22,7 @@ use Symfony\Bundle\TwigBundle\Tests\TestCase;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class CommentsTest extends TestCase
+class CommentsTest extends WebTestCase
 {
 
     public function test_entity_must_be_instancied() {
