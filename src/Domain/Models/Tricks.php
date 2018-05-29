@@ -93,7 +93,7 @@ class Tricks implements TricksInterface
     ) {
         $this->setName(htmlspecialchars($name));
         $this->setContent(htmlspecialchars($content));
-        $this->group = $group;
+        $this->groupId = $group;
         $this->images = new ArrayCollection();
         $this->videos = new ArrayCollection();
     }

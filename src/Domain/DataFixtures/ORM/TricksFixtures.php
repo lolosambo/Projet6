@@ -11,9 +11,9 @@ class TricksFixtures extends Fixture
     {
         for ($i = 0; $i < 10; $i++) {
             $name = 'Figure '.$i;
-            $group = array_rand(['grab', 'rotations', 'flips', 'slides']);
+            $groupId = rand(1, 5);
             $content = file_get_contents('http://loripsum.net/api/5/short');
-            $trick = new Tricks($name, $group, $content);
+            $trick = new Tricks($name, $groupId, $content);
             $trick->setUserId(rand(1, 2));
             $trick->setTrickDate(new \DateTime('+'. mt_rand(2, 100) .' days'));
             $trick->setTrickUpdate(new \DateTime('+'. mt_rand(2, 100) .' days'));
