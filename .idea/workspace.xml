@@ -2,86 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a09f211-d698-4561-add8-044fe8ed5f34" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Domain/DataFixtures/ORM/TricksFixtures.php" />
-      <change beforePath="$PROJECT_DIR$/.blackfire.yml" afterPath="$PROJECT_DIR$/.blackfire.yml" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/snowtricks.iml" afterPath="$PROJECT_DIR$/.idea/snowtricks.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.circleCi/config.yml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" afterPath="$PROJECT_DIR$/config/bundles.php" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTO/ALaUneDTO.php" afterPath="$PROJECT_DIR$/src/Domain/DTO/ALaUneDTO.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTO/CommentDTO.php" afterPath="$PROJECT_DIR$/src/Domain/DTO/CommentDTO.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTO/ImagesDTO.php" afterPath="$PROJECT_DIR$/src/Domain/DTO/ImagesDTO.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/ALaUneDTOInterface.php" afterPath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/ALaUneDTOInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/CommentDTOInterface.php" afterPath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/CommentDTOInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/ImagesDTOInterface.php" afterPath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/ImagesDTOInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/InscriptionUserDTOInterface.php" afterPath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/InscriptionUserDTOInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/TricksAddDTOInterface.php" afterPath="$PROJECT_DIR$/src/Domain/DTO/Interfaces/TricksAddDTOInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTO/TrickAddDTO.php" afterPath="$PROJECT_DIR$/src/Domain/DTO/TrickAddDTO.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/CommentTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/CommentTypeHandler.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/ImagesTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/ImagesTypeHandler.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/CommentTypeHandlerInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/CommentTypeHandlerInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/ImagesTypeHandlerInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/ImagesTypeHandlerInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/TrickAddTypeHandlerInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/TrickAddTypeHandlerInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/TrickTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/TrickTypeHandler.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/VideosTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/VideosTypeHandler.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/Type/ALaUneType.php" afterPath="$PROJECT_DIR$/src/Domain/Form/Type/ALaUneType.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/Type/ImagesType.php" afterPath="$PROJECT_DIR$/src/Domain/Form/Type/ImagesType.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/ALaUneAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/ALaUneAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/AddImagesAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/AddImagesAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/AddTrickAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/AddTrickAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/CommentsAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/CommentsAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/DeleteImageAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/DeleteImageAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/DeleteTrickAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/DeleteTrickAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/DeleteVideoAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/DeleteVideoAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/InscriptionFormAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/InscriptionFormAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/ALaUneActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/ALaUneActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/AddImagesActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/AddImagesActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/AddTrickActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/AddTrickActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/CommentsActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/CommentsActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/DeleteImageActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/DeleteImageActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/DeleteTrickActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/DeleteTrickActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/DeleteVideoActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/DeleteVideoActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/InscriptionFormActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/InscriptionFormActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/OneTrickActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/OneTrickActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/ShareVideosActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/ShareVideosActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/ShareVideosAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/ShareVideosAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/ALaUneResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/ALaUneResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/AddImagesResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/AddImagesResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/AddTrickResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/AddTrickResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/AddVideoResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/AddVideoResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/AddedImagesResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/AddedImagesResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/AddedTrickResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/AddedTrickResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/AddedVideoResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/AddedVideoResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/CommentsResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/CommentsResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/ConnectionFormResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/ConnectionFormResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/IndexResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/IndexResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/InscriptionFormResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/InscriptionFormResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/InscriptionStatusResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/InscriptionStatusResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/OneTrickResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/OneTrickResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/UpdateTrickResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/UpdateTrickResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/UpdatedTrickResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/UpdatedTrickResponder.php" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" afterPath="$PROJECT_DIR$/symfony.lock" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/DTO/ALaUneDTOTest.php" afterPath="$PROJECT_DIR$/tests/Domain/DTO/ALaUneDTOTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/DTO/TrickAddDTOTest.php" afterPath="$PROJECT_DIR$/tests/Domain/DTO/TrickAddDTOTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/ALaUneActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/ALaUneActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/AddImagesActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/AddImagesActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/AddTrickActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/AddTrickActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/CommentsActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/CommentsActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/ConnectionFormActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/ConnectionFormActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/DeleteImageActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/DeleteImageActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/DeleteTrickActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/DeleteTrickActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/DeleteVideoActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/DeleteVideoActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/InscriptionFormActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/InscriptionFormActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/UpdateTrickActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/UpdateTrickActionTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -141,7 +63,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ShareVideosActionTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShareVideosActionTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="445">
@@ -149,6 +71,16 @@
               <folding>
                 <element signature="e#296#346#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.circleCi/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="9" column="50" lean-forward="true" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -187,7 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Domain/DTO/ImagesDTO.php" />
         <option value="$PROJECT_DIR$/src/Domain/DTO/Interfaces/ImagesDTOInterface.php" />
         <option value="$PROJECT_DIR$/src/Domain/Form/Type/ImagesType.php" />
         <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/ImagesTypeHandler.php" />
@@ -238,6 +169,7 @@
         <option value="$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php" />
         <option value="$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionTest.php" />
         <option value="$PROJECT_DIR$/tests/UI/Actions/ConnectionFormActionTest.php" />
+        <option value="$PROJECT_DIR$/.circleCi/config.yml" />
       </list>
     </option>
   </component>
@@ -659,7 +591,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="319550000" />
+    <option name="totallyTimeSpent" value="320232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="42" width="2329" height="1302" extended-state="0" />
@@ -708,14 +640,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Domain/DTO/InscriptionUserDTO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/DTO/Interfaces/InscriptionUserDTOInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
@@ -1142,6 +1066,14 @@
           <folding>
             <element signature="e#296#346#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.circleCi/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="50" lean-forward="true" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
