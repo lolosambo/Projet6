@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\UI\Actions\Interfaces;
 
-use App\Domain\DTO\Interfaces\CommentDTOInterface;
 use App\Domain\Form\FormHandler\Interfaces\CommentTypeHandlerInterface;
 use App\UI\Responders\Interfaces\CommentsResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -31,19 +30,18 @@ interface CommentsActionInterface
      * CommentsActionInterface constructor.
      *
      * @param FormFactoryInterface $formFactory
-     * @param SessionInterface $session
-     * @param CommentDTOInterface $dto
+     * @param SessionInterface     $session
      */
     public function __construct(
         FormFactoryInterface $formFactory,
-        SessionInterface $session,
-        CommentDTOInterface $dto
+        SessionInterface $session
     );
 
     /**
-     * @param Request $request
+     * @param Request                     $request
      * @param CommentTypeHandlerInterface $commentTypeHandler
-     * @param CommentsResponderInterface $commentsResponder
+     * @param CommentsResponderInterface  $commentsResponder
+     *
      * @return mixed
      */
     public function getComments(
@@ -51,5 +49,4 @@ interface CommentsActionInterface
         CommentTypeHandlerInterface $commentTypeHandler,
         CommentsResponderInterface $commentsResponder
     );
-
 }

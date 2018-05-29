@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class AddedImagesResponder implements AddedImagesResponderInterface
+final class AddedImagesResponder implements AddedImagesResponderInterface
 {
     /**
      * @var Environment
@@ -50,5 +50,5 @@ class AddedImagesResponder implements AddedImagesResponderInterface
             $this->twig->render('added_medias.html.twig')
         );
     }
-
 }
+

@@ -12,7 +12,6 @@ declare(strict_types=1);
  */
 namespace Tests\UI\Actions;
 
-use App\Domain\DTO\TrickAddDTO;
 use App\Domain\Form\FormHandler\TrickTypeHandler;
 use App\Domain\Repository\TricksRepository;
 use App\UI\Actions\AddTrickAction;
@@ -41,10 +40,7 @@ class AddTrickActionTest extends WebTestCase
 
     private $handler;
 
-    private $dto;
-
     private $repository;
-
 
     public function setUp()
     {
@@ -55,10 +51,9 @@ class AddTrickActionTest extends WebTestCase
         $this->addedTrickResponder = new AddedTrickResponder($this->createMock(Environment::class));
         $this->addTrickResponder = new AddTrickResponder($this->createMock(Environment::class));
         $this->handler = $this->createMock(TrickTypeHandler::class);
-        $this->dto = $this->createMock(TrickAddDTO::class);
     }
 
-    public function test_construct()
+    public function testConstruct()
     {
         $action = new AddTrickAction($this->repository, $this->factory);
 
@@ -68,7 +63,7 @@ class AddTrickActionTest extends WebTestCase
         );
     }
 
-    public function test_bad_formHandler()
+    public function testBadFormHandler()
     {
         $request = Request::create(
             '/ajouter/figure',
@@ -82,13 +77,12 @@ class AddTrickActionTest extends WebTestCase
                 $request,
                 $this->addedTrickResponder,
                 $this->addTrickResponder,
-                $this->handler,
-                $this->dto
+                $this->handler
             )
         );
     }
 
-    public function test_good_formHandler()
+    public function testGoodFormHandler()
     {
         $request = Request::create(
             '/ajout-medias/1',
@@ -102,8 +96,7 @@ class AddTrickActionTest extends WebTestCase
                 $request,
                 $this->addedTrickResponder,
                 $this->addTrickResponder,
-                $this->handler,
-                $this->dto
+                $this->handler
             )
         );
     }

@@ -50,53 +50,42 @@ class OneTrickActionTest extends WebTestCase
     }
 
     /** @test */
-    public function single_trick_page_must_be_displayed() {
-
-        $client = static::createClient();
-
-        $client->request('GET', '/trick/1');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-
-    }
-
-    /** @test */
-    public function found_trick_must_be_an_instance_of_trick_entity() {
+    public function foundTrickMustBeAnInstanceOfTrickEntity() {
 
         $this->assertInstanceOf(Tricks::class, $this->trick);
 
     }
 
     /** @test */
-    public function trick_must_contains_title() {
+    public function trickMustContainsTitle() {
 
         $this->assertContains('Japan Air', $this->trick->getName());
 
     }
 
     /** @test */
-    public function trick_must_contains_group() {
+    public function trickMustContainsGroup() {
 
         $this->assertContains('Grabs', $this->trick->getGroup()->getGroup());
 
     }
 
     /** @test */
-    public function trick_must_contains_content() {
+    public function trickMustContainsContent() {
 
         $this->assertContains('japan ou japan air : saisie de l\'avant de la planche', $this->trick->getContent());
 
     }
 
     /** @test */
-    public function trick_must_contains_author() {
+    public function trickMustContainsAuthor() {
 
         $this->assertContains('lolosambo', $this->trick->getUser()->getPseudo());
 
     }
 
     /** @test */
-    public function trick_must_contains_update_date() {
+    public function trickMustContainsUpdateDate() {
 
         $this->assertInstanceOf(\DateTime::class, $this->trick->getTrickDate());
         $date = $this->trick->getTrickDate();

@@ -58,8 +58,8 @@ class ImagesTypeHandler implements ImagesTypeHandlerInterface
     }
 
     /**
-     * @param FormInterface      $imagesType
-     * @param $trickId
+     * @param FormInterface  $imagesType
+     * @param                $trickId
      *
      * @return bool
      */
@@ -82,13 +82,11 @@ class ImagesTypeHandler implements ImagesTypeHandlerInterface
                 $image->setTrick($trick);
                 $image->setTrickId($trickId);
                 $image->setUrl($file->getClientOriginalName());
-
                 $this->ir->save($image);
             }
-
             return true;
         }
-
         return false;
     }
 }
+

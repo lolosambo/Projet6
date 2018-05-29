@@ -43,18 +43,7 @@ class IndexActionTest extends WebTestCase
     }
 
     /** @test */
-    public function home_page_must_be_displayed() {
-
-        $client = static::createClient();
-
-        $client->request('GET', '/');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-
-    }
-
-    /** @test */
-    public function count_all_tricks_from_the_database()
+    public function countAllTricksFromTheDatabase()
     {
         $tricks = $this->entityManager
             ->getRepository(Tricks::class)
@@ -64,7 +53,7 @@ class IndexActionTest extends WebTestCase
     }
 
     /** @test */
-    public function database_trick_must_be_an_instance_of_Trick_Entity() {
+    public function databaseTrickMustBeAnInstanceOfTrickEntity() {
         $trick = $this->entityManager
             ->getRepository(Tricks::class)
             ->find(1);
@@ -74,7 +63,7 @@ class IndexActionTest extends WebTestCase
     }
 
     /** @test */
-    public function trick_must_contains_title() {
+    public function trickMustContainsTitle() {
 
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)
@@ -84,7 +73,7 @@ class IndexActionTest extends WebTestCase
     }
 
     /** @test */
-    public function trick_must_contains_group() {
+    public function trickMustContainsGroup() {
 
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)

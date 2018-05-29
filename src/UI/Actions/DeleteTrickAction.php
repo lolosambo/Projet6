@@ -18,6 +18,7 @@ use App\UI\Actions\Interfaces\DeleteTrickActionInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class DeleteTrickAction.
@@ -44,11 +45,11 @@ class DeleteTrickAction implements DeleteTrickActionInterface
     /**
      * @Route("/supprimer/{id}", name="delete_trick")
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, UrlGeneratorInterface $generator)
     {
         $this->tr->deleteTrick($request->get('id'));
         $this->tr->flush();
-
-        return new RedirectResponse('/');
+        return new RedirectResponse($generator->generate('homepage'));
     }
 }
+

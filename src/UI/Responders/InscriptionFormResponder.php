@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class InscriptionFormResponder implements InscriptionFormResponderInterface
+final class InscriptionFormResponder implements InscriptionFormResponderInterface
 {
     /**
      * @var Environment
@@ -51,3 +51,4 @@ class InscriptionFormResponder implements InscriptionFormResponderInterface
         );
     }
 }
+

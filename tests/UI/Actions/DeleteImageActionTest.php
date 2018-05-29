@@ -18,6 +18,7 @@ use App\UI\Actions\DeleteImageAction;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGenerator;
 
 /**
  * Class DeleteImageActionTest
@@ -26,21 +27,31 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class DeleteImageActionTest extends WebTestCase
 {
+    private $repository;
 
-    public function test_construct()
+    private $generator;
+
+    public function setUp()
     {
-        $action = new DeleteImageAction( $this->createMock(ImagesRepository::class));
+        $this->repository = $this->createMock(ImagesRepository::class);
+        $this->generator = $this->createMock(UrlGenerator::class);
+    }
+
+    public function testConstruct()
+    {
+        $action =  new DeleteImageAction($this->repository);
         static::assertInstanceOf(DeleteImageAction::class, $action);
     }
 
-    public function test_delete_image_action()
+    public function testDeleteImageAction()
     {
         $request = Request::create(
             '/supprimer/trick/1/images/2',
             'POST'
         );
-        $action = new DeleteImageAction($this->createMock(ImagesRepository::class));
-        $result = $action($request);
-        static::assertInstanceOf(RedirectResponse::class, $result);
+        $action = new DeleteImageAction($this->repository);
+        $this->generator->method('generate')->willReturn('single_trick', ['trickId' => 1, 'mediaId' => 2]);
+
+        static::assertInstanceOf(RedirectResponse::class, $action($request, $this->generator));
     }
 }

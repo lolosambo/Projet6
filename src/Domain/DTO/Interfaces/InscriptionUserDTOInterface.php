@@ -33,3 +33,4 @@ interface InscriptionUserDTOInterface
         string $mail = null
     );
 }
+

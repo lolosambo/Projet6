@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class OneTrickResponder implements OneTrickResponderInterface
+final class OneTrickResponder implements OneTrickResponderInterface
 {
     /**
      * @var Environment
@@ -52,3 +52,4 @@ class OneTrickResponder implements OneTrickResponderInterface
         );
     }
 }
+

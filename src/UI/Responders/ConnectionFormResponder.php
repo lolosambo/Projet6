@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class ConnectionFormResponder implements ConnectionFormResponderInterface
+final class ConnectionFormResponder implements ConnectionFormResponderInterface
 {
     /**
      * @var Environment
@@ -53,5 +53,6 @@ class ConnectionFormResponder implements ConnectionFormResponderInterface
         );
     }
 }
+
 
 

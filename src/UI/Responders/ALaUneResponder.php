@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class ALaUneResponder implements ALaUneResponderInterface
+final class ALaUneResponder implements ALaUneResponderInterface
 {
     /**
      * @var Environment
@@ -55,4 +55,6 @@ class ALaUneResponder implements ALaUneResponderInterface
         );
     }
 }
+
+
 

@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class AddVideoResponder implements AddVideoResponderInterface
+final class AddVideoResponder implements AddVideoResponderInterface
 {
     /**
      * @var Environment
@@ -47,7 +47,9 @@ class AddVideoResponder implements AddVideoResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('add_videos.html.twig', $data));
+        return new Response(
+            $this->twig->render('add_videos.html.twig', $data)
+        );
     }
 }
 

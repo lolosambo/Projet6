@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\UI\Actions\Interfaces;
 
-use App\Domain\DTO\Interfaces\InscriptionUserDTOInterface;
 use App\Domain\Form\FormHandler\InscriptionTypeHandler;
 use App\UI\Responders\Interfaces\InscriptionFormResponderInterface;
 use App\UI\Responders\Interfaces\InscriptionStatusResponderInterface;
@@ -32,20 +31,20 @@ interface InscriptionFormActionInterface
     /**
      * InscriptionFormActionInterface constructor.
      *
-     * @param InscriptionUserDTOInterface $dto
-     * @param FormFactoryInterface $formFactory
+     * @param FormFactoryInterface  $formFactory
+     * @param Environment           $twig
      */
     public function __construct(
-        InscriptionUserDTOInterface $dto,
         FormFactoryInterface $formFactory,
         Environment $twig
     );
 
     /**
-     * @param Request $request
-     * @param InscriptionTypeHandler $InscriptionTypeHandler
-     * @param Swift_Mailer $mailer
-     * @param InscriptionStatusResponderInterface $inscriptionStatusResponder
+     * @param Request                              $request
+     * @param InscriptionTypeHandler               $InscriptionTypeHandler
+     * @param Swift_Mailer                         $mailer
+     * @param InscriptionStatusResponderInterface  $inscriptionStatusResponder
+     * @param InscriptionFormResponderInterface    $inscriptionFormResponder
      *
      * @return mixed
      */

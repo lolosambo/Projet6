@@ -37,11 +37,6 @@ class CommentsAction implements CommentsActionInterface
     private $session;
 
     /**
-     * @var CommentDTOInterface
-     */
-    private $dto;
-
-    /**
      * @var FormFactoryInterface
      */
     private $formFactory;
@@ -51,35 +46,32 @@ class CommentsAction implements CommentsActionInterface
      *
      * @param FormFactoryInterface $formFactory
      * @param SessionInterface     $session
-     * @param CommentDTOInterface  $dto
      */
     public function __construct(
         FormFactoryInterface $formFactory,
-        SessionInterface $session,
-        CommentDTOInterface $dto
+        SessionInterface $session
     ) {
         $this->formFactory = $formFactory;
         $this->session = $session;
-        $this->dto = $dto;
     }
 
     /**
-     * @param CommentTypeHandler $commentTypeHandler
-     * @param CommentsResponderInterface $commentsResponder
+     * @param Request                     $request
+     * @param CommentTypeHandlerInterface $commentTypeHandler
+     * @param CommentsResponderInterface  $commentsResponder
      *
      * @return \Exception|mixed|void
      */
     public function getComments(Request $request, CommentTypeHandlerInterface $commentTypeHandler, CommentsResponderInterface $commentsResponder)
     {
         if (null !== $this->session->get('userId')) {
-            $addCommentForm = $this->formFactory->create(CommentType::class, $this->dto);
+            $addCommentForm = $this->formFactory->create(CommentType::class);
             if ($commentTypeHandler->handle($request, $addCommentForm)) {
                 return $commentsResponder(['addCommentForm' => $addCommentForm->createView()]);
             }
-
             return new \Exception('Le commentaire n\'a pas pu être publié');
         }
-
         return;
     }
 }
+

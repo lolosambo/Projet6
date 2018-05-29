@@ -55,3 +55,4 @@ final class IndexResponder implements IndexResponderInterface
         );
     }
 }
+

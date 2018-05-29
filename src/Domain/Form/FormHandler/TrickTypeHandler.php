@@ -21,7 +21,6 @@ use App\Domain\Repository\Interfaces\GroupsRepositoryInterface;
 use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
@@ -72,17 +71,12 @@ class TrickTypeHandler implements TrickAddTypeHandlerInterface
     }
 
     /**
-     * @param Request               $request
-     * @param FormInterface         $trickType
-     * @param TricksAddDTOInterface $dto
-     * @param ArrayCollection|null  $collection
+     * @param FormInterface $trickType
      *
      * @return bool|mixed
      */
-    public function handle(
-        Request $request,
-        FormInterface $trickType
-    ) {
+    public function handle(FormInterface $trickType)
+    {
         if ($trickType->isSubmitted() && $trickType->isValid()) {
             $trick = new Tricks(
                 $trickType->getData()->name,
@@ -97,12 +91,11 @@ class TrickTypeHandler implements TrickAddTypeHandlerInterface
             $trick->setGroup($group);
             $trick->setTrickDate(new \DateTime('NOW'));
             $trick->setTrickUpdate(new \DateTime('NOW'));
-
             $this->tr->save($trick);
 
             return true;
         }
-
         return false;
     }
 }
+

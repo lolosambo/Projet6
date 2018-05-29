@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Form\FormHandler;
 
-use App\Domain\DTO\Interfaces\CommentDTOInterface;
 use App\Domain\Form\FormHandler\Interfaces\CommentTypeHandlerInterface;
 use App\Domain\Models\Comments;
 use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
@@ -46,15 +45,9 @@ class CommentTypeHandler implements CommentTypeHandlerInterface
     private $cr;
 
     /**
-     * @var CommentDTOInterface
-     */
-    private $dto;
-
-    /**
      * @var SessionInterface
      */
     private $session;
-
 
     /**
      * CommentTypeHandler constructor.
@@ -96,11 +89,10 @@ class CommentTypeHandler implements CommentTypeHandlerInterface
             $comment->setUser($user);
             $comment->setTrick($trick);
             $this->cr->save($comment);
-            $this->cr->flush();
-
             return true;
         }
-
         return false;
     }
 }
+
+

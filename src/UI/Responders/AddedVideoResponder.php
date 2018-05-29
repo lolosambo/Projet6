@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class AddedVideoResponder implements AddedVideoResponderInterface
+final class AddedVideoResponder implements AddedVideoResponderInterface
 {
     /**
      * @var Environment
@@ -50,3 +50,4 @@ class AddedVideoResponder implements AddedVideoResponderInterface
         );
     }
 }
+

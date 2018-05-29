@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\DTO\Interfaces\CommentDTOInterface;
 use App\Domain\Form\FormHandler\CommentTypeHandler;
-
 use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use App\Domain\Repository\Interfaces\VideosRepositoryInterface;
@@ -28,6 +26,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 
 /**
@@ -58,12 +57,6 @@ class OneTrickAction implements OneTrickActionInterface
     private $cr;
 
     /**
-     * @var CommentDTOInterface
-     */
-    private $dto;
-
-
-    /**
      * @var
      */
     private $formFactory;
@@ -74,33 +67,30 @@ class OneTrickAction implements OneTrickActionInterface
      * @param TricksRepositoryInterface   $tr
      * @param CommentsRepositoryInterface $cr
      * @param ImagesRepositoryInterface   $ir
-     * @param VideosRepositoryInterface $mr
+     * @param VideosRepositoryInterface   $mr
      * @param FormFactoryInterface        $formFactory
-     * @param CommentDTOInterface         $dto
      */
     public function __construct(
         TricksRepositoryInterface $tr,
         CommentsRepositoryInterface $cr,
         ImagesRepositoryInterface $ir,
         VideosRepositoryInterface $vr,
-        FormFactoryInterface $formFactory,
-        CommentDTOInterface $dto
+        FormFactoryInterface $formFactory
     ) {
         $this->tr = $tr;
         $this->ir = $ir;
         $this->vr = $vr;
         $this->cr = $cr;
         $this->formFactory = $formFactory;
-        $this->dto = $dto;
     }
 
     /**
      * @Route("/trick/{id}", name="single_trick")
      *
-     * @param Request $request
-     * @param SessionInterface $session
-     * @param CommentTypeHandler $commentTypeHandler
-     * @param OneTrickResponderInterface $oneTrickResponder
+     * @param Request                     $request
+     * @param SessionInterface            $session
+     * @param CommentTypeHandler          $commentTypeHandler
+     * @param OneTrickResponderInterface  $oneTrickResponder
      *
      * @return mixed|RedirectResponse
      */
@@ -108,7 +98,8 @@ class OneTrickAction implements OneTrickActionInterface
         Request $request,
         SessionInterface $session,
         CommentTypeHandler $commentTypeHandler,
-        OneTrickResponderInterface $oneTrickResponder
+        OneTrickResponderInterface $oneTrickResponder,
+        UrlGeneratorInterface $generator
     ) {
         $id = intval($request->get('id'));
         $trick = $this->tr->findTrick($id);
@@ -119,13 +110,11 @@ class OneTrickAction implements OneTrickActionInterface
         $userId = $session->get('userId');
 
         if ($userId) {
-            $addCommentForm = $this->formFactory->create(CommentType::class, $this->dto)
+            $addCommentForm = $this->formFactory->create(CommentType::class)
                                                 ->handleRequest($request);
-
             if ($commentTypeHandler->handle($request, $addCommentForm, $userId, $id)) {
-                return new RedirectResponse('/trick/'.$id); // urlGenerator
+                return new RedirectResponse($generator->generate('single_trick', ['id' => $id])); // urlGenerator
             }
-
             return $oneTrickResponder([
                 'trick' => $trick,
                 'images' => $images,
@@ -136,7 +125,6 @@ class OneTrickAction implements OneTrickActionInterface
                 ]
             );
         }
-
         return $oneTrickResponder([
                 'trick' => $trick,
                 'images' => $images,
@@ -147,4 +135,5 @@ class OneTrickAction implements OneTrickActionInterface
         );
     }
 }
+
 

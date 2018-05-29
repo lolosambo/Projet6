@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Tests\UI\Actions;
 
-use App\Domain\DTO\VideosDTO;
 use App\Domain\Form\FormHandler\VideosTypeHandler;
 use App\Domain\Repository\VideosRepository;
 use App\UI\Actions\ShareVideosAction;
@@ -37,8 +36,6 @@ class ShareVideosActionTest extends WebTestCase
 
     private $factory;
 
-    private $dto;
-
     private $handler;
 
     private $addedVideoResponder;
@@ -51,19 +48,18 @@ class ShareVideosActionTest extends WebTestCase
         $this->container = static::$kernel->getContainer();
         $this->factory = $this->container->get('form.factory');
         $this->repository = $this->createMock(VideosRepository::class);
-        $this->dto = $this->createMock(VideosDTO::class);
         $this->handler = $this->createMock(VideosTypeHandler::class);
         $this->addedVideoResponder = new AddedVideoResponder($this->createMock(Environment::class));
         $this->addVideoResponder = new AddVideoResponder($this->createMock(Environment::class));
     }
 
-    public function test_construct()
+    public function testConstruct()
     {
         $action = new ShareVideosAction($this->repository, $this->factory);
         static::assertInstanceOf(ShareVideosAction::class, $action);
     }
 
-    public function test_shared_videos_action_ok()
+    public function testSharedVideosActionOk()
     {
         $request = Request::create(
             '/ajout-videos/2',
@@ -78,7 +74,6 @@ class ShareVideosActionTest extends WebTestCase
             $action
                 (
                     $request,
-                    $this->dto,
                     $this->handler,
                     $this->addedVideoResponder,
                     $this->addVideoResponder
@@ -86,7 +81,7 @@ class ShareVideosActionTest extends WebTestCase
         );
     }
 
-    public function test_no_posted_shared_videos_action_()
+    public function testNoPostedSharedVideosAction()
     {
         $request = Request::create(
             '/ajout-videos/2',
@@ -100,7 +95,6 @@ class ShareVideosActionTest extends WebTestCase
             $action
             (
                 $request,
-                $this->dto,
                 $this->handler,
                 $this->addedVideoResponder,
                 $this->addVideoResponder
@@ -108,3 +102,4 @@ class ShareVideosActionTest extends WebTestCase
         );
     }
 }
+

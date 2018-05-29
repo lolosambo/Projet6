@@ -23,6 +23,7 @@ use App\UI\Responders\Interfaces\OneTrickResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Interface OneTrickActionInterface
@@ -34,26 +35,24 @@ interface OneTrickActionInterface
     /**
      * OneTrickActionInterface constructor.
      *
-     * @param TricksRepositoryInterface $tr
-     * @param CommentsRepositoryInterface $cr
-     * @param ImagesRepositoryInterface $mr
-     * @param VideosRepositoryInterface $mr
-     * @param FormFactoryInterface $formFactory
-     * @param CommentDTOInterface $dto
+     * @param TricksRepositoryInterface    $tr
+     * @param CommentsRepositoryInterface  $cr
+     * @param ImagesRepositoryInterface    $mr
+     * @param VideosRepositoryInterface    $mr
+     * @param FormFactoryInterface         $formFactory
      */
     public function __construct(
         TricksRepositoryInterface $tr,
         CommentsRepositoryInterface $cr,
         ImagesRepositoryInterface $ir,
         VideosRepositoryInterface $vr,
-        FormFactoryInterface $formFactory,
-        CommentDTOInterface $dto
+        FormFactoryInterface $formFactory
     );
 
     /**
-     * @param Request $request
-     * @param SessionInterface $session
-     * @param CommentTypeHandler $commentTypeHandler
+     * @param Request                    $request
+     * @param SessionInterface           $session
+     * @param CommentTypeHandler         $commentTypeHandler
      * @param OneTrickResponderInterface $oneTrickResponder
      * @return mixed
      */
@@ -61,6 +60,7 @@ interface OneTrickActionInterface
         Request $request,
         SessionInterface $session,
         CommentTypeHandler $commentTypeHandler,
-        OneTrickResponderInterface $oneTrickResponder
+        OneTrickResponderInterface $oneTrickResponder,
+        UrlGeneratorInterface $generator
     );
 }

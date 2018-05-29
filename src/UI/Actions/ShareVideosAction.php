@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\DTO\Interfaces\VideosDTOInterface;
 use App\Domain\Form\FormHandler\Interfaces\VideosTypeHandlerInterface;
 use App\Domain\Form\Type\VideosType;
 use App\Domain\Repository\Interfaces\VideosRepositoryInterface;
@@ -21,7 +20,6 @@ use App\UI\Responders\Interfaces\AddedVideoResponderInterface;
 use App\UI\Responders\Interfaces\AddVideoResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -58,23 +56,21 @@ class ShareVideosAction
     }
 
     /**
-     * @param Request $request
-     * @param VideosDTOInterface $dto
-     * @param VideosTypeHandlerInterface $mediaHandler
-     * @param AddedVideoResponderInterface $addedVideoResponder
-     * @param AddVideoResponderInterface $addVideoResponder
+     * @param Request                       $request
+     * @param VideosTypeHandlerInterface    $mediaHandler
+     * @param AddedVideoResponderInterface  $addedVideoResponder
+     * @param AddVideoResponderInterface    $addVideoResponder
      *
      * @return mixed
      */
     public function __invoke(
         Request $request,
-        VideosDTOInterface $dto,
         VideosTypeHandlerInterface $mediaHandler,
         AddedVideoResponderInterface $addedVideoResponder,
         AddVideoResponderInterface $addVideoResponder
     ) {
         $videos = $this->formFactory
-            ->create(VideosType::class, $dto)
+            ->create(VideosType::class)
             ->handleRequest($request);
 
         if ($mediaHandler->handle($videos, intval($request->get('id')))) {

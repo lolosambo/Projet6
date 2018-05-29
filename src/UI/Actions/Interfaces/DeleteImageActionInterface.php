@@ -15,6 +15,7 @@ namespace App\UI\Actions\Interfaces;
 
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Interface DeleteImageActionInterface
@@ -35,5 +36,5 @@ interface DeleteImageActionInterface
      *
      * @return mixed
      */
-    public function __invoke(Request $request);
+    public function __invoke(Request $request, UrlGeneratorInterface $generator);
 }

@@ -27,5 +27,9 @@ interface CommentTypeHandlerInterface
      * @param FormInterface $commentType
      * @param $trickId
      */
-    public function handle(Request $request, FormInterface $commentType);
+    public function handle(
+        Request $request,
+        FormInterface $commentType
+    );
 }
+

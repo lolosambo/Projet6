@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class UpdatedTrickResponder implements UpdatedTrickResponderInterface
+final class UpdatedTrickResponder implements UpdatedTrickResponderInterface
 {
     /**
      * @var Environment
@@ -53,4 +53,5 @@ class UpdatedTrickResponder implements UpdatedTrickResponderInterface
         );
     }
 }
+
 

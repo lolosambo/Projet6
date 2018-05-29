@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\DTO\Interfaces\ImagesDTOInterface;
 use App\Domain\Form\FormHandler\Interfaces\ImagesTypeHandlerInterface;
 use App\Domain\Form\Type\ImagesType;
 use App\UI\Actions\Interfaces\AddImagesActionInterface;
@@ -49,11 +48,9 @@ class AddImagesAction implements AddImagesActionInterface
 
     /**
      * @param AddedImagesResponderInterface $addedImagesResponder
-     * @param AddImagesResponderInterface $addImagesResponder
-     *
-     * @param Request $request
-     * @param ImagesDTOInterface $imagesDto
-     * @param ImagesTypeHandlerInterface $imagesHandler
+     * @param AddImagesResponderInterface   $addImagesResponder
+     * @param Request                       $request
+     * @param ImagesTypeHandlerInterface    $imagesHandler
      *
      * @return AddedImagesResponderInterface|mixed
      */
@@ -61,17 +58,15 @@ class AddImagesAction implements AddImagesActionInterface
         Request $request,
         AddedImagesResponderInterface $addedImagesResponder,
         AddImagesResponderInterface $addImagesResponder,
-        ImagesDTOInterface $imagesDto,
         ImagesTypeHandlerInterface $imagesHandler
     ) {
-
         $images = $this->formFactory
-            ->create(ImagesType::class, $imagesDto)
+            ->create(ImagesType::class)
             ->handleRequest($request);
         if ($imagesHandler->handle($images, intval($request->get('id')))) {
             return  $addedImagesResponder();
         }
-
         return $addImagesResponder(['form' => $images->createView()]);
     }
 }
+

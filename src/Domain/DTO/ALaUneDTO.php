@@ -37,7 +37,7 @@ class ALaUneDTO implements ALaUneDTOInterface
      *
      * @param string $aLaUne
      */
-    public function __construct(int $aLaUne = null, string $url = null)
+    public function __construct(string $aLaUne = null, string $url = null)
     {
         if (($aLaUne == 0) || ($aLaUne == 1)) {
             $this->aLaUne = $aLaUne;

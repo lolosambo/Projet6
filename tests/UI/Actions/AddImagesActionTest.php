@@ -3,8 +3,6 @@
 
 namespace Tests\UI\Actions;
 
-
-use App\Domain\DTO\ImagesDTO;
 use App\Domain\Form\FormHandler\ImagesTypeHandler;
 use App\UI\Actions\AddImagesAction;
 use App\UI\Responders\AddedImagesResponder;
@@ -17,17 +15,30 @@ use Twig\Environment;
 class AddImagesActionTest extends WebTestCase
 {
 
+    /**
+     * @var
+     */
     private $container;
 
+    /**
+     * @var
+     */
     private $factory;
 
+    /**
+     * @var
+     */
     private $addImagesResponder;
 
+    /**
+     * @var
+     */
     private $addedImagesResponder;
 
+    /**
+     * @var
+     */
     private $handler;
-
-    private $dto;
 
 
     public function setUp()
@@ -38,10 +49,9 @@ class AddImagesActionTest extends WebTestCase
         $this->addedImagesResponder = new AddedImagesResponder($this->createMock(Environment::class));
         $this->addImagesResponder = new AddImagesResponder($this->createMock(Environment::class));
         $this->handler = $this->createMock(ImagesTypeHandler::class);
-        $this->dto = $this->createMock(ImagesDTO::class);
     }
 
-    public function test_construct()
+    public function testConstruct()
     {
         $action = new AddImagesAction($this->factory);
 
@@ -51,7 +61,7 @@ class AddImagesActionTest extends WebTestCase
         );
     }
 
-    public function test_bad_formHandler()
+    public function testBadFormHandler()
     {
         $request = Request::create(
             '/ajout-medias/1',
@@ -65,13 +75,12 @@ class AddImagesActionTest extends WebTestCase
                 $request,
                 $this->addedImagesResponder,
                 $this->addImagesResponder,
-                $this->dto,
                 $this->handler
             )
         );
     }
 
-    public function test_good_formHandler()
+    public function testGoodFormHandler()
     {
         $request = Request::create(
             '/ajout-medias/1',
@@ -85,9 +94,9 @@ class AddImagesActionTest extends WebTestCase
                 $request,
                 $this->addedImagesResponder,
                 $this->addImagesResponder,
-                $this->dto,
                 $this->handler
             )
         );
     }
 }
+

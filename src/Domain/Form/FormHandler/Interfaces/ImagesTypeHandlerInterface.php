@@ -33,3 +33,4 @@ interface ImagesTypeHandlerInterface
         int $trickId
     );
 }
+

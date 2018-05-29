@@ -21,7 +21,7 @@ use Twig\Environment;
  * Class AddImagesResponder
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class AddImagesResponder implements AddImagesResponderInterface
+final class AddImagesResponder implements AddImagesResponderInterface
 {
     /**
      * @var Environment
@@ -52,3 +52,4 @@ class AddImagesResponder implements AddImagesResponderInterface
         );
     }
 }
+

@@ -18,6 +18,8 @@ use App\UI\Actions\Interfaces\DeleteVideoActionInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGenerator;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class DeleteImageAction.
@@ -44,11 +46,13 @@ class DeleteVideoAction implements DeleteVideoActionInterface
     /**
      * @Route("/supprimer/trick/{trickId}/videos/{mediaId}", name="delete_videos")
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, UrlGeneratorInterface $generator)
     {
         $this->vr->deleteVideo(intval($request->get('mediaId')));
         $this->vr->flush();
-
-        return new RedirectResponse('/trick/'.$request->get('trickId'));
+        return new RedirectResponse($generator->generate('single_trick', [
+            'id' => $request->get('trickId')
+                ])
+            );
     }
 }

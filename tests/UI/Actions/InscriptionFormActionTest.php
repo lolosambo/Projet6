@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace Tests\UI\Actions;
 
-use App\Domain\DTO\InscriptionUserDTO;
 use App\Domain\Form\FormHandler\InscriptionTypeHandler;
-use App\Domain\Repository\UsersRepository;
 use App\UI\Actions\InscriptionFormAction;
 use App\UI\Responders\InscriptionFormResponder;
 use App\UI\Responders\InscriptionStatusResponder;
@@ -37,8 +35,6 @@ class InscriptionFormActionTest extends WebTestCase
 
     private $factory;
 
-    private $dto;
-
     private $handler;
 
     private $inscriptionStatusResponder;
@@ -55,13 +51,12 @@ class InscriptionFormActionTest extends WebTestCase
         $this->inscriptionStatusResponder = new InscriptionStatusResponder($this->createMock(Environment::class));
         $this->inscriptionFormResponder = new InscriptionFormResponder($this->createMock(Environment::class));
         $this->handler = $this->createMock(InscriptionTypeHandler::class);
-        $this->dto = $this->createMock(InscriptionUserDTO::class);
         $this->twig = $this->createMock(Environment::class);
     }
 
     public function test_construct()
     {
-        $action = new InscriptionFormAction($this->dto, $this->factory, $this->twig);
+        $action = new InscriptionFormAction($this->factory, $this->twig);
         static::assertInstanceOf(InscriptionFormAction::class, $action);
     }
 
@@ -79,7 +74,6 @@ class InscriptionFormActionTest extends WebTestCase
 
         $this->handler->method('handle')->willReturn(true);
         $action = new InscriptionFormAction(
-            $this->dto,
             $this->factory,
             $this->twig
         );
@@ -92,10 +86,5 @@ class InscriptionFormActionTest extends WebTestCase
         );
 
         static::assertInstanceOf(Response::class, $result);
-
-
-
     }
-
-
 }

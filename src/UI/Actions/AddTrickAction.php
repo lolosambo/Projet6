@@ -13,16 +13,13 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\DTO\Interfaces\TricksAddDTOInterface;
 use App\Domain\Form\FormHandler\Interfaces\TrickAddTypeHandlerInterface;
 use App\Domain\Form\Type\TrickType;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Actions\Interfaces\AddTrickActionInterface;
 use App\UI\Responders\Interfaces\AddedTrickResponderInterface;
 use App\UI\Responders\Interfaces\AddTrickResponderInterface;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -64,7 +61,6 @@ class AddTrickAction implements AddTrickActionInterface
      * @param AddedTrickResponderInterface $addedTrickResponder
      * @param AddTrickResponderInterface $addTrickResponder
      * @param TrickAddTypeHandlerInterface $TrickTypeHandler
-     * @param TricksAddDTOInterface $trickDto
      *
      * @return mixed
      */
@@ -72,15 +68,14 @@ class AddTrickAction implements AddTrickActionInterface
         Request $request,
         AddedTrickResponderInterface $addedTrickResponder,
         AddTrickResponderInterface $addTrickResponder,
-        TrickAddTypeHandlerInterface $TrickTypeHandler,
-        TricksAddDTOInterface $trickDto
+        TrickAddTypeHandlerInterface $TrickTypeHandler
     ) {
         $form = $this->formFactory
-            ->create(TrickType::class, $trickDto)
+            ->create(TrickType::class)
             ->handleRequest($request);
 
-        if ($TrickTypeHandler->handle($request, $form, $trickDto)) {
-            $trick = $this->tr->findOneByContent($trickDto->content);
+        if ($TrickTypeHandler->handle($form)) {
+            $trick = $this->tr->findOneByContent($form->get('content')->getData());
 
             return $addedTrickResponder(['trick' => $trick]);
         }

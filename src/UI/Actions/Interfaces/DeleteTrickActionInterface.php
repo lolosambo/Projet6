@@ -15,6 +15,7 @@ namespace App\UI\Actions\Interfaces;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Interface DeleteTrickActionInterface
@@ -35,5 +36,5 @@ interface DeleteTrickActionInterface
      *
      * @return mixed
      */
-    public function __invoke(Request $request);
+    public function __invoke(Request $request, UrlGeneratorInterface $generator);
 }

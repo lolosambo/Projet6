@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class InscriptionStatusResponder implements InscriptionStatusResponderInterface
+final class InscriptionStatusResponder implements InscriptionStatusResponderInterface
 {
     /**
      * @var Environment

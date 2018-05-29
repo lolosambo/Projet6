@@ -67,7 +67,7 @@ class ALaUneType extends AbstractType implements FormTypeInterface
             'data_class' => AlaUneDTO::class,
             'empty_data' => function (FormInterface $form) {
                 return new ALaUneDTO(
-                    $form->get('url')->getData()
+                    $form->get('aLaUne')->getData()->getUrl()
                 );
             },
             'trickId' => 18,

@@ -15,10 +15,8 @@ namespace Tests\UI\Actions;
 
 use App\UI\Actions\ConnectionFormAction;
 use App\UI\Responders\ConnectionFormResponder;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Twig\Environment;
 
 /**
  * Class ConnectionFormControllerTest
@@ -38,29 +36,25 @@ class ConnectionFormActionTest extends WebTestCase
         static::bootKernel();
         $this->container = static::$kernel->getContainer();
         $this->authenticationUtils = $this->container->get('security.authentication_utils');
-        $this->responder = $this->createMock(ConnectionFormResponder::class);
+        $this->responder = new ConnectionFormResponder($this->createMock(Environment::class));
     }
 
-    public function test_construct()
+    public function testConstruct()
     {
         $action = new ConnectionFormAction();
         static::assertInstanceOf(ConnectionFormAction::class, $action);
     }
 
-    public function test_Connection_Form_Must_Be_Showed() {
+    public function testConnectionFormMustBeShowed() {
 
         $client = static::createClient();
         $crawler = $client->request('GET', '/connexion');
         $response = $client->getResponse();
         $content = $response->getContent();
 
-        $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('Utilisateur', $content );
-        $this->assertContains('Mot de passe', $content );
-        $this->assertContains('Réinitialiser', $content );
-        $this->assertContains('Se connecter', $content );
-
+        $this->assertContains('Pseudo', $content );
     }
 }
+
 
 

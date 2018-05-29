@@ -29,7 +29,7 @@ class TrickAddDTO implements TricksAddDTOInterface
     public $name;
 
     /**
-     * @var int
+     * @var Groups
      */
     public $group;
 
@@ -47,7 +47,7 @@ class TrickAddDTO implements TricksAddDTOInterface
      */
     public function __construct(
         string $name = null,
-        string $group = null,
+        Groups $group = null,
         string $content = null
     ) {
         $this->name = $name;

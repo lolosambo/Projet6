@@ -23,6 +23,9 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGenerator;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+
 
 /**
  * Class ALaUneAction.
@@ -59,15 +62,16 @@ class ALaUneAction implements ALaUneActionInterface
         Request $request,
         ALaUneResponderInterface $aLaUneResponder,
         ALaUneTypeHandlerInterface $aLaUneTypeHandler,
-        ALaUneDTOInterface $dto
+        UrlGeneratorInterface $generator
     ) {
         $id = intval($request->get('id'));
         $form = $this->formFactory
-            ->create(ALaUneType::class, $dto, ['trickId' => $id])
+            ->create(ALaUneType::class, null, ['trickId' => $id])
             ->handleRequest($request);
 
         if ($aLaUneTypeHandler->handle($form, $id)) {
-            return new RedirectResponse('/trick/'.$id);
+
+            return new RedirectResponse($generator->generate('single_trick', ['id' => $id]));
         }
 
         return $aLaUneResponder(['form' => $form->createView()]);

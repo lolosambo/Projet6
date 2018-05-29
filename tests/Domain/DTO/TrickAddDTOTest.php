@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Tests\Domain\DTO;
 
 use App\Domain\DTO\TrickAddDTO;
+use App\Domain\Models\Groups;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -30,28 +31,25 @@ class TrickAddDTOTest extends WebTestCase
 
     public function setUp()
     {
+        $group= $this->createMock(Groups::class);
         $dto = new TrickAddDTO(
             'test Trick',
-            '1',
+            $group,
             'content of the fake trick'
         );
         $this->dto = $dto;
     }
 
-    /**
-     * @test
-     */
-    public function name_attribute_must_be_a_string()
+
+    public function testNameAttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->name);
     }
 
-    /**
-     * @test
-     */
-    public function group_attribute_must_be_a_string()
+
+    public function testGroupAttributeMustBeAnInstanceOfGroups()
     {
-        static::assertInternalType('string', $this->dto->group);
+        static::assertInstanceOf(Groups::class, $this->dto->group);
     }
 
     /**

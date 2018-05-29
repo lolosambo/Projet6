@@ -30,9 +30,9 @@ class ImagesDTO implements ImagesDTOInterface
     /**
      * ImagesDTO constructor.
      *
-     * @param \SplFileInfo $image
+     * @param array|null $image
      */
-    public function __construct(\SplFileInfo $image = null)
+    public function __construct(array $image = null)
     {
         $this->image = $image;
     }

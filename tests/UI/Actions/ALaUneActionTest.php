@@ -12,15 +12,14 @@ declare(strict_types=1);
  */
 namespace Tests\UI\Actions;
 
-use App\Domain\DTO\ALaUneDTO;
 use App\Domain\Form\FormHandler\ALaUneTypeHandler;
-use App\Domain\Repository\TricksRepository;
 use App\UI\Actions\ALaUneAction;
 use App\UI\Responders\ALaUneResponder;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGenerator;
 use Twig\Environment;
 
 /**
@@ -39,37 +38,35 @@ class ALaUneActionTest extends WebTestCase
 
     private $handler;
 
-    private $dto;
-
+    private $generator;
 
     public function setUp()
     {
         static::bootKernel();
         $this->container = static::$kernel->getContainer();
         $this->factory = $this->container->get('form.factory');
-        $this->repository = $this->createMock(TricksRepository::class);
         $this->aLaUneResponder = new ALaUneResponder($this->createMock(Environment::class));
         $this->handler = $this->createMock(ALaUneTypeHandler::class);
-        $this->dto = $this->createMock(ALaUneDTO::class);
+        $this->generator = $this->createMock(UrlGenerator::class);
     }
 
-    public function test_construct()
+    public function testConstruct()
     {
         $action = new ALaUneAction($this->factory);
-
         static::assertInstanceOf(
             ALaUneAction::class,
             $action
         );
     }
 
-    public function test_bad_formHandler()
+    public function testBadFormHandler()
     {
         $request = Request::create(
             '/image_a_la_une/1',
             'POST'
         );
         $this->handler->method('handle')->willReturn(false);
+        $this->generator->method('generate')->willReturn('homepage');
         $action = new ALaUneAction($this->factory);
 
         static::assertInstanceOf(Response::class,
@@ -77,18 +74,19 @@ class ALaUneActionTest extends WebTestCase
                 $request,
                 $this->aLaUneResponder,
                 $this->handler,
-                $this->dto
+                $this->generator
             )
         );
     }
 
-    public function test_good_formHandler()
+    public function testGoodFormHandler()
     {
         $request = Request::create(
             '/image_a_la_une/1',
             'POST'
         );
         $this->handler->method('handle')->willReturn(true);
+        $this->generator->method('generate')->willReturn('homepage');
         $action = new ALaUneAction($this->factory);
 
         static::assertInstanceOf(RedirectResponse::class,
@@ -96,7 +94,7 @@ class ALaUneActionTest extends WebTestCase
                 $request,
                 $this->aLaUneResponder,
                 $this->handler,
-                $this->dto
+                $this->generator
             )
         );
     }

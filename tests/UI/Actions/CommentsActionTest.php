@@ -12,7 +12,6 @@ declare(strict_types=1);
  */
 namespace Tests\UI\Actions;
 
-use App\Domain\DTO\CommentDTO;
 use App\Domain\Form\FormHandler\CommentTypeHandler;
 use App\Domain\Repository\CommentsRepository;
 use App\UI\Actions\CommentsAction;
@@ -38,8 +37,6 @@ class CommentsActionTest extends WebTestCase
 
     private $handler;
 
-    private $dto;
-
     private $session;
 
     private $request;
@@ -53,7 +50,6 @@ class CommentsActionTest extends WebTestCase
         $this->repository = $this->createMock(CommentsRepository::class);
         $this->commentResponder = new CommentsResponder($this->createMock(Environment::class));
         $this->handler = $this->createMock(CommentTypeHandler::class);
-        $this->dto = $this->createMock(CommentDTO::class);
         $this->request = Request::create(
             '/trick/1',
             'GET'
@@ -62,7 +58,7 @@ class CommentsActionTest extends WebTestCase
 
     public function test_construct()
     {
-        $action = new CommentsAction($this->factory, $this->session, $this->dto);
+        $action = new CommentsAction($this->factory, $this->session);
 
         static::assertInstanceOf(
             CommentsAction::class,
@@ -73,7 +69,7 @@ class CommentsActionTest extends WebTestCase
     public function test_no_formHandler()
     {
 
-        $action = new CommentsAction($this->factory, $this->session, $this->dto);
+        $action = new CommentsAction($this->factory, $this->session);
         $result = $action->getComments($this->request, $this->handler, $this->commentResponder);
 
         static::assertNull($result);
@@ -83,7 +79,7 @@ class CommentsActionTest extends WebTestCase
     {
         $this->handler->method('handle')->willReturn(false);
         $this->session->set('userId', 1);
-        $action = new CommentsAction($this->factory, $this->session, $this->dto);
+        $action = new CommentsAction($this->factory, $this->session);
         $result = $action->getComments($this->request, $this->handler, $this->commentResponder);
 
         static::assertInstanceOf(\Exception::class,
@@ -95,9 +91,8 @@ class CommentsActionTest extends WebTestCase
     {
         $this->handler->method('handle')->willReturn(true);
         $this->session->set('userId', 1);
-        $action = new CommentsAction($this->factory, $this->session, $this->dto);
+        $action = new CommentsAction($this->factory, $this->session);
         $result = $action->getComments($this->request, $this->handler, $this->commentResponder);
-
         static::assertInstanceOf(Response::class,
             $result
         );

@@ -15,7 +15,6 @@ namespace Tests\UI\Actions;
 
 use App\Domain\Form\FormHandler\UpdateTrickTypeHandler;
 use App\Domain\Models\Tricks;
-use App\Domain\Repository\TricksRepository;
 use App\UI\Actions\UpdatetrickAction;
 use App\UI\Responders\UpdatedTrickResponder;
 use App\UI\Responders\UpdateTrickResponder;

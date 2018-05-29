@@ -16,9 +16,7 @@ namespace App\Domain\Form\FormHandler\Interfaces;
 use App\Domain\Repository\Interfaces\GroupsRepositoryInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
@@ -44,13 +42,9 @@ interface TrickAddTypeHandlerInterface
     );
 
     /**
-     * @param Request $request
      * @param FormInterface $trickType
      *
      * @return mixed
      */
-    public function handle(
-        Request $request,
-        FormInterface $trickType
-    );
+    public function handle(FormInterface $trickType);
 }

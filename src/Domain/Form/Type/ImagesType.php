@@ -16,12 +16,10 @@ namespace App\Domain\Form\Type;
 use App\Domain\DTO\ImagesDTO;
 use App\Domain\Form\Type\Interfaces\FormTypeInterface;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Image;
 
 /**
  * Class ImagesType.
@@ -61,3 +59,4 @@ class ImagesType extends AbstractType implements FormTypeInterface
         ]);
     }
 }
+

@@ -26,12 +26,12 @@ interface TricksAddDTOInterface
      * TricksAddDTOInterface constructor.
      *
      * @param string $name
-     * @param string $group
+     * @param Groups $group
      * @param string $content
      */
     public function __construct(
         string $name,
-        string $group,
+        Groups $group,
         string $content
     );
 }

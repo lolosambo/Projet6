@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions\Interfaces;
 
-use App\Domain\DTO\Interfaces\ImagesDTOInterface;
+
 use App\Domain\Form\FormHandler\Interfaces\ImagesTypeHandlerInterface;
 use App\UI\Responders\Interfaces\AddedImagesResponderInterface;
 use App\UI\Responders\Interfaces\AddImagesResponderInterface;
@@ -35,11 +35,10 @@ interface AddImagesActionInterface
     public function __construct(FormFactoryInterface $formFactory);
 
     /**
-     * @param Request $request
+     * @param Request                       $request
      * @param AddedImagesResponderInterface $addedImagesResponder
-     * @param AddImagesResponderInterface $addImagesResponder
-     * @param ImagesDTOInterface $imagesDto
-     * @param ImagesTypeHandlerInterface $imagesHandler
+     * @param AddImagesResponderInterface   $addImagesResponder
+     * @param ImagesTypeHandlerInterface    $imagesHandler
      *
      * @return mixed
      */
@@ -47,7 +46,6 @@ interface AddImagesActionInterface
         Request $request,
         AddedImagesResponderInterface $addedImagesResponder,
         AddImagesResponderInterface $addImagesResponder,
-        ImagesDTOInterface $imagesDto,
         ImagesTypeHandlerInterface $imagesHandler
     );
 }

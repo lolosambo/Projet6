@@ -18,6 +18,7 @@ use App\Domain\Form\FormHandler\Interfaces\ALaUneTypeHandlerInterface;
 use App\UI\Responders\Interfaces\ALaUneResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Interface ALaUneActionInterface
@@ -45,6 +46,6 @@ interface ALaUneActionInterface
         Request $request,
         ALaUneResponderInterface $aLaUneResponder,
         ALaUneTypeHandlerInterface $aLaUneTypeHandler,
-        ALaUneDTOInterface $dto
+        UrlGeneratorInterface $generator
     );
 }

@@ -29,7 +29,7 @@ class ALaUneDTOTest extends WebTestCase
     private $dto;
 
     public function setUp() {
-        $dto = new ALaUneDTO(1);
+        $dto = new ALaUneDTO("1");
         $this->dto = $dto;
     }
 
@@ -49,7 +49,7 @@ class ALaUneDTOTest extends WebTestCase
     /** @test */
     public function aLaUne_attribute_return_0_if_others_values()
     {
-        $dto = new ALaUneDTO(3);
+        $dto = new ALaUneDTO("3");
         $this->dto = $dto;
         static::assertEquals(0, $this->dto->aLaUne);
     }

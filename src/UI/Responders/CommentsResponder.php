@@ -22,7 +22,7 @@ use Twig\Environment;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class CommentsResponder implements CommentsResponderInterface
+final class CommentsResponder implements CommentsResponderInterface
 {
     /**
      * @var Environment
@@ -53,4 +53,5 @@ class CommentsResponder implements CommentsResponderInterface
         );
     }
 }
+
 

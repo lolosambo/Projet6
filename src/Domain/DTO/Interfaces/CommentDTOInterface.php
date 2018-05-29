@@ -27,3 +27,4 @@ interface CommentDTOInterface
      */
     public function __construct($comment = null);
 }
+

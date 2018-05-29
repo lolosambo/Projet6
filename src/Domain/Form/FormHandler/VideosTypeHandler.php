@@ -58,8 +58,6 @@ class VideosTypeHandler implements VideosTypeHandlerInterface
         FormInterface $videosType,
         int $trickId
     ) {
-        $trick = $this->tr->find($trickId);
-
         if ($videosType->isSubmitted() && $videosType->isValid()) {
             $addresses = [
                 $videosType->getData()->address1,
@@ -67,20 +65,17 @@ class VideosTypeHandler implements VideosTypeHandlerInterface
                 $videosType->getData()->address3,
                 $videosType->getData()->address4,
             ];
-
             foreach ($addresses as $address) {
                 if (null != $address) {
                     $media = new Videos();
-                    $media->setTrickId($trickId);
-                    $media->setTrick($trick);
+                    $media->setTrick($this->tr->find($trickId));
                     $media->setUrl($address);
                     $this->vr->save($media);
                 }
             }
-
             return true;
         }
-
         return false;
     }
 }
+

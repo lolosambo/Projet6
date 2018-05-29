@@ -23,7 +23,8 @@ interface ImagesDTOInterface
     /**
      * ImagesDTOInterface constructor.
      *
-     * @param $image
+     * @param array|null $image
      */
-    public function __construct(\SplFileInfo $image = null);
+    public function __construct(array $image = null);
 }
+

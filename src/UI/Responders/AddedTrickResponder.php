@@ -14,7 +14,7 @@ use Twig\Environment;
  * Class AddImagesResponder
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class AddedTrickResponder implements AddedTrickResponderInterface
+final class AddedTrickResponder implements AddedTrickResponderInterface
 {
     /**
      * @var Environment

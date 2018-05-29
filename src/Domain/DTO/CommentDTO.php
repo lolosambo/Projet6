@@ -37,3 +37,4 @@ class CommentDTO implements CommentDTOInterface
         $this->content = $comment;
     }
 }
+

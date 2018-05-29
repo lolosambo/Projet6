@@ -48,7 +48,7 @@ tests:
     "Add Videos page test":
         path: "/ajout-videos/.*"
         assertions:
-            - "metrics.sql.queries.count == 1"
+            - "metrics.sql.queries.count == 0"
             - "main.peak_memory < 5mb"
             - "metrics.output.network_out < 5kb"
     "Add Trick page test":

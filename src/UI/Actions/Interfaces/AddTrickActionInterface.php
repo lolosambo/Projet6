@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\UI\Actions\Interfaces;
 
-use App\Domain\DTO\Interfaces\TricksAddDTOInterface;
 use App\Domain\Form\FormHandler\Interfaces\TrickAddTypeHandlerInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responders\Interfaces\AddedTrickResponderInterface;
@@ -37,8 +36,7 @@ interface AddTrickActionInterface
         Request $request,
         AddedTrickResponderInterface $addedTrickResponder,
         AddTrickResponderInterface $addTrickResponder,
-        TrickAddTypeHandlerInterface $TrickTypeHandler,
-        TricksAddDTOInterface $trickDto
+        TrickAddTypeHandlerInterface $TrickTypeHandler
     );
 
 

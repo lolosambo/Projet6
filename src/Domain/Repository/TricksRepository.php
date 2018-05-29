@@ -16,9 +16,6 @@ namespace App\Domain\Repository;
 use App\Domain\Models\Tricks;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Cache\CacheProvider;
-use Doctrine\Common\Cache\PredisCache;
-use Predis\Client;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 

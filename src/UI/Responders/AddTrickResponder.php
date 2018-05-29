@@ -14,7 +14,7 @@ use Twig\Environment;
  * Class AddImagesResponder
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class AddTrickResponder implements AddTrickResponderInterface
+final class AddTrickResponder implements AddTrickResponderInterface
 {
     /**
      * @var Environment
@@ -40,6 +40,8 @@ class AddTrickResponder implements AddTrickResponderInterface
      */
     public function __invoke($data)
     {
-        return new Response($this->twig->render('add_trick.html.twig', $data));
+        return new Response(
+            $this->twig->render('add_trick.html.twig', $data)
+        );
     }
 }

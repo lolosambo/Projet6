@@ -48,18 +48,16 @@ class InscriptionTypeHandler implements FormTypeHandlerInterface
     public function handle(FormInterface $inscriptionType)
     {
         if ($inscriptionType->isSubmitted() && $inscriptionType->isValid()) {
-            $encodedPass = sha1($inscriptionType->getData()->password);
             $user = new Users(
                 $inscriptionType->getData()->pseudo,
-                $encodedPass,
+                sha1($inscriptionType->getData()->password),
                 $inscriptionType->getData()->mail
             );
             $user->setInscrDate(new \DateTime('NOW'));
             $this->ur->save($user);
-
             return true;
         }
-
         return false;
     }
 }
+
