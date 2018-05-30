@@ -73,7 +73,10 @@ class InscriptionTypeHandler implements InscriptionTypeHandlerInterface
             $message = (new Swift_Message('Nouvelle inscription'))
                 ->setFrom('lolosambo2@gmail.com')
                 ->setTo($inscriptionType->getData()->mail)
-                ->setBody($this->twig->render('email_inscription.html.twig', ['name' => $inscriptionType->getData()->pseudo, 'token' => '123456789' ]))
+                ->setBody($this->twig->render('email_inscription.html.twig', [
+                    'name' => $inscriptionType->getData()->pseudo,
+                    'token' => '123456789'
+                ]))
                 ->setContentType("text/html");
             $mailer->send($message);
             return true;

@@ -15,6 +15,7 @@ namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\TricksInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Ramsey\Uuid\Uuid;
 
 
 /**
@@ -30,7 +31,7 @@ class Tricks implements TricksInterface
     private $id;
 
     /**
-     * @var int
+     * @var Uuid
      */
     private $userId;
 
@@ -205,7 +206,7 @@ class Tricks implements TricksInterface
     }
 
     /**
-     * @return int
+     * @return Uuid
      */
     public function getUserId()
     {
@@ -213,9 +214,9 @@ class Tricks implements TricksInterface
     }
 
     /**
-     * @param $userId
+     * @param Uuid  $userId
      */
-    public function setUserId($userId)
+    public function setUserId(Uuid $userId)
     {
         $this->userId = $userId;
     }

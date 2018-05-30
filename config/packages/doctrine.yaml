@@ -5,6 +5,8 @@ doctrine:
         charset: '%env(DB_CHARSET_DEV)%'
         memory: false
         url: '%env(resolve:DATABASE_URL_DEV)%'
+        types:
+            uuid: Ramsey\Uuid\Doctrine\UuidType
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
