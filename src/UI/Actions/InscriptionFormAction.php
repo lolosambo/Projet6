@@ -82,22 +82,11 @@ class InscriptionFormAction implements InscriptionFormActionInterface
             ->create(InscriptionType::class)
             ->handleRequest($request);
 
-        if ($InscriptionTypeHandler->handle($form)) {
-            $message = (new Swift_Message('Nouvelle inscription'))
-                ->setFrom('lolosambo2@gmail.com')
-                ->setTo($form->get('mail')->getData())
-                ->setBody($this->twig->render(
-                    'email_inscription.html.twig',
-                    [
-                        'name' => $form->get('pseudo')->getData(),
-                        'token' => '123456789', ]
-                ),
-                    'text/html'
-                );
-            $mailer->send($message);
+        if ($InscriptionTypeHandler->handle($form, $mailer)) {
             return $inscriptionStatusResponder();
         }
         return  $inscriptionFormResponder(['form' => $form->createView()]);
     }
 }
+
 
