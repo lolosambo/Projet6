@@ -79,22 +79,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="IndexActionTest.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="IndexActionTest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="81" column="39" lean-forward="false" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="39" />
-              <folding />
+            <state relative-caret-position="360">
+              <caret line="82" column="71" lean-forward="false" selection-start-line="82" selection-start-column="71" selection-end-line="82" selection-end-column="71" />
+              <folding>
+                <element signature="e#296#325#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OneTrickActionTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OneTrickActionTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="92" column="48" lean-forward="false" selection-start-line="92" selection-start-column="48" selection-end-line="92" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="213">
+              <caret line="86" column="5" lean-forward="false" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+              <folding>
+                <element signature="e#296#325#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,8 +174,8 @@
         <option value="$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php" />
         <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/UpdateTrickTypeHandler.php" />
         <option value="$PROJECT_DIR$/src/Domain/Form/Type/UpdateTrickType.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php" />
         <option value="$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php" />
+        <option value="$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php" />
       </list>
     </option>
   </component>
@@ -626,7 +630,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="343031000" />
+    <option name="totallyTimeSpent" value="344012000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="276" y="31" width="2131" height="1302" extended-state="0" />
@@ -1066,19 +1070,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php">
+    <entry file="file://$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="81" column="39" lean-forward="false" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="213">
+          <caret line="86" column="5" lean-forward="false" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+          <folding>
+            <element signature="e#296#325#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php">
+    <entry file="file://$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="92" column="48" lean-forward="false" selection-start-line="92" selection-start-column="48" selection-end-line="92" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="360">
+          <caret line="82" column="71" lean-forward="false" selection-start-line="82" selection-start-column="71" selection-end-line="82" selection-end-column="71" />
+          <folding>
+            <element signature="e#296#325#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

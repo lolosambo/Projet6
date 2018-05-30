@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace Tests\UI\Actions;
 
+use App\Domain\Models\Groups;
 use App\Domain\Models\Tricks;
+use App\Domain\Models\Users;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -66,7 +68,7 @@ class OneTrickActionTest extends WebTestCase
     /** @test */
     public function trickMustContainsGroup() {
 
-        $this->assertContains('Groupe 1', $this->trick->getGroup()->getName());
+        $this->assertInstanceOf(groups::class, $this->trick->getGroup());
 
     }
 
@@ -80,7 +82,7 @@ class OneTrickActionTest extends WebTestCase
     /** @test */
     public function trickMustContainsAuthor() {
 
-        $this->assertContains('User', $this->trick->getUser()->getPseudo());
+        $this->assertInstanceOf(Users::class, $this->trick->getUser());
 
     }
 
@@ -88,10 +90,6 @@ class OneTrickActionTest extends WebTestCase
     public function trickMustContainsUpdateDate() {
 
         $this->assertInstanceOf(\DateTime::class, $this->trick->getTrickDate());
-        $date = $this->trick->getTrickDate();
-        $formated_date = $date->format('Y-m-d H:i:s');
-        $this->assertEquals('2018-08-17 08:02:46', $formated_date);
-
     }
 
     protected function tearDown() {

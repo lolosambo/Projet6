@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Tests\UI\Actions;
 
+use App\Domain\Models\Groups;
 use App\Domain\Models\Tricks;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -79,7 +80,7 @@ class IndexActionTest extends WebTestCase
             ->getRepository(Tricks::class)
             ->find(1);
 
-        $this->assertContains('Groupe 1', $this->trick->getGroup()->getName());
+        $this->assertInstanceOf(Groups::class, $this->trick->getGroup());
 
     }
 
