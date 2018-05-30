@@ -79,7 +79,7 @@ class IndexActionTest extends WebTestCase
             ->getRepository(Tricks::class)
             ->find(1);
 
-        $this->assertContains('Groupe 3', $this->trick->getGroup()->getName());
+        $this->assertContains('Groupe 1', $this->trick->getGroup()->getName());
 
     }
 
