@@ -85,10 +85,10 @@ class TrickTypeHandler implements TrickAddTypeHandlerInterface
             );
             $userId = $this->session->get('userId');
             $user = $this->ur->find($userId);
-            $group = $this->gr->findOneByGroup($trickType->getData()->group->getGroup());
+            $group = $this->gr->findOneByGroup($trickType->getData()->group->getName());
 
             $trick->setUser($user);
-            $trick->setGroup($group);
+            $trick->setName($group);
             $trick->setTrickDate(new \DateTime('NOW'));
             $trick->setTrickUpdate(new \DateTime('NOW'));
             $this->tr->save($trick);

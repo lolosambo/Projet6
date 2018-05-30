@@ -30,9 +30,9 @@ class GroupsFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         for ($i = 1; $i <= 4; $i++) {
-            $name = 'Groupe'.$i;
+            $name = 'Groupe '.$i;
             $group = new Groups();
-            $group->setGroup($name);
+            $group->setName($name);
             $this->addReference('group'.$i, $group);
             $manager->persist($group);
         }

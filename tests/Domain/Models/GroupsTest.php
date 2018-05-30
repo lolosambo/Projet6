@@ -31,7 +31,7 @@ class GroupsTest extends WebTestCase
 
     public function setUp() {
         $group = new Groups();
-        $group->setGroup('Grabs');
+        $group->setName('Grabs');
         $this->group = $group;
     }
 
@@ -40,11 +40,11 @@ class GroupsTest extends WebTestCase
         static::assertInstanceOf(Groups::class, $this->group);
 
         static::assertObjectHasAttribute('id', $this->group);
-        static::assertObjectHasAttribute('group', $this->group);
+        static::assertObjectHasAttribute('name', $this->group);
     }
 
     public function test_entity_should_have_valid_attributes() {
 
-        static::assertContains('Grabs', $this->group->getGroup());
+        static::assertContains('Grabs', $this->group->getName());
     }
 }

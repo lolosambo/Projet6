@@ -30,7 +30,7 @@ class Groups implements GroupsInterface
     /**
      * @var string
      */
-    private $group;
+    private $name;
 
     /**
      * @return mixed
@@ -43,16 +43,16 @@ class Groups implements GroupsInterface
     /**
      * @return mixed
      */
-    public function getGroup()
+    public function getName()
     {
-        return $this->group;
+        return $this->name;
     }
 
     /**
      * @param $group
      */
-    public function setGroup($group)
+    public function setName($name)
     {
-        $this->group = htmlspecialchars($group);
+        $this->name = htmlspecialchars($name);
     }
 }
