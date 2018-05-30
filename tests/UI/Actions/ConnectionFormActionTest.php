@@ -25,7 +25,7 @@ use Twig\Environment;
  */
 class ConnectionFormActionTest extends WebTestCase
 {
-    private $container;
+    protected static $container;
 
     private $authenticationUtils;
 
@@ -34,8 +34,8 @@ class ConnectionFormActionTest extends WebTestCase
     public function setUp()
     {
         static::bootKernel();
-        $this->container = static::$kernel->getContainer();
-        $this->authenticationUtils = $this->container->get('security.authentication_utils');
+        self::$container = static::$kernel->getContainer();
+        $this->authenticationUtils = self::$container->get('security.authentication_utils');
         $this->responder = new ConnectionFormResponder($this->createMock(Environment::class));
     }
 

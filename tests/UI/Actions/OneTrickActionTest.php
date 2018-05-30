@@ -19,6 +19,7 @@ use App\Domain\Models\Users;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+
 /**
  * Class OneTrickControllerTest
  *

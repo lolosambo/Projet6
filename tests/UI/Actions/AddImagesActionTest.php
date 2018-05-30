@@ -18,7 +18,7 @@ class AddImagesActionTest extends WebTestCase
     /**
      * @var
      */
-    private $container;
+    protected static $container;
 
     /**
      * @var
@@ -44,8 +44,8 @@ class AddImagesActionTest extends WebTestCase
     public function setUp()
     {
         static::bootKernel();
-        $this->container = static::$kernel->getContainer();
-        $this->factory = $this->container->get('form.factory');
+        self::$container = static::$kernel->getContainer();
+        $this->factory = self::$container->get('form.factory');
         $this->addedImagesResponder = new AddedImagesResponder($this->createMock(Environment::class));
         $this->addImagesResponder = new AddImagesResponder($this->createMock(Environment::class));
         $this->handler = $this->createMock(ImagesTypeHandler::class);

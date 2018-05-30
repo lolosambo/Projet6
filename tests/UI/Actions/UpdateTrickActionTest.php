@@ -30,7 +30,7 @@ use Twig\Environment;
  */
 class UpdateTrickActionTest extends WebTestCase
 {
-    private $container;
+    protected static $container;
 
     private $factory;
 
@@ -45,8 +45,8 @@ class UpdateTrickActionTest extends WebTestCase
     public function setUp()
     {
         static::bootKernel();
-        $this->container = static::$kernel->getContainer();
-        $this->factory = $this->container->get('form.factory');
+        self::$container = static::$kernel->getContainer();
+        $this->factory = self::$container->get('form.factory');
         $this->handler = $this->createMock(UpdateTrickTypeHandler::class);
         $this->trick = $this->createMock(Tricks::class);
         $this->updatedTrickResponder = new UpdatedTrickResponder($this->createMock(Environment::class));

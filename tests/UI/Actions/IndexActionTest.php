@@ -17,7 +17,6 @@ use App\Domain\Models\Groups;
 use App\Domain\Models\Tricks;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-
 /**
  * Class AllTricksControllerTest
  *

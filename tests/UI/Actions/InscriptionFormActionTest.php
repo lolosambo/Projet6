@@ -31,7 +31,7 @@ use Twig\Environment;
 class InscriptionFormActionTest extends WebTestCase
 {
 
-    private $container;
+    protected static $container;
 
     private $factory;
 
@@ -46,8 +46,8 @@ class InscriptionFormActionTest extends WebTestCase
     public function setUp()
     {
         static::bootKernel();
-        $this->container = static::$kernel->getContainer();
-        $this->factory = $this->container->get('form.factory');
+        self::$container = static::$kernel->getContainer();
+        $this->factory = self::$container->get('form.factory');
         $this->inscriptionStatusResponder = new InscriptionStatusResponder($this->createMock(Environment::class));
         $this->inscriptionFormResponder = new InscriptionFormResponder($this->createMock(Environment::class));
         $this->handler = $this->createMock(InscriptionTypeHandler::class);
