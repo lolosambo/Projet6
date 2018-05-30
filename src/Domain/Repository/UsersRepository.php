@@ -47,6 +47,7 @@ class UsersRepository extends ServiceEntityRepository implements UsersRepository
         return $this->createQueryBuilder('u')
             ->where('u.id = ?1')
             ->setParameter(1, $id)
+            ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();
     }
@@ -64,6 +65,7 @@ class UsersRepository extends ServiceEntityRepository implements UsersRepository
         return $this->createQueryBuilder('u')
             ->where('u.pseudo = :pseudo')->setParameter('pseudo', $pseudo)
             ->andWhere('u.password = :password')->setParameter('password', sha1($password))
+            ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();
     }

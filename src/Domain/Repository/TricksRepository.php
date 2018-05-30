@@ -61,6 +61,7 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
         return $this->createQueryBuilder('t')
             ->where('t.id = ?1')
             ->setParameter(1, $id)
+            ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();
     }

@@ -48,6 +48,7 @@ class GroupsRepository extends ServiceEntityRepository implements GroupsReposito
             ->where('g.group = ?1')
             ->setParameter(1, $group)
             ->getQuery()
+            ->setCacheable(true)
             ->getOneOrNullResult();
     }
 }

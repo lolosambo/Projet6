@@ -17,6 +17,7 @@ use App\Domain\Models\Images;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Bundle\FrameworkBundle\Tests\CacheWarmer\testRouterInterfaceWithoutWarmebleInterface;
 
 /**
  * Class ImagesRepository
@@ -47,6 +48,7 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
         return $this->createQueryBuilder('i')
             ->where('i.trickId = :trickId AND i.aLaUne = 1')
             ->setParameter(':trickId', $trickId)
+            ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();
     }
@@ -63,6 +65,7 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
         return $this->createQueryBuilder('i')
             ->where('i.url = :url')
             ->setParameter(':url', $url)
+            ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();
     }
