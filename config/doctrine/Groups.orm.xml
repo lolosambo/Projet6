@@ -8,6 +8,6 @@
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="group" type="string" length="255"/>
+        <field name="name" type="string" length="255"/>
     </entity>
 </doctrine-mapping>

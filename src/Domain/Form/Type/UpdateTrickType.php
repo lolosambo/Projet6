@@ -44,7 +44,7 @@ class UpdateTrickType extends AbstractType implements FormTypeInterface
             ->add('name', TextType::class, ['label' => 'Nom de la figure'])
             ->add('group', EntityType::class, [
                 'class' => 'App\Domain\Models\Groups',
-                'choice_label' => 'Group',
+                'choice_label' => 'name',
                     'expanded' => false,
                     'multiple' => false,
                 ]

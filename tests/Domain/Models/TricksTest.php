@@ -15,6 +15,7 @@ namespace Tests\Domain\Models;
 
 use App\Domain\Models\Tricks;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 /**
@@ -22,7 +23,7 @@ use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class TricksTest extends TestCase
+class TricksTest extends WebTestCase
 {
     /**
      * @var Tricks

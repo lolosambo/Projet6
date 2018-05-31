@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Tests\Domain\Models;
 
 use App\Domain\Models\Users;
-use Symfony\Bundle\FrameworkBundle\Tests\Functional\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Class UsersTest

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Tests\UI\Actions;
 
+use App\Domain\Models\Groups;
 use App\Domain\Models\Tricks;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -49,7 +50,7 @@ class IndexActionTest extends WebTestCase
             ->getRepository(Tricks::class)
             ->findAll();
 
-        $this->assertCount(9, $tricks);
+        $this->assertCount(30, $tricks);
     }
 
     /** @test */
@@ -68,7 +69,7 @@ class IndexActionTest extends WebTestCase
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)
             ->find(1);
-        $this->assertContains('Japan Air', $this->trick->getName());
+        $this->assertContains('Figure0', $this->trick->getName());
 
     }
 
@@ -79,7 +80,7 @@ class IndexActionTest extends WebTestCase
             ->getRepository(Tricks::class)
             ->find(1);
 
-        $this->assertContains('Grabs', $this->trick->getGroup()->getGroup());
+        $this->assertInstanceOf(Groups::class, $this->trick->getGroup());
 
     }
 

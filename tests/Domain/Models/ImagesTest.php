@@ -3,9 +3,10 @@
 namespace Tests\Domain\Models;
 
 use App\Domain\Models\Images;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ImagesTest extends TestCase
+
+class ImagesTest extends WebTestCase
 {
     /**
      * @var VideosTest

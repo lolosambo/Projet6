@@ -28,11 +28,11 @@ interface GroupsInterface
     /**
      * @return mixed
      */
-    public function getGroup();
+    public function getName();
 
     /**
      * @param $group
      */
-    public function setGroup($group);
+    public function setName($name);
 }
 

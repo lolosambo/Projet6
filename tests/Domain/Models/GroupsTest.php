@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Tests\Domain\Models;
 
 use App\Domain\Models\Groups;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Bundle\TwigBundle\Tests\TestCase;
 
 /**
@@ -21,7 +22,7 @@ use Symfony\Bundle\TwigBundle\Tests\TestCase;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class GroupsTest extends TestCase
+class GroupsTest extends WebTestCase
 {
     /**
      * @var Groups
@@ -30,7 +31,7 @@ class GroupsTest extends TestCase
 
     public function setUp() {
         $group = new Groups();
-        $group->setGroup('Grabs');
+        $group->setName('Grabs');
         $this->group = $group;
     }
 
@@ -39,11 +40,11 @@ class GroupsTest extends TestCase
         static::assertInstanceOf(Groups::class, $this->group);
 
         static::assertObjectHasAttribute('id', $this->group);
-        static::assertObjectHasAttribute('group', $this->group);
+        static::assertObjectHasAttribute('name', $this->group);
     }
 
     public function test_entity_should_have_valid_attributes() {
 
-        static::assertContains('Grabs', $this->group->getGroup());
+        static::assertContains('Grabs', $this->group->getName());
     }
 }

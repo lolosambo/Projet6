@@ -35,8 +35,8 @@
     </role>
     <schema id="7" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-05-09.16:44:26.282</IntrospectionTimestamp>
-      <IntrospectionStateNumber>657</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-05-29.16:49:20.024</IntrospectionTimestamp>
+      <IntrospectionStateNumber>690</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -228,7 +228,8 @@
     <column id="42" parent="21" name="trick_id">
       <Position>2</Position>
       <DataType>integer|0</DataType>
-      <StateNumber>627</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>690</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="43" parent="21" name="url">

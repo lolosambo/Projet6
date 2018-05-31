@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace Tests\UI\Actions;
 
+use App\Domain\Models\Groups;
 use App\Domain\Models\Tricks;
+use App\Domain\Models\Users;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -59,28 +61,28 @@ class OneTrickActionTest extends WebTestCase
     /** @test */
     public function trickMustContainsTitle() {
 
-        $this->assertContains('Japan Air', $this->trick->getName());
+        $this->assertContains('Figure0', $this->trick->getName());
 
     }
 
     /** @test */
     public function trickMustContainsGroup() {
 
-        $this->assertContains('Grabs', $this->trick->getGroup()->getGroup());
+        $this->assertInstanceOf(groups::class, $this->trick->getGroup());
 
     }
 
     /** @test */
     public function trickMustContainsContent() {
 
-        $this->assertContains('japan ou japan air : saisie de l\'avant de la planche', $this->trick->getContent());
+        $this->assertContains('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', $this->trick->getContent());
 
     }
 
     /** @test */
     public function trickMustContainsAuthor() {
 
-        $this->assertContains('lolosambo', $this->trick->getUser()->getPseudo());
+        $this->assertInstanceOf(Users::class, $this->trick->getUser());
 
     }
 
@@ -88,10 +90,6 @@ class OneTrickActionTest extends WebTestCase
     public function trickMustContainsUpdateDate() {
 
         $this->assertInstanceOf(\DateTime::class, $this->trick->getTrickDate());
-        $date = $this->trick->getTrickDate();
-        $formated_date = $date->format('Y-m-d H:i:s');
-        $this->assertEquals('2018-01-09 06:31:24', $formated_date);
-
     }
 
     protected function tearDown() {
