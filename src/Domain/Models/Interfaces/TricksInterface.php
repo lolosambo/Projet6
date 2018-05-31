@@ -17,6 +17,7 @@ use App\Domain\Models\Images;
 use App\Domain\Models\Medias;
 use App\Domain\Models\Videos;
 use Doctrine\Common\Collections\ArrayCollection;
+use Ramsey\Uuid\Uuid;
 
 
 /**
@@ -85,7 +86,7 @@ interface TricksInterface
      *
      * @return mixed
      */
-    public function setUserId($userId);
+    public function setUserId(Uuid $userId);
 
     /**
      * @return mixed

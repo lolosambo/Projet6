@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\UsersInterface;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -24,7 +25,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class Users implements UserInterface, \Serializable, UsersInterface
 {
     /**
-     * @var int
+     * @var Uuid
      */
     private $id;
 
@@ -77,7 +78,7 @@ class Users implements UserInterface, \Serializable, UsersInterface
     }
 
     /**
-     * @return int
+     * @return Uuid
      */
     public function getId()
     {

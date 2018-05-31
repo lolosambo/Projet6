@@ -47,6 +47,7 @@ class VideosRepository extends ServiceEntityRepository implements VideosReposito
         return $this->createQueryBuilder('v')
             ->where('v.trickId = :trickId')
             ->setParameter(':trickId', $trickId)
+            ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();
     }

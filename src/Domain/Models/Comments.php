@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\CommentsInterface;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class Comments.
@@ -33,7 +34,7 @@ class Comments implements CommentsInterface
     private $trickId;
 
     /**
-     * @var int
+     * @var Uuid
      */
     private $userId;
 
@@ -97,7 +98,7 @@ class Comments implements CommentsInterface
     }
 
     /**
-     * @return mixed
+     * @return Uuid
      */
     public function getUserId()
     {
@@ -107,7 +108,7 @@ class Comments implements CommentsInterface
     /**
      * @param $userId
      */
-    public function setUserId($userId)
+    public function setUserId(Uuid $userId)
     {
         $this->userId = $userId;
     }

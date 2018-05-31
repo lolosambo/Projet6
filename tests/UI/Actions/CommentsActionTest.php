@@ -29,7 +29,7 @@ use Twig\Environment;
 class CommentsActionTest extends WebTestCase
 {
 
-    private $container;
+    protected static $container;
 
     private $factory;
 
@@ -44,9 +44,9 @@ class CommentsActionTest extends WebTestCase
     public function setUp()
     {
         static::bootKernel();
-        $this->container = static::$kernel->getContainer();
-        $this->factory = $this->container->get('form.factory');
-        $this->session = $this->container->get('session');
+        self::$container = static::$kernel->getContainer();
+        $this->factory = self::$container->get('form.factory');
+        $this->session = self::$container->get('session');
         $this->repository = $this->createMock(CommentsRepository::class);
         $this->commentResponder = new CommentsResponder($this->createMock(Environment::class));
         $this->handler = $this->createMock(CommentTypeHandler::class);

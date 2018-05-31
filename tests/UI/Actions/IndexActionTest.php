@@ -17,9 +17,8 @@ use App\Domain\Models\Groups;
 use App\Domain\Models\Tricks;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-
 /**
- * Class AllTricksControllerTest
+ * Class IndexActionTest
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
@@ -43,8 +42,7 @@ class IndexActionTest extends WebTestCase
             ->getManager();
     }
 
-    /** @test */
-    public function countAllTricksFromTheDatabase()
+    public function testCountAllTricksFromTheDatabase()
     {
         $tricks = $this->entityManager
             ->getRepository(Tricks::class)
@@ -53,8 +51,7 @@ class IndexActionTest extends WebTestCase
         $this->assertCount(30, $tricks);
     }
 
-    /** @test */
-    public function databaseTrickMustBeAnInstanceOfTrickEntity() {
+    public function testDatabaseTrickMustBeAnInstanceOfTrickEntity() {
         $trick = $this->entityManager
             ->getRepository(Tricks::class)
             ->find(1);
@@ -63,8 +60,7 @@ class IndexActionTest extends WebTestCase
 
     }
 
-    /** @test */
-    public function trickMustContainsTitle() {
+    public function testTrickMustContainsTitle() {
 
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)
@@ -73,8 +69,7 @@ class IndexActionTest extends WebTestCase
 
     }
 
-    /** @test */
-    public function trickMustContainsGroup() {
+    public function testTrickMustContainsGroup() {
 
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)
@@ -84,13 +79,10 @@ class IndexActionTest extends WebTestCase
 
     }
 
-
     protected function tearDown() {
         parent::tearDown();
 
         $this->entityManager->close();
         $this->entityManager = null;
     }
-
-
 }

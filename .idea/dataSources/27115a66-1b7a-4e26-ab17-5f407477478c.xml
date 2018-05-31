@@ -2,13 +2,13 @@
 <dataSource name="snowtricks@localhost">
   <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.7">
     <root id="1"/>
-    <database id="2" parent="1" name="postgres">
-      <ObjectId>12407</ObjectId>
-    </database>
-    <database id="3" parent="1" name="snowtricks">
-      <ObjectId>32860</ObjectId>
+    <database id="2" parent="1" name="snowtricks">
+      <ObjectId>32946</ObjectId>
       <Current>1</Current>
       <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12407</ObjectId>
     </database>
     <role id="4" parent="1" name="lolo">
       <ObjectId>16385</ObjectId>
@@ -33,156 +33,156 @@
       <ConnectionLimit>-1</ConnectionLimit>
       <BypassRls>1</BypassRls>
     </role>
-    <schema id="7" parent="3" name="public">
+    <schema id="7" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-05-30.21:37:28.323</IntrospectionTimestamp>
-      <IntrospectionStateNumber>970</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-05-30.23:08:13.843</IntrospectionTimestamp>
+      <IntrospectionStateNumber>998</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
-    <schema id="8" parent="3" name="pg_catalog">
+    <schema id="8" parent="2" name="pg_catalog">
       <ObjectId>11</ObjectId>
     </schema>
-    <schema id="9" parent="3" name="pg_toast">
+    <schema id="9" parent="2" name="pg_toast">
       <ObjectId>99</ObjectId>
     </schema>
-    <schema id="10" parent="3" name="pg_temp_1">
+    <schema id="10" parent="2" name="pg_temp_1">
       <ObjectId>11848</ObjectId>
     </schema>
-    <schema id="11" parent="3" name="pg_toast_temp_1">
+    <schema id="11" parent="2" name="pg_toast_temp_1">
       <ObjectId>11849</ObjectId>
     </schema>
-    <schema id="12" parent="3" name="information_schema">
+    <schema id="12" parent="2" name="information_schema">
       <ObjectId>12119</ObjectId>
     </schema>
     <sequence id="13" parent="7" name="comments_id_seq">
-      <ObjectId>32861</ObjectId>
-      <StateNumber>945</StateNumber>
+      <ObjectId>32947</ObjectId>
+      <StateNumber>973</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="14" parent="7" name="groups_id_seq">
-      <ObjectId>32863</ObjectId>
-      <StateNumber>946</StateNumber>
+      <ObjectId>32949</ObjectId>
+      <StateNumber>974</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="15" parent="7" name="images_id_seq">
-      <ObjectId>32865</ObjectId>
-      <StateNumber>947</StateNumber>
+      <ObjectId>32951</ObjectId>
+      <StateNumber>975</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="16" parent="7" name="tricks_id_seq">
-      <ObjectId>32867</ObjectId>
-      <StateNumber>948</StateNumber>
+      <ObjectId>32953</ObjectId>
+      <StateNumber>976</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="17" parent="7" name="videos_id_seq">
-      <ObjectId>32869</ObjectId>
-      <StateNumber>949</StateNumber>
+      <ObjectId>32955</ObjectId>
+      <StateNumber>977</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <table id="18" parent="7" name="comments">
-      <ObjectId>32871</ObjectId>
-      <StateNumber>966</StateNumber>
+      <ObjectId>32957</ObjectId>
+      <StateNumber>994</StateNumber>
     </table>
     <table id="19" parent="7" name="groups">
-      <ObjectId>32881</ObjectId>
-      <StateNumber>969</StateNumber>
+      <ObjectId>32967</ObjectId>
+      <StateNumber>997</StateNumber>
     </table>
     <table id="20" parent="7" name="images">
-      <ObjectId>32886</ObjectId>
-      <StateNumber>967</StateNumber>
+      <ObjectId>32972</ObjectId>
+      <StateNumber>995</StateNumber>
     </table>
     <table id="21" parent="7" name="tricks">
-      <ObjectId>32892</ObjectId>
-      <StateNumber>970</StateNumber>
+      <ObjectId>32978</ObjectId>
+      <StateNumber>998</StateNumber>
     </table>
     <table id="22" parent="7" name="users">
-      <ObjectId>32902</ObjectId>
-      <StateNumber>968</StateNumber>
+      <ObjectId>32988</ObjectId>
+      <StateNumber>996</StateNumber>
     </table>
     <table id="23" parent="7" name="videos">
-      <ObjectId>32910</ObjectId>
-      <StateNumber>970</StateNumber>
+      <ObjectId>32996</ObjectId>
+      <StateNumber>998</StateNumber>
     </table>
     <column id="24" parent="18" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>950</StateNumber>
+      <StateNumber>978</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="25" parent="18" name="trick_id">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>950</StateNumber>
+      <StateNumber>978</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="26" parent="18" name="user_id">
       <Position>3</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
-      <StateNumber>950</StateNumber>
+      <StateNumber>978</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="27" parent="18" name="content">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>950</StateNumber>
+      <StateNumber>978</StateNumber>
       <TypeId>25</TypeId>
     </column>
     <column id="28" parent="18" name="comment_date">
       <Position>5</Position>
       <DataType>timestamp(0)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>950</StateNumber>
+      <StateNumber>978</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="29" parent="18" name="comment_update">
       <Position>6</Position>
       <DataType>timestamp(0)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>950</StateNumber>
+      <StateNumber>978</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="30" parent="18" name="comments_pkey">
-      <ObjectId>32877</ObjectId>
+      <ObjectId>32963</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="31" parent="18" name="idx_5f9e962ab281be2e">
-      <ObjectId>32880</ObjectId>
+      <ObjectId>32966</ObjectId>
       <ColNames>trick_id</ColNames>
     </index>
     <index id="32" parent="18" name="idx_5f9e962aa76ed395">
-      <ObjectId>32879</ObjectId>
+      <ObjectId>32965</ObjectId>
       <ColNames>user_id</ColNames>
     </index>
     <key id="33" parent="18" name="comments_pkey">
-      <ObjectId>32878</ObjectId>
+      <ObjectId>32964</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>comments_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="34" parent="18" name="fk_5f9e962ab281be2e">
-      <ObjectId>32921</ObjectId>
+      <ObjectId>33007</ObjectId>
       <ColNames>trick_id</ColNames>
-      <RefTableId>32892</RefTableId>
+      <RefTableId>32978</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>tricks</RefTableName>
       <RefKeyName>tricks_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="35" parent="18" name="fk_5f9e962aa76ed395">
-      <ObjectId>32916</ObjectId>
+      <ObjectId>33002</ObjectId>
       <ColNames>user_id</ColNames>
-      <RefTableId>32902</RefTableId>
+      <RefTableId>32988</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
@@ -192,23 +192,23 @@
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>954</StateNumber>
+      <StateNumber>982</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="37" parent="19" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>954</StateNumber>
+      <StateNumber>982</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="38" parent="19" name="groups_pkey">
-      <ObjectId>32884</ObjectId>
+      <ObjectId>32970</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="39" parent="19" name="groups_pkey">
-      <ObjectId>32885</ObjectId>
+      <ObjectId>32971</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>groups_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
@@ -217,49 +217,49 @@
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>955</StateNumber>
+      <StateNumber>983</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="41" parent="20" name="trick_id">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>955</StateNumber>
+      <StateNumber>983</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="42" parent="20" name="url">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>955</StateNumber>
+      <StateNumber>983</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="43" parent="20" name="a_la_une">
       <Position>4</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>955</StateNumber>
+      <StateNumber>983</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <index id="44" parent="20" name="images_pkey">
-      <ObjectId>32889</ObjectId>
+      <ObjectId>32975</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="45" parent="20" name="idx_e01fbe6ab281be2e">
-      <ObjectId>32891</ObjectId>
+      <ObjectId>32977</ObjectId>
       <ColNames>trick_id</ColNames>
     </index>
     <key id="46" parent="20" name="images_pkey">
-      <ObjectId>32890</ObjectId>
+      <ObjectId>32976</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>images_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="47" parent="20" name="fk_e01fbe6ab281be2e">
-      <ObjectId>32926</ObjectId>
+      <ObjectId>33012</ObjectId>
       <ColNames>trick_id</ColNames>
-      <RefTableId>32892</RefTableId>
+      <RefTableId>32978</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>tricks</RefTableName>
       <RefKeyName>tricks_pkey</RefKeyName>
@@ -269,82 +269,82 @@
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>957</StateNumber>
+      <StateNumber>985</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="49" parent="21" name="user_id">
       <Position>2</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
-      <StateNumber>957</StateNumber>
+      <StateNumber>985</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="50" parent="21" name="group_id">
       <Position>3</Position>
       <DataType>integer|0</DataType>
-      <StateNumber>957</StateNumber>
+      <StateNumber>985</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="51" parent="21" name="name">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>957</StateNumber>
+      <StateNumber>985</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="52" parent="21" name="content">
       <Position>5</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>957</StateNumber>
+      <StateNumber>985</StateNumber>
       <TypeId>25</TypeId>
     </column>
     <column id="53" parent="21" name="trick_date">
       <Position>6</Position>
       <DataType>timestamp(0)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>957</StateNumber>
+      <StateNumber>985</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="54" parent="21" name="trick_update">
       <Position>7</Position>
       <DataType>timestamp(0)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>957</StateNumber>
+      <StateNumber>985</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="55" parent="21" name="tricks_pkey">
-      <ObjectId>32898</ObjectId>
+      <ObjectId>32984</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="56" parent="21" name="idx_e1d902c1a76ed395">
-      <ObjectId>32900</ObjectId>
+      <ObjectId>32986</ObjectId>
       <ColNames>user_id</ColNames>
     </index>
     <index id="57" parent="21" name="idx_e1d902c1fe54d947">
-      <ObjectId>32901</ObjectId>
+      <ObjectId>32987</ObjectId>
       <ColNames>group_id</ColNames>
     </index>
     <key id="58" parent="21" name="tricks_pkey">
-      <ObjectId>32899</ObjectId>
+      <ObjectId>32985</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>tricks_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="59" parent="21" name="fk_e1d902c1a76ed395">
-      <ObjectId>32931</ObjectId>
+      <ObjectId>33017</ObjectId>
       <ColNames>user_id</ColNames>
-      <RefTableId>32902</RefTableId>
+      <RefTableId>32988</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="60" parent="21" name="fk_e1d902c1fe54d947">
-      <ObjectId>32936</ObjectId>
+      <ObjectId>33022</ObjectId>
       <ColNames>group_id</ColNames>
-      <RefTableId>32881</RefTableId>
+      <RefTableId>32967</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>groups</RefTableName>
       <RefKeyName>groups_pkey</RefKeyName>
@@ -355,58 +355,58 @@
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>961</StateNumber>
+      <StateNumber>989</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="62" parent="22" name="pseudo">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>961</StateNumber>
+      <StateNumber>989</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="63" parent="22" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>961</StateNumber>
+      <StateNumber>989</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="64" parent="22" name="mail">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>961</StateNumber>
+      <StateNumber>989</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="65" parent="22" name="verified">
       <Position>5</Position>
       <DataType>boolean|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>961</StateNumber>
+      <StateNumber>989</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="66" parent="22" name="inscr_date">
       <Position>6</Position>
       <DataType>timestamp(0)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>961</StateNumber>
+      <StateNumber>989</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="67" parent="22" name="avatar">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>961</StateNumber>
+      <StateNumber>989</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="68" parent="22" name="users_pkey">
-      <ObjectId>32908</ObjectId>
+      <ObjectId>32994</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="69" parent="22" name="users_pkey">
-      <ObjectId>32909</ObjectId>
+      <ObjectId>32995</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
@@ -415,41 +415,41 @@
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>963</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="71" parent="23" name="trick_id">
       <Position>2</Position>
       <DataType>integer|0</DataType>
-      <StateNumber>963</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="72" parent="23" name="url">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>963</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="73" parent="23" name="videos_pkey">
-      <ObjectId>32913</ObjectId>
+      <ObjectId>32999</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="74" parent="23" name="idx_29aa6432b281be2e">
-      <ObjectId>32915</ObjectId>
+      <ObjectId>33001</ObjectId>
       <ColNames>trick_id</ColNames>
     </index>
     <key id="75" parent="23" name="videos_pkey">
-      <ObjectId>32914</ObjectId>
+      <ObjectId>33000</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>videos_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="76" parent="23" name="fk_29aa6432b281be2e">
-      <ObjectId>32941</ObjectId>
+      <ObjectId>33027</ObjectId>
       <ColNames>trick_id</ColNames>
-      <RefTableId>32892</RefTableId>
+      <RefTableId>32978</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>tricks</RefTableName>
       <RefKeyName>tricks_pkey</RefKeyName>

@@ -46,6 +46,7 @@ class CommentsRepository extends ServiceEntityRepository implements CommentsRepo
             ->where('c.trickId = :trick_id')
             ->setParameter(':trick_id', $id)
             ->orderBy('c.commentDate', 'DESC')
+            ->setCacheable(true)
             ->getQuery()
             ->getResult();
     }

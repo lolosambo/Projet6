@@ -31,7 +31,6 @@ class TricksTest extends WebTestCase
     private $trick;
 
     public function setUp() {
-        $collection = new ArrayCollection();
         $trick = new Tricks( 'Japan Air', 1,  'japan ou japan air : saisie de l\'avant de la planche, 
         avec la main avant, du côté de la carre frontside. Un grab est d\'autant plus réussi que la saisie est longue. 
         De plus, le saut est d\'autant plus esthétique que la saisie du snowboard est franche');

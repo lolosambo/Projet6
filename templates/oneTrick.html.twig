@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col l10 offset-l1 s12 title center-align"><h1>{{ trick.name }} ({{ trick.group.group }})</h1></div><br>
+        <div class="col l10 offset-l1 s12 title center-align"><h1>{{ trick.name }} ({{ trick.group.name }})</h1></div><br>
         <div class="col l10 offset-l1 s12 alaune_wrapper no-padding">
             {% if aLaUne.url is defined %}
                 <img class="responsive-img" src="{{ asset('../uploads/' ~ aLaUne.url)}}"/>

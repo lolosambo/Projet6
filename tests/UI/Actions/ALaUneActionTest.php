@@ -30,7 +30,7 @@ use Twig\Environment;
 class ALaUneActionTest extends WebTestCase
 {
 
-    private $container;
+    protected static $container;
 
     private $factory;
 
@@ -43,8 +43,8 @@ class ALaUneActionTest extends WebTestCase
     public function setUp()
     {
         static::bootKernel();
-        $this->container = static::$kernel->getContainer();
-        $this->factory = $this->container->get('form.factory');
+        self::$container = static::$kernel->getContainer();
+        $this->factory = self::$container->get('form.factory');
         $this->aLaUneResponder = new ALaUneResponder($this->createMock(Environment::class));
         $this->handler = $this->createMock(ALaUneTypeHandler::class);
         $this->generator = $this->createMock(UrlGenerator::class);

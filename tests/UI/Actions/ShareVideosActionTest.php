@@ -30,7 +30,7 @@ use Twig\Environment;
  */
 class ShareVideosActionTest extends WebTestCase
 {
-    private $container;
+    protected static $container;
 
     private $repository;
 
@@ -45,8 +45,8 @@ class ShareVideosActionTest extends WebTestCase
     public function setUp()
     {
         static::bootKernel();
-        $this->container = static::$kernel->getContainer();
-        $this->factory = $this->container->get('form.factory');
+        self::$container = static::$kernel->getContainer();
+        $this->factory = self::$container->get('form.factory');
         $this->repository = $this->createMock(VideosRepository::class);
         $this->handler = $this->createMock(VideosTypeHandler::class);
         $this->addedVideoResponder = new AddedVideoResponder($this->createMock(Environment::class));
