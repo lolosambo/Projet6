@@ -56,7 +56,7 @@ class CommentsActionTest extends WebTestCase
         );
     }
 
-    public function test_construct()
+    public function testConstruct()
     {
         $action = new CommentsAction($this->factory, $this->session);
 
@@ -66,7 +66,7 @@ class CommentsActionTest extends WebTestCase
         );
     }
 
-    public function test_no_formHandler()
+    public function testNoFormHandler()
     {
 
         $action = new CommentsAction($this->factory, $this->session);
@@ -75,7 +75,7 @@ class CommentsActionTest extends WebTestCase
         static::assertNull($result);
     }
 
-    public function test_bad_formHandler()
+    public function testBadFormHandler()
     {
         $this->handler->method('handle')->willReturn(false);
         $this->session->set('userId', 1);
@@ -87,7 +87,7 @@ class CommentsActionTest extends WebTestCase
         );
     }
 
-    public function test_good_formHandler()
+    public function testGoodFormHandler()
     {
         $this->handler->method('handle')->willReturn(true);
         $this->session->set('userId', 1);

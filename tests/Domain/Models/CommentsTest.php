@@ -25,10 +25,9 @@ use Symfony\Bundle\TwigBundle\Tests\TestCase;
 class CommentsTest extends WebTestCase
 {
 
-    public function test_entity_must_be_instancied() {
-
+    public function testEntityMustBeInstancied()
+    {
         $comment = new Comments('lorem ipsum fiuehz ufheuz fuez ufeuz fz');
-
         static::assertInstanceOf(Comments::class, $comment);
         static::assertObjectHasAttribute('id', $comment);
         static::assertObjectHasAttribute('userId', $comment);
@@ -38,18 +37,15 @@ class CommentsTest extends WebTestCase
         static::assertObjectHasAttribute('commentUpdate', $comment);
         static::assertObjectHasAttribute('trick', $comment);
         static::assertObjectHasAttribute('user', $comment);
-
     }
 
-    public function test_entity_must_have_valid_attributes() {
-
+    public function testEntityMustHaveValidAttributes()
+    {
         $comment = new Comments('lorem ipsum fiuehz ufheuz fuez ufeuz fz');
         $comment->setTrickId(3);
         $comment->setContent('lorem ipsum fiuehz ufheuz fuez ufeuz fz');
         $comment->setcommentDate('2018-03-04T16:56:29.328371+0000');
         $comment->setcommentUpdate('2018-03-05T11:36:14.328371+0000');
-
-
         static::assertEquals(3, $comment->getTrickId());
         static::assertContains('lorem ipsum fiuehz ufheuz fuez ufeuz fz', $comment->getContent());
         static::assertEquals('2018-03-04T16:56:29.328371+0000', $comment->getcommentDate());

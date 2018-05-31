@@ -53,13 +53,13 @@ class UpdateTrickActionTest extends WebTestCase
         $this->updateTrickResponder = new UpdateTrickResponder($this->createMock(Environment::class));
     }
 
-    public function test_construct()
+    public function testConstruct()
     {
         $action = new UpdateTrickAction($this->factory);
         static::assertInstanceOf(UpdateTrickAction::class, $action);
     }
 
-    public function test_update_trick_action_ok()
+    public function testUpdateTrickActionOk()
     {
         $request = Request::create(
             '/modifier/figure/2',
@@ -82,7 +82,7 @@ class UpdateTrickActionTest extends WebTestCase
         );
     }
 
-    public function test_non_updated_trick_action_()
+    public function testNonUpdatedTrickAction()
     {
         $request = Request::create(
             '/modifier/figure/2',

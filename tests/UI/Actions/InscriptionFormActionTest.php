@@ -65,7 +65,7 @@ class InscriptionFormActionTest extends WebTestCase
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function test_inscription_action()
+    public function testInscriptionAction()
     {
         $request= Request::create(
             '/inscription',
@@ -84,7 +84,6 @@ class InscriptionFormActionTest extends WebTestCase
             $this->inscriptionStatusResponder,
             $this->inscriptionFormResponder
         );
-
         static::assertInstanceOf(Response::class, $result);
     }
 }

@@ -34,7 +34,8 @@ class IndexActionTest extends WebTestCase
      */
     private $trick;
 
-    protected function setUp() {
+    protected function setUp()
+    {
         $kernel = self::bootKernel();
 
         $this->entityManager = $kernel->getContainer()
@@ -51,37 +52,34 @@ class IndexActionTest extends WebTestCase
         $this->assertCount(30, $tricks);
     }
 
-    public function testDatabaseTrickMustBeAnInstanceOfTrickEntity() {
+    public function testDatabaseTrickMustBeAnInstanceOfTrickEntity()
+    {
         $trick = $this->entityManager
             ->getRepository(Tricks::class)
             ->find(1);
 
         $this->assertInstanceOf(Tricks::class, $trick);
-
     }
 
-    public function testTrickMustContainsTitle() {
-
+    public function testTrickMustContainsTitle()
+    {
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)
             ->find(1);
         $this->assertContains('Figure0', $this->trick->getName());
-
     }
 
-    public function testTrickMustContainsGroup() {
-
+    public function testTrickMustContainsGroup()
+    {
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)
             ->find(1);
-
         $this->assertInstanceOf(Groups::class, $this->trick->getGroup());
-
     }
 
-    protected function tearDown() {
+    protected function tearDown()
+    {
         parent::tearDown();
-
         $this->entityManager->close();
         $this->entityManager = null;
     }

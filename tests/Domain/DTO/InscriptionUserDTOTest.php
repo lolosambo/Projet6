@@ -38,32 +38,22 @@ class InscriptionUserDTOTest extends WebTestCase
         $this->dto = $dto;
     }
 
-    /**
-     * @test
-     */
-    public function pseudo_attribute_must_be_a_string()
+    public function testPseudoAttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->pseudo);
     }
 
-    /**
-     * @test
-     */
-    public function password_attribute_must_be_a_string()
+    public function testPasswordAttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->password);
     }
 
-    /**
-     * @test
-     */
-    public function mail_attribute_must_be_a_string()
+    public function testMailAttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->mail);
     }
 
-    /** @test */
-    public function mail_attribute_must_be_compatible_with_regex()
+    public function testMailAttributeMustBeCompatibleWithRegex()
     {
         static::assertRegExp(
             '#([a-zA-Z0-9-_]+)@([a-zA-Z0-9-_]+).([a-zA-Z]+)#',

@@ -39,40 +39,27 @@ class VideosDTOTest extends WebTestCase
         $this->dto = $dto;
     }
 
-    /**
-     * @test
-     */
-    public function address1_attribute_must_be_a_string()
+    public function testAddress1AttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->address1);
     }
 
-    /**
-     * @test
-     */
-    public function address2_attribute_must_be_a_string()
+    public function testAddress2AttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->address2);
     }
 
-    /**
-     * @test
-     */
-    public function address3_attribute_must_be_a_string()
+    public function testAddress3AttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->address3);
     }
 
-    /**
-     * @test
-     */
-    public function address4_attribute_must_be_a_string()
+    public function testAddress4AttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->address4);
     }
 
-    /** @test */
-    public function address1_attribute_must_be_compatible_with_regex_for_youtube()
+    public function testAddress1AttributeMustBeCompatibleWithRegexForYoutube()
     {
         static::assertRegExp(
             '/(https:\/\/www.youtube.com\/embed)\/([a-zA-Z0-9-_]+)/',
@@ -80,8 +67,7 @@ class VideosDTOTest extends WebTestCase
         );
     }
 
-    /** @test */
-    public function address2_attribute_must_be_compatible_with_regex_for_youtube()
+    public function testAddress2AttributeMustBeCompatibleWithRegexForYoutube()
     {
         static::assertRegExp(
             '/(https:\/\/www.youtube.com\/embed)\/([a-zA-Z0-9-_]+)/',
@@ -89,8 +75,15 @@ class VideosDTOTest extends WebTestCase
         );
     }
 
-    /** @test */
-    public function address3_attribute_must_be_compatible_with_regex_for_DailyMotion()
+    public function testAddress3AttributeMustBeCompatibleWithRegexForDailyMotion()
+    {
+        static::assertRegExp(
+            '/(https:\/\/www.dailymotion.com\/embed)\/([a-zA-Z0-9-_]+)/',
+            $this->dto->address3
+        );
+    }
+
+    public function testAddress4AttributeMustBeCompatibleWithRegexForDailyMotion()
     {
         static::assertRegExp(
             '/(https:\/\/www.dailymotion.com\/embed)\/([a-zA-Z0-9-_]+)/',

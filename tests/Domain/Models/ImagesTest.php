@@ -18,9 +18,9 @@ class ImagesTest extends WebTestCase
         $this->image = $image;
     }
 
-    /** @test */
-    public function entity_must_be_instancied() {
 
+    public function testEntityMustBeInstancied()
+    {
         static::assertInstanceOf(Images::class, $this->image);
         static::assertObjectHasAttribute('id', $this->image);
         static::assertObjectHasAttribute('trickId', $this->image);
@@ -29,8 +29,7 @@ class ImagesTest extends WebTestCase
         static::assertObjectHasAttribute('aLaUne', $this->image);
     }
 
-    /** @test */
-    public function aLaUne_attribute_must_be_0_or_1()
+    public function testALaUneAttributeMustBe0Or1()
     {
         $this->image->setALaUne(1);
         static::assertEquals(1, $this->image->getALaUne());
@@ -39,20 +38,18 @@ class ImagesTest extends WebTestCase
         static::assertEquals(0, $this->image->getALaUne());
     }
 
-    /** @test */
-    public function aLaUne_attribute_return_0_if_others_values()
+    public function testALaUneAttributeReturn0IfOthersValues()
     {
         $this->image->setALaUne(3);
         static::assertEquals(0, $this->image->getALaUne());
     }
 
-    /** @test */
-    public function url_attribute_must_be_compatible_with_regex()
+    public function testUrlAttributeMustBeCompatibleWithRegex()
     {
         $this->image->setUrl('testimage.jpg');
         static::assertRegExp('/([a-zA-Z0-9-_]+)\.[jpg | JPG | jpeg | JPEG | gif | GIF | tiff | TIFF | png | PNG | bmp | BMP]/',
             $this->image->getUrl()
         );
     }
-
 }
+

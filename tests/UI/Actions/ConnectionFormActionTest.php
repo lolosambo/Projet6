@@ -57,4 +57,3 @@ class ConnectionFormActionTest extends WebTestCase
 }
 
 
-

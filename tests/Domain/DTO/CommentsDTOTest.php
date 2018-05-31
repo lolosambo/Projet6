@@ -34,14 +34,8 @@ class CommentsDTOTest extends WebTestCase
         $this->dto = $dto;
     }
 
-    /**
-     * @test
-     */
-    public function content_attribute_must_be_a_string()
+    public function testContentAttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->content);
     }
-
-
-
 }

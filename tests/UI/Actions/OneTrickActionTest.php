@@ -39,7 +39,8 @@ class OneTrickActionTest extends WebTestCase
     private $trick;
 
 
-    protected function setUp() {
+    protected function setUp()
+    {
         $kernel = self::bootKernel();
 
         $this->entityManager = $kernel
@@ -52,50 +53,39 @@ class OneTrickActionTest extends WebTestCase
             ->find(1);
     }
 
-    /** @test */
-    public function foundTrickMustBeAnInstanceOfTrickEntity() {
-
+    public function testFoundTrickMustBeAnInstanceOfTrickEntity()
+    {
         $this->assertInstanceOf(Tricks::class, $this->trick);
-
     }
 
-    /** @test */
-    public function trickMustContainsTitle() {
-
+    public function testTrickMustContainsTitle()
+    {
         $this->assertContains('Figure0', $this->trick->getName());
-
     }
 
-    /** @test */
-    public function trickMustContainsGroup() {
-
+    public function testTrickMustContainsGroup()
+    {
         $this->assertInstanceOf(groups::class, $this->trick->getGroup());
-
     }
 
-    /** @test */
-    public function trickMustContainsContent() {
-
+    public function testTrickMustContainsContent()
+    {
         $this->assertContains('Lorem ipsum dolor sit amet, consectetur adipiscing elit.', $this->trick->getContent());
-
     }
 
-    /** @test */
-    public function trickMustContainsAuthor() {
-
+    public function testTrickMustContainsAuthor()
+    {
         $this->assertInstanceOf(Users::class, $this->trick->getUser());
-
     }
 
-    /** @test */
-    public function trickMustContainsUpdateDate() {
-
+    public function testTrickMustContainsUpdateDate()
+    {
         $this->assertInstanceOf(\DateTime::class, $this->trick->getTrickDate());
     }
 
-    protected function tearDown() {
+    protected function tearDown()
+    {
         parent::tearDown();
-
         $this->entityManager->close();
         $this->entityManager = null;
     }

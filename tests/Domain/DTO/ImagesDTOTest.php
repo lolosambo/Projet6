@@ -33,12 +33,8 @@ class ImagesDTOTest
         $this->dto = $dto;
     }
 
-    /**
-     * @test
-     */
-    public function image_attribute_must_be_an_image_file()
+    public function testImageAttributeMustBeAnImageFile()
     {
         static::assertInternalType('\SplFileInfo', $this->dto->image);
     }
-
 }

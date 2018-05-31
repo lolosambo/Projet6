@@ -35,16 +35,16 @@ class GroupsTest extends WebTestCase
         $this->group = $group;
     }
 
-    public function test_entity_should_be_instancied() {
-
+    public function testEntityShouldBeInstancied()
+    {
         static::assertInstanceOf(Groups::class, $this->group);
-
         static::assertObjectHasAttribute('id', $this->group);
         static::assertObjectHasAttribute('name', $this->group);
     }
 
-    public function test_entity_should_have_valid_attributes() {
-
+    public function testEntityShouldHaveValidAttributes()
+    {
         static::assertContains('Grabs', $this->group->getName());
     }
 }
+
