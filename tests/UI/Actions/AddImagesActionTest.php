@@ -7,6 +7,8 @@ use App\Domain\Form\FormHandler\ImagesTypeHandler;
 use App\UI\Actions\AddImagesAction;
 use App\UI\Responders\AddedImagesResponder;
 use App\UI\Responders\AddImagesResponder;
+use Blackfire\Bridge\PhpUnit\TestCaseTrait;
+use Blackfire\Profile\Configuration;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +16,7 @@ use Twig\Environment;
 
 class AddImagesActionTest extends WebTestCase
 {
+    use TestCaseTrait;
 
     /**
      * @var
@@ -80,6 +83,9 @@ class AddImagesActionTest extends WebTestCase
         );
     }
 
+    /**
+     * @group Blackfire
+     */
     public function testGoodFormHandler()
     {
         $request = Request::create(
@@ -87,8 +93,9 @@ class AddImagesActionTest extends WebTestCase
             'POST'
         );
         $this->handler->method('handle')->willReturn(true);
+        $probe = static::$blackfire->createProbe();
         $action = new AddImagesAction($this->factory);
-        ;
+        static::$blackfire->endProbe($probe);
         static::assertInstanceOf(Response::class,
             $action(
                 $request,

@@ -1,4 +1,13 @@
 {
+    "behat/behat": {
+        "version": "v3.4.3"
+    },
+    "behat/gherkin": {
+        "version": "v4.5.1"
+    },
+    "behat/transliterator": {
+        "version": "v1.2.0"
+    },
     "blackfire/php-sdk": {
         "version": "v1.13.0"
     },
@@ -7,6 +16,9 @@
     },
     "composer/semver": {
         "version": "1.4.2"
+    },
+    "container-interop/container-interop": {
+        "version": "1.2.0"
     },
     "doctrine/annotations": {
         "version": "1.0",
@@ -196,6 +208,9 @@
     },
     "symfony/cache": {
         "version": "v4.0.8"
+    },
+    "symfony/class-loader": {
+        "version": "v3.4.11"
     },
     "symfony/config": {
         "version": "v4.0.8"
