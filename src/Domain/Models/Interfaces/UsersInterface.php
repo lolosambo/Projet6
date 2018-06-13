@@ -67,11 +67,11 @@ interface UsersInterface
     public function getVerified();
 
     /**
-     * @param $verified
+     * @param int $verified
      *
      * @return mixed
      */
-    public function setVerified($verified);
+    public function setVerified(int $verified);
 
     /**
      * @return mixed

@@ -13,19 +13,13 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\DTO\Interfaces\ALaUneDTOInterface;
-use App\Domain\Form\FormHandler\Interfaces\ALaUneTypeHandlerInterface;
+use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use App\UI\Actions\Interfaces\ALaUneActionInterface;
 use App\UI\Responders\Interfaces\ALaUneResponderInterface;
-use Symfony\Component\Routing\Annotation\Route;
-use App\Domain\Form\Type\ALaUneType;
-use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-
 
 /**
  * Class ALaUneAction.
@@ -35,45 +29,42 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class ALaUneAction implements ALaUneActionInterface
 {
     /**
-     * @var FormFactoryInterface
+     * @var ImagesRepositoryInterface
      */
-    private $formFactory;
+    private $imagesRepository;
 
     /**
      * ALaUneAction constructor.
      *
-     * @param FormFactoryInterface $formFactory
+     * @param ImagesRepositoryInterface $imagesRepository
      */
-    public function __construct(FormFactoryInterface $formFactory)
+    public function __construct(ImagesRepositoryInterface $imagesRepository)
     {
-        $this->formFactory = $formFactory;
+        $this->imagesRepository = $imagesRepository;
     }
 
     /**
-     * @Route("/image_a_la_une/{id}", name = "frontPage_image")
+     * @Route("/trick/{trick_id}/image_a_la_une/{id}", name = "frontPage_image")
      *
-     * @param Request                    $request
-     * @param ALaUneTypeHandlerInterface $aLaUneTypeHandler
-     * @param ALaUneDTOInterface         $dto
-     *
-     * @return RedirectResponse|Response
+     * @param Request $request
      */
     public function __invoke(
         Request $request,
-        ALaUneResponderInterface $aLaUneResponder,
-        ALaUneTypeHandlerInterface $aLaUneTypeHandler,
-        UrlGeneratorInterface $generator
+        UrlGeneratorInterface $urlGenerator
     ) {
+        $trick_id = intval($request->get('trick_id'));
         $id = intval($request->get('id'));
-        $form = $this->formFactory
-            ->create(ALaUneType::class, null, ['trickId' => $id])
-            ->handleRequest($request);
-
-        if ($aLaUneTypeHandler->handle($form, $id)) {
-
-            return new RedirectResponse($generator->generate('single_trick', ['id' => $id]));
+        $image = $this->imagesRepository->findImageALaUne($trick_id);
+        if ($image) {
+            $image->setALaUne(0);
         }
+        $aLaUne = $this->imagesRepository->findById($id);
+        $aLaUne->setALaUne(1);
+        $this->imagesRepository->flush();
 
-        return $aLaUneResponder(['form' => $form->createView()]);
+        return new RedirectResponse($urlGenerator->generate(
+            'single_trick',
+            ['id' => $trick_id]));
     }
 }
+

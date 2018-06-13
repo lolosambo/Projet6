@@ -25,7 +25,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class Users implements UserInterface, \Serializable, UsersInterface
 {
     /**
-     * @var Uuid
+     * @var string
      */
     private $id;
 
@@ -78,7 +78,7 @@ class Users implements UserInterface, \Serializable, UsersInterface
     }
 
     /**
-     * @return Uuid
+     * @return string
      */
     public function getId()
     {
@@ -152,15 +152,14 @@ class Users implements UserInterface, \Serializable, UsersInterface
     }
 
     /**
-     * @param $verified
+     * @param int $verified
      *
-     * @return bool
+     * @return bool|mixed
      */
-    public function setVerified($verified)
+    public function setVerified(int $verified)
     {
-        if ((0 == $verified) || (1 == $verified)) {
+        if (1 == $verified) {
             $this->verified = $verified;
-
             return true;
         } else {
             return false;

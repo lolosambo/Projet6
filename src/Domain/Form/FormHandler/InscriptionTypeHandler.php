@@ -31,7 +31,7 @@ class InscriptionTypeHandler implements InscriptionTypeHandlerInterface
     /**
      * @var UsersRepositoryInterface
      */
-    private $ur;
+    private $usersRepository;
 
     /**
      * @var Environment
@@ -41,11 +41,11 @@ class InscriptionTypeHandler implements InscriptionTypeHandlerInterface
     /**
      * InscriptionTypeHandler constructor.
      *
-     * @param UsersRepositoryInterface    $ur
+     * @param UsersRepositoryInterface    $userRepository
      */
-    public function __construct(UsersRepositoryInterface $ur, Environment $twig)
+    public function __construct(UsersRepositoryInterface $usersRepository, Environment $twig)
     {
-        $this->ur = $ur;
+        $this->usersRepository = $usersRepository;
         $this->twig = $twig;
     }
 
@@ -68,14 +68,18 @@ class InscriptionTypeHandler implements InscriptionTypeHandlerInterface
                 $inscriptionType->getData()->mail
             );
             $user->setInscrDate(new \DateTime('NOW'));
-            $this->ur->save($user);
+            $this->usersRepository->save($user);
+            $uuid = $this->usersRepository->findOneByPseudoAndMail(
+                $inscriptionType->getData()->pseudo,
+                $inscriptionType->getData()->mail
+            )->getId()->toString();
 
             $message = (new Swift_Message('Nouvelle inscription'))
                 ->setFrom('lolosambo2@gmail.com')
                 ->setTo($inscriptionType->getData()->mail)
                 ->setBody($this->twig->render('email_inscription.html.twig', [
                     'name' => $inscriptionType->getData()->pseudo,
-                    'token' => '123456789'
+                    'token' => $uuid
                 ]))
                 ->setContentType("text/html");
             $mailer->send($message);

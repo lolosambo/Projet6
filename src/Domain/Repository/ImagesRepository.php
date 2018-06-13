@@ -73,6 +73,23 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
     /**
      * @param int $id
      *
+     * @return mixed
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findById(int $id)
+    {
+        return $this->createQueryBuilder('i')
+            ->where('i.id = :id')
+            ->setParameter(':id', $id)
+            ->setCacheable(true)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    /**
+     * @param int $id
+     *
      * @return \Doctrine\ORM\QueryBuilder|mixed
      */
     public function deleteImage(int $id)

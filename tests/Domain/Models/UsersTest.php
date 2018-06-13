@@ -74,16 +74,16 @@ class UsersTest extends WebTestCase
 
     public function testVerifiedAttributeMustHave0Or1AsValue()
     {
-        $verified = $this->user->setVerified(1);
-        static::assertTrue($verified);
-        $verified = $this->user->setVerified(0);
-        static::assertTrue($verified);
+        static::assertSame(0, $this->user->getVerified());
+        $this->user->setVerified(1);
+        static::assertSame(1, $this->user->getVerified());
+
     }
 
     public function testVerifiedAttributeMustReturnFalseWithBadValues()
     {
-        $verified = $this->user->setVerified(145);
-        static::assertFalse($verified);
+        $this->user->setVerified(3);
+        static::assertSame(0, $this->user->getVerified());
     }
 
     public function testEntityMustHaveADefaultAvatar()

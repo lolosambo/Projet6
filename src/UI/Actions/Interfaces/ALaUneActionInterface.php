@@ -13,10 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions\Interfaces;
 
-use App\Domain\DTO\Interfaces\ALaUneDTOInterface;
-use App\Domain\Form\FormHandler\Interfaces\ALaUneTypeHandlerInterface;
 use App\UI\Responders\Interfaces\ALaUneResponderInterface;
-use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -27,25 +24,15 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  */
 interface ALaUneActionInterface
 {
-    /**
-     * ALaUneActionInterface constructor.
-     *
-     * @param FormFactoryInterface $formFactory
-     */
-    public function __construct(FormFactoryInterface $formFactory);
 
     /**
      * @param Request $request
-     * @param ALaUneResponderInterface $aLaUneResponder
-     * @param ALaUneTypeHandlerInterface $aLaUneTypeHandler
-     * @param ALaUneDTOInterface $dto
+     * @param UrlGeneratorInterface $urlGenerator
      *
      * @return mixed
      */
     public function __invoke(
         Request $request,
-        ALaUneResponderInterface $aLaUneResponder,
-        ALaUneTypeHandlerInterface $aLaUneTypeHandler,
-        UrlGeneratorInterface $generator
+        UrlGeneratorInterface $urlGenerator
     );
 }

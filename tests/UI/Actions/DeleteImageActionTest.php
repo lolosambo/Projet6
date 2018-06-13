@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 
 /**
- * Class DeleteImageActionTest
+ * Class DeleteImageActionBlackfireTest
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */

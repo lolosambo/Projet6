@@ -16,23 +16,21 @@ namespace App\UI\Responders\Interfaces;
 use Twig\Environment;
 
 /**
- * ALaUneResponderInterface constructor.
+ * Interface AddImagesResponderInterface
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-interface ALaUneResponderInterface
+interface AccountValidatedResponderInterface
 {
     /**
-     * ALaUneResponderInterface constructor.
+     * AccountValidatedResponderInterface constructor.
      *
      * @param Environment $twig
      */
     public function __construct(Environment $twig);
 
     /**
-     * @param $data
-     *
      * @return mixed
      */
-    public function __invoke($data);
+    public function __invoke();
 }

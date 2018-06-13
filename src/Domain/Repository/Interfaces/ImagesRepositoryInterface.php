@@ -44,6 +44,13 @@ interface ImagesRepositoryInterface
     public function findByUrl(string $url);
 
     /**
+     * @param int $id
+     *
+     * @return mixed
+     */
+    public function findById(int $id);
+
+    /**
      * @param $image
      *
      * @return mixed

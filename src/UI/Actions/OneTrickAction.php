@@ -115,7 +115,7 @@ class OneTrickAction implements OneTrickActionInterface
             if ($commentTypeHandler->handle($request, $addCommentForm, $userId, $id)) {
                 return new RedirectResponse($generator->generate('single_trick', ['id' => $id])); // urlGenerator
             }
-            return $oneTrickResponder([
+            return $oneTrickResponder($request, [
                 'trick' => $trick,
                 'images' => $images,
                 'videos' => $videos,
@@ -125,7 +125,7 @@ class OneTrickAction implements OneTrickActionInterface
                 ]
             );
         }
-        return $oneTrickResponder([
+        return $oneTrickResponder($request, [
                 'trick' => $trick,
                 'images' => $images,
                 'videos' => $videos,

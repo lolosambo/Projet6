@@ -24,7 +24,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
 /**
- * Class InscriptionFormActionTest
+ * Class InscriptionFormActionBlackfireTest
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */

@@ -38,6 +38,14 @@ interface UsersRepositoryInterface
     public function findOneByPseudo($pseudo, $password);
 
     /**
+     * @param $pseudo
+     * @param $mail
+     *
+     * @return mixed
+     */
+    public function findOneByPseudoAndMail($pseudo, $mail);
+
+    /**
      * @param $user
      *
      * @return mixed

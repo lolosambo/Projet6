@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace App\UI\Actions\Interfaces;
 
-use App\Domain\Repository\TricksRepository;
+use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responders\Interfaces\IndexResponderInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Interface IndexActionInterface
@@ -26,14 +27,15 @@ interface IndexActionInterface
     /**
      * IndexActionInterface constructor.
      *
-     * @param TricksRepository $tr
+     * @param TricksRepositoryInterface $tricksRepository
      */
-    public function __construct(TricksRepository $tr);
+    public function __construct(TricksRepositoryInterface $tricksRepository);
 
     /**
+     * @param Request $request
      * @param IndexResponderInterface $indexResponder
      *
      * @return mixed
      */
-    public function __invoke(IndexResponderInterface $indexResponder);
+    public function __invoke(Request $request, IndexResponderInterface $indexResponder);
 }

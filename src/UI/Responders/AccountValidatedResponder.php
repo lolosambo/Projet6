@@ -13,16 +13,16 @@ declare(strict_types=1);
 
 namespace App\UI\Responders;
 
-use App\UI\Responders\Interfaces\ALaUneResponderInterface;
+use App\UI\Responders\Interfaces\AccountValidatedResponderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
 /**
- * Class ALaUneResponder
+ * Class AddImagesResponder
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-final class ALaUneResponder implements ALaUneResponderInterface
+final class AccountValidatedResponder implements AccountValidatedResponderInterface
 {
     /**
      * @var Environment
@@ -30,7 +30,7 @@ final class ALaUneResponder implements ALaUneResponderInterface
     private $twig;
 
     /**
-     * ALaUneResponder constructor.
+     * AddImagesResponder constructor.
      *
      * @param Environment $twig
      */
@@ -40,21 +40,14 @@ final class ALaUneResponder implements ALaUneResponderInterface
     }
 
     /**
-     * @param $data
-     *
-     * @return string
-     *
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function __invoke($data)
+    public function __invoke()
     {
         return new Response(
-            $this->twig->render('aLaUne.html.twig', $data)
+            $this->twig->render('account_validated.html.twig')
         );
     }
 }
-
-
-

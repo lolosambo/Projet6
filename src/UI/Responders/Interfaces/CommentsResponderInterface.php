@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Responders\Interfaces;
 
+use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
 
 /**
@@ -34,5 +35,5 @@ interface CommentsResponderInterface
      *
      * @return mixed
      */
-    public function __invoke($data);
+    public function __invoke(Request $request, $data);
 }

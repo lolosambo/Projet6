@@ -18,18 +18,30 @@ use App\Domain\Models\Tricks;
 use App\UI\Actions\UpdatetrickAction;
 use App\UI\Responders\UpdatedTrickResponder;
 use App\UI\Responders\UpdateTrickResponder;
+use Blackfire\Bridge\PhpUnit\TestCaseTrait;
+use Blackfire\Client;
+use Blackfire\Profile\Configuration;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
 /**
- * Class ShareVideosActionTest
+ * Class ShareVideosActionBlackfireTest
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
 class UpdateTrickActionTest extends WebTestCase
 {
+
+    use TestCaseTrait;
+
+    private $action;
+
+    private $blackfireClient;
+
+    private $config;
+
     protected static $container;
 
     private $factory;
@@ -51,6 +63,9 @@ class UpdateTrickActionTest extends WebTestCase
         $this->trick = $this->createMock(Tricks::class);
         $this->updatedTrickResponder = new UpdatedTrickResponder($this->createMock(Environment::class));
         $this->updateTrickResponder = new UpdateTrickResponder($this->createMock(Environment::class));
+        $this->blackfireClient = new Client();
+        $this->config = new Configuration();
+        $this->action = new UpdateTrickAction($this->factory);
     }
 
     public function testConstruct()
@@ -59,15 +74,23 @@ class UpdateTrickActionTest extends WebTestCase
         static::assertInstanceOf(UpdateTrickAction::class, $action);
     }
 
+    /**
+     * @group Blackfire
+     */
     public function testUpdateTrickActionOk()
     {
-        $request = Request::create(
-            '/modifier/figure/2',
-            'POST'
-        );
-
+        $request = Request::create('/modifier/figure/2', 'POST');
         $this->handler->method('handle')->willReturn(true);
-        $action = new UpdateTrickAction($this->factory);
+        $probe = $this->blackfireClient->createProbe($this->config);
+        $action = $this->action;
+        $action(
+            $request,
+            $this->trick,
+            $this->handler,
+            $this->updateTrickResponder,
+            $this->updatedTrickResponder
+        );
+        $this->blackfireClient->endProbe($probe);
 
         static::assertInstanceOf(
             Response::class,
@@ -82,15 +105,23 @@ class UpdateTrickActionTest extends WebTestCase
         );
     }
 
+    /**
+     * @group Blackfire
+     */
     public function testNonUpdatedTrickAction()
     {
-        $request = Request::create(
-            '/modifier/figure/2',
-            'POST'
-        );
-
+        $request = Request::create('/modifier/figure/2', 'POST');
         $this->handler->method('handle')->willReturn(false);
-        $action = new UpdateTrickAction($this->factory);
+        $probe = $this->blackfireClient->createProbe($this->config);
+        $action = $this->action;
+        $action(
+            $request,
+            $this->trick,
+            $this->handler,
+            $this->updateTrickResponder,
+            $this->updatedTrickResponder
+        );
+        $this->blackfireClient->endProbe($probe);
         static::assertInstanceOf(
             Response::class,
             $action

@@ -63,9 +63,29 @@ class UsersRepository extends ServiceEntityRepository implements UsersRepository
     public function findOneByPseudo($pseudo, $password)
     {
         return $this->createQueryBuilder('u')
-            ->where('u.pseudo = :pseudo')->setParameter('pseudo', $pseudo)
-            ->andWhere('u.password = :password')->setParameter('password', sha1($password))
+            ->where('u.pseudo = :pseudo')
+            ->setParameter('pseudo', $pseudo)
+            ->andWhere('u.password = :password')
+            ->setParameter('password', sha1($password))
             ->setCacheable(true)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    /**
+     * @param $pseudo
+     * @param $mail
+     * @return mixed
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findOneByPseudoAndMail($pseudo, $mail)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.pseudo = :pseudo')
+            ->setParameter('pseudo', $pseudo)
+            ->andWhere('u.mail = :mail')
+            ->setParameter('mail', $mail)
             ->getQuery()
             ->getOneOrNullResult();
     }

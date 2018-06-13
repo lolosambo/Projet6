@@ -15,7 +15,14 @@ namespace Tests\UI\Actions;
 
 use App\Domain\Models\Groups;
 use App\Domain\Models\Tricks;
+use App\Domain\Repository\TricksRepository;
+use App\UI\Actions\IndexAction;
+use App\UI\Responders\IndexResponder;
+use Blackfire\Bridge\PhpUnit\TestCaseTrait;
+use Blackfire\Client;
+use Blackfire\Profile\Configuration;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Twig\Environment;
 
 /**
  * Class IndexActionTest
@@ -24,25 +31,31 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class IndexActionTest extends WebTestCase
 {
-    /**
-     * @var
-     */
+    use TestCaseTrait;
+
+    private $action;
+
+    private $blackfireClient;
+
+    private $config;
+
     private $entityManager;
 
-    /**
-     * @var
-     */
     private $trick;
+
+    private $responder;
 
     protected function setUp()
     {
         $kernel = self::bootKernel();
-
         $this->entityManager = $kernel->getContainer()
             ->get('doctrine')
             ->getManager();
+        $this->blackfireClient = new Client();
+        $this->config = new Configuration();
+        $this->action = new IndexAction($this->createMock(TricksRepository::class));
+        $this->responder = new IndexResponder($this->createMock(Environment::class));
     }
-
     public function testCountAllTricksFromTheDatabase()
     {
         $tricks = $this->entityManager
@@ -75,6 +88,21 @@ class IndexActionTest extends WebTestCase
             ->getRepository(Tricks::class)
             ->find(1);
         $this->assertInstanceOf(Groups::class, $this->trick->getGroup());
+    }
+
+    /**
+     * @group Blackfire
+     */
+    public function testIndexInvoke()
+    {
+        $config = new Configuration();
+//        $config->setMetadata('skip_metadata', 'false');
+        $config->assert('main.peak_memory < 100kB', 'Homepage memory usage');
+        $config->assert('main.wall_time < 45ms', 'Homepage walltime');
+        $this->assertBlackfire($config, function(){
+            $client = static::createClient();
+            $client->request('GET', '/');
+        });
     }
 
     protected function tearDown()

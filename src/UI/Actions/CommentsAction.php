@@ -56,9 +56,9 @@ class CommentsAction implements CommentsActionInterface
     }
 
     /**
-     * @param Request                     $request
+     * @param Request $request
      * @param CommentTypeHandlerInterface $commentTypeHandler
-     * @param CommentsResponderInterface  $commentsResponder
+     * @param CommentsResponderInterface $commentsResponder
      *
      * @return \Exception|mixed|void
      */
@@ -67,7 +67,7 @@ class CommentsAction implements CommentsActionInterface
         if (null !== $this->session->get('userId')) {
             $addCommentForm = $this->formFactory->create(CommentType::class);
             if ($commentTypeHandler->handle($request, $addCommentForm)) {
-                return $commentsResponder(['addCommentForm' => $addCommentForm->createView()]);
+                return $commentsResponder($request, ['addCommentForm' => $addCommentForm->createView()]);
             }
             return new \Exception('Le commentaire n\'a pas pu être publié');
         }

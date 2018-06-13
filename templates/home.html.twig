@@ -3,12 +3,11 @@
 {% block title %} SNOWTRICKS {% endblock %}
 
 {% block content %}
-    <br>
-    <div class="row">
+    <div class="row" id="top">
         <div class="col l11">
             {% if app.session.get('pseudo') is not null %}
                 <a href="{{ path('add_trick') }}">
-                    <button class="waves-effect waves-light btn pink darken-1">
+                    <br><button class="waves-effect waves-light btn pink darken-1" name="add">
                         Ajouter une Figure
                     </button>
                 </a><br><br>
@@ -25,7 +24,7 @@
     </div>
     <div class="row">
         {% for trick in tricks %}
-            <div class="col xl3 l4 m6 s12">
+            <div class="col xl3 l4 m6 s12 trick" style="display: none;" id="trick">
                 <div class="card">
                     <div class="card-image">
                         {% if trick.images is not empty %}
@@ -63,6 +62,13 @@
             </div>
         {% endfor %}
     </div>
+    <br>
+        <button class="waves-effect waves-light btn pink darken-1" id="load">Voir la suite</button>
+    <br>
+    <p class="totop"><a href="#top">Revenir en haut de la page</a></p>
+    <script src="/js/loadMore.js"></script>
 {% endblock %}
+
+
 
 

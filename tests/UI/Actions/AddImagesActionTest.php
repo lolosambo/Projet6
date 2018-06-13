@@ -8,7 +8,6 @@ use App\UI\Actions\AddImagesAction;
 use App\UI\Responders\AddedImagesResponder;
 use App\UI\Responders\AddImagesResponder;
 use Blackfire\Bridge\PhpUnit\TestCaseTrait;
-use Blackfire\Profile\Configuration;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

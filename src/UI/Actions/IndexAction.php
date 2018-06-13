@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
+use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Actions\Interfaces\IndexActionInterface;
-use App\Domain\Repository\TricksRepository;
 use App\UI\Responders\Interfaces\IndexResponderInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
-use Twig\Environment;
+
 
 /**
  * Class AllTricksController.
@@ -27,28 +27,23 @@ use Twig\Environment;
  */
 class IndexAction implements IndexActionInterface
 {
-
     /**
-     * @var TricksRepository
+     * @var TricksRepositoryInterface
      */
-    private $tr;
+    private $tricksRepository;
 
-    /**
-     * AllTricksController constructor.
-     *
-     * @param TricksRepository $tr
-     */
-    public function __construct(TricksRepository $tr)
+    public function __construct(TricksRepositoryInterface $tricksRepository)
     {
-        $this->tr = $tr;
+        $this->tricksRepository = $tricksRepository;
     }
 
     /**
      * @Route("/", name="homepage")
      */
-    public function __invoke(IndexResponderInterface $indexResponder)
+    public function __invoke(Request $request, IndexResponderInterface $indexResponder)
     {
-        return $indexResponder(['tricks' => $this->tr->findAllTricksWithMediasByDate()]);
+        $tricks = $this->tricksRepository->findAllTricksWithMediasByDate();
+        return $indexResponder($request, ['tricks' => $tricks]);
     }
 }
 
