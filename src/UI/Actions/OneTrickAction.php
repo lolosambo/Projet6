@@ -14,9 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Actions;
 
 use App\Domain\Form\FormHandler\CommentTypeHandler;
-use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
-use App\Domain\Repository\Interfaces\VideosRepositoryInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\Domain\Form\Type\CommentType;
 use App\UI\Actions\Interfaces\OneTrickActionInterface;
@@ -39,22 +37,12 @@ class OneTrickAction implements OneTrickActionInterface
     /**
      * @var TricksRepositoryInterface
      */
-    private $tr;
+    private $tricksRepository;
 
     /**
      * @var ImagesRepositoryInterface
      */
-    private $ir;
-
-    /**
-     * @var VideosRepositoryInterface
-     */
-    private $vr;
-
-    /**
-     * @var CommentsRepositoryInterface
-     */
-    private $cr;
+    private $imagesRepository;
 
     /**
      * @var
@@ -64,35 +52,31 @@ class OneTrickAction implements OneTrickActionInterface
     /**
      * OneTrickAction constructor.
      *
-     * @param TricksRepositoryInterface   $tr
-     * @param CommentsRepositoryInterface $cr
-     * @param ImagesRepositoryInterface   $ir
-     * @param VideosRepositoryInterface   $mr
+     * @param TricksRepositoryInterface   $tricksRepository
+     * @param ImagesRepositoryInterface   $imagesRepository
      * @param FormFactoryInterface        $formFactory
      */
     public function __construct(
-        TricksRepositoryInterface $tr,
-        CommentsRepositoryInterface $cr,
-        ImagesRepositoryInterface $ir,
-        VideosRepositoryInterface $vr,
+        TricksRepositoryInterface $tricksRepository,
+        ImagesRepositoryInterface $imagesRepository,
         FormFactoryInterface $formFactory
     ) {
-        $this->tr = $tr;
-        $this->ir = $ir;
-        $this->vr = $vr;
-        $this->cr = $cr;
+        $this->tricksRepository = $tricksRepository;
+        $this->imagesRepository = $imagesRepository;
         $this->formFactory = $formFactory;
     }
 
     /**
      * @Route("/trick/{id}", name="single_trick")
      *
-     * @param Request                     $request
-     * @param SessionInterface            $session
-     * @param CommentTypeHandler          $commentTypeHandler
-     * @param OneTrickResponderInterface  $oneTrickResponder
+     * @param Request $request
+     * @param SessionInterface $session
+     * @param CommentTypeHandler $commentTypeHandler
+     * @param OneTrickResponderInterface $oneTrickResponder
      *
      * @return mixed|RedirectResponse
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function __invoke(
         Request $request,
@@ -101,19 +85,19 @@ class OneTrickAction implements OneTrickActionInterface
         OneTrickResponderInterface $oneTrickResponder,
         UrlGeneratorInterface $generator
     ) {
-        $id = intval($request->get('id'));
-        $trick = $this->tr->findTrick($id);
-        $comments = $this->cr->findByTrickId($id);
-        $aLaUne = $this->ir->findImageALaUne($id);
-        $images = $this->ir->findByTrick($id);
-        $videos = $this->vr->findByTrick($id);
-        $userId = $session->get('userId');
+        $id = $request->attributes->get('id');
+        $trick = $this->tricksRepository->findTrickDetails($id);
+        $comments = $trick->getComments();
+        $aLaUne = $this->imagesRepository->findImageALaUne($id);
+        $videos = $trick->getVideos()->toArray();
+        $images = $trick->getImages()->toArray();
+        $userId = $session->get('userId')->toString();
 
         if ($userId) {
             $addCommentForm = $this->formFactory->create(CommentType::class)
                                                 ->handleRequest($request);
             if ($commentTypeHandler->handle($request, $addCommentForm, $userId, $id)) {
-                return new RedirectResponse($generator->generate('single_trick', ['id' => $id])); // urlGenerator
+                return new RedirectResponse($generator->generate('single_trick', ['id' => $id]));
             }
             return $oneTrickResponder($request, [
                 'trick' => $trick,

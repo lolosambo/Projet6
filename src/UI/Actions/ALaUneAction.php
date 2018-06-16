@@ -52,8 +52,8 @@ class ALaUneAction implements ALaUneActionInterface
         Request $request,
         UrlGeneratorInterface $urlGenerator
     ) {
-        $trick_id = intval($request->get('trick_id'));
-        $id = intval($request->get('id'));
+        $trick_id = $request->get('trick_id');
+        $id = $request->get('id');
         $image = $this->imagesRepository->findImageALaUne($trick_id);
         if ($image) {
             $image->setALaUne(0);

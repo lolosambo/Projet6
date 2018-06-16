@@ -13,9 +13,11 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
+use App\Domain\Models\Interfaces\CommentsInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 
 /**
@@ -26,17 +28,17 @@ use Ramsey\Uuid\Uuid;
 class Tricks implements TricksInterface
 {
     /**
-     * @var int
+     * @var UuidInterface
      */
     private $id;
 
     /**
-     * @var Uuid
+     * @var UuidInterface
      */
     private $userId;
 
     /**
-     * @var int
+     * @var UuidInterface
      */
     private $groupId;
 
@@ -61,12 +63,17 @@ class Tricks implements TricksInterface
     private $trickUpdate;
 
     /**
-     * @var Images
+     * @var ArrayCollection
      */
     private $images;
 
     /**
-     * @var Videos
+     * @var ArrayCollection
+     */
+    private $comments;
+
+    /**
+     * @var ArrayCollection
      */
     private $videos;
 
@@ -84,23 +91,24 @@ class Tricks implements TricksInterface
      * Tricks constructor.
      *
      * @param string          $name
-     * @param int             $group
+     * @param string          $group
      * @param string          $content
      */
     public function __construct(
         string $name = null,
-        int $group = null,
+        string $group = null,
         string $content = null
     ) {
         $this->setName(htmlspecialchars($name));
         $this->setContent(htmlspecialchars($content));
         $this->groupId = $group;
         $this->images = new ArrayCollection();
+        $this->comments = new ArrayCollection();
         $this->videos = new ArrayCollection();
     }
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection|mixed
      */
     public function getImages()
     {
@@ -126,6 +134,34 @@ class Tricks implements TricksInterface
     public function removeImages(Images $images)
     {
         $this->images->removeElement($images);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param Comments $comments
+     *
+     * @return $this
+     */
+    public function addComments(Comments $comment)
+    {
+        $this->comments[] = $comment;
+        $comment->setTrick($this);
+        return $this;
+    }
+
+    /**
+     * @param Images $images
+     */
+    public function removeComment(Comments $comment)
+    {
+        $this->comments->removeElement($comment);
     }
 
     /**
@@ -198,7 +234,7 @@ class Tricks implements TricksInterface
     }
 
     /**
-     * @return int
+     * @return UuidInterface
      */
     public function getId()
     {
@@ -206,7 +242,7 @@ class Tricks implements TricksInterface
     }
 
     /**
-     * @return Uuid
+     * @return UuidInterface
      */
     public function getUserId()
     {
@@ -214,15 +250,15 @@ class Tricks implements TricksInterface
     }
 
     /**
-     * @param Uuid  $userId
+     * @param UuidInterface  $userId
      */
-    public function setUserId(Uuid $userId)
+    public function setUserId(UuidInterface $userId)
     {
         $this->userId = $userId;
     }
 
     /**
-     * @return int
+     * @return UuidInterface
      */
     public function getGroupId()
     {
@@ -230,9 +266,9 @@ class Tricks implements TricksInterface
     }
 
     /**
-     * @param $groupId
+     * @param UuidInterface  $groupId
      */
-    public function setGroupId($groupId)
+    public function setGroupId(UuidInterface $groupId)
     {
         $this->groupId = $groupId;
     }
@@ -280,7 +316,7 @@ class Tricks implements TricksInterface
     /**
      * @param $trickDate
      */
-    public function setTrickDate($trickDate)
+    public function setTrickDate(\DateTime $trickDate)
     {
         $this->trickDate = $trickDate;
     }
@@ -296,7 +332,7 @@ class Tricks implements TricksInterface
     /**
      * @param $trickUpdate
      */
-    public function setTrickUpdate($trickUpdate)
+    public function setTrickUpdate(\DateTime $trickUpdate)
     {
         $this->trickUpdate = $trickUpdate;
     }

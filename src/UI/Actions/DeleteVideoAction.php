@@ -48,10 +48,12 @@ class DeleteVideoAction implements DeleteVideoActionInterface
      */
     public function __invoke(Request $request, UrlGeneratorInterface $generator)
     {
-        $this->vr->deleteVideo(intval($request->get('mediaId')));
+        dump($request->attributes->get('mediaId'));
+        die;
+        $this->vr->deleteVideo($request->attributes->get('mediaId'));
         $this->vr->flush();
         return new RedirectResponse($generator->generate('single_trick', [
-            'id' => $request->get('trickId')
+            'id' => $request->attributes->get('trickId')
                 ])
             );
     }

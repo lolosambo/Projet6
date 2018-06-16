@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\UsersInterface;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -25,7 +25,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class Users implements UserInterface, \Serializable, UsersInterface
 {
     /**
-     * @var string
+     * @var UuidInterface
      */
     private $id;
 
@@ -57,7 +57,7 @@ class Users implements UserInterface, \Serializable, UsersInterface
     /**
      * @var string string
      */
-    private $avatar = '../images/avatar.png';
+    private $avatar;
 
     /**
      * Users constructor.
@@ -78,7 +78,7 @@ class Users implements UserInterface, \Serializable, UsersInterface
     }
 
     /**
-     * @return string
+     * @return UuidInterface
      */
     public function getId()
     {
@@ -197,8 +197,6 @@ class Users implements UserInterface, \Serializable, UsersInterface
     {
         if (preg_match('#^\.\./uploads/avatars/([0-9a-zA-Z-_]+)\.jpg|jpeg|png$#', $avatar)) {
             $this->avatar = $avatar;
-        } else {
-            $this->avatar = '../images/avatar.png';
         }
     }
 

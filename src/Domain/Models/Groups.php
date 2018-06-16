@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\GroupsInterface;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * Class Groups.
@@ -23,7 +24,7 @@ use App\Domain\Models\Interfaces\GroupsInterface;
 class Groups implements GroupsInterface
 {
     /**
-     * @var int
+     * @var UuidInterface
      */
     private $id;
 
@@ -33,7 +34,7 @@ class Groups implements GroupsInterface
     private $name;
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId()
     {
@@ -53,6 +54,6 @@ class Groups implements GroupsInterface
      */
     public function setName($name)
     {
-        $this->name = htmlspecialchars($name);
+        $this->name = $name;
     }
 }

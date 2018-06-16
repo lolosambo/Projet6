@@ -12,7 +12,7 @@ declare(strict_types=1);
  */
 
 namespace App\Domain\Models\Interfaces;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * Interface CommentsInterface
@@ -22,29 +22,29 @@ use Ramsey\Uuid\Uuid;
 interface CommentsInterface
 {
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId();
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getTrickId();
 
     /**
-     * @param $trickId
+     * @param string  $trickId
      */
-    public function setTrickId($trickId);
+    public function setTrickId(string $trickId);
 
     /**
-     * @return Uuid
+     * @return UuidInterface
      */
     public function getUserId();
 
     /**
-     * @param Uuid  $userId
+     * @param string  $userId
      */
-    public function setUserId(Uuid $userId);
+    public function setUserId(string $userId);
 
     /**
      * @return mixed

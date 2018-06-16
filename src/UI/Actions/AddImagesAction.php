@@ -63,7 +63,7 @@ class AddImagesAction implements AddImagesActionInterface
         $images = $this->formFactory
             ->create(ImagesType::class)
             ->handleRequest($request);
-        if ($imagesHandler->handle($images, intval($request->get('id')))) {
+        if ($imagesHandler->handle($images, $request->get('id'))) {
             return  $addedImagesResponder();
         }
         return $addImagesResponder(['form' => $images->createView()]);

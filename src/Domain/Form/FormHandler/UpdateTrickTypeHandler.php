@@ -60,10 +60,10 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
     /**
      * @param UpdateTrickTypeHandlerInterface $formType
      */
-    public function handle(FormInterface $updateTrickType, int $trickId)
+    public function handle(FormInterface $updateTrickType, string $trickId)
     {
         if ($updateTrickType->isSubmitted() && $updateTrickType->isValid()) {
-            $newTrick = $this->tr->find($trickId);
+            $newTrick = $this->tr->findTrick($trickId);
             $newTrick->setTrickUpdate(new \DateTime('NOW'));
             $this->tr->flush();
             return true;

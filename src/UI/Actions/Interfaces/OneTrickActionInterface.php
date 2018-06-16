@@ -13,10 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions\Interfaces;
 
-use App\Domain\DTO\Interfaces\CommentDTOInterface;
 use App\Domain\Form\FormHandler\CommentTypeHandler;
-use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
-use App\Domain\Repository\Interfaces\VideosRepositoryInterface;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responders\Interfaces\OneTrickResponderInterface;
@@ -35,17 +32,13 @@ interface OneTrickActionInterface
     /**
      * OneTrickActionInterface constructor.
      *
-     * @param TricksRepositoryInterface    $tr
-     * @param CommentsRepositoryInterface  $cr
-     * @param ImagesRepositoryInterface    $mr
-     * @param VideosRepositoryInterface    $mr
+     * @param TricksRepositoryInterface    $tricksRepository
+     * @param ImagesRepositoryInterface    $imagesRepository
      * @param FormFactoryInterface         $formFactory
      */
     public function __construct(
-        TricksRepositoryInterface $tr,
-        CommentsRepositoryInterface $cr,
-        ImagesRepositoryInterface $ir,
-        VideosRepositoryInterface $vr,
+        TricksRepositoryInterface $tricksRepository,
+        ImagesRepositoryInterface $imagesRepository,
         FormFactoryInterface $formFactory
     );
 

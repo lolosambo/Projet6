@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 use App\Domain\Models\Tricks;
+use Ramsey\Uuid\UuidInterface;
 
 
 /**
@@ -25,21 +26,20 @@ use App\Domain\Models\Tricks;
 interface ImagesInterface
 {
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId();
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getTrickId();
 
     /**
-     * @param $trickId
+     * @param string  $trickId
      *
-     * @return mixed
      */
-    public function setTrickId(int $trickId);
+    public function setTrickId(string $trickId);
 
     /**
      * @return mixed

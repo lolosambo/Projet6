@@ -38,6 +38,20 @@ class AddImagesActionFunctionalTest extends WebTestCase
     }
 
     /**
+     * @group functional
+     */
+//    public function testUploadImagesForm()
+//    {
+//        $client = static::createClient();
+//        $crawler = $client->request('GET', '/ajout-medias/2');
+//        $form = $crawler->selectButton('publier')->form();
+//        $form['image']->upload('uploads/test1.jpg');
+//        $client->submit($form);
+//        static::assertInstanceOf(\SplFileInfo::class, $form->getFiles());
+//        static::assertTrue($client->getResponse()->isRedirect());
+//    }
+
+    /**
      * @group Blackfire
      */
     public function testAddImagesInvoke()

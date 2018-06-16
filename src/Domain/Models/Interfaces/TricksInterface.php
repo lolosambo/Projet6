@@ -18,6 +18,7 @@ use App\Domain\Models\Medias;
 use App\Domain\Models\Videos;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 
 /**
@@ -27,25 +28,6 @@ use Ramsey\Uuid\Uuid;
  */
 interface TricksInterface
 {
-
-//    /**
-//     * @return mixed
-//     */
-//    public function getMedias();
-//
-//    /**
-//     * @param Medias $media
-//     *
-//     * @return mixed
-//     */
-//    public function addMedia(Medias $media);
-//
-//    /**
-//     * @param Medias $media
-//     *
-//     * @return mixed
-//     */
-//    public function removeMedia(Medias $media);
 
     /**
      * @return mixed
@@ -72,33 +54,30 @@ interface TricksInterface
     public function setGroup($group);
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId();
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getUserId();
 
     /**
-     * @param $userId
-     *
-     * @return mixed
+     * @param UuidInterface  $userId
      */
-    public function setUserId(Uuid $userId);
+    public function setUserId(UuidInterface $userId);
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getGroupId();
 
     /**
-     * @param $groupId
+     * @param UuidInterface  $groupId
      *
-     * @return mixed
      */
-    public function setGroupId($groupId);
+    public function setGroupId(UuidInterface $groupId);
 
     /**
      * @return mixed
@@ -172,7 +151,7 @@ interface TricksInterface
      *
      * @return mixed
      */
-    public function setTrickDate($trickDate);
+    public function setTrickDate(\DateTime $trickDate);
 
     /**
      * @return mixed
@@ -184,5 +163,5 @@ interface TricksInterface
      *
      * @return mixed
      */
-    public function setTrickUpdate($trickUpdate);
+    public function setTrickUpdate(\DateTime $trickUpdate);
 }

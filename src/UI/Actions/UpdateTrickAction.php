@@ -60,7 +60,7 @@ class UpdateTrickAction implements UpdateTrickActionInterface
         $form = $this->formFactory
             ->create(UpdateTrickType::class, $trick)
             ->handleRequest($request);
-        if ($updateTrickTypeHandler->handle($form, intval($request->get('id')))) {
+        if ($updateTrickTypeHandler->handle($form, $request->get('id'))) {
             return $updatedTrickResponder(['trick' => $trick]);
         }
         return $updateTrickResponder(['form' => $form->createView()]);

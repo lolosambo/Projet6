@@ -19,7 +19,6 @@ use App\UI\Responders\Interfaces\IndexResponderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * Class AllTricksController.
  *

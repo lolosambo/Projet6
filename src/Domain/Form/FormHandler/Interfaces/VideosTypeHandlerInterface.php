@@ -24,6 +24,6 @@ interface VideosTypeHandlerInterface
 {
     public function handle(
         FormInterface $videosType,
-        int $trickId
+        string $trickId
     );
 }

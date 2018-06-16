@@ -6,14 +6,17 @@
 
     <entity name="App\Domain\Models\Tricks"
             repository-class="App\Domain\Repository\TricksRepository">
-        <id name="id" type="integer">
-            <generator strategy="AUTO" />
+        <id name="id" column="id" type="uuid">
+            <generator strategy="CUSTOM" />
+            <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
         <field name="name" type="string" length="255" />
         <field name="content" type="text" />
         <field name="trickDate" type="datetime"/>
         <field name="trickUpdate" type="datetime"/>
         <one-to-many field="images" target-entity="Images" mapped-by="trick">
+        </one-to-many>
+        <one-to-many field="comments" target-entity="Comments" mapped-by="trick">
         </one-to-many>
         <one-to-many field="videos" target-entity="Videos" mapped-by="trick">
         </one-to-many>

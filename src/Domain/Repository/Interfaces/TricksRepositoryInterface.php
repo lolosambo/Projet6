@@ -10,6 +10,7 @@ namespace App\Domain\Repository\Interfaces;
 
 use Doctrine\Common\Cache\Cache;
 use Doctrine\Common\Cache\CacheProvider;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 
@@ -33,11 +34,20 @@ interface TricksRepositoryInterface
     public function findAllTricksWithMediasByDate();
 
     /**
-     * @param $id
+     * @param string  $id
      *
      * @return mixed
      */
-    public function findTrick($id);
+    public function findTrick(string $id);
+
+    /**
+     * @param string  $id
+     *
+     * @return mixed
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findTrickDetails(string $id);
 
     /**
      * @param $content
@@ -47,11 +57,11 @@ interface TricksRepositoryInterface
     public function findOneByContent($content);
 
     /**
-     * @param $id
+     * @param string  $id
      *
      * @return mixed
      */
-    public function deleteTrick($id);
+    public function deleteTrick(string $id);
 
     /**
      * @return mixed

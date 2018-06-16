@@ -34,9 +34,32 @@ class IndexActionFunctionalTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
-        $link = $crawler->selectLink('/ajouter/figure')->link();
         static::assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
-        static::assertEquals('/ajouter/figure', $link->getUri());
+    }
+
+    /**
+     * @group functional
+     */
+    public function testLinksAndButtons()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $addTrickButton = $crawler->selectLink('Ajouter une Figure')->link();
+        $addTrickButtonSubmitted = $client->click($addTrickButton);
+        static::assertContains('ajouter/figure', $addTrickButtonSubmitted->getUri());
+        $seeDetailsLink = $crawler->selectLink('Voir le détail')->link();
+        $seeDetailsLinkClicked = $client->click($seeDetailsLink);
+        static::assertContains('trick/30', $seeDetailsLinkClicked->getUri());
+    }
+
+    /**
+     * @group functional
+     */
+    public function testHomepageShouldDisplayAtLeast1Trick()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        static::assertGreaterThan(10, $crawler->filter('div.card')->count());
     }
 
     /**

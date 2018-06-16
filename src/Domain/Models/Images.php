@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\ImagesInterface;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * Class images
@@ -23,12 +24,12 @@ use App\Domain\Models\Interfaces\ImagesInterface;
 class Images implements ImagesInterface
 {
     /**
-     * @var int
+     * @var UuidInterface
      */
     private $id;
 
     /**
-     * @var int
+     * @var UuidInterface
      */
     private $trickId;
 
@@ -48,25 +49,25 @@ class Images implements ImagesInterface
     private $url;
 
     /**
-     * @return int
+     * @return UuidInterface
      */
-    public function getId(): int
+    public function getId(): UuidInterface
     {
         return $this->id;
     }
 
     /**
-     * @return int
+     * @return UuidInterface
      */
-    public function getTrickId(): int
+    public function getTrickId(): UuidInterface
     {
         return $this->trickId;
     }
 
     /**
-     * @param int $trickId
+     * @param string $trickId
      */
-    public function setTrickId(int $trickId)
+    public function setTrickId(string $trickId)
     {
         $this->trickId = $trickId;
     }

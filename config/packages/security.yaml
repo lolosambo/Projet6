@@ -22,6 +22,8 @@ security:
             guard:
                 authenticators:
                     - App\Security\FormLoginAuthenticator
+        test:
+            http_basic: true
 
 
             # activate different ways to authenticate

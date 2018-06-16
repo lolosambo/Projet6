@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
+use Ramsey\Uuid\UuidInterface;
+
 /**
  * Interface GroupsInterface
  *
@@ -21,7 +23,7 @@ namespace App\Domain\Models\Interfaces;
 interface GroupsInterface
 {
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId();
 

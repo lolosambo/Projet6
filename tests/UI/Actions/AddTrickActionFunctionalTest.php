@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Tests\UI\Actions;
 
+use App\Domain\Form\Type\TrickType;
 use Blackfire\Bridge\PhpUnit\TestCaseTrait;
 use Blackfire\Profile\Configuration;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -36,6 +37,17 @@ class AddTrickActionFunctionalTest extends WebTestCase
         $client->request('GET', '/ajouter/figure');
         static::assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
     }
+
+    /**
+     * @group functional
+     */
+//    public function testAddTrickForm()
+//    {
+//        $client = static::createClient();
+//        $crawler = $client->request('GET', '/ajouter/figure');
+//        $form = $crawler->selectButton('publier')->form();
+//        static::assertTrue($form);
+//    }
 
     /**
      * @group Blackfire

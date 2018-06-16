@@ -46,23 +46,47 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
                 ->orderBy('t.trickUpdate')
                 ->setCacheable(true)
                 ->getQuery()
+                ->useResultCache(true)
+                ->useQueryCache(true)
                 ->getResult();
     }
 
     /**
-     * @param int $id
+     * @param string  $id
      *
-     * @return mixed|null|object
+     * @return mixed
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findTrick($id)
+    public function findTrick(string $id)
     {
         return $this->createQueryBuilder('t')
             ->where('t.id = ?1')
             ->setParameter(1, $id)
             ->setCacheable(true)
             ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    /**
+     * @param string  $id
+     *
+     * @return mixed
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findTrickDetails(string $id)
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.id = ?1')
+            ->leftJoin('t.images', 'ti', 'WITH', 'ti.trickId = ?1')
+            ->leftJoin('t.comments', 'tc', 'WITH', 'tc.trickId = ?1')
+            ->leftJoin('t.videos', 'tv', 'WITH', 'tv.trickId = ?1')
+            ->setParameter(1, $id)
+            ->setCacheable(true)
+            ->getQuery()
+            ->useResultCache(true)
+            ->useQueryCache(true)
             ->getOneOrNullResult();
     }
 
@@ -83,11 +107,11 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
     }
 
     /**
-     * @param int $id
+     * @param string $id
      *
      * @return mixed
      */
-    public function deleteTrick($id)
+    public function deleteTrick(string $id)
     {
         return $this->createQueryBuilder('t')
             ->delete('App\Domain\Models\Tricks', 't')

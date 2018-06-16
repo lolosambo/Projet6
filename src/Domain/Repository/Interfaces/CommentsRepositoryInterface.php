@@ -23,11 +23,11 @@ interface CommentsRepositoryInterface
     public function __construct(RegistryInterface $registry);
 
     /**
-     * @param $id
+     * @param string  $id
      *
      * @return mixed
      */
-    public function findByTrickId($id);
+    public function findByTrickId(string $id);
 
     /**
      * @param $comment

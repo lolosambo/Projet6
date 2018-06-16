@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
-use App\Domain\Models\Interfaces\ImagesInterface;
 use App\Domain\Models\Interfaces\VideosInterface;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * Class Videos
@@ -24,12 +24,12 @@ use App\Domain\Models\Interfaces\VideosInterface;
 class Videos implements VideosInterface
 {
     /**
-     * @var int
+     * @var UuidInterface
      */
     private $id;
 
     /**
-     * @var int
+     * @var string
      */
     private $trickId;
 
@@ -44,25 +44,24 @@ class Videos implements VideosInterface
     private $url;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getId(): int
+    public function getId(): UuidInterface
     {
         return $this->id;
     }
-
     /**
-     * @return int
+     * @return string
      */
-    public function getTrickId(): int
+    public function getTrickId(): string
     {
         return $this->trickId;
     }
 
     /**
-     * @param int $trickId
+     * @param string  $trickId
      */
-    public function setTrickId(int $trickId)
+    public function setTrickId(string $trickId)
     {
         $this->trickId = $trickId;
     }

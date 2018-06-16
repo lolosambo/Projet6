@@ -36,13 +36,13 @@ class UsersRepository extends ServiceEntityRepository implements UsersRepository
     }
 
     /**
-     * @param mixed $id
+     * @param string $id
      *
      * @return mixed|null|object
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findUser($id)
+    public function findUser(string $id)
     {
         return $this->createQueryBuilder('u')
             ->where('u.id = ?1')

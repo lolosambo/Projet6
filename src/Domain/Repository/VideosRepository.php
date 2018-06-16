@@ -36,13 +36,13 @@ class VideosRepository extends ServiceEntityRepository implements VideosReposito
     }
 
     /**
-     * @param $trickId
+     * @param string  $trickId
      *
      * @return mixed
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findVideosByTrickId($trickId)
+    public function findVideosByTrickId(string $trickId)
     {
         return $this->createQueryBuilder('v')
             ->where('v.trickId = :trickId')
@@ -53,11 +53,11 @@ class VideosRepository extends ServiceEntityRepository implements VideosReposito
     }
 
     /**
-     * @param int $id
+     * @param string $id
      *
      * @return \Doctrine\ORM\QueryBuilder|mixed
      */
-    public function deleteVideo(int $id)
+    public function deleteVideo(string $id)
     {
         return $this->createQueryBuilder('v')
             ->delete('App\Domain\Models\Videos', 'v')

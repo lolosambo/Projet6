@@ -77,9 +77,9 @@ class CommentTypeHandler implements CommentTypeHandlerInterface
     public function handle(Request $request, FormInterface $commentType)
     {
         if ($commentType->isSubmitted() && $commentType->isValid()) {
-            $userId = $this->session->get('userId');
+            $userId = $this->session->get('userId')->toString();
             $trickId = $request->get('id');
-            $user = $this->ur->find($userId);
+            $user = $this->ur->findUser($userId);
             $trick = $this->tr->find($trickId);
             $comment = new Comments($commentType->getData()->content);
             $comment->setUserId($userId);

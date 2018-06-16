@@ -17,7 +17,6 @@ use App\Domain\Models\Images;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-use Symfony\Bundle\FrameworkBundle\Tests\CacheWarmer\testRouterInterfaceWithoutWarmebleInterface;
 
 /**
  * Class ImagesRepository
@@ -37,13 +36,13 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
     }
 
     /**
-     * @param int $trickId
+     * @param string  $trickId
      *
      * @return mixed
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findImageALaUne(int $trickId)
+    public function findImageALaUne(string $trickId)
     {
         return $this->createQueryBuilder('i')
             ->where('i.trickId = :trickId AND i.aLaUne = 1')
@@ -71,13 +70,13 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
     }
 
     /**
-     * @param int $id
+     * @param string  $id
      *
      * @return mixed
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findById(int $id)
+    public function findById(string $id)
     {
         return $this->createQueryBuilder('i')
             ->where('i.id = :id')
@@ -88,11 +87,11 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
     }
 
     /**
-     * @param int $id
+     * @param string  $id
      *
      * @return \Doctrine\ORM\QueryBuilder|mixed
      */
-    public function deleteImage(int $id)
+    public function deleteImage(string $id)
     {
         return $this->createQueryBuilder('t')
             ->delete('App\Domain\Models\Images', 'i')

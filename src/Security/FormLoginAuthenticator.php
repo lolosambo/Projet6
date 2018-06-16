@@ -85,7 +85,7 @@ class FormLoginAuthenticator extends AbstractGuardAuthenticator
      */
     public function getCredentials(Request $request)
     {
-        if (!$request->getUri('/connexion') && !$request->isMethod('POST')) {
+        if ('login' !== $request->attributes->get('_route') && !$request->isMethod('POST')) {
             return;
         }
 
@@ -94,6 +94,7 @@ class FormLoginAuthenticator extends AbstractGuardAuthenticator
             'password' => $this->password,
         ];
     }
+
 
     /**
      * @param mixed                 $credentials

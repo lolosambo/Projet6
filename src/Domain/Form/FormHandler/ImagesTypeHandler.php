@@ -65,10 +65,10 @@ class ImagesTypeHandler implements ImagesTypeHandlerInterface
      */
     public function handle(
         FormInterface $imagesType,
-        int $trickId
+        string $trickId
     ) {
         if ($imagesType->isSubmitted() && $imagesType->isValid()) {
-            $trick = $this->tr->find($trickId);
+            $trick = $this->tr->findTrick($trickId);
 
             $files = $imagesType->getData()->image;
 

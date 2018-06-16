@@ -36,11 +36,11 @@ class CommentsRepository extends ServiceEntityRepository implements CommentsRepo
     }
 
     /**
-     * @param $id
+     * @param string  $id
      *
      * @return mixed
      */
-    public function findByTrickId($id)
+    public function findByTrickId(string $id)
     {
         return $this->createQueryBuilder('c')
             ->where('c.trickId = :trick_id')

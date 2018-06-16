@@ -80,15 +80,13 @@ class TrickTypeHandler implements TrickAddTypeHandlerInterface
         if ($trickType->isSubmitted() && $trickType->isValid()) {
             $trick = new Tricks(
                 $trickType->getData()->name,
-                $trickType->getData()->group->getId(),
+                $trickType->getData()->group->getId()->toString(),
                 $trickType->getData()->content
             );
-            $userId = $this->session->get('userId');
-            $user = $this->ur->find($userId);
-            $group = $this->gr->findOneByGroup($trickType->getData()->group->getName());
-
+            $userId = $this->session->get('userId')->toString();
+            $user = $this->ur->findUser($userId);
             $trick->setUser($user);
-            $trick->setName($group);
+            $trick->setGroup($trickType->getData()->group);
             $trick->setTrickDate(new \DateTime('NOW'));
             $trick->setTrickUpdate(new \DateTime('NOW'));
             $this->tr->save($trick);

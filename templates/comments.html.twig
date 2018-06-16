@@ -21,6 +21,9 @@
         {% for comment in comments %}
             <div class="row single_comment">
                 <div class="col l1 m1 s3 grey lighten-2">
+                    {% if app.session.get('avatar') is empty %}
+                        <img class="circle responsive-img" src="{{ asset('../images/avatar.png')}}"/>
+                    {% endif %}
                     <img class="circle responsive-img" src="{{ comment.user.avatar }}"/><br>
                 </div>
                 <div class="col l11 m11 s9">

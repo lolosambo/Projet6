@@ -30,18 +30,18 @@ interface VideosRepositoryInterface
     public function __construct(RegistryInterface $registry);
 
     /**
-     * @param $trickId
+     * @param string  $trickId
      *
      * @return mixed
      */
-    public function findVideosByTrickId($trickId);
+    public function findVideosByTrickId(string $trickId);
 
     /**
-     * @param int $id
+     * @param string  $id
      *
      * @return mixed
      */
-    public function deleteVideo(int $id);
+    public function deleteVideo(string $id);
 
     /**
      * @return mixed

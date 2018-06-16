@@ -45,7 +45,7 @@ class GroupsRepository extends ServiceEntityRepository implements GroupsReposito
     public function findOneByGroup($group)
     {
         return $this->createQueryBuilder('g')
-            ->where('g.group = ?1')
+            ->where('g.name = ?1')
             ->setParameter(1, $group)
             ->getQuery()
             ->setCacheable(true)

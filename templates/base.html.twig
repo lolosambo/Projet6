@@ -62,8 +62,12 @@
                                 </button><br>
                             </a>
                         {% else %}
-                            <br>
-                            <img class="circle" src="{{ app.session.get('avatar')}}"/><br>
+                            {% if app.session.get('avatar') is null %}
+                                <br>
+                                <img class="circle" src="{{ asset('../images/avatar.png')}}"/>
+                            {% endif %}
+                                <br>
+                                <img class="circle" src="{{ app.session.get('avatar')}}"/>
                             <h3>Bonjour {{ app.session.get('pseudo') }}</h3><br>
                             <a href="{{ path('logout') }}">
                                 <button class="waves-effect waves-light btn-large pink darken-1">Se déconnecter</button>

@@ -30,7 +30,7 @@ interface ImagesTypeHandlerInterface
      */
     public function handle(
         FormInterface $imagesType,
-        int $trickId
+        string $trickId
     );
 }
 

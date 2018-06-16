@@ -43,5 +43,5 @@ interface UpdateTrickTypeHandlerInterface
      *
      * @return mixed
      */
-    public function handle(FormInterface $updateTrickType, int $trickId);
+    public function handle(FormInterface $updateTrickType, string $trickId);
 }

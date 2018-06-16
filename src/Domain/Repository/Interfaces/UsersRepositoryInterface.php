@@ -23,11 +23,11 @@ interface UsersRepositoryInterface
     public function __construct(RegistryInterface $registry);
 
     /**
-     * @param $id
+     * @param string  $id
      *
      * @return mixed
      */
-    public function findUser($id);
+    public function findUser(string $id);
 
     /**
      * @param $pseudo

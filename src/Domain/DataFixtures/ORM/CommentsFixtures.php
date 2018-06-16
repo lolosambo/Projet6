@@ -11,7 +11,7 @@ class CommentsFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         for ($i = 1; $i < 200; $i++) {
-            $content = file_get_contents('http://loripsum.net/api/1/short');
+            $content = 'Ceci est un commentaire aléatoire portant le numero : '. rand(1, 10000);
             $comment = new Comments($content);
             $comment->setUser($this->getReference('user'.rand(1, 10)));
             $comment->setTrick($this->getReference('trick'.rand(1, 10)));

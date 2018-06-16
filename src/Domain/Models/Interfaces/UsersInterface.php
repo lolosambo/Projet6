@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
+use Ramsey\Uuid\UuidInterface;
+
 /**
  * Interface UsersInterface
  * @author Laurent BERTON <lolosambo2@gmail.com>
@@ -21,7 +23,7 @@ interface UsersInterface
 {
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId();
 

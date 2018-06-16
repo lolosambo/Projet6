@@ -30,11 +30,11 @@ interface ImagesRepositoryInterface
     public function __construct(RegistryInterface $registry);
 
     /**
-     * @param int $trickId
+     * @param string $trickId
      *
      * @return mixed
      */
-    public function findImageALaUne(int $trickId);
+    public function findImageALaUne(string $trickId);
 
     /**
      * @param string $url
@@ -44,18 +44,18 @@ interface ImagesRepositoryInterface
     public function findByUrl(string $url);
 
     /**
-     * @param int $id
+     * @param string  $id
      *
      * @return mixed
      */
-    public function findById(int $id);
+    public function findById(string $id);
 
     /**
-     * @param $image
+     * @param string  $id
      *
      * @return mixed
      */
-    public function deleteImage(int $id);
+    public function deleteImage(string $id);
 
     /**
      * @return mixed

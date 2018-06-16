@@ -2,89 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a09f211-d698-4561-add8-044fe8ed5f34" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/js/loadMore.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/CacheKernel.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/UI/Actions/AccountValidationAction.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/UI/Responders/AccountValidatedResponder.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/UI/Responders/Interfaces/AccountValidatedResponderInterface.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/account_validated.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/medias.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/ALaUneActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/AddImagesActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/AddTrickActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/CommentsActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/ConnectionFormActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/DeleteImageActionFonctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/DeleteTrickActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/DeleteVideoActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/IndexActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/InscriptionFormActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/OneTrickActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionFunctionalTest.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/UI/Actions/UpdateTrickActionFunctionalTest.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/efe8c9b8-2760-4246-8399-ec1e6980b688.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/efe8c9b8-2760-4246-8399-ec1e6980b688.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/efe8c9b8-2760-4246-8399-ec1e6980b688/storage_v2/_src_/database/snowtricks.w1534A/schema/public.abK9xQ.meta" afterPath="$PROJECT_DIR$/.idea/dataSources/efe8c9b8-2760-4246-8399-ec1e6980b688/storage_v2/_src_/database/snowtricks.w1534A/schema/public.abK9xQ.meta" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" />
+      <change beforePath="$PROJECT_DIR$/config/doctrine/Comments.orm.xml" afterPath="$PROJECT_DIR$/config/doctrine/Comments.orm.xml" />
+      <change beforePath="$PROJECT_DIR$/config/doctrine/Groups.orm.xml" afterPath="$PROJECT_DIR$/config/doctrine/Groups.orm.xml" />
+      <change beforePath="$PROJECT_DIR$/config/doctrine/Images.orm.xml" afterPath="$PROJECT_DIR$/config/doctrine/Images.orm.xml" />
+      <change beforePath="$PROJECT_DIR$/config/doctrine/Tricks.orm.xml" afterPath="$PROJECT_DIR$/config/doctrine/Tricks.orm.xml" />
+      <change beforePath="$PROJECT_DIR$/config/doctrine/Videos.orm.xml" afterPath="$PROJECT_DIR$/config/doctrine/Videos.orm.xml" />
+      <change beforePath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" afterPath="$PROJECT_DIR$/config/packages/security.yaml" />
       <change beforePath="$PROJECT_DIR$/docker/nginx/logs/smartfact_prod_access.log" afterPath="$PROJECT_DIR$/docker/nginx/logs/smartfact_prod_access.log" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" afterPath="$PROJECT_DIR$/phpunit.xml.dist" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" afterPath="$PROJECT_DIR$/public/index.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/Type/ALaUneType.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DataFixtures/ORM/CommentsFixtures.php" afterPath="$PROJECT_DIR$/src/Domain/DataFixtures/ORM/CommentsFixtures.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DataFixtures/ORM/TricksFixtures.php" afterPath="$PROJECT_DIR$/src/Domain/DataFixtures/ORM/TricksFixtures.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/CommentTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/CommentTypeHandler.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/ImagesTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/ImagesTypeHandler.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/ImagesTypeHandlerInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/ImagesTypeHandlerInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/UpdateTrickTypeHandlerInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/UpdateTrickTypeHandlerInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/VideosTypeHandlerInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/VideosTypeHandlerInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/TrickTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/TrickTypeHandler.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/UpdateTrickTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/UpdateTrickTypeHandler.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/VideosTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/VideosTypeHandler.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Comments.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Comments.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Groups.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Groups.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Images.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Images.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/GroupsInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/GroupsInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/ImagesInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/ImagesInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/VideosInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/VideosInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Users.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Users.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Videos.php" afterPath="$PROJECT_DIR$/src/Domain/Models/Videos.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/CommentsRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/CommentsRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/GroupsRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/GroupsRepository.php" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Repository/ImagesRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/ImagesRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/CommentsRepositoryInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/CommentsRepositoryInterface.php" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/ImagesRepositoryInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/ImagesRepositoryInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/TricksRepositoryInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/TricksRepositoryInterface.php" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/UsersRepositoryInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/UsersRepositoryInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/VideosRepositoryInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/VideosRepositoryInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Repository/UsersRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/UsersRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/VideosRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/VideosRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/Security/FormLoginAuthenticator.php" afterPath="$PROJECT_DIR$/src/Security/FormLoginAuthenticator.php" />
       <change beforePath="$PROJECT_DIR$/src/UI/Actions/ALaUneAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/ALaUneAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/CommentsAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/CommentsAction.php" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Actions/AddImagesAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/AddImagesAction.php" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Actions/DeleteImageAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/DeleteImageAction.php" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Actions/DeleteVideoAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/DeleteVideoAction.php" />
       <change beforePath="$PROJECT_DIR$/src/UI/Actions/IndexAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/IndexAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/ALaUneActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/ALaUneActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/IndexActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/IndexActionInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/OneTrickActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/OneTrickActionInterface.php" />
       <change beforePath="$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Actions/ShareVideosAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/ShareVideosAction.php" />
       <change beforePath="$PROJECT_DIR$/src/UI/Actions/UpdateTrickAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/UpdateTrickAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/ALaUneResponder.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/CommentsResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/CommentsResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/IndexResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/IndexResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/Interfaces/ALaUneResponderInterface.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/Interfaces/CommentsResponderInterface.php" afterPath="$PROJECT_DIR$/src/UI/Responders/Interfaces/CommentsResponderInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/Interfaces/IndexResponderInterface.php" afterPath="$PROJECT_DIR$/src/UI/Responders/Interfaces/IndexResponderInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/Interfaces/OneTrickResponderInterface.php" afterPath="$PROJECT_DIR$/src/UI/Responders/Interfaces/OneTrickResponderInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/OneTrickResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/OneTrickResponder.php" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/email_inscription.html.twig" afterPath="$PROJECT_DIR$/templates/email_inscription.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/form/theme.html.twig" afterPath="$PROJECT_DIR$/templates/form/theme.html.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/comments.html.twig" afterPath="$PROJECT_DIR$/templates/comments.html.twig" />
       <change beforePath="$PROJECT_DIR$/templates/home.html.twig" afterPath="$PROJECT_DIR$/templates/home.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/inscription_status.html.twig" afterPath="$PROJECT_DIR$/templates/inscription_status.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/oneTrick.html.twig" afterPath="$PROJECT_DIR$/templates/oneTrick.html.twig" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/DTO/ALaUneDTOTest.php" afterPath="$PROJECT_DIR$/tests/Domain/DTO/ALaUneDTOTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/DTO/CommentsDTOTest.php" afterPath="$PROJECT_DIR$/tests/Domain/DTO/CommentsDTOTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/DTO/ImagesDTOTest.php" afterPath="$PROJECT_DIR$/tests/Domain/DTO/ImagesDTOTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/DTO/InscriptionUserDTOTest.php" afterPath="$PROJECT_DIR$/tests/Domain/DTO/InscriptionUserDTOTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/DTO/TrickAddDTOTest.php" afterPath="$PROJECT_DIR$/tests/Domain/DTO/TrickAddDTOTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/DTO/VideosDTOTest.php" afterPath="$PROJECT_DIR$/tests/Domain/DTO/VideosDTOTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/CommentsTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/CommentsTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/ImagesTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/ImagesTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/TricksTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/TricksTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/UsersTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/UsersTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/Domain/Models/VideosTest.php" afterPath="$PROJECT_DIR$/tests/Domain/Models/VideosTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/ALaUneActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/ALaUneActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/AddImagesActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/AddImagesActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/AddTrickActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/AddTrickActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/CommentsActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/CommentsActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/ConnectionFormActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/ConnectionFormActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/DeleteImageActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/DeleteImageActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/DeleteTrickActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/DeleteTrickActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/DeleteVideoActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/DeleteVideoActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/InscriptionFormActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/InscriptionFormActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionTest.php" />
-      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/UpdateTrickActionTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/UpdateTrickActionTest.php" />
+      <change beforePath="$PROJECT_DIR$/templates/medias.html.twig" afterPath="$PROJECT_DIR$/templates/medias.html.twig" />
+      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/AddImagesActionFunctionalTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/AddImagesActionFunctionalTest.php" />
+      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/AddTrickActionFunctionalTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/AddTrickActionFunctionalTest.php" />
+      <change beforePath="$PROJECT_DIR$/tests/UI/Actions/IndexActionFunctionalTest.php" afterPath="$PROJECT_DIR$/tests/UI/Actions/IndexActionFunctionalTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -112,17 +90,6 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="data.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="data.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="snowtricks@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
@@ -142,22 +109,6 @@
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="snowtricks: database" type="6d9b600a:PostgresImplModel$Database" />
         <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="snowtricks@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="snowtricks: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="snowtricks@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="snowtricks: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="sequences" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
@@ -167,31 +118,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Makefile">
+      <file leaf-file-name="OneTrickAction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-562">
-              <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="20" />
+            <state relative-caret-position="365">
+              <caret line="93" column="54" lean-forward="false" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prod.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/var/log/prod.log">
+      <file leaf-file-name="medias.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/medias.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43487">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="23">
+              <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.env">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+            <state relative-caret-position="230">
+              <caret line="66" column="94" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="94" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comments.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/comments.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="23" column="60" lean-forward="false" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -207,11 +168,13 @@
       <find>'Shadows Into Light', cursive;</find>
       <find>card</find>
       <find>symfony</find>
+      <find>UuidInterface</find>
     </findStrings>
     <replaceStrings>
       <replace>mdc</replace>
       <replace>Roboto</replace>
       <replace>'Roboto', sans-serif;</replace>
+      <replace>string</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -220,57 +183,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tests/Domain/DTO/VideosDTOTest.php" />
-        <option value="$PROJECT_DIR$/tests/Domain/Models/CommentsTest.php" />
-        <option value="$PROJECT_DIR$/tests/Domain/Models/GroupsTest.php" />
-        <option value="$PROJECT_DIR$/tests/Domain/Models/ImagesTest.php" />
-        <option value="$PROJECT_DIR$/tests/Domain/Models/TricksTest.php" />
-        <option value="$PROJECT_DIR$/tests/Domain/Models/VideosTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/AddImagesActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/AddTrickActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/CommentsActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/ConnectionFormActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/DeleteImageActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/DeleteTrickActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/DeleteVideoActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/InscriptionFormActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/OneTrickActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/UpdateTrickActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/Domain/Models/UsersTest.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/ALaUneAction.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/ALaUneActionTest.php" />
-        <option value="$PROJECT_DIR$/phpunit.xml.dist" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/IndexActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/AddImagesActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/AddTrickActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/ConnectionFormActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/InscriptionFormActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/ALaUneActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/DeleteImageActionFonctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/DeleteTrickActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/DeleteVideoActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/OneTrickActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/UpdateTrickActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/CommentsActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UI/Actions/IndexActionFunctionalTest.php" />
-        <option value="$PROJECT_DIR$/templates/home.html.twig" />
-        <option value="$PROJECT_DIR$/src/CacheKernel.php" />
-        <option value="$PROJECT_DIR$/public/index.php" />
-        <option value="$PROJECT_DIR$/src/UI/Responders/Interfaces/OneTrickResponderInterface.php" />
-        <option value="$PROJECT_DIR$/src/UI/Responders/OneTrickResponder.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php" />
-        <option value="$PROJECT_DIR$/Makefile" />
-        <option value="$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php" />
-        <option value="$PROJECT_DIR$/src/UI/Responders/IndexResponder.php" />
-        <option value="$PROJECT_DIR$/src/UI/Responders/Interfaces/IndexResponderInterface.php" />
-        <option value="$PROJECT_DIR$/src/UI/Responders/CommentsResponder.php" />
-        <option value="$PROJECT_DIR$/src/UI/Responders/Interfaces/CommentsResponderInterface.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/IndexAction.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/Interfaces/IndexActionInterface.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/CommentsAction.php" />
+        <option value="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/Interfaces/OneTrickActionInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Groups.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/GroupsInterface.php" />
+        <option value="$PROJECT_DIR$/config/doctrine/Groups.orm.xml" />
+        <option value="$PROJECT_DIR$/config/doctrine/Images.orm.xml" />
+        <option value="$PROJECT_DIR$/config/doctrine/Comments.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Domain/DataFixtures/ORM/TricksFixtures.php" />
+        <option value="$PROJECT_DIR$/src/Domain/DataFixtures/ORM/CommentsFixtures.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/Interfaces/TricksRepositoryInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/Interfaces/UsersRepositoryInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/UsersRepository.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/CommentsRepository.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/Interfaces/CommentsRepositoryInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/Interfaces/ImagesRepositoryInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/ImagesRepository.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/VideosRepository.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/Interfaces/VideosRepositoryInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/TrickTypeHandler.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Comments.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/CommentTypeHandler.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/UpdateTrickTypeHandler.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/UpdateTrickTypeHandlerInterface.php" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/UpdateTrickAction.php" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/ALaUneAction.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/ImagesTypeHandler.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Images.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/ImagesInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/ImagesTypeHandlerInterface.php" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/AddImagesAction.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/VideosTypeHandler.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/VideosTypeHandlerInterface.php" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/ShareVideosAction.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Videos.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/VideosInterface.php" />
+        <option value="$PROJECT_DIR$/config/doctrine/Tricks.orm.xml" />
+        <option value="$PROJECT_DIR$/config/doctrine/Videos.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/DeleteImageAction.php" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/DeleteVideoAction.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Tricks.php" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/templates/medias.html.twig" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Users.php" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php" />
+        <option value="$PROJECT_DIR$/templates/comments.html.twig" />
       </list>
     </option>
   </component>
@@ -386,14 +349,20 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid-doctrine" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/behat/behat" />
+      <path value="$PROJECT_DIR$/vendor/container-interop/container-interop" />
+      <path value="$PROJECT_DIR$/vendor/behat/gherkin" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/class-loader" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="211" />
-    <option name="y" value="75" />
-    <option name="width" value="1966" />
-    <option name="height" value="1302" />
+    <option name="x" value="231" />
+    <option name="y" value="33" />
+    <option name="width" value="2077" />
+    <option name="height" value="1355" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -416,6 +385,30 @@
             <path>
               <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="doctrine" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="packages" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="packages" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="prod" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
@@ -443,12 +436,80 @@
               <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="DataFixtures" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="DataFixtures" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ORM" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FormHandler" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FormHandler" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Security" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -480,6 +541,29 @@
               <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Responders" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Actions" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
@@ -557,9 +641,9 @@
       <BehatRunner file="$PROJECT_DIR$/features/login.feature" scenario="" scope="File" />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Makefile.profile" />
-      <item index="1" class="java.lang.String" itemvalue="Makefile.behat" />
-      <item index="2" class="java.lang.String" itemvalue="Behat.login.feature" />
+      <item index="0" class="java.lang.String" itemvalue="Behat.login.feature" />
+      <item index="1" class="java.lang.String" itemvalue="Makefile.profile" />
+      <item index="2" class="java.lang.String" itemvalue="Makefile.behat" />
       <item index="3" class="java.lang.String" itemvalue="Makefile.schema-update" />
       <item index="4" class="java.lang.String" itemvalue="Makefile.cache-clear" />
       <item index="5" class="java.lang.String" itemvalue="Makefile.functional-tests" />
@@ -594,45 +678,36 @@
       <workItem from="1525504693406" duration="34020000" />
       <workItem from="1526045758935" duration="22941000" />
       <workItem from="1526363073865" duration="149757000" />
+      <workItem from="1529126383392" duration="807000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="481918000" />
+    <option name="totallyTimeSpent" value="525544000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="211" y="75" width="1966" height="1302" extended-state="0" />
+    <frame x="231" y="33" width="2077" height="1355" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.223093" sideWeight="0.5968992" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22024691" sideWeight="0.5968992" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14524555" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298153" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43887424" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20148148" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41512752" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46806723" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18705358" sideWeight="0.4031008" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46789798" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32895887" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21774605" sideWeight="0.5968992" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20193778" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18705358" sideWeight="0.4031008" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,375 +721,166 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://PHP//Users/b-log/web-projects/snowtricks/src/Domain/Form">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>$PROJECT_DIR$/src/Domain/Form</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/src/Domain/Form/FormHandler</node>
-            <node x="" y="">$PROJECT_DIR$/src/Domain/Form/Type</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="63.0" y="57.5" />
-          <SelectedNodes />
-          <Categories />
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP//Users/b-log/web-projects/snowtricks/src/Domain/DTO">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>$PROJECT_DIR$/src/Domain/DTO</OriginalElement>
-          <nodes>
-            <node x="" y="">\App\Domain\DTO\Interfaces\ConnectUserDTOInterface</node>
-            <node x="" y="">\App\Domain\DTO\TrickAddDTO</node>
-            <node x="" y="">\App\Domain\DTO\ImagesDTO</node>
-            <node x="" y="">\App\Domain\DTO\Interfaces\VideosDTOInterface</node>
-            <node x="" y="">\App\Domain\DTO\Interfaces\CommentDTOInterface</node>
-            <node x="" y="">\App\Domain\DTO\CommentDTO</node>
-            <node x="" y="">\App\Domain\DTO\ConnectUserDTO</node>
-            <node x="" y="">$PROJECT_DIR$/src/Domain/DTO/Interfaces</node>
-            <node x="" y="">\App\Domain\DTO\ALaUneDTO</node>
-            <node x="" y="">\App\Domain\DTO\Interfaces\ImagesDTOInterface</node>
-            <node x="" y="">\App\Domain\DTO\VideosDTO</node>
-            <node x="" y="">\App\Domain\DTO\Interfaces\InscriptionUserDTOInterface</node>
-            <node x="" y="">\App\Domain\DTO\Interfaces\ALaUneDTOInterface</node>
-            <node x="" y="">\App\Domain\DTO\InscriptionUserDTO</node>
-            <node x="" y="">\App\Domain\DTO\Interfaces\TricksAddDTOInterface</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="311.5" y="265.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP//Users/b-log/web-projects/snowtricks/src/Domain/DataFixtures/ORM">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>$PROJECT_DIR$/src/Domain/DataFixtures/ORM</OriginalElement>
-          <nodes>
-            <node x="" y="">\Doctrine\Common\DataFixtures\AbstractFixture</node>
-            <node x="" y="">\App\Domain\DataFixtures\ORM\TricksFixtures</node>
-            <node x="" y="">\App\Domain\DataFixtures\ORM\VideosFixtures</node>
-            <node x="" y="">\App\Domain\DataFixtures\ORM\ImagesFixtures</node>
-            <node x="" y="">\Doctrine\Bundle\FixturesBundle\ORMFixtureInterface</node>
-            <node x="" y="">\Doctrine\Bundle\FixturesBundle\Fixture</node>
-            <node x="" y="">\App\Domain\DataFixtures\ORM\UsersFixtures</node>
-            <node x="" y="">\Doctrine\Common\DataFixtures\DependentFixtureInterface</node>
-            <node x="" y="">\App\Domain\DataFixtures\ORM\GroupsFixtures</node>
-            <node x="" y="">\Doctrine\Common\DataFixtures\SharedFixtureInterface</node>
-            <node x="" y="">\App\Domain\DataFixtures\ORM\CommentsFixtures</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="104.5" y="126.5" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Methods</Category>
-            <Category>Constructors</Category>
-            <Category>Constants</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP//Users/b-log/web-projects/snowtricks/src/Domain/Form/FormHandler">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>$PROJECT_DIR$/src/Domain/Form/FormHandler</OriginalElement>
-          <nodes>
-            <node x="" y="">\App\Domain\Form\FormHandler\TrickTypeHandler</node>
-            <node x="" y="">$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\UpdateTrickTypeHandler</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\VideosTypeHandler</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\Interfaces\TrickAddTypeHandlerInterface</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\CommentTypeHandler</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\Interfaces\ALaUneTypeHandlerInterface</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\ALaUneTypeHandler</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\Interfaces\VideosTypeHandlerInterface</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\Interfaces\ImagesTypeHandlerInterface</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\Interfaces\UpdateTrickTypeHandlerInterface</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\Interfaces\InscriptionTypeHandlerInterface</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\Interfaces\CommentTypeHandlerInterface</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\InscriptionTypeHandler</node>
-            <node x="" y="">\App\Domain\Form\FormHandler\ImagesTypeHandler</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.9086614173228347" x="283.5" y="307.5" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constants</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP//Users/b-log/web-projects/snowtricks/src/Domain/Form/Type">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>$PROJECT_DIR$/src/Domain/Form/Type</OriginalElement>
-          <nodes>
-            <node x="" y="">\App\Domain\Form\Type\InscriptionType</node>
-            <node x="" y="">\App\Domain\Form\Type\UpdateTrickType</node>
-            <node x="" y="">\App\Domain\Form\Type\Interfaces\FormTypeInterface</node>
-            <node x="" y="">\Symfony\Component\Form\FormTypeInterface</node>
-            <node x="" y="">\App\Domain\Form\Type\TrickType</node>
-            <node x="" y="">\App\Domain\Form\Type\CommentType</node>
-            <node x="" y="">$PROJECT_DIR$/src/Domain/Form/Type/Interfaces</node>
-            <node x="" y="">\App\Domain\Form\Type\ConnectionType</node>
-            <node x="" y="">\App\Domain\Form\Type\ImagesType</node>
-            <node x="" y="">\App\Domain\Form\Type\VideosType</node>
-            <node x="" y="">\Symfony\Component\Form\AbstractType</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="528.5" y="187.5" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constants</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP//Users/b-log/web-projects/snowtricks/src/Domain/Models">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>$PROJECT_DIR$/src/Domain/Models</OriginalElement>
-          <nodes>
-            <node x="" y="">\App\Domain\Models\Interfaces\TricksInterface</node>
-            <node x="" y="">\App\Domain\Models\Videos</node>
-            <node x="" y="">\App\Domain\Models\Interfaces\ImagesInterface</node>
-            <node x="" y="">$PROJECT_DIR$/src/Domain/Models/Interfaces</node>
-            <node x="" y="">\App\Domain\Models\Interfaces\VideosInterface</node>
-            <node x="" y="">\App\Domain\Models\Interfaces\CommentsInterface</node>
-            <node x="" y="">\Serializable</node>
-            <node x="" y="">\App\Domain\Models\Interfaces\UsersInterface</node>
-            <node x="" y="">\App\Domain\Models\Comments</node>
-            <node x="" y="">\Symfony\Component\Security\Core\User\UserInterface</node>
-            <node x="" y="">\App\Domain\Models\Tricks</node>
-            <node x="" y="">\App\Domain\Models\Users</node>
-            <node x="" y="">\App\Domain\Models\Images</node>
-            <node x="" y="">\App\Domain\Models\Interfaces\GroupsInterface</node>
-            <node x="" y="">\App\Domain\Models\Groups</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="260.5" y="265.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constants</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP//Users/b-log/web-projects/snowtricks/src/Domain/Repository">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>$PROJECT_DIR$/src/Domain/Repository</OriginalElement>
-          <nodes>
-            <node x="" y="">\App\Domain\Repository\GroupsRepository</node>
-            <node x="" y="">$PROJECT_DIR$/src/Domain/Repository/Interfaces</node>
-            <node x="" y="">\App\Domain\Repository\Interfaces\UsersRepositoryInterface</node>
-            <node x="" y="">\App\Domain\Repository\ImagesRepository</node>
-            <node x="" y="">\App\Domain\Repository\VideosRepository</node>
-            <node x="" y="">\Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface</node>
-            <node x="" y="">\App\Domain\Repository\Interfaces\VideosRepositoryInterface</node>
-            <node x="" y="">\App\Domain\Repository\TricksRepository</node>
-            <node x="" y="">\Doctrine\Common\Persistence\ObjectRepository</node>
-            <node x="" y="">\Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository</node>
-            <node x="" y="">\App\Domain\Repository\Interfaces\GroupsRepositoryInterface</node>
-            <node x="" y="">\App\Domain\Repository\Interfaces\CommentsRepositoryInterface</node>
-            <node x="" y="">\Doctrine\Common\Collections\Selectable</node>
-            <node x="" y="">\Doctrine\ORM\EntityRepository</node>
-            <node x="" y="">\App\Domain\Repository\CommentsRepository</node>
-            <node x="" y="">\App\Domain\Repository\UsersRepository</node>
-            <node x="" y="">\App\Domain\Repository\Interfaces\ImagesRepositoryInterface</node>
-            <node x="" y="">\App\Domain\Repository\Interfaces\TricksRepositoryInterface</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.7358490566037735" x="811.5000000000001" y="195.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constants</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP/\App\Security\FormLoginAuthenticator">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>\App\Security\FormLoginAuthenticator</OriginalElement>
-          <nodes>
-            <node x="" y="">\Symfony\Component\Security\Guard\AbstractGuardAuthenticator</node>
-            <node x="" y="">\App\Security\FormLoginAuthenticator</node>
-            <node x="" y="">\Symfony\Component\Security\Guard\AuthenticatorInterface</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="112.5" y="102.5" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constants</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP//Users/b-log/web-projects/snowtricks/src/UI/Actions">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>$PROJECT_DIR$/src/UI/Actions</OriginalElement>
-          <nodes>
-            <node x="" y="">\App\UI\Actions\InscriptionFormAction</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\InscriptionFormActionInterface</node>
-            <node x="" y="">\App\UI\Actions\DeleteTrickAction</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\OneTrickActionInterface</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\AddTrickActionInterface</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\DeleteTrickActionInterface</node>
-            <node x="" y="">\App\UI\Actions\IndexAction</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\ALaUneActionInterface</node>
-            <node x="" y="">\App\UI\Actions\OneTrickAction</node>
-            <node x="" y="">\App\UI\Actions\DeleteImageAction</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\ConnectionFormActionInterface</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\UpdateTrickActionInterface</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\AddImagesActionInterface</node>
-            <node x="" y="">\App\UI\Actions\ShareVideosAction</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\IndexActionInterface</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\DeleteVideoActionInterface</node>
-            <node x="" y="">\App\UI\Actions\AddTrickAction</node>
-            <node x="" y="">\App\UI\Actions\AddImagesAction</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\DeleteImageActionInterface</node>
-            <node x="" y="">\App\UI\Actions\Interfaces\CommentsActionInterface</node>
-            <node x="" y="">\App\UI\Actions\UpdateTrickAction</node>
-            <node x="" y="">\App\UI\Actions\DeleteVideoAction</node>
-            <node x="" y="">$PROJECT_DIR$/src/UI/Actions/Interfaces</node>
-            <node x="" y="">\App\UI\Actions\ConnectionFormAction</node>
-            <node x="" y="">\App\UI\Actions\ALaUneAction</node>
-            <node x="" y="">\App\UI\Actions\AccountValidationAction</node>
-            <node x="" y="">\App\UI\Actions\CommentsAction</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.6556818181818181" x="379.5" y="430.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constants</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP//Users/b-log/web-projects/snowtricks/src/UI/Responders">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>$PROJECT_DIR$/src/UI/Responders</OriginalElement>
-          <nodes>
-            <node x="" y="">\App\UI\Responders\Interfaces\OneTrickResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\CommentsResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\OneTrickResponder</node>
-            <node x="" y="">\App\UI\Responders\UpdatedTrickResponder</node>
-            <node x="" y="">\App\UI\Responders\AddedImagesResponder</node>
-            <node x="" y="">\App\UI\Responders\UpdateTrickResponder</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\ConnectionFormResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\InscriptionFormResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\UpdateTrickResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\InscriptionStatusResponder</node>
-            <node x="" y="">\App\UI\Responders\AddImagesResponder</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\AddedVideoResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\CommentsResponder</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\AddImagesResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\AddedImagesResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\AddedTrickResponder</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\AddedTrickResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\InscriptionFormResponder</node>
-            <node x="" y="">\App\UI\Responders\AddTrickResponder</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\AddTrickResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\AccountValidatedResponder</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\AccountValidatedResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\UpdatedTrickResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\IndexResponder</node>
-            <node x="" y="">$PROJECT_DIR$/src/UI/Responders/Interfaces</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\IndexResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\ConnectionFormResponder</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\AddVideoResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\AddedVideoResponder</node>
-            <node x="" y="">\App\UI\Responders\Interfaces\InscriptionStatusResponderInterface</node>
-            <node x="" y="">\App\UI\Responders\AddVideoResponder</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.5979274611398964" x="434.0" y="472.5" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constants</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/UI/Actions/ShareVideosActionTest.php">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/Interfaces/ImagesRepositoryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-616">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="322">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/Interfaces/VideosRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/AccountValidationAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-624">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/Interfaces/UsersRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/CommentTypeHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="79" column="63" lean-forward="false" selection-start-line="79" selection-start-column="63" selection-end-line="79" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="34" column="20" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Comments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="109" column="20" lean-forward="false" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/TrickTypeHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="83" column="46" lean-forward="false" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/UpdateTrickTypeHandlerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="45" column="65" lean-forward="false" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/UpdateTrickAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="64" column="9" lean-forward="false" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/UpdateTrickTypeHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="67" column="31" lean-forward="false" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/ImagesInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-192">
+          <caret line="33" column="15" lean-forward="false" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/ShareVideosAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="75" column="62" lean-forward="false" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Actions/AddImagesAction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-603">
+        <state relative-caret-position="372">
+          <caret line="65" column="64" lean-forward="false" selection-start-line="65" selection-start-column="64" selection-end-line="65" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/ImagesTypeHandlerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-785">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="84" column="36" lean-forward="false" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/InscriptionFormAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1349">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/ImagesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1380">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/Interfaces/TricksRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/DeleteImageAction.php">
+    <entry file="file://$PROJECT_DIR$/config/doctrine/Tricks.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/doctrine/Videos.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/doctrine/Comments.orm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1022,193 +888,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://PHP/\App\UI\Actions\ALaUneAction">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>\App\UI\Actions\ALaUneAction</OriginalElement>
-          <nodes>
-            <node x="" y="">\App\UI\Actions\Interfaces\ALaUneActionInterface</node>
-            <node x="" y="">\App\UI\Actions\ALaUneAction</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="96.0" y="60.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constants</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/data-fixtures/lib/Doctrine/Common/DataFixtures/AbstractFixture.php">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Videos.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle/Fixture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/DataFixtures/ORM/GroupsFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/DTO/ALaUneDTO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-515">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4176">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Form/Type/VideosType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-654">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Security/FormLoginAuthenticator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1994">
-          <caret line="331" column="20" lean-forward="false" selection-start-line="331" selection-start-column="20" selection-end-line="331" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="357" column="29" lean-forward="true" selection-start-line="357" selection-start-column="29" selection-end-line="357" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="36" column="35" lean-forward="false" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-          <folding>
-            <element signature="e#7#22#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CacheKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/DeleteTrickAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-683">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/delete_trick.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/added_trick.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responders/AddedTrickResponder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="43" column="39" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/UsersRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1241">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/ConnectionFormAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-275">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Cache/Filesystem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-687">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/df87ba53/27115a66-1b7a-4e26-ab17-5f407477478c/snowtricks.public.images">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="269">
+          <caret line="52" column="7" lean-forward="false" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1219,101 +902,158 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/VideosRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="127" column="44" lean-forward="false" selection-start-line="127" selection-start-column="44" selection-end-line="127" selection-end-column="44" />
-          <folding />
+        <state relative-caret-position="155">
+          <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/VideosInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="82" column="20" lean-forward="true" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/VideosTypeHandlerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/VideosTypeHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="67" column="46" lean-forward="false" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/ImagesTypeHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="78" column="18" lean-forward="false" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/df87ba53/27115a66-1b7a-4e26-ab17-5f407477478c/snowtricks.public.videos">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/df87ba53/27115a66-1b7a-4e26-ab17-5f407477478c/snowtricks.public.images">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/DeleteVideoAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="63" column="32" lean-forward="false" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="32" />
+        <state relative-caret-position="-925">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="110" column="36" lean-forward="false" selection-start-line="110" selection-start-column="36" selection-end-line="110" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Images.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1518">
+          <caret line="67" column="20" lean-forward="false" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/ImagesRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/ALaUneAction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1497">
+        <state relative-caret-position="1127">
+          <caret line="55" column="32" lean-forward="false" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/DeleteImageAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/oneTrick.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-339">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responders/Interfaces/OneTrickResponderInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-          <folding>
-            <element signature="e#307#352#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Responders/OneTrickResponder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="53" column="8" lean-forward="true" selection-start-line="53" selection-start-column="8" selection-end-line="56" selection-end-column="25" />
+        <state relative-caret-position="360">
+          <caret line="51" column="33" lean-forward="true" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Responders/ConnectionFormResponder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="51" column="33" lean-forward="true" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="21" column="2" lean-forward="false" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responders/Interfaces/IndexResponderInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="36" />
-          <folding>
-            <element signature="e#308#353#0#PHP" expanded="false" />
-          </folding>
+    <entry file="das://table:/df87ba53/27115a66-1b7a-4e26-ab17-5f407477478c/snowtricks.public.users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responders/IndexResponder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="53" column="34" lean-forward="true" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-          <folding />
+    <entry file="das://table:/df87ba53/27115a66-1b7a-4e26-ab17-5f407477478c/snowtricks.public.comments">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responders/Interfaces/CommentsResponderInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="36" />
-          <folding>
-            <element signature="e#308#353#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responders/CommentsResponder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-562">
-          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/CommentsAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/AddTrickAction.php">
+    <entry file="file://$PROJECT_DIR$/templates/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1321,36 +1061,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/Interfaces/IndexActionInterface.php">
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-82">
-          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding>
-            <element signature="e#305#368#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/IndexAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="45" column="41" lean-forward="false" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
+        <state relative-caret-position="230">
+          <caret line="66" column="94" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="94" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/var/log/prod.log">
+    <entry file="file://$PROJECT_DIR$/templates/medias.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43487">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="23">
+          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        <state relative-caret-position="365">
+          <caret line="93" column="54" lean-forward="false" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/comments.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="23" column="60" lean-forward="false" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
           <folding />
         </state>
       </provider>

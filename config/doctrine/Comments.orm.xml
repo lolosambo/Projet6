@@ -5,15 +5,18 @@
         http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="App\Domain\Models\Comments">
-        <id name="id" type="integer">
-            <generator strategy="AUTO" />
+        <id name="id" column="id" type="uuid">
+            <generator strategy="CUSTOM" />
+            <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
-        <field name="trickId" type="integer" />
+        <field name="trickId" type="uuid" />
         <field name="content" type="text" />
         <field name="commentDate" type="datetime"/>
         <field name="commentUpdate" type="datetime"/>
         <many-to-one field="user" target-entity="Users" />
-        <many-to-one field="trick" target-entity="Tricks" />
+        <many-to-one field="trick" target-entity="App\Domain\Models\Tricks" inversed-by="comments" >
+            <join-column name="trick_id" referenced-column-name="id"/>
+        </many-to-one>
 
     </entity>
 </doctrine-mapping>
