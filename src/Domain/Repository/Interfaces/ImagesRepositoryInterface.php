@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Repository\Interfaces;
 
+use App\Domain\Models\Interfaces\ImagesInterface;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -63,10 +64,10 @@ interface ImagesRepositoryInterface
     public function flush();
 
     /**
-     * @param $image
+     * @param ImagesInterface $image
      *
      * @return mixed
      */
-    public function save($image);
+    public function save(ImagesInterface $image);
 }
 

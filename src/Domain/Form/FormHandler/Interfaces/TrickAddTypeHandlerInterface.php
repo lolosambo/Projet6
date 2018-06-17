@@ -13,11 +13,12 @@ declare(strict_types=1);
 
 namespace App\Domain\Form\FormHandler\Interfaces;
 
-use App\Domain\Repository\Interfaces\GroupsRepositoryInterface;
+
+use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
+use App\Domain\Repository\Interfaces\VideosRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * Interface TrickAddTypeHandlerInterface.
@@ -29,16 +30,17 @@ interface TrickAddTypeHandlerInterface
     /**
      * TrickAddTypeHandlerInterface constructor.
      *
-     * @param SessionInterface          $session
-     * @param TricksRepositoryInterface $tr
-     * @param GroupsRepositoryInterface $gr
-     * @param UsersRepositoryInterface  $ur
+     * @param TokenStorageInterface $tokenStorage
+     * @param TricksRepositoryInterface $tricksRepository
+     * @param ImagesRepositoryInterface $imagesRepository
+     * @param VideosRepositoryInterface $videosRepository
      */
     public function __construct(
-        SessionInterface $session,
-        TricksRepositoryInterface $tr,
-        GroupsRepositoryInterface $gr,
-        UsersRepositoryInterface $ur
+        TokenStorageInterface $tokenStorage,
+        TricksRepositoryInterface $tricksRepository,
+        ImagesRepositoryInterface $imagesRepository,
+        VideosRepositoryInterface $videosRepository,
+        string $imagesPath
     );
 
     /**

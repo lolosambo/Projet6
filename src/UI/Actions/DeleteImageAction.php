@@ -47,8 +47,6 @@ class DeleteImageAction implements DeleteImageActionInterface
      */
     public function __invoke(Request $request, UrlGeneratorInterface $generator)
     {
-        dump($request->attributes->get('mediaId'));
-        die;
         $this->ir->deleteImage($request->attributes->get('mediaId'));
         $this->ir->flush();
         return new RedirectResponse($generator->generate('single_trick', [

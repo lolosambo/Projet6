@@ -22,5 +22,11 @@ use Symfony\Component\Form\FormInterface;
  */
 interface ALaUneTypeHandlerInterface
 {
-    public function handle(FormInterface $aLaUneType, int $trickId);
+    /**
+     * @param FormInterface $aLaUneType
+     * @param string $trickId
+     *
+     * @return mixed
+     */
+    public function handle(FormInterface $aLaUneType, string $trickId);
 }

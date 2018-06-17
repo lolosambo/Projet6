@@ -27,35 +27,35 @@ class ALaUneTypeHandler implements ALaUneTypeHandlerInterface
     /**
      * @var ImagesRepositoryInterface
      */
-    private $ir;
+    private $imagesRepository;
 
     /**
      * ALaUneTypeHandler constructor.
      *
-     * @param ImagesRepositoryInterface $mr
+     * @param ImagesRepositoryInterface $imagesRepository
      */
-    public function __construct(ImagesRepositoryInterface $ir)
+    public function __construct(ImagesRepositoryInterface $imagesRepository)
     {
-        $this->ir = $ir;
+        $this->imagesRepository = $imagesRepository;
     }
 
     /**
-     * @param FormInterface      $aLaUneType
-     * @param int                $trickId
+     * @param FormInterface  $aLaUneType
+     * @param string         $trickId
      *
      * @return bool
      */
-    public function handle(FormInterface $aLaUneType, int $trickId)
+    public function handle(FormInterface $aLaUneType, string $trickId)
     {
         if ($aLaUneType->isSubmitted() && $aLaUneType->isValid()) {
-            $images = $this->ir->findByTrick($trickId);
+            $images = $this->imagesRepository->findByTrick($trickId);
 
             foreach ($images as $image) {
                 $image->setALaUne(0);
             }
-            $aLaUne = $this->ir->findByUrl($aLaUneType->getData()->aLaUne->getUrl());
+            $aLaUne = $this->imagesRepository->findByUrl($aLaUneType->getData()->aLaUne->getUrl());
             $aLaUne->setALaUne(1);
-            $this->ir->flush();
+            $this->imagesRepository->flush();
 
             return true;
         }

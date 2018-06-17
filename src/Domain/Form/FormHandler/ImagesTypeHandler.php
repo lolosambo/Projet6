@@ -29,12 +29,12 @@ class ImagesTypeHandler implements ImagesTypeHandlerInterface
     /**
      * @var ImagesRepositoryInterface
      */
-    private $ir;
+    private $imagesRepository;
 
     /**
      * @var TricksRepositoryInterface
      */
-    private $tr;
+    private $tricksRepository;
 
     /**
      * @var string
@@ -44,16 +44,16 @@ class ImagesTypeHandler implements ImagesTypeHandlerInterface
     /**
      * MediasTypeHandler constructor.
      *
-     * @param ImagesRepositoryInterface $mr
+     * @param ImagesRepositoryInterface $imagesRepository
      * @param string                    $imagesPath
      */
     public function __construct(
-        ImagesRepositoryInterface $ir,
-        TricksRepositoryInterface $tr,
+        ImagesRepositoryInterface $imagesRepository,
+        TricksRepositoryInterface $tricksRepository,
         string $imagesPath
     ) {
-        $this->ir = $ir;
-        $this->tr = $tr;
+        $this->imagesRepository = $imagesRepository;
+        $this->tricksRepository = $tricksRepository;
         $this->imagesPath = $imagesPath;
     }
 
@@ -68,7 +68,7 @@ class ImagesTypeHandler implements ImagesTypeHandlerInterface
         string $trickId
     ) {
         if ($imagesType->isSubmitted() && $imagesType->isValid()) {
-            $trick = $this->tr->findTrick($trickId);
+            $trick = $this->tricksRepository->findTrick($trickId);
 
             $files = $imagesType->getData()->image;
 
@@ -80,9 +80,9 @@ class ImagesTypeHandler implements ImagesTypeHandlerInterface
                 $image = new Images();
                 $image->setUrl($this->imagesPath);
                 $image->setTrick($trick);
-                $image->setTrickId($trickId);
+                $image->setTrickId($trick->getId());
                 $image->setUrl($file->getClientOriginalName());
-                $this->ir->save($image);
+                $this->imagesRepository->save($image);
             }
             return true;
         }

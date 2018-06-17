@@ -14,9 +14,8 @@ declare(strict_types=1);
 namespace App\Domain\Form\FormHandler\Interfaces;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 
 /**
  * Interface UpdateTrickTypeHandlerInterface.
@@ -28,18 +27,13 @@ interface UpdateTrickTypeHandlerInterface
     /**
      * UpdateTrickTypeHandler constructor.
      *
-     * @param SessionInterface          $session
      * @param TricksRepositoryInterface $tr
      */
-    public function __construct(
-        SessionInterface $session,
-        TricksRepositoryInterface $tr,
-        UsersRepositoryInterface $ur
-    );
+    public function __construct(TricksRepositoryInterface $tricksRepository);
 
     /**
      * @param FormInterface $updateTrickType
-     * @param int           $trickId
+     * @param string        $trickId
      *
      * @return mixed
      */

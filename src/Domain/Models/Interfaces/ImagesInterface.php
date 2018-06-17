@@ -36,10 +36,10 @@ interface ImagesInterface
     public function getTrickId();
 
     /**
-     * @param string  $trickId
+     * @param UuidInterface  $trickId
      *
      */
-    public function setTrickId(string $trickId);
+    public function setTrickId(UuidInterface $trickId);
 
     /**
      * @return mixed

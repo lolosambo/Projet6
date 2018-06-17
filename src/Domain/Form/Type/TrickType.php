@@ -17,6 +17,7 @@ use App\Domain\DTO\TrickAddDTO;
 use App\Domain\Form\Type\Interfaces\FormTypeInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,7 +33,7 @@ class TrickType extends AbstractType implements FormTypeInterface
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array                $options
+     * @param array $options
      *
      * @return mixed|void
      */
@@ -49,7 +50,23 @@ class TrickType extends AbstractType implements FormTypeInterface
                     'multiple' => false,
                 ]
             )
-            ->add('content', TextareaType::class, ['label' => 'Description']);
+            ->add('content', TextareaType::class, ['label' => 'Description'])
+            ->add('image', FileType::class, [
+                'multiple' => true,
+            ])
+            ->add('address1', TextType::class, ['label' => 'Lien vidéo 1'])
+            ->add('address2', TextType::class, [
+                'label' => 'Lien vidéo 2',
+                'required' => false,
+            ])
+            ->add('address3', TextType::class, [
+                'label' => 'Lien vidéo 3',
+                'required' => false,
+            ])
+            ->add('address4', TextType::class, [
+                'label' => 'Lien vidéo 4',
+                'required' => false,
+            ]);
     }
 
     /**
@@ -65,7 +82,12 @@ class TrickType extends AbstractType implements FormTypeInterface
                 return new TrickAddDTO(
                     $form->get('name')->getData(),
                     $form->get('group')->getData(),
-                    $form->get('content')->getData()
+                    $form->get('content')->getData(),
+                    $form->get('image')->getData(),
+                    $form->get('address1')->getData(),
+                    $form->get('address2')->getData(),
+                    $form->get('address3')->getData(),
+                    $form->get('address4')->getData()
                 );
             },
             'validation_groups' => ['TricksAdd'],

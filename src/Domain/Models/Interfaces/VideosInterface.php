@@ -29,16 +29,16 @@ interface VideosInterface
     public function getId();
 
     /**
-     * @return string
+     * @return UuidInterface
      */
     public function getTrickId();
 
     /**
-     * @param string  $trickId
+     * @param UuidInterface  $trickId
      *
      * @return mixed
      */
-    public function setTrickId(string $trickId);
+    public function setTrickId(UuidInterface $trickId);
 
     /**
      * @return mixed

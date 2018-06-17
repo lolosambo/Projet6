@@ -26,6 +26,50 @@
                 {{ form_errors(form.content) }}
             </div>
 
+            <div class="file-field input-field col s12">
+                <div class="btn">+Images
+                    <input type="file" multiple>
+                    {{ form_widget(form.image) }}
+                    {{ form_errors(form.image) }}
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Vous pouvez télécharger plusieurs fichiers">
+                </div>
+            </div>
+
+            <div class="col l10 offset-l1 s12">
+                <p>Indiquer jusqu'à 4 liens <a href="https://www.youtube.com/?hl=fr&gl=FR" target="_blank">Youtube</a> ou
+                    <a href="https://www.dailymotion.com/" target="_blank">DailyMotion</a>. Attention prendre l'adresse
+                    <embed> et non pas celle du navigateur.
+                </p>
+
+                <div class="input-field col s12">
+                    <i class="material-icons prefix pink-text">play_circle_filled</i>
+                    <label class="active">{{ form_label(form.address1) }}</label>
+                    {{ form_widget(form.address1) }}
+                    {{ form_errors(form.address1) }}
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix pink-text">play_circle_filled</i>
+                    <label class="active">{{ form_label(form.address2) }}</label>
+                    {{ form_widget(form.address2) }}
+                    {{ form_errors(form.address2) }}
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix pink-text">play_circle_filled</i>
+                    <label class="active">{{ form_label(form.address3) }}</label>
+                    {{ form_widget(form.address3) }}
+                    {{ form_errors(form.address3) }}
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix pink-text">play_circle_filled</i>
+                    <label class="active">{{ form_label(form.address4) }}</label>
+                    {{ form_widget(form.address4) }}
+                    {{ form_errors(form.address4) }}
+                </div>
+
+            </div><br>
+
             <button type="submit" name="publier" class="waves-effect waves-light btn-small green darken-1">
                 Publier
             </button>
@@ -33,6 +77,7 @@
                 Réinitialiser
             </button><br><br>
             {{ form_end(form) }}
+        </div>
     </div>
 
 {% endblock %}

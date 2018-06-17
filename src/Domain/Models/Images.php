@@ -65,9 +65,9 @@ class Images implements ImagesInterface
     }
 
     /**
-     * @param string $trickId
+     * @param UuidInterface  $trickId
      */
-    public function setTrickId(string $trickId)
+    public function setTrickId(UuidInterface $trickId)
     {
         $this->trickId = $trickId;
     }
@@ -89,7 +89,7 @@ class Images implements ImagesInterface
     }
 
     /**
-     * @return bool
+     * @return bool|mixed
      */
     public function getALaUne()
     {

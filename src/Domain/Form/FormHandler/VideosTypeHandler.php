@@ -29,28 +29,31 @@ class VideosTypeHandler implements VideosTypeHandlerInterface
     /**
      * @var VideosRepositoryInterface
      */
-    private $vr;
+    private $videosRepository;
 
     /**
      * @var TricksRepositoryInterface
      */
-    private $tr;
+    private $tricksRepository;
 
     /**
      * VideosTypeHandler constructor.
      *
-     * @param VideosRepositoryInterface $mr
-     * @param TricksRepositoryInterface $tr
+     * @param VideosRepositoryInterface $videosRepository
+     * @param TricksRepositoryInterface $tricksRepository
      */
-    public function __construct(VideosRepositoryInterface $vr, TricksRepositoryInterface $tr)
+    public function __construct(
+        VideosRepositoryInterface $videosRepository,
+        TricksRepositoryInterface $tricksRepository
+    )
     {
-        $this->vr = $vr;
-        $this->tr = $tr;
+        $this->videosRepository = $videosRepository;
+        $this->tricksRepository = $tricksRepository;
     }
 
     /**
      * @param FormInterface      $videosType
-     * @param int                $trickId
+     * @param string                $trickId
      *
      * @return bool
      */
@@ -68,9 +71,9 @@ class VideosTypeHandler implements VideosTypeHandlerInterface
             foreach ($addresses as $address) {
                 if (null != $address) {
                     $media = new Videos();
-                    $media->setTrick($this->tr->findTrick($trickId));
+                    $media->setTrick($this->tricksRepository->findTrick($trickId));
                     $media->setUrl($address);
-                    $this->vr->save($media);
+                    $this->videosRepository->save($media);
                 }
             }
             return true;

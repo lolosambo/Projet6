@@ -21,6 +21,7 @@ use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * Class CommentTypeHandler.
@@ -32,41 +33,34 @@ class CommentTypeHandler implements CommentTypeHandlerInterface
     /**
      * @var TricksRepositoryInterface
      */
-    private $tr;
-
-    /**
-     * @var UsersRepositoryInterface
-     */
-    private $ur;
+    private $tricksRepository;
 
     /**
      * @var CommentsRepositoryInterface
      */
-    private $cr;
+    private $commentsRepository;
 
     /**
-     * @var SessionInterface
+     * @var TokenStorageInterface
      */
-    private $session;
+    private $tokenStorage;
 
     /**
      * CommentTypeHandler constructor.
      *
-     * @param UsersRepositoryInterface    $ur
-     * @param CommentsRepositoryInterface $cr
-     * @param TricksRepositoryInterface   $tr
-     * @param SessionInterface            $session
+     * @param TokenStorageInterface       $tokenStorage
+     * @param CommentsRepositoryInterface $commentsRepository
+     * @param TricksRepositoryInterface   $tricksRepository
      */
     public function __construct(
-        UsersRepositoryInterface $ur,
-        CommentsRepositoryInterface $cr,
-        TricksRepositoryInterface $tr,
-        SessionInterface $session)
+        TokenStorageInterface $tokenStorage,
+        CommentsRepositoryInterface $commentsRepository,
+        TricksRepositoryInterface $tricksRepository
+    )
     {
-        $this->ur = $ur;
-        $this->cr = $cr;
-        $this->tr = $tr;
-        $this->session = $session;
+        $this->tokenStorage = $tokenStorage;
+        $this->commentsRepository = $commentsRepository;
+        $this->tricksRepository = $tricksRepository;
     }
 
     /**
@@ -77,18 +71,17 @@ class CommentTypeHandler implements CommentTypeHandlerInterface
     public function handle(Request $request, FormInterface $commentType)
     {
         if ($commentType->isSubmitted() && $commentType->isValid()) {
-            $userId = $this->session->get('userId')->toString();
+            $user = $this->tokenStorage->getToken()->getUser();
             $trickId = $request->get('id');
-            $user = $this->ur->findUser($userId);
-            $trick = $this->tr->find($trickId);
+            $trick = $this->tricksRepository->findTrick($trickId);
             $comment = new Comments($commentType->getData()->content);
-            $comment->setUserId($userId);
+            $comment->setUserId($user->getId()->toString());
             $comment->setTrickId($trickId);
             $comment->setCommentDate(new \Datetime('NOW'));
             $comment->setCommentUpdate(new \Datetime('NOW'));
             $comment->setUser($user);
             $comment->setTrick($trick);
-            $this->cr->save($comment);
+            $this->commentsRepository->save($comment);
             return true;
         }
         return false;

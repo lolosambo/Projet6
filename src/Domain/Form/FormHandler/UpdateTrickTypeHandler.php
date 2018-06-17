@@ -29,32 +29,16 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
     /**
      * @var TricksRepositoryInterface
      */
-    private $tr;
-
-    /**
-     * @var UsersRepositoryInterface
-     */
-    private $ur;
-
-    /**
-     * @var SessionInterface
-     */
-    private $session;
+    private $tricksRepository;
 
     /**
      * UpdateTrickTypeHandler constructor.
      *
-     * @param SessionInterface          $session
-     * @param TricksRepositoryInterface $tr
+     * @param TricksRepositoryInterface $tricksRepository
      */
-    public function __construct(
-        SessionInterface $session,
-        TricksRepositoryInterface $tr,
-        UsersRepositoryInterface $ur
-    ) {
-        $this->tr = $tr;
-        $this->ur = $ur;
-        $this->session = $session;
+    public function __construct(TricksRepositoryInterface $tricksRepository)
+    {
+        $this->tricksRepository = $tricksRepository;
     }
 
     /**
@@ -63,9 +47,9 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
     public function handle(FormInterface $updateTrickType, string $trickId)
     {
         if ($updateTrickType->isSubmitted() && $updateTrickType->isValid()) {
-            $newTrick = $this->tr->findTrick($trickId);
+            $newTrick = $this->tricksRepository->findTrick($trickId);
             $newTrick->setTrickUpdate(new \DateTime('NOW'));
-            $this->tr->flush();
+            $this->tricksRepository->flush();
             return true;
         }
         return false;

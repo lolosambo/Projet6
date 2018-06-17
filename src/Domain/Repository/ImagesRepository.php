@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Domain\Repository;
 
 use App\Domain\Models\Images;
+use App\Domain\Models\Interfaces\ImagesInterface;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -113,14 +114,14 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
     }
 
     /**
-     * @param $image
+     * @param ImagesInterface $image
      *
      * @return mixed|void
      *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function save($image)
+    public function save(ImagesInterface $image)
     {
         $this->getEntityManager()->persist($image);
         $this->getEntityManager()->flush();

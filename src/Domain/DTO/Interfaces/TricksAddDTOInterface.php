@@ -25,13 +25,23 @@ interface TricksAddDTOInterface
     /**
      * TricksAddDTOInterface constructor.
      *
-     * @param string $name
-     * @param Groups $group
-     * @param string $content
+     * @param string|null $name
+     * @param Groups|null $group
+     * @param string|null $content
+     * @param array|null $image
+     * @param string|null $address1
+     * @param string|null $address2
+     * @param string|null $address3
+     * @param string|null $address4
      */
     public function __construct(
-        string $name,
-        Groups $group,
-        string $content
+        string $name = null,
+        Groups $group = null,
+        string $content = null,
+        array $image = null,
+        string $address1 = null,
+        string $address2 = null,
+        string $address3 = null,
+        string $address4 = null
     );
 }

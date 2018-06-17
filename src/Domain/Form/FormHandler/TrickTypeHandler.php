@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace App\Domain\Form\FormHandler;
 
-use App\Domain\DTO\Interfaces\TricksAddDTOInterface;
 use App\Domain\Form\FormHandler\Interfaces\TrickAddTypeHandlerInterface;
+use App\Domain\Models\Images;
 use App\Domain\Models\Tricks;
+use App\Domain\Models\Videos;
+use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\Domain\Repository\Interfaces\GroupsRepositoryInterface;
-use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
-use Doctrine\Common\Collections\ArrayCollection;
+use App\Domain\Repository\Interfaces\VideosRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * Class TrickTypeHandler.
@@ -31,43 +31,51 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class TrickTypeHandler implements TrickAddTypeHandlerInterface
 {
     /**
-     * @var SessionInterface
+     * @var TokenStorageInterface
      */
-    private $session;
+    private $tokenStorage;
 
     /**
      * @var TricksRepositoryInterface
      */
-    private $tr;
+    private $tricksRepository;
 
     /**
-     * @var GroupsRepositoryInterface
+     * @var ImagesRepositoryInterface
      */
-    private $gr;
+    private $imagesRepository;
 
     /**
-     * @var UsersRepositoryInterface
+     * @var VideosRepositoryInterface
      */
-    private $ur;
+    private $videosRepository;
+
+    /**
+     * @var string
+     */
+    private $imagesPath;
 
     /**
      * TrickTypeHandler constructor.
      *
-     * @param SessionInterface          $session
-     * @param TricksRepositoryInterface $tr
-     * @param GroupsRepositoryInterface $gr
-     * @param UsersRepositoryInterface  $ur
+     * @param TokenStorageInterface $tokenStorage
+     * @param TricksRepositoryInterface $tricksRepository
+     * @param ImagesRepositoryInterface $imagesRepository
+     * @param VideosRepositoryInterface $videosRepository
      */
     public function __construct(
-        SessionInterface $session,
-        TricksRepositoryInterface $tr,
-        GroupsRepositoryInterface $gr,
-        UsersRepositoryInterface $ur
-    ) {
-        $this->tr = $tr;
-        $this->gr = $gr;
-        $this->ur = $ur;
-        $this->session = $session;
+        TokenStorageInterface $tokenStorage,
+        TricksRepositoryInterface $tricksRepository,
+        ImagesRepositoryInterface $imagesRepository,
+        VideosRepositoryInterface $videosRepository,
+        string $imagesPath
+    )
+    {
+        $this->tokenStorage = $tokenStorage;
+        $this->tricksRepository = $tricksRepository;
+        $this->imagesRepository = $imagesRepository;
+        $this->videosRepository = $videosRepository;
+        $this->imagesPath = $imagesPath;
     }
 
     /**
@@ -78,19 +86,48 @@ class TrickTypeHandler implements TrickAddTypeHandlerInterface
     public function handle(FormInterface $trickType)
     {
         if ($trickType->isSubmitted() && $trickType->isValid()) {
-            $trick = new Tricks(
+            $newTrick = new Tricks(
                 $trickType->getData()->name,
                 $trickType->getData()->group->getId()->toString(),
                 $trickType->getData()->content
             );
-            $userId = $this->session->get('userId')->toString();
-            $user = $this->ur->findUser($userId);
-            $trick->setUser($user);
-            $trick->setGroup($trickType->getData()->group);
-            $trick->setTrickDate(new \DateTime('NOW'));
-            $trick->setTrickUpdate(new \DateTime('NOW'));
-            $this->tr->save($trick);
+            $user = $this->tokenStorage->getToken()->getUser();
+            $newTrick->setUser($user);
+            $newTrick->setGroup($trickType->getData()->group);
+            $newTrick->setTrickDate(new \DateTime('NOW'));
+            $newTrick->setTrickUpdate(new \DateTime('NOW'));
+            $this->tricksRepository->save($newTrick);
+            $trick = $this->tricksRepository->findOneByContent($trickType->getData()->content);
 
+            $files = $trickType->getData()->image;
+
+            foreach ($files as $file) {
+                $file->move(
+                    $this->imagesPath,
+                    $file->getClientOriginalName()
+                );
+                $newImage = new Images();
+                $newImage->setTrick($trick);
+                $newImage->setTrickId($trick->getId());
+                $newImage->setUrl($file->getClientOriginalName());
+
+                $this->imagesRepository->save($newImage);
+            }
+            $addresses = [
+                $trickType->getData()->address1,
+                $trickType->getData()->address2,
+                $trickType->getData()->address3,
+                $trickType->getData()->address4
+            ];
+
+            foreach ($addresses as $address) {
+                if (null != $address) {
+                    $media = new Videos();
+                    $media->setTrick($trick);
+                    $media->setUrl($address);
+                    $this->videosRepository->save($media);
+                }
+            }
             return true;
         }
         return false;

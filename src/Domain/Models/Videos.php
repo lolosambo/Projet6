@@ -29,7 +29,7 @@ class Videos implements VideosInterface
     private $id;
 
     /**
-     * @var string
+     * @var UuidInterface
      */
     private $trickId;
 
@@ -51,17 +51,17 @@ class Videos implements VideosInterface
         return $this->id;
     }
     /**
-     * @return string
+     * @return UuidInterface
      */
-    public function getTrickId(): string
+    public function getTrickId(): UuidInterface
     {
         return $this->trickId;
     }
 
     /**
-     * @param string  $trickId
+     * @param UuidInterface  $trickId
      */
-    public function setTrickId(string $trickId)
+    public function setTrickId(UuidInterface $trickId)
     {
         $this->trickId = $trickId;
     }
