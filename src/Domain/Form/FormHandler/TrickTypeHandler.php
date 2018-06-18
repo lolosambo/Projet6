@@ -97,8 +97,7 @@ class TrickTypeHandler implements TrickAddTypeHandlerInterface
             $newTrick->setTrickDate(new \DateTime('NOW'));
             $newTrick->setTrickUpdate(new \DateTime('NOW'));
             $this->tricksRepository->save($newTrick);
-            $trick = $this->tricksRepository->findOneByContent($trickType->getData()->content);
-
+            $trick = $this->tricksRepository->findOneByName($trickType->getData()->name);
             $files = $trickType->getData()->image;
 
             foreach ($files as $file) {

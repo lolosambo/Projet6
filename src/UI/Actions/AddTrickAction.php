@@ -75,7 +75,7 @@ class AddTrickAction implements AddTrickActionInterface
             ->handleRequest($request);
 
         if ($TrickTypeHandler->handle($form)) {
-            $trick = $this->tr->findOneByContent($form->get('content')->getData());
+            $trick = $this->tr->findOneByName($form->get('name')->getData());
 
             return $addedTrickResponder(['trick' => $trick]);
         }

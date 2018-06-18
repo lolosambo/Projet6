@@ -50,11 +50,11 @@ interface TricksRepositoryInterface
     public function findTrickDetails(string $id);
 
     /**
-     * @param $content
+     * @param string  $content
      *
      * @return mixed
      */
-    public function findOneByContent($content);
+    public function findOneByName(string $Name);
 
     /**
      * @param string  $id

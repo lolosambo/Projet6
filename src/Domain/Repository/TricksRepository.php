@@ -91,17 +91,17 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
     }
 
     /**
-     * @param $content
+     * @param string  $content
      *
      * @return mixed
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findOneByContent($content)
+    public function findOneByName(string $name)
     {
         return $this->createQueryBuilder('t')
-            ->where('t.content = ?1')
-            ->setParameter(1, $content)
+            ->where('t.name = ?1')
+            ->setParameter(1, $name)
             ->getQuery()
             ->getOneOrNullResult();
     }
