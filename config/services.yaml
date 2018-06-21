@@ -1,6 +1,7 @@
 parameters:
     locale: 'fr'
     imagesPath: '%kernel.project_dir%/public/uploads'
+    avatarsPath: '%kernel.project_dir%/public/avatars'
 
 services:
     # default configuration for services in *this* file
@@ -10,6 +11,7 @@ services:
         public: false
         bind:
             $imagesPath : '%imagesPath%'
+            $avatarsPath : '%avatarsPath%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name

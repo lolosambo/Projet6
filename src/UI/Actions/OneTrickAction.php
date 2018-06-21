@@ -25,6 +25,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 
 /**
@@ -80,7 +81,7 @@ class OneTrickAction implements OneTrickActionInterface
      */
     public function __invoke(
         Request $request,
-        SessionInterface $session,
+        TokenStorageInterface $tokenStorage,
         CommentTypeHandler $commentTypeHandler,
         OneTrickResponderInterface $oneTrickResponder,
         UrlGeneratorInterface $generator
@@ -89,9 +90,9 @@ class OneTrickAction implements OneTrickActionInterface
         $trick = $this->tricksRepository->findTrickDetails($id);
         $comments = $trick->getComments();
         $aLaUne = $this->imagesRepository->findImageALaUne($id);
-        $videos = $trick->getVideos()->toArray();
-        $images = $trick->getImages()->toArray();
-        $userId = $session->get('userId')->toString();
+        $videos = $trick->getVideos();
+        $images = $trick->getImages();
+        $userId = $tokenStorage->getToken()->getUser();
 
         if ($userId) {
             $addCommentForm = $this->formFactory->create(CommentType::class)

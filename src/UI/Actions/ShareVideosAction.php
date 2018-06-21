@@ -34,7 +34,7 @@ class ShareVideosAction
     /**
      * @var VideosRepositoryInterface
      */
-    private $vr;
+    private $videosRepository;
 
     /**
      * @var FormFactoryInterface
@@ -44,14 +44,14 @@ class ShareVideosAction
     /**
      * ShareVideosAction constructor.
      *
-     * @param VideosRepositoryInterface $vr
+     * @param VideosRepositoryInterface $videosRepository
      * @param FormFactoryInterface      $formFactory
      */
     public function __construct(
-        VideosRepositoryInterface $vr,
+        VideosRepositoryInterface $videosRepository,
         FormFactoryInterface $formFactory
     ) {
-        $this->vr = $vr;
+        $this->videosRepository = $videosRepository;
         $this->formFactory = $formFactory;
     }
 

@@ -5,7 +5,6 @@
                 Editer la figure
                 <i class="material-icons left">create</i>
             </button></a>
-
         <button class="waves-effect waves-light btn-small pink darken-1 modal-trigger" href="#modal1">
             Supprimer la figure
             <i class="material-icons left">clear</i>
@@ -39,17 +38,16 @@
                                 <i class="material-icons white-text" title="Mettre l'image à la une">aspect_ratio</i>
                             </button>
                         </a>
-                        <button class="waves-effect waves-light btn btn-small pink darken-1 modal-trigger" href="#modal2">
+                        <button class="waves-effect waves-light btn btn-small pink darken-1 modal-trigger" href="#modal{{ image.id }}">
                             <i class="material-icons white-text" title="Supprimer l'image">cancel</i>
                         </button>
-                        <div id="modal2" class="modal">
+                        <div id="modal{{ image.id }}" class="modal">
                             <div class="modal-content">
                                 <h4>Suppression d'image</h4>
-                                <p>Etes-vous certain de vouloir supprimer cette image ?
-                                    Cette manipulation est irréversible.</p>
+                                <p>Etes-vous certain de vouloir supprimer cette image ? Cette manipulation est irréversible.</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="{{ path('delete_images', {'trickId' : trick.id, 'mediaId' : image.id.toString}) }}"
+                                <a href="{{ path('delete_images', {'trickId' : trick.id, 'mediaId' : image.id}) }}"
                                    class="modal-close waves-effect waves-green btn-flat">Confirmer la suppression
                                 </a>
                             </div>
@@ -74,10 +72,10 @@
                             <iframe class="thumbnail" width="100%" height="250" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
                         </div>
                         {% if app.session.get('pseudo') == trick.user.pseudo %}
-                            <button class="waves-effect waves-light btn btn-small pink darken-1 modal-trigger" href="#modal3">
+                            <button class="waves-effect waves-light btn btn-small pink darken-1 modal-trigger" href="#modal{{ video.id }}">
                                 <i class="material-icons white-text" title="Supprimer la vidéo">cancel</i>
                             </button>
-                            <div id="modal3" class="modal">
+                            <div id="modal{{ video.id }}" class="modal">
                                 <div class="modal-content">
                                     <h4>Suppression de vidéo</h4>
                                     <p>Etes-vous certain de vouloir supprimer cette video ?

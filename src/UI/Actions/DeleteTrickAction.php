@@ -30,16 +30,16 @@ class DeleteTrickAction implements DeleteTrickActionInterface
     /**
      * @var TricksRepositoryInterface
      */
-    private $tr;
+    private $trickRepository;
 
     /**
      * DeleteTrickAction constructor.
      *
-     * @param TricksRepositoryInterface $tr
+     * @param TricksRepositoryInterface $trickRepository
      */
-    public function __construct(TricksRepositoryInterface $tr)
+    public function __construct(TricksRepositoryInterface $trickRepository)
     {
-        $this->tr = $tr;
+        $this->trickRepository = $trickRepository;
     }
 
     /**
@@ -47,8 +47,8 @@ class DeleteTrickAction implements DeleteTrickActionInterface
      */
     public function __invoke(Request $request, UrlGeneratorInterface $generator)
     {
-        $this->tr->deleteTrick($request->get('id'));
-        $this->tr->flush();
+        $this->trickRepository->deleteTrick($request->get('id'));
+        $this->trickRepository->flush();
         return new RedirectResponse($generator->generate('homepage'));
     }
 }

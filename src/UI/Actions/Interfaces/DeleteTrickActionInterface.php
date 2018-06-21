@@ -27,9 +27,9 @@ interface DeleteTrickActionInterface
     /**
      * DeleteTrickActionInterface constructor.
      *
-     * @param TricksRepositoryInterface $tr
+     * @param TricksRepositoryInterface $trickRepository
      */
-    public function __construct(TricksRepositoryInterface $tr);
+    public function __construct(TricksRepositoryInterface $trickRepository);
 
     /**
      * @param Request $request

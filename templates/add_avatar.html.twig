@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CHANGER AVATAR{% endblock %}
+
+{% block header %}
+
+    {{ form_start(form) }}
+
+    <div class="file-field input-field col s12">
+        <div class="btn">+Avatar
+            <input type="file" multiple>
+            {{ form_widget(form.avatar) }}
+            {{ form_errors(form.avatar) }}</input>
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Vous ne pouvez télécharger qu'un seul fichier">
+        </div>
+    </div>
+
+    <button type="submit" name="publier" class="waves-effect waves-light btn-small green darken-1">
+        Publier
+    </button>
+    <button type="submit" name="reinitialiser" class="waves-effect waves-light btn-small pink darken-1">
+        Réinitialiser
+    </button><br><br>
+
+    {{ form_end(form) }}
+
+{% endblock %}

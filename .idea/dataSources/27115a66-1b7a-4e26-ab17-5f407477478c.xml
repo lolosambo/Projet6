@@ -35,8 +35,8 @@
     </role>
     <schema id="7" parent="3" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-06-17.13:42:51.229</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1499</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-06-18.20:57:23.332</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1599</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -57,7 +57,7 @@
     </schema>
     <table id="13" parent="7" name="comments">
       <ObjectId>33217</ObjectId>
-      <StateNumber>1407</StateNumber>
+      <StateNumber>1599</StateNumber>
     </table>
     <table id="14" parent="7" name="groups">
       <ObjectId>33227</ObjectId>
@@ -69,7 +69,7 @@
     </table>
     <table id="16" parent="7" name="tricks">
       <ObjectId>33238</ObjectId>
-      <StateNumber>1499</StateNumber>
+      <StateNumber>1599</StateNumber>
     </table>
     <table id="17" parent="7" name="users">
       <ObjectId>33248</ObjectId>
@@ -143,13 +143,14 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="29" parent="13" name="fk_5f9e962ab281be2e">
-      <ObjectId>33317</ObjectId>
+      <ObjectId>41063</ObjectId>
       <ColNames>trick_id</ColNames>
       <RefTableId>33238</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>tricks</RefTableName>
       <RefKeyName>tricks_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="30" parent="13" name="fk_5f9e962aa76ed395">
       <ObjectId>33262</ObjectId>

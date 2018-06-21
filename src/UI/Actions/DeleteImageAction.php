@@ -30,16 +30,16 @@ class DeleteImageAction implements DeleteImageActionInterface
     /**
      * @var ImagesRepositoryInterface
      */
-    private $ir;
+    private $imagesRepository;
 
     /**
      * DeleteImageAction constructor.
      *
      * @param ImagesRepositoryInterface $mr
      */
-    public function __construct(ImagesRepositoryInterface $ir)
+    public function __construct(ImagesRepositoryInterface $imagesRepository)
     {
-        $this->ir = $ir;
+        $this->imagesRepository = $imagesRepository;
     }
 
     /**
@@ -47,8 +47,8 @@ class DeleteImageAction implements DeleteImageActionInterface
      */
     public function __invoke(Request $request, UrlGeneratorInterface $generator)
     {
-        $this->ir->deleteImage($request->attributes->get('mediaId'));
-        $this->ir->flush();
+        $this->imagesRepository->deleteImage($request->attributes->get('mediaId'));
+        $this->imagesRepository->flush();
         return new RedirectResponse($generator->generate('single_trick', [
             'id' => $request->attributes->get('trickId')
         ])

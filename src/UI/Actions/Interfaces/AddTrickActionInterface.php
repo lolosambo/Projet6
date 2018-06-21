@@ -27,11 +27,25 @@ use Symfony\Component\HttpFoundation\Request;
  */
 interface AddTrickActionInterface
 {
+    /**
+     * AddTrickActionInterface constructor.
+     *
+     * @param TricksRepositoryInterface $trickRepository
+     * @param FormFactoryInterface $formFactory
+     */
     public function __construct(
-        TricksRepositoryInterface $tr,
+        TricksRepositoryInterface $trickRepository,
         FormFactoryInterface $formFactory
     );
 
+    /**
+     * @param Request $request
+     * @param AddedTrickResponderInterface $addedTrickResponder
+     * @param AddTrickResponderInterface $addTrickResponder
+     * @param TrickAddTypeHandlerInterface $TrickTypeHandler
+     *
+     * @return mixed
+     */
     public function __invoke(
         Request $request,
         AddedTrickResponderInterface $addedTrickResponder,

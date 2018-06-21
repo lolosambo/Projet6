@@ -195,7 +195,7 @@ class Users implements UserInterface, \Serializable, UsersInterface
      */
     public function setAvatar($avatar)
     {
-        if (preg_match('#^\.\./uploads/avatars/([0-9a-zA-Z-_]+)\.jpg|jpeg|png$#', $avatar)) {
+        if (preg_match('#^([0-9a-zA-Z-_]+)\.jpg|jpeg|png$#', $avatar)) {
             $this->avatar = $avatar;
         }
     }

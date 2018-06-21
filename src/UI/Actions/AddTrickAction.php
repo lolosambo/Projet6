@@ -38,20 +38,20 @@ class AddTrickAction implements AddTrickActionInterface
     /**
      * @var TricksRepositoryInterface
      */
-    private $tr;
+    private $trickRepository;
 
     /**
      * AddTrickAction constructor.
      *
-     * @param TricksRepositoryInterface $tr
+     * @param TricksRepositoryInterface $trickRepository
      * @param FormFactoryInterface      $formFactory
      */
     public function __construct(
-        TricksRepositoryInterface $tr,
+        TricksRepositoryInterface $trickRepository,
         FormFactoryInterface $formFactory
     ) {
         $this->formFactory = $formFactory;
-        $this->tr = $tr;
+        $this->trickRepository = $trickRepository;
     }
 
     /**
@@ -75,7 +75,7 @@ class AddTrickAction implements AddTrickActionInterface
             ->handleRequest($request);
 
         if ($TrickTypeHandler->handle($form)) {
-            $trick = $this->tr->findOneByName($form->get('name')->getData());
+            $trick = $this->trickRepository->findOneByName($form->get('name')->getData());
 
             return $addedTrickResponder(['trick' => $trick]);
         }

@@ -30,11 +30,11 @@ interface ShareVideosActionInterface
     /**
      * ShareVideosActionInterface constructor
      *
-     * @param VideosRepositoryInterface  $vr
+     * @param VideosRepositoryInterface  $videosRepository
      * @param FormFactoryInterface       $formFactory
      */
     public function __construct(
-        VideosRepositoryInterface $vr,
+        VideosRepositoryInterface $videosRepository,
         FormFactoryInterface $formFactory
     );
 

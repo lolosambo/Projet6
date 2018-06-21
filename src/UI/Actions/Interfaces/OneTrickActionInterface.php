@@ -19,8 +19,9 @@ use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responders\Interfaces\OneTrickResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+
 
 /**
  * Interface OneTrickActionInterface
@@ -43,15 +44,17 @@ interface OneTrickActionInterface
     );
 
     /**
-     * @param Request                    $request
-     * @param SessionInterface           $session
-     * @param CommentTypeHandler         $commentTypeHandler
+     * @param Request $request
+     * @param TokenStorageInterface $tokenStorage
+     * @param CommentTypeHandler $commentTypeHandler
      * @param OneTrickResponderInterface $oneTrickResponder
+     * @param UrlGeneratorInterface $generator
+     *
      * @return mixed
      */
     public function __invoke(
         Request $request,
-        SessionInterface $session,
+        TokenStorageInterface $tokenStorage,
         CommentTypeHandler $commentTypeHandler,
         OneTrickResponderInterface $oneTrickResponder,
         UrlGeneratorInterface $generator

@@ -29,7 +29,7 @@ interface DeleteImageActionInterface
      *
      * @param ImagesRepositoryInterface $mr
      */
-    public function __construct(ImagesRepositoryInterface $mr);
+    public function __construct(ImagesRepositoryInterface $imagesRepository);
 
     /**
      * @param Request $request

@@ -29,7 +29,7 @@ interface DeleteVideoActionInterface
      *
      * @param VideosRepositoryInterface $mr
      */
-    public function __construct(VideosRepositoryInterface $vr);
+    public function __construct(VideosRepositoryInterface $videosRepository);
 
     /**
      * @param Request $request

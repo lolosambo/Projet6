@@ -31,16 +31,16 @@ class DeleteVideoAction implements DeleteVideoActionInterface
     /**
      * @var VideosRepositoryInterface
      */
-    private $vr;
+    private $videosRepository;
 
     /**
      * DeleteImageAction constructor.
      *
      * @param VideosRepositoryInterface $mr
      */
-    public function __construct(VideosRepositoryInterface $vr)
+    public function __construct(VideosRepositoryInterface $videosRepository)
     {
-        $this->vr = $vr;
+        $this->videosRepository = $videosRepository;
     }
 
     /**
@@ -48,10 +48,8 @@ class DeleteVideoAction implements DeleteVideoActionInterface
      */
     public function __invoke(Request $request, UrlGeneratorInterface $generator)
     {
-        dump($request->attributes->get('mediaId'));
-        die;
-        $this->vr->deleteVideo($request->attributes->get('mediaId'));
-        $this->vr->flush();
+        $this->videosRepository->deleteVideo($request->attributes->get('mediaId'));
+        $this->videosRepository->flush();
         return new RedirectResponse($generator->generate('single_trick', [
             'id' => $request->attributes->get('trickId')
                 ])
