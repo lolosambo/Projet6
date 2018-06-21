@@ -41,7 +41,7 @@ interface VideosRepositoryInterface
      *
      * @return mixed
      */
-    public function deleteVideo(string $id);
+    public function deleteVideo(string $videoId);
 
     /**
      * @return mixed

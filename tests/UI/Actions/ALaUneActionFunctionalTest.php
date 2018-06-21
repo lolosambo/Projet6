@@ -33,7 +33,7 @@ class ALaUneActionFunctionalTest extends WebTestCase
     public function testGetStatusCode()
     {
         $client = static::createClient();
-        $client->request('POST', '/trick/2/image_a_la_une/1');
+        $client->request('GET', '/trick/2/image_a_la_une/1');
         static::assertEquals(Response::HTTP_FOUND, $client->getResponse()->getStatusCode());
     }
 

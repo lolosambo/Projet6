@@ -1,5 +1,7 @@
 FROM node:8
 
+MAINTAINER: 'Laurent BERTON <lolosambo2@gmail.com>'
+
 RUN apt-get update && \
 	apt-get install -y \
 		curl \

@@ -35,8 +35,8 @@
     </role>
     <schema id="7" parent="3" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-06-18.20:57:23.332</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1599</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-06-21.09:31:06.262</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1618</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -375,8 +375,7 @@
     <column id="62" parent="17" name="avatar">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1309</StateNumber>
+      <StateNumber>1618</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="63" parent="17" name="users_pkey">

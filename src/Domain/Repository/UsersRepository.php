@@ -42,11 +42,11 @@ class UsersRepository extends ServiceEntityRepository implements UsersRepository
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findUser(string $id)
+    public function findUser(string $userId)
     {
         return $this->createQueryBuilder('u')
             ->where('u.id = ?1')
-            ->setParameter(1, $id)
+            ->setParameter(1, $userId)
             ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();

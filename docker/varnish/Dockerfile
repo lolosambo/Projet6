@@ -1,5 +1,7 @@
 FROM alpine:3.6
 
+MAINTAINER: 'Laurent BERTON <lolosambo2@gmail.com>'
+
 RUN apk add --no-cache varnish
 
 COPY conf/default.vcl /etc/varnish/default.vcl

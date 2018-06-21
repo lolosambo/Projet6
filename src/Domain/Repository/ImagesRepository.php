@@ -77,11 +77,11 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findById(string $id)
+    public function findById(string $imageId)
     {
         return $this->createQueryBuilder('i')
             ->where('i.id = :id')
-            ->setParameter(':id', $id)
+            ->setParameter(':id', $imageId)
             ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();
@@ -92,12 +92,12 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
      *
      * @return \Doctrine\ORM\QueryBuilder|mixed
      */
-    public function deleteImage(string $id)
+    public function deleteImage(string $imageId)
     {
         return $this->createQueryBuilder('t')
             ->delete('App\Domain\Models\Images', 'i')
             ->where('i.id = :id')
-            ->setParameter('id', $id)
+            ->setParameter('id', $imageId)
             ->getQuery()
             ->execute();
     }

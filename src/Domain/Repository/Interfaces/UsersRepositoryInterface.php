@@ -27,7 +27,7 @@ interface UsersRepositoryInterface
      *
      * @return mixed
      */
-    public function findUser(string $id);
+    public function findUser(string $userId);
 
     /**
      * @param $pseudo

@@ -57,12 +57,12 @@ class VideosRepository extends ServiceEntityRepository implements VideosReposito
      *
      * @return \Doctrine\ORM\QueryBuilder|mixed
      */
-    public function deleteVideo(string $id)
+    public function deleteVideo(string $videoId)
     {
         return $this->createQueryBuilder('v')
             ->delete('App\Domain\Models\Videos', 'v')
             ->where('v.id = :id')
-            ->setParameter('id', $id)
+            ->setParameter('id', $videoId)
             ->getQuery()
             ->execute();
     }

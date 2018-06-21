@@ -1,6 +1,8 @@
 FROM composer
 FROM php:fpm-alpine3.7
 
+MAINTAINER: 'Laurent BERTON <lolosambo2@gmail.com>'
+
 ENV WORKPATH "/var/www/snowtricks"
 
 RUN set -xe \
