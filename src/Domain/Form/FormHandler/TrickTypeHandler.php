@@ -107,6 +107,12 @@ class TrickTypeHandler implements TrickAddTypeHandlerInterface
                 );
                 $newImage = new Images();
                 $newImage->setTrick($trick);
+                if ($file == $files[0]) {
+                    $newImage->setALaUne(1);
+                } else {
+                    $newImage->setALaUne(0);
+                }
+
                 $newImage->setTrickId($trick->getId());
                 $newImage->setUrl($file->getClientOriginalName());
 

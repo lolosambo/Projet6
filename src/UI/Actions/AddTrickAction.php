@@ -41,11 +41,12 @@ class AddTrickAction implements AddTrickActionInterface
      */
     private $trickRepository;
 
+
     /**
      * AddTrickAction constructor.
      *
      * @param TricksRepositoryInterface $trickRepository
-     * @param FormFactoryInterface      $formFactory
+     * @param FormFactoryInterface $formFactory
      */
     public function __construct(
         TricksRepositoryInterface $trickRepository,
@@ -76,7 +77,6 @@ class AddTrickAction implements AddTrickActionInterface
             ->handleRequest($request);
 
         if ($TrickTypeHandler->handle($form)) {
-            $trick = $this->trickRepository->findOneByName($form->get('name')->getData());
             $request->getSession()->getFlashBag()->add(
                 'notice', 'La figure a bien été ajoutée !'
             );

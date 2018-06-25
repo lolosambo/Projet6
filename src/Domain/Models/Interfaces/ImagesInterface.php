@@ -59,7 +59,7 @@ interface ImagesInterface
     public function getALaUne();
 
     /**
-     * @param bool $aLaUne
+     * @param int $aLaUne
      * @return mixed
      */
     public function setALaUne(int $aLaUne);

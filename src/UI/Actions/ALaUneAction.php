@@ -61,6 +61,9 @@ class ALaUneAction implements ALaUneActionInterface
         $aLaUne = $this->imagesRepository->findById($id);
         $aLaUne->setALaUne(1);
         $this->imagesRepository->flush();
+        $request->getSession()->getFlashBag()->add(
+            'notice', 'L\'image de couverture a bien été modifiée !'
+        );
 
         return new RedirectResponse($urlGenerator->generate(
             'single_trick',
