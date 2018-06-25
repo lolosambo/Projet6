@@ -15,10 +15,10 @@ namespace App\UI\Actions\Interfaces;
 
 use App\Domain\Form\FormHandler\InscriptionTypeHandler;
 use App\UI\Responders\Interfaces\InscriptionFormResponderInterface;
-use App\UI\Responders\Interfaces\InscriptionStatusResponderInterface;
 use Swift_Mailer;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
 /**
@@ -40,11 +40,11 @@ interface InscriptionFormActionInterface
     );
 
     /**
-     * @param Request                              $request
-     * @param InscriptionTypeHandler               $InscriptionTypeHandler
-     * @param Swift_Mailer                         $mailer
-     * @param InscriptionStatusResponderInterface  $inscriptionStatusResponder
-     * @param InscriptionFormResponderInterface    $inscriptionFormResponder
+     * @param Request                            $request
+     * @param InscriptionTypeHandler             $InscriptionTypeHandler
+     * @param Swift_Mailer                       $mailer
+     * @param UrlGeneratorInterface              $urlGenerator,
+     * @param InscriptionFormResponderInterface  $inscriptionFormResponder
      *
      * @return mixed
      */
@@ -52,7 +52,7 @@ interface InscriptionFormActionInterface
         Request $request,
         InscriptionTypeHandler $InscriptionTypeHandler,
         Swift_Mailer $mailer,
-        InscriptionStatusResponderInterface $inscriptionStatusResponder,
+        UrlGeneratorInterface $urlGenerator,
         InscriptionFormResponderInterface $inscriptionFormResponder
     );
 }

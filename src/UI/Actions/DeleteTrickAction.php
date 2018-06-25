@@ -49,6 +49,9 @@ class DeleteTrickAction implements DeleteTrickActionInterface
     {
         $this->trickRepository->deleteTrick($request->get('id'));
         $this->trickRepository->flush();
+        $request->getSession()->getFlashBag()->add(
+            'notice', 'La figure a bien été supprimée !'
+        );
         return new RedirectResponse($generator->generate('homepage'));
     }
 }

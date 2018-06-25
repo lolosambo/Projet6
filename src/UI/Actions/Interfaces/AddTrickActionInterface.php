@@ -15,10 +15,10 @@ namespace App\UI\Actions\Interfaces;
 
 use App\Domain\Form\FormHandler\Interfaces\TrickAddTypeHandlerInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\UI\Responders\Interfaces\AddedTrickResponderInterface;
 use App\UI\Responders\Interfaces\AddTrickResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class AddTrickActionInterface
@@ -39,16 +39,16 @@ interface AddTrickActionInterface
     );
 
     /**
-     * @param Request $request
-     * @param AddedTrickResponderInterface $addedTrickResponder
-     * @param AddTrickResponderInterface $addTrickResponder
-     * @param TrickAddTypeHandlerInterface $TrickTypeHandler
+     * @param Request                       $request
+     * @param UrlGeneratorInterface         $urlGenerator
+     * @param AddTrickResponderInterface    $addTrickResponder
+     * @param TrickAddTypeHandlerInterface  $TrickTypeHandler
      *
      * @return mixed
      */
     public function __invoke(
         Request $request,
-        AddedTrickResponderInterface $addedTrickResponder,
+        UrlGeneratorInterface $urlGenerator,
         AddTrickResponderInterface $addTrickResponder,
         TrickAddTypeHandlerInterface $TrickTypeHandler
     );

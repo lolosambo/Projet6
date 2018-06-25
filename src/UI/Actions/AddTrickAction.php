@@ -17,11 +17,12 @@ use App\Domain\Form\FormHandler\Interfaces\TrickAddTypeHandlerInterface;
 use App\Domain\Form\Type\TrickType;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Actions\Interfaces\AddTrickActionInterface;
-use App\UI\Responders\Interfaces\AddedTrickResponderInterface;
 use App\UI\Responders\Interfaces\AddTrickResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class AddTrickAction.
@@ -57,16 +58,16 @@ class AddTrickAction implements AddTrickActionInterface
     /**
      * @Route("/ajouter/figure", name="add_trick")
      *
-     * @param Request $request
-     * @param AddedTrickResponderInterface $addedTrickResponder
-     * @param AddTrickResponderInterface $addTrickResponder
-     * @param TrickAddTypeHandlerInterface $TrickTypeHandler
+     * @param Request                       $request
+     * @param UrlGeneratorInterface         $urlGenerator
+     * @param AddTrickResponderInterface    $addTrickResponder
+     * @param TrickAddTypeHandlerInterface  $TrickTypeHandler
      *
      * @return mixed
      */
     public function __invoke(
         Request $request,
-        AddedTrickResponderInterface $addedTrickResponder,
+        UrlGeneratorInterface $urlGenerator,
         AddTrickResponderInterface $addTrickResponder,
         TrickAddTypeHandlerInterface $TrickTypeHandler
     ) {
@@ -76,8 +77,10 @@ class AddTrickAction implements AddTrickActionInterface
 
         if ($TrickTypeHandler->handle($form)) {
             $trick = $this->trickRepository->findOneByName($form->get('name')->getData());
-
-            return $addedTrickResponder(['trick' => $trick]);
+            $request->getSession()->getFlashBag()->add(
+                'notice', 'La figure a bien été ajoutée !'
+            );
+            return new RedirectResponse($urlGenerator->generate('homepage'));
         }
         return $addTrickResponder(['form' => $form->createView()]);
     }

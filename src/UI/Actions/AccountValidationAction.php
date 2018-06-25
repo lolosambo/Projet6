@@ -13,16 +13,18 @@ declare(strict_types=1);
 namespace App\UI\Actions;
 
 use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
-use App\UI\Responders\Interfaces\AccountValidatedResponderInterface;
+use App\UI\Actions\Interfaces\AccountValidationActionInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class AccountValidationAction.
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  */
-class AccountValidationAction
+class AccountValidationAction implements AccountValidationActionInterface
 {
     /**
      * @var UsersRepositoryInterface
@@ -42,12 +44,15 @@ class AccountValidationAction
     /**
      * @Route("/validation-compte/{id}", name="account-validation")
      */
-    public function __invoke(Request $request, AccountValidatedResponderInterface $accountResponder)
+    public function __invoke(Request $request, UrlGeneratorInterface $urlGenerator)
     {
         $user = $this->usersRepository->findUser($request->get('id'));
         $user->setVerified(1);
         $this->usersRepository->save($user);
-        return $accountResponder();
+        $request->getSession()->getFlashBag()->add(
+            'notice', "Votre compte a bien été validé ! \nVous pouvez maintenant vous connecter"
+        );
+        return new RedirectResponse($urlGenerator->generate('login'));
     }
 
 }

@@ -21,8 +21,10 @@ use App\UI\Responders\Interfaces\InscriptionStatusResponderInterface;
 use Swift_Mailer;
 use Swift_Message;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
 /**
@@ -59,11 +61,11 @@ class InscriptionFormAction implements InscriptionFormActionInterface
     /**
      * @Route("/inscription", name="inscription")
      *
-     * @param Request                              $request
-     * @param InscriptionTypeHandler               $InscriptionTypeHandler
-     * @param Swift_Mailer                         $mailer
-     * @param InscriptionStatusResponderInterface  $inscriptionStatusResponder
-     * @param InscriptionFormResponderInterface    $inscriptionFormResponder
+     * @param Request                            $request
+     * @param InscriptionTypeHandler             $InscriptionTypeHandler
+     * @param Swift_Mailer                       $mailer
+     * @param UrlGeneratorInterface              $urlGenerator
+     * @param InscriptionFormResponderInterface  $inscriptionFormResponder
      *
      * @return mixed
      *
@@ -75,7 +77,7 @@ class InscriptionFormAction implements InscriptionFormActionInterface
         Request $request,
         InscriptionTypeHandler $InscriptionTypeHandler,
         Swift_Mailer $mailer,
-        InscriptionStatusResponderInterface $inscriptionStatusResponder,
+        UrlGeneratorInterface $urlGenerator,
         InscriptionFormResponderInterface $inscriptionFormResponder
     ) {
         $form = $this->formFactory
@@ -83,7 +85,11 @@ class InscriptionFormAction implements InscriptionFormActionInterface
             ->handleRequest($request);
 
         if ($InscriptionTypeHandler->handle($form, $mailer)) {
-            return $inscriptionStatusResponder();
+            $request->getSession()->getFlashBag()->add(
+                'notice', "Votre inscription a bien été prise en compte.\r\n
+                Veuillez vérifier votre messagerie afin d'activer votre compte !"
+            );
+            return new RedirectResponse($urlGenerator->generate('homepage'));
         }
         return  $inscriptionFormResponder(['form' => $form->createView()]);
     }

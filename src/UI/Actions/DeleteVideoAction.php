@@ -50,6 +50,9 @@ class DeleteVideoAction implements DeleteVideoActionInterface
     {
         $this->videosRepository->deleteVideo($request->attributes->get('mediaId'));
         $this->videosRepository->flush();
+        $request->getSession()->getFlashBag()->add(
+            'notice', 'La vidéo a bien été supprimée !'
+        );
         return new RedirectResponse($generator->generate('single_trick', [
             'id' => $request->attributes->get('trickId')
                 ])

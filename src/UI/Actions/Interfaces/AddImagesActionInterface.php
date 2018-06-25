@@ -15,10 +15,10 @@ namespace App\UI\Actions\Interfaces;
 
 
 use App\Domain\Form\FormHandler\Interfaces\ImagesTypeHandlerInterface;
-use App\UI\Responders\Interfaces\AddedImagesResponderInterface;
 use App\UI\Responders\Interfaces\AddImagesResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Interface AddImagesActionInterface
@@ -35,16 +35,16 @@ interface AddImagesActionInterface
     public function __construct(FormFactoryInterface $formFactory);
 
     /**
-     * @param Request                       $request
-     * @param AddedImagesResponderInterface $addedImagesResponder
-     * @param AddImagesResponderInterface   $addImagesResponder
-     * @param ImagesTypeHandlerInterface    $imagesHandler
+     * @param Request                      $request
+     * @param UrlGeneratorInterface        $urlGenerator
+     * @param AddImagesResponderInterface  $addImagesResponder
+     * @param ImagesTypeHandlerInterface   $imagesHandler
      *
      * @return mixed
      */
     public function __invoke(
         Request $request,
-        AddedImagesResponderInterface $addedImagesResponder,
+        UrlGeneratorInterface $urlGenerator,
         AddImagesResponderInterface $addImagesResponder,
         ImagesTypeHandlerInterface $imagesHandler
     );

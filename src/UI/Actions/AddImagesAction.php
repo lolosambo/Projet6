@@ -16,11 +16,13 @@ namespace App\UI\Actions;
 use App\Domain\Form\FormHandler\Interfaces\ImagesTypeHandlerInterface;
 use App\Domain\Form\Type\ImagesType;
 use App\UI\Actions\Interfaces\AddImagesActionInterface;
-use App\UI\Responders\Interfaces\AddedImagesResponderInterface;
 use App\UI\Responders\Interfaces\AddImagesResponderInterface;
+use App\UI\Responders\Interfaces\OneTrickResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class AddImagesAction.
@@ -47,16 +49,16 @@ class AddImagesAction implements AddImagesActionInterface
     }
 
     /**
-     * @param AddedImagesResponderInterface $addedImagesResponder
-     * @param AddImagesResponderInterface   $addImagesResponder
-     * @param Request                       $request
-     * @param ImagesTypeHandlerInterface    $imagesHandler
+     * @param Request                      $request
+     * @param OneTrickResponderInterface   $OneTrickResponder
+     * @param AddImagesResponderInterface  $addImagesResponder
+     * @param ImagesTypeHandlerInterface   $imagesHandler
      *
-     * @return AddedImagesResponderInterface|mixed
+     * @return mixed
      */
     public function __invoke(
         Request $request,
-        AddedImagesResponderInterface $addedImagesResponder,
+        UrlGeneratorInterface $urlGenerator,
         AddImagesResponderInterface $addImagesResponder,
         ImagesTypeHandlerInterface $imagesHandler
     ) {
@@ -64,7 +66,10 @@ class AddImagesAction implements AddImagesActionInterface
             ->create(ImagesType::class)
             ->handleRequest($request);
         if ($imagesHandler->handle($images, $request->get('id'))) {
-            return  $addedImagesResponder();
+            $request->getSession()->getFlashBag()->add(
+                'notice', 'La(es) image(s) a(ont) bien été ajoutée(s) !'
+            );
+            return new RedirectResponse($urlGenerator->generate('single_trick', ['id' => $request->get('id')]));
         }
         return $addImagesResponder(['form' => $images->createView()]);
     }

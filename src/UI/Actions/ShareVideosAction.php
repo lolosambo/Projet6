@@ -16,11 +16,12 @@ namespace App\UI\Actions;
 use App\Domain\Form\FormHandler\Interfaces\VideosTypeHandlerInterface;
 use App\Domain\Form\Type\VideosType;
 use App\Domain\Repository\Interfaces\VideosRepositoryInterface;
-use App\UI\Responders\Interfaces\AddedVideoResponderInterface;
 use App\UI\Responders\Interfaces\AddVideoResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class AddMediasController.
@@ -56,17 +57,16 @@ class ShareVideosAction
     }
 
     /**
-     * @param Request                       $request
-     * @param VideosTypeHandlerInterface    $mediaHandler
-     * @param AddedVideoResponderInterface  $addedVideoResponder
-     * @param AddVideoResponderInterface    $addVideoResponder
-     *
+     * @param Request $request
+     * @param VideosTypeHandlerInterface $mediaHandler
+     * @param UrlGeneratorInterface $urlGenerator
+     * @param AddVideoResponderInterface $addVideoResponder
      * @return mixed
      */
     public function __invoke(
         Request $request,
         VideosTypeHandlerInterface $mediaHandler,
-        AddedVideoResponderInterface $addedVideoResponder,
+        UrlGeneratorInterface $urlGenerator,
         AddVideoResponderInterface $addVideoResponder
     ) {
         $videos = $this->formFactory
@@ -74,7 +74,10 @@ class ShareVideosAction
             ->handleRequest($request);
 
         if ($mediaHandler->handle($videos, $request->get('id'))) {
-            return $addedVideoResponder();
+            $request->getSession()->getFlashBag()->add(
+                'notice', 'La(es) vidéo(s) a(ont) bien été ajoutée(s) !'
+            );
+            return new RedirectResponse($urlGenerator->generate('single_trick', ['id' => $request->get('id')]));
         }
 
         return $addVideoResponder(['form' => $videos->createView()]);

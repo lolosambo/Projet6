@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\Form\FormHandler\CommentTypeHandler;
+use App\Domain\Form\FormHandler\Interfaces\CommentTypeHandlerInterface;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\Domain\Form\Type\CommentType;
@@ -72,7 +72,7 @@ class OneTrickAction implements OneTrickActionInterface
      *
      * @param Request $request
      * @param SessionInterface $session
-     * @param CommentTypeHandler $commentTypeHandler
+     * @param CommentTypeHandlerInterface $commentTypeHandler
      * @param OneTrickResponderInterface $oneTrickResponder
      *
      * @return mixed|RedirectResponse
@@ -82,16 +82,12 @@ class OneTrickAction implements OneTrickActionInterface
     public function __invoke(
         Request $request,
         TokenStorageInterface $tokenStorage,
-        CommentTypeHandler $commentTypeHandler,
+        CommentTypeHandlerInterface $commentTypeHandler,
         OneTrickResponderInterface $oneTrickResponder,
         UrlGeneratorInterface $generator
     ) {
         $id = $request->attributes->get('id');
         $trick = $this->tricksRepository->findTrickDetails($id);
-        $comments = $trick->getComments();
-        $aLaUne = $this->imagesRepository->findImageALaUne($id);
-        $videos = $trick->getVideos();
-        $images = $trick->getImages();
         $userId = $tokenStorage->getToken()->getUser();
 
         if ($userId) {
@@ -102,20 +98,20 @@ class OneTrickAction implements OneTrickActionInterface
             }
             return $oneTrickResponder($request, [
                 'trick' => $trick,
-                'images' => $images,
-                'videos' => $videos,
-                'comments' => $comments,
+                'images' => $trick->getImages(),
+                'videos' => $trick->getVideos(),
+                'comments' => $trick->getComments(),
                 'addCommentForm' => $addCommentForm->createView(),
-                'aLaUne' => $aLaUne,
+                'aLaUne' => $this->imagesRepository->findImageALaUne($id),
                 ]
             );
         }
         return $oneTrickResponder($request, [
                 'trick' => $trick,
-                'images' => $images,
-                'videos' => $videos,
-                'comments' => $comments,
-                'aLaUne' => $aLaUne,
+                'images' => $trick->getImages(),
+                'videos' => $trick->getVideos(),
+                'comments' => $trick->getComments(),
+                'aLaUne' => $this->imagesRepository->findImageALaUne($id),
             ]
         );
     }

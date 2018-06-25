@@ -49,6 +49,10 @@ class DeleteImageAction implements DeleteImageActionInterface
     {
         $this->imagesRepository->deleteImage($request->attributes->get('mediaId'));
         $this->imagesRepository->flush();
+        $request->getSession()->getFlashBag()->add(
+            'notice', 'L\'image a bien été supprimée !'
+        );
+
         return new RedirectResponse($generator->generate('single_trick', [
             'id' => $request->attributes->get('trickId')
         ])

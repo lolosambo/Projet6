@@ -15,25 +15,33 @@
                 <i class="material-icons prefix white-text">account_circle</i>
                 <label class="active">{{ form_label(form.pseudo) }}</label>
                 {{ form_widget(form.pseudo) }}
-                {{ form_errors(form.pseudo) }}
+                {% if form_errors(form.pseudo) %}
+                    <div class="form-errors">{{ form_errors(form.pseudo) }}</div>
+                {% endif %}
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix white-text">vpn_key</i>
                 <label class="active">{{ form_label(form.password.first) }}</label>
                 {{ form_widget(form.password.first) }}
-                {{ form_errors(form.password.first) }}
+                {% if form_errors(form.password.first) %}
+                    <div class="form-errors">{{ form_errors(form.password.first) }}</div>
+                {% endif %}
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix white-text">vpn_key</i>
                 <label class="active">{{ form_label(form.password.second) }}</label>
                 {{ form_widget(form.password.second) }}
-                {{ form_errors(form.password.second) }}
+                {% if form_errors(form.password.second) %}
+                    <div class="form-errors">{{ form_errors(form.password.second) }}</div>
+                {% endif %}
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix white-text">mail</i>
                 <label class="active">{{ form_label(form.mail) }}</label>
                 {{ form_widget(form.mail) }}
-                {{ form_errors(form.mail) }}
+                {% if form_errors(form.mail) %}
+                    <div class="form-errors">{{ form_errors(form.mail) }}</div>
+                {% endif %}
             </div>
             <div class="col s12 center-align">
                 <button type="submit" name="inscrire" class="waves-effect waves-light btn-small green darken-1">S'inscrire</button>

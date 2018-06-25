@@ -81,6 +81,7 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
             ->where('t.id = ?1')
             ->leftJoin('t.images', 'ti', 'WITH', 'ti.trickId = ?1')
             ->leftJoin('t.comments', 'tc', 'WITH', 'tc.trickId = ?1')
+            ->orderBy('tc.commentDate', 'DESC')
             ->leftJoin('t.videos', 'tv', 'WITH', 'tv.trickId = ?1')
             ->setParameter(1, $id)
             ->setCacheable(true)

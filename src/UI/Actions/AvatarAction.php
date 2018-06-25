@@ -17,10 +17,11 @@ use App\Domain\Form\FormHandler\Interfaces\AvatarTypeHandlerInterface;
 use App\Domain\Form\Type\AvatarType;
 use App\UI\Actions\Interfaces\AvatarActionInterface;
 use App\UI\Responders\Interfaces\AddAvatarResponderInterface;
-use App\UI\Responders\Interfaces\AddedAvatarResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class AddImagesAction.
@@ -47,23 +48,26 @@ class AvatarAction implements AvatarActionInterface
     }
 
     /**
-     * @param Request $request
-     * @param AddAvatarResponderInterface $addAvatarResponder
-     * @param AddedAvatarResponderInterface $addedAvatarResponder
-     * @param AvatarTypeHandlerInterface $avatarTypeHandler
+     * @param Request                      $request
+     * @param AddAvatarResponderInterface  $addAvatarResponder
+     * @param UrlGeneratorInterface        $urlGenerator,
+     * @param AvatarTypeHandlerInterface   $avatarTypeHandler
      * @return mixed
      */
     public function __invoke(
         Request $request,
         AddAvatarResponderInterface $addAvatarResponder,
-        AddedAvatarResponderInterface $addedAvatarResponder,
+        UrlGeneratorInterface $urlGenerator,
         AvatarTypeHandlerInterface $avatarTypeHandler
     ) {
         $avatar = $this->formFactory
             ->create(AvatarType::class)
             ->handleRequest($request);
         if ($avatarTypeHandler->handle($avatar)) {
-            return  $addedAvatarResponder();
+            $request->getSession()->getFlashBag()->add(
+                'notice', 'L\'avatar a été changé avec succès !'
+            );
+            return new RedirectResponse($urlGenerator->generate('homepage'));
         }
         return $addAvatarResponder(['form' => $avatar->createView()]);
     }

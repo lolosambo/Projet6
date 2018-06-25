@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions\Interfaces;
 
-use App\Domain\Form\FormHandler\CommentTypeHandler;
+use App\Domain\Form\FormHandler\Interfaces\CommentTypeHandlerInterface;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responders\Interfaces\OneTrickResponderInterface;
@@ -46,7 +46,7 @@ interface OneTrickActionInterface
     /**
      * @param Request $request
      * @param TokenStorageInterface $tokenStorage
-     * @param CommentTypeHandler $commentTypeHandler
+     * @param CommentTypeHandlerInterface $commentTypeHandler
      * @param OneTrickResponderInterface $oneTrickResponder
      * @param UrlGeneratorInterface $generator
      *
@@ -55,7 +55,7 @@ interface OneTrickActionInterface
     public function __invoke(
         Request $request,
         TokenStorageInterface $tokenStorage,
-        CommentTypeHandler $commentTypeHandler,
+        CommentTypeHandlerInterface $commentTypeHandler,
         OneTrickResponderInterface $oneTrickResponder,
         UrlGeneratorInterface $generator
     );
