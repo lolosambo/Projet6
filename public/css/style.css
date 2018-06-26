@@ -113,7 +113,13 @@ label {
   padding-top: 60px; }
 
 .media_wrapper {
-  background-color: #2e3436; }
+  background-color: #2e3436;
+}
+
+.videos {
+  padding-left: 10px;
+  padding-left: 10px;
+}
 
 .thumbnail {
   padding-top: 10px;

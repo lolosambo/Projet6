@@ -39,6 +39,7 @@ class ImagesType extends AbstractType implements FormTypeInterface
         $builder
             ->add('image', FileType::class, [
                     'multiple' => true,
+                    'required' => false
                     ]
             );
     }

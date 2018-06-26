@@ -11,7 +11,7 @@ class TricksFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         for ($i = 0; $i < 30; $i++) {
-            $name = 'Figure'.$i;
+            $name = 'Figure '.$i;
             $groupId = rand(1, 4);
             $content = 'Tu autem, Fanni, quod mihi tantum tribui dicis quantum ego nec adgnosco nec postulo, 
             facis amice; sed, ut mihi videris, non recte iudicas de Catone; aut enim nemo, quod quidem magis credo, 

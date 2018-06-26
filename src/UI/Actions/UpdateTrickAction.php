@@ -20,9 +20,11 @@ use App\UI\Actions\Interfaces\UpdateTrickActionInterface;
 use App\UI\Responders\Interfaces\UpdatedTrickResponderInterface;
 use App\UI\Responders\Interfaces\UpdateTrickResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class UpdateTrickAction.
@@ -48,20 +50,23 @@ class UpdateTrickAction implements UpdateTrickActionInterface
     }
 
     /**
-     * @Route("/modifier/figure/{id}", name="update_trick")
+     * @Route("/modifier/figure/{slug}", name="update_trick")
      */
     public function __invoke(
         Request $request,
         Tricks $trick,
         UpdateTrickTypeHandler $updateTrickTypeHandler,
         UpdateTrickResponderInterface $updateTrickResponder,
-        UpdatedTrickResponderInterface  $updatedTrickResponder
+        UrlGeneratorInterface $urlGenerator
     ) {
         $form = $this->formFactory
             ->create(UpdateTrickType::class, $trick)
             ->handleRequest($request);
-        if ($updateTrickTypeHandler->handle($form, $request->get('id'))) {
-            return $updatedTrickResponder(['trick' => $trick]);
+        if ($updateTrickTypeHandler->handle($form, $request->get('slug'))) {
+            $request->getSession()->getFlashBag()->add(
+                'notice', 'La figure a bien été modifiée !'
+            );
+            return new RedirectResponse($urlGenerator->generate('single_trick', ['slug' => $request->get('slug')]));
         }
         return $updateTrickResponder(['form' => $form->createView()]);
     }

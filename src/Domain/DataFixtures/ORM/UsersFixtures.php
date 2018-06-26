@@ -35,7 +35,6 @@ class UsersFixtures extends Fixture
             $mail = 'emailforuser'.$i.'@provider.com';
             $user = new Users($pseudo, $password, $mail);
             $user->setInscrDate(new \DateTime('+'. mt_rand(2, 100) .' days'));
-            $user->setAvatar('../images/avatar.png');
             $this->addReference('user'.$i, $user );
             $manager->persist($user);
         }

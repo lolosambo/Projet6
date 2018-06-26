@@ -40,20 +40,30 @@
                     </div>
                     <div class="row">
                         <div class="col s6 card-content">
-                            <a href="{{ path('single_trick', {'id' : trick.id}) }}">
+                            <a href="{{ path('single_trick', {'slug' : trick.slug }) }}">
                                 <p>Voir le détail</p>
                             </a>
                         </div>
                         <div class="col s6 center-align card-edit"><br>
                             {% if app.session.get('pseudo') == trick.user.pseudo %}
-                                <a href="{{ path('update_trick', {'id' : trick.id}) }}" >
+                                <a href="{{ path('update_trick', {'slug' : trick.slug}) }}" >
                                     <button class="waves-effect waves-light btn-small pink darken-1">
                                         <i class="material-icons">create</i>
                                     </button></a>
-                                <a href="{{ path('delete_trick', {'id' : trick.id}) }}">
-                                    <button class="waves-effect waves-light btn-small green darken-1">
-                                        <i class="material-icons">clear</i>
-                                    </button></a>
+                                <button class="waves-effect waves-light btn-small green darken-1 modal-trigger" href="#modal{{ trick.slug }}">
+                                    <i class="material-icons">clear</i>
+                                </button>
+                                <div id="modal{{ trick.slug }}" class="modal">
+                                    <div class="modal-content">
+                                        <h4>Suppression de Figure</h4>
+                                        <p>Etes-vous certain de vouloir supprimer cette figure ? Cette manipulation est irréversible.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="{{ path('delete_trick', {'slug' : trick.slug}) }}"
+                                           class="modal-close waves-effect waves-green btn-flat">Confirmer la suppression
+                                        </a>
+                                    </div>
+                                </div>
                             {% endif %}
                         </div>
                     </div>
@@ -66,6 +76,9 @@
     <br>
     <p class="totop"><a href="#top">Revenir en haut de la page</a></p>
     <script src="/js/loadMore.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){$('.modal').modal();});
+    </script>
 {% endblock %}
 
 

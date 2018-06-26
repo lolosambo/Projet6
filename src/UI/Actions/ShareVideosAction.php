@@ -28,7 +28,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  *
- * @Route("/ajout-videos/{id}", name="add_videos")
+ * @Route("/ajout-videos/{slug}", name="add_videos")
  */
 class ShareVideosAction
 {
@@ -73,11 +73,11 @@ class ShareVideosAction
             ->create(VideosType::class)
             ->handleRequest($request);
 
-        if ($mediaHandler->handle($videos, $request->get('id'))) {
+        if ($mediaHandler->handle($videos, $request->get('slug'))) {
             $request->getSession()->getFlashBag()->add(
                 'notice', 'La(es) vidéo(s) a(ont) bien été ajoutée(s) !'
             );
-            return new RedirectResponse($urlGenerator->generate('single_trick', ['id' => $request->get('id')]));
+            return new RedirectResponse($urlGenerator->generate('single_trick', ['slug' => $request->get('slug')]));
         }
 
         return $addVideoResponder(['form' => $videos->createView()]);

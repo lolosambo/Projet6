@@ -68,7 +68,7 @@ class OneTrickAction implements OneTrickActionInterface
     }
 
     /**
-     * @Route("/trick/{id}", name="single_trick")
+     * @Route("/trick/{slug}", name="single_trick")
      *
      * @param Request $request
      * @param SessionInterface $session
@@ -86,32 +86,24 @@ class OneTrickAction implements OneTrickActionInterface
         OneTrickResponderInterface $oneTrickResponder,
         UrlGeneratorInterface $generator
     ) {
-        $id = $request->attributes->get('id');
-        $trick = $this->tricksRepository->findTrickDetails($id);
-        $userId = $tokenStorage->getToken()->getUser();
-
-        if ($userId) {
+        $title = $request->attributes->get('slug');
+        $trick = $this->tricksRepository->findTrickDetails($title);
+        if ($tokenStorage->getToken()->getUser()) {
             $addCommentForm = $this->formFactory->create(CommentType::class)
                                                 ->handleRequest($request);
-            if ($commentTypeHandler->handle($request, $addCommentForm, $userId, $id)) {
-                return new RedirectResponse($generator->generate('single_trick', ['id' => $id]));
+            if ($commentTypeHandler->handle($request, $addCommentForm)) {
+                return new RedirectResponse($generator->generate('single_trick', ['slug' => $title]));
             }
             return $oneTrickResponder($request, [
                 'trick' => $trick,
-                'images' => $trick->getImages(),
-                'videos' => $trick->getVideos(),
-                'comments' => $trick->getComments(),
                 'addCommentForm' => $addCommentForm->createView(),
-                'aLaUne' => $this->imagesRepository->findImageALaUne($id),
+                'aLaUne' => $this->imagesRepository->findImageALaUne($trick->getId()->toString()),
                 ]
             );
         }
         return $oneTrickResponder($request, [
                 'trick' => $trick,
-                'images' => $trick->getImages(),
-                'videos' => $trick->getVideos(),
-                'comments' => $trick->getComments(),
-                'aLaUne' => $this->imagesRepository->findImageALaUne($id),
+                'aLaUne' => $this->imagesRepository->findImageALaUne($trick->getId()->toString()),
             ]
         );
     }

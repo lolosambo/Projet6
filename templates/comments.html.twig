@@ -18,7 +18,7 @@
 
 <div class="row grey darken-3 comments">
     <div class="col l10 offset-l1 s12">
-        {% for comment in comments %}
+        {% for comment in trick.getComments.toArray |reverse %}
             <div class="row single_comment">
                 <div class="col l1 m1 s3 grey lighten-2">
                     {% if comment.user.avatar is empty %}

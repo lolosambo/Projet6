@@ -72,11 +72,11 @@ class CommentTypeHandler implements CommentTypeHandlerInterface
     {
         if ($commentType->isSubmitted() && $commentType->isValid()) {
             $user = $this->tokenStorage->getToken()->getUser();
-            $trickId = $request->get('id');
-            $trick = $this->tricksRepository->findTrick($trickId);
+            $slug = $request->get('slug');
+            $trick = $this->tricksRepository->findTrickDetails($slug);
             $comment = new Comments($commentType->getData()->content);
             $comment->setUserId($user->getId()->toString());
-            $comment->setTrickId($trickId);
+            $comment->setTrickId($trick->getId()->toString());
             $comment->setCommentDate(new \Datetime('NOW'));
             $comment->setCommentUpdate(new \Datetime('NOW'));
             $comment->setUser($user);

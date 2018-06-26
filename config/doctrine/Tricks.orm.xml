@@ -11,6 +11,7 @@
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
         <field name="name" type="string" length="255" />
+        <field name="slug" type="string" length="255" />
         <field name="content" type="text" />
         <field name="trickDate" type="datetime"/>
         <field name="trickUpdate" type="datetime"/>

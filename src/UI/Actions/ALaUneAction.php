@@ -44,7 +44,7 @@ class ALaUneAction implements ALaUneActionInterface
     }
 
     /**
-     * @Route("/trick/{trick_id}/image_a_la_une/{id}", name = "frontPage_image")
+     * @Route("/trick/{slug}/image_a_la_une/{id}", name = "frontPage_image")
      *
      * @param Request $request
      */
@@ -52,9 +52,8 @@ class ALaUneAction implements ALaUneActionInterface
         Request $request,
         UrlGeneratorInterface $urlGenerator
     ) {
-        $trick_id = $request->get('trick_id');
         $id = $request->get('id');
-        $image = $this->imagesRepository->findImageALaUne($trick_id);
+        $image = $this->imagesRepository->findImageALaUne($request->get('slug'));
         if ($image) {
             $image->setALaUne(0);
         }
@@ -67,7 +66,7 @@ class ALaUneAction implements ALaUneActionInterface
 
         return new RedirectResponse($urlGenerator->generate(
             'single_trick',
-            ['id' => $trick_id]));
+            ['slug' => $request->get('slug')]));
     }
 }
 

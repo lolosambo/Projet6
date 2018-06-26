@@ -43,11 +43,11 @@ class DeleteTrickAction implements DeleteTrickActionInterface
     }
 
     /**
-     * @Route("/supprimer/{id}", name="delete_trick")
+     * @Route("/supprimer/{slug}", name="delete_trick")
      */
     public function __invoke(Request $request, UrlGeneratorInterface $generator)
     {
-        $this->trickRepository->deleteTrick($request->get('id'));
+        $this->trickRepository->deleteTrick($request->get('slug'));
         $this->trickRepository->flush();
         $request->getSession()->getFlashBag()->add(
             'notice', 'La figure a bien été supprimée !'

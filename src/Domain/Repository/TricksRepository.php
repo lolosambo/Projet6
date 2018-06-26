@@ -52,37 +52,37 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
     }
 
     /**
-     * @param string  $id
+     * @param string  $slug
      *
      * @return mixed
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findTrick(string $id)
+    public function findTrick(string $slug)
     {
         return $this->createQueryBuilder('t')
-            ->where('t.id = ?1')
-            ->setParameter(1, $id)
+            ->where('t.slug = ?1')
+            ->setParameter(1, $slug)
             ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();
     }
 
     /**
-     * @param string  $id
+     * @param string  $slug
      *
      * @return mixed
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findTrickDetails(string $id)
+    public function findTrickDetails(string $slug)
     {
         return $this->createQueryBuilder('t')
-            ->where('t.id = ?1')
-            ->leftJoin('t.images', 'ti', 'WITH', 'ti.trickId = ?1')
-            ->leftJoin('t.comments', 'tc', 'WITH', 'tc.trickId = ?1')
-            ->leftJoin('t.videos', 'tv', 'WITH', 'tv.trickId = ?1')
-            ->setParameter(1, $id)
+            ->where('t.slug = ?1')
+            ->leftJoin('t.images', 'ti', 'WITH', 'ti.trickId = t.id')
+            ->leftJoin('t.comments', 'tc', 'WITH', 'tc.trickId = t.id')
+            ->leftJoin('t.videos', 'tv', 'WITH', 'tv.trickId = t.id')
+            ->setParameter(1, $slug)
             ->setCacheable(true)
             ->getQuery()
             ->useResultCache(true)
@@ -111,12 +111,12 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
      *
      * @return mixed
      */
-    public function deleteTrick(string $id)
+    public function deleteTrick(string $slug)
     {
         return $this->createQueryBuilder('t')
             ->delete('App\Domain\Models\Tricks', 't')
-            ->where('t.id = :trick_id')
-            ->setParameter('trick_id', $id)
+            ->where('t.slug = :slug')
+            ->setParameter('slug', $slug)
             ->getQuery()
             ->execute();
     }

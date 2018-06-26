@@ -50,6 +50,11 @@ class Tricks implements TricksInterface
     /**
      * @var string
      */
+    private $slug;
+
+    /**
+     * @var string
+     */
     private $content;
 
     /**
@@ -105,6 +110,7 @@ class Tricks implements TricksInterface
         $this->images = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->videos = new ArrayCollection();
+        $this->convertSlug($name);
     }
 
     /**
@@ -287,6 +293,22 @@ class Tricks implements TricksInterface
     public function setName($name)
     {
         $this->name = htmlspecialchars($name);
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param $slug
+     */
+    public function convertSlug($name)
+    {
+        $this->slug = str_replace(' ', '_', $name);
     }
 
     /**

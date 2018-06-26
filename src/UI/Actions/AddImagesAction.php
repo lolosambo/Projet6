@@ -29,7 +29,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  *
  * @author Laurent BERTON <lolosambo2@gmail.com>
  *
- * @Route("/ajout-medias/{id}", name="add_medias")
+ * @Route("/ajout-medias/{slug}", name="add_medias")
  */
 class AddImagesAction implements AddImagesActionInterface
 {
@@ -65,11 +65,11 @@ class AddImagesAction implements AddImagesActionInterface
         $images = $this->formFactory
             ->create(ImagesType::class)
             ->handleRequest($request);
-        if ($imagesHandler->handle($images, $request->get('id'))) {
+        if ($imagesHandler->handle($images, $request->get('slug'))) {
             $request->getSession()->getFlashBag()->add(
                 'notice', 'La(es) image(s) a(ont) bien été ajoutée(s) !'
             );
-            return new RedirectResponse($urlGenerator->generate('single_trick', ['id' => $request->get('id')]));
+            return new RedirectResponse($urlGenerator->generate('single_trick', ['slug' => $request->get('slug')]));
         }
         return $addImagesResponder(['form' => $images->createView()]);
     }

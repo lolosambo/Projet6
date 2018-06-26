@@ -10,7 +10,7 @@ class ImagesFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        for ($i = 1; $i < 1000; $i++) {
+        for ($i = 1; $i < 200; $i++) {
             $url = 'test'.rand(1, 4).'.jpg';
             $image = new Images();
             $image->setTrick($this->getReference('trick'.rand(1, 10)));

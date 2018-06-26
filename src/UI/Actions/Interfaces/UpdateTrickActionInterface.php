@@ -19,6 +19,7 @@ use App\UI\Responders\Interfaces\UpdatedTrickResponderInterface;
 use App\UI\Responders\Interfaces\UpdateTrickResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Interface UpdateTrickActionInterface
@@ -39,8 +40,8 @@ interface UpdateTrickActionInterface
      * @param Tricks $trick
      * @param UpdateTrickTypeHandler $updateTrickTypeHandler
      * @param UpdateTrickResponderInterface $updateTrickResponder
-     * @param UpdatedTrickResponderInterface $updatedTrickResponder
-     *
+     * @param UrlGeneratorInterface $urlGenerator
+     * 
      * @return mixed
      */
     public function __invoke(
@@ -48,6 +49,6 @@ interface UpdateTrickActionInterface
         Tricks $trick,
         UpdateTrickTypeHandler $updateTrickTypeHandler,
         UpdateTrickResponderInterface $updateTrickResponder,
-        UpdatedTrickResponderInterface  $updatedTrickResponder
+        UrlGeneratorInterface $urlGenerator
     );
 }

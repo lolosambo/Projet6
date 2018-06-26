@@ -44,7 +44,7 @@ class DeleteVideoAction implements DeleteVideoActionInterface
     }
 
     /**
-     * @Route("/supprimer/trick/{trickId}/videos/{mediaId}", name="delete_videos")
+     * @Route("/supprimer/trick/{slug}/videos/{mediaId}", name="delete_videos")
      */
     public function __invoke(Request $request, UrlGeneratorInterface $generator)
     {
@@ -54,7 +54,7 @@ class DeleteVideoAction implements DeleteVideoActionInterface
             'notice', 'La vidéo a bien été supprimée !'
         );
         return new RedirectResponse($generator->generate('single_trick', [
-            'id' => $request->attributes->get('trickId')
+            'slug' => $request->attributes->get('slug')
                 ])
             );
     }

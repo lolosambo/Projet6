@@ -130,6 +130,16 @@ interface TricksInterface
     public function setName($name);
 
     /**
+     * @return string
+     */
+    public function getSlug();
+
+    /**
+     * @param $slug
+     */
+    public function convertSlug($name);
+
+    /**
      * @return mixed
      */
     public function getContent();

@@ -10,7 +10,7 @@ class VideosFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        for ($i = 1; $i < 200; $i++) {
+        for ($i = 1; $i < 100; $i++) {
             $url = 'https://www.youtube.com/embed/OKcnj7Pf9R4';
             $video = new Videos();
             $video->setTrick($this->getReference('trick'.rand(1, 10)));

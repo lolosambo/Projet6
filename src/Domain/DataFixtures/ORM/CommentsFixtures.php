@@ -10,7 +10,7 @@ class CommentsFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        for ($i = 1; $i < 200; $i++) {
+        for ($i = 1; $i < 100; $i++) {
             $content = 'Ceci est un commentaire aléatoire portant le numero : '. rand(1, 10000);
             $comment = new Comments($content);
             $comment->setUser($this->getReference('user'.rand(1, 10)));

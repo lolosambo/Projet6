@@ -6,7 +6,7 @@
       <ObjectId>12407</ObjectId>
     </database>
     <database id="3" parent="1" name="snowtricks">
-      <ObjectId>33216</ObjectId>
+      <ObjectId>41078</ObjectId>
       <Current>1</Current>
       <Visible>1</Visible>
     </database>
@@ -35,8 +35,8 @@
     </role>
     <schema id="7" parent="3" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-06-21.09:31:06.262</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1618</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-06-26.09:42:33.139</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1878</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -56,35 +56,35 @@
       <ObjectId>12119</ObjectId>
     </schema>
     <table id="13" parent="7" name="comments">
-      <ObjectId>33217</ObjectId>
-      <StateNumber>1599</StateNumber>
+      <ObjectId>41079</ObjectId>
+      <StateNumber>1877</StateNumber>
     </table>
     <table id="14" parent="7" name="groups">
-      <ObjectId>33227</ObjectId>
-      <StateNumber>1319</StateNumber>
+      <ObjectId>41089</ObjectId>
+      <StateNumber>1865</StateNumber>
     </table>
     <table id="15" parent="7" name="images">
-      <ObjectId>33232</ObjectId>
-      <StateNumber>1497</StateNumber>
+      <ObjectId>41094</ObjectId>
+      <StateNumber>1870</StateNumber>
     </table>
     <table id="16" parent="7" name="tricks">
-      <ObjectId>33238</ObjectId>
-      <StateNumber>1599</StateNumber>
+      <ObjectId>41100</ObjectId>
+      <StateNumber>1874</StateNumber>
     </table>
     <table id="17" parent="7" name="users">
-      <ObjectId>33248</ObjectId>
-      <StateNumber>1411</StateNumber>
+      <ObjectId>41110</ObjectId>
+      <StateNumber>1877</StateNumber>
     </table>
     <table id="18" parent="7" name="videos">
-      <ObjectId>33256</ObjectId>
-      <StateNumber>1499</StateNumber>
+      <ObjectId>41118</ObjectId>
+      <StateNumber>1868</StateNumber>
     </table>
     <column id="19" parent="13" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1291</StateNumber>
+      <StateNumber>1837</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="20" parent="13" name="trick_id">
@@ -92,97 +92,100 @@
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1291</StateNumber>
+      <StateNumber>1837</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="21" parent="13" name="user_id">
       <Position>3</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
-      <StateNumber>1291</StateNumber>
+      <StateNumber>1837</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="22" parent="13" name="content">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1291</StateNumber>
+      <StateNumber>1837</StateNumber>
       <TypeId>25</TypeId>
     </column>
     <column id="23" parent="13" name="comment_date">
       <Position>5</Position>
       <DataType>timestamp(0)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1291</StateNumber>
+      <StateNumber>1837</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="24" parent="13" name="comment_update">
       <Position>6</Position>
       <DataType>timestamp(0)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1291</StateNumber>
+      <StateNumber>1837</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="25" parent="13" name="comments_pkey">
-      <ObjectId>33223</ObjectId>
+      <ObjectId>41085</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="26" parent="13" name="idx_5f9e962ab281be2e">
-      <ObjectId>33226</ObjectId>
+      <ObjectId>41088</ObjectId>
       <ColNames>trick_id</ColNames>
     </index>
     <index id="27" parent="13" name="idx_5f9e962aa76ed395">
-      <ObjectId>33225</ObjectId>
+      <ObjectId>41087</ObjectId>
       <ColNames>user_id</ColNames>
     </index>
     <key id="28" parent="13" name="comments_pkey">
-      <ObjectId>33224</ObjectId>
+      <ObjectId>41086</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>comments_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="29" parent="13" name="fk_5f9e962ab281be2e">
-      <ObjectId>41063</ObjectId>
+      <ObjectId>41169</ObjectId>
       <ColNames>trick_id</ColNames>
-      <RefTableId>33238</RefTableId>
+      <RefTableId>41100</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>tricks</RefTableName>
       <RefKeyName>tricks_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
     </foreign-key>
     <foreign-key id="30" parent="13" name="fk_5f9e962aa76ed395">
-      <ObjectId>33262</ObjectId>
+      <ObjectId>41174</ObjectId>
       <ColNames>user_id</ColNames>
-      <RefTableId>33248</RefTableId>
+      <RefTableId>41110</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
     </foreign-key>
     <column id="31" parent="14" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1297</StateNumber>
+      <StateNumber>1843</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="32" parent="14" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1297</StateNumber>
+      <StateNumber>1843</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="33" parent="14" name="groups_pkey">
-      <ObjectId>33230</ObjectId>
+      <ObjectId>41092</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="34" parent="14" name="groups_pkey">
-      <ObjectId>33231</ObjectId>
+      <ObjectId>41093</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>groups_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
@@ -192,7 +195,7 @@
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1299</StateNumber>
+      <StateNumber>1845</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="36" parent="15" name="trick_id">
@@ -200,242 +203,253 @@
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1299</StateNumber>
+      <StateNumber>1845</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="37" parent="15" name="url">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1299</StateNumber>
+      <StateNumber>1845</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="38" parent="15" name="a_la_une">
       <Position>4</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1299</StateNumber>
+      <StateNumber>1845</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <index id="39" parent="15" name="images_pkey">
-      <ObjectId>33235</ObjectId>
+      <ObjectId>41097</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="40" parent="15" name="idx_e01fbe6ab281be2e">
-      <ObjectId>33237</ObjectId>
+      <ObjectId>41099</ObjectId>
       <ColNames>trick_id</ColNames>
     </index>
     <key id="41" parent="15" name="images_pkey">
-      <ObjectId>33236</ObjectId>
+      <ObjectId>41098</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>images_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="42" parent="15" name="fk_e01fbe6ab281be2e">
-      <ObjectId>41053</ObjectId>
+      <ObjectId>41159</ObjectId>
       <ColNames>trick_id</ColNames>
-      <RefTableId>33238</RefTableId>
+      <RefTableId>41100</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>tricks</RefTableName>
       <RefKeyName>tricks_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
     </foreign-key>
     <column id="43" parent="16" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1303</StateNumber>
+      <StateNumber>1849</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="44" parent="16" name="user_id">
       <Position>2</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
-      <StateNumber>1303</StateNumber>
+      <StateNumber>1849</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="45" parent="16" name="group_id">
       <Position>3</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
-      <StateNumber>1303</StateNumber>
+      <StateNumber>1849</StateNumber>
       <TypeId>2950</TypeId>
     </column>
     <column id="46" parent="16" name="name">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1303</StateNumber>
+      <StateNumber>1849</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="47" parent="16" name="content">
+    <column id="47" parent="16" name="slug">
       <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1849</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="48" parent="16" name="content">
+      <Position>6</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1303</StateNumber>
+      <StateNumber>1849</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="48" parent="16" name="trick_date">
-      <Position>6</Position>
-      <DataType>timestamp(0)|0</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1303</StateNumber>
-      <TypeId>1114</TypeId>
-    </column>
-    <column id="49" parent="16" name="trick_update">
+    <column id="49" parent="16" name="trick_date">
       <Position>7</Position>
       <DataType>timestamp(0)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1303</StateNumber>
+      <StateNumber>1849</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="50" parent="16" name="tricks_pkey">
-      <ObjectId>33244</ObjectId>
+    <column id="50" parent="16" name="trick_update">
+      <Position>8</Position>
+      <DataType>timestamp(0)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1849</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="51" parent="16" name="tricks_pkey">
+      <ObjectId>41106</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="51" parent="16" name="idx_e1d902c1a76ed395">
-      <ObjectId>33246</ObjectId>
+    <index id="52" parent="16" name="idx_e1d902c1a76ed395">
+      <ObjectId>41108</ObjectId>
       <ColNames>user_id</ColNames>
     </index>
-    <index id="52" parent="16" name="idx_e1d902c1fe54d947">
-      <ObjectId>33247</ObjectId>
+    <index id="53" parent="16" name="idx_e1d902c1fe54d947">
+      <ObjectId>41109</ObjectId>
       <ColNames>group_id</ColNames>
     </index>
-    <key id="53" parent="16" name="tricks_pkey">
-      <ObjectId>33245</ObjectId>
+    <key id="54" parent="16" name="tricks_pkey">
+      <ObjectId>41107</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>tricks_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="54" parent="16" name="fk_e1d902c1a76ed395">
-      <ObjectId>33327</ObjectId>
+    <foreign-key id="55" parent="16" name="fk_e1d902c1a76ed395">
+      <ObjectId>41164</ObjectId>
       <ColNames>user_id</ColNames>
-      <RefTableId>33248</RefTableId>
+      <RefTableId>41110</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="55" parent="16" name="fk_e1d902c1fe54d947">
-      <ObjectId>33282</ObjectId>
+    <foreign-key id="56" parent="16" name="fk_e1d902c1fe54d947">
+      <ObjectId>41144</ObjectId>
       <ColNames>group_id</ColNames>
-      <RefTableId>33227</RefTableId>
+      <RefTableId>41089</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>groups</RefTableName>
       <RefKeyName>groups_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="56" parent="17" name="id">
+    <column id="57" parent="17" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1309</StateNumber>
+      <StateNumber>1855</StateNumber>
       <TypeId>2950</TypeId>
     </column>
-    <column id="57" parent="17" name="pseudo">
+    <column id="58" parent="17" name="pseudo">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1309</StateNumber>
+      <StateNumber>1855</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="58" parent="17" name="password">
+    <column id="59" parent="17" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1309</StateNumber>
+      <StateNumber>1855</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="59" parent="17" name="mail">
+    <column id="60" parent="17" name="mail">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1309</StateNumber>
+      <StateNumber>1855</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="17" name="verified">
+    <column id="61" parent="17" name="verified">
       <Position>5</Position>
       <DataType>boolean|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1309</StateNumber>
+      <StateNumber>1855</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="61" parent="17" name="inscr_date">
+    <column id="62" parent="17" name="inscr_date">
       <Position>6</Position>
       <DataType>timestamp(0)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1309</StateNumber>
+      <StateNumber>1855</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="62" parent="17" name="avatar">
+    <column id="63" parent="17" name="avatar">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
-      <StateNumber>1618</StateNumber>
+      <StateNumber>1878</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="63" parent="17" name="users_pkey">
-      <ObjectId>33254</ObjectId>
+    <index id="64" parent="17" name="users_pkey">
+      <ObjectId>41116</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="64" parent="17" name="users_pkey">
-      <ObjectId>33255</ObjectId>
+    <key id="65" parent="17" name="users_pkey">
+      <ObjectId>41117</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="65" parent="18" name="id">
+    <column id="66" parent="18" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1311</StateNumber>
+      <StateNumber>1857</StateNumber>
       <TypeId>2950</TypeId>
     </column>
-    <column id="66" parent="18" name="trick_id">
+    <column id="67" parent="18" name="trick_id">
       <Position>2</Position>
       <Comment>(DC2Type:uuid)</Comment>
       <DataType>uuid|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1311</StateNumber>
+      <StateNumber>1857</StateNumber>
       <TypeId>2950</TypeId>
     </column>
-    <column id="67" parent="18" name="url">
+    <column id="68" parent="18" name="url">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1311</StateNumber>
+      <StateNumber>1857</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="68" parent="18" name="videos_pkey">
-      <ObjectId>33259</ObjectId>
+    <index id="69" parent="18" name="videos_pkey">
+      <ObjectId>41121</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="69" parent="18" name="idx_29aa6432b281be2e">
-      <ObjectId>33261</ObjectId>
+    <index id="70" parent="18" name="idx_29aa6432b281be2e">
+      <ObjectId>41123</ObjectId>
       <ColNames>trick_id</ColNames>
     </index>
-    <key id="70" parent="18" name="videos_pkey">
-      <ObjectId>33260</ObjectId>
+    <key id="71" parent="18" name="videos_pkey">
+      <ObjectId>41122</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>videos_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="71" parent="18" name="fk_29aa6432b281be2e">
-      <ObjectId>41058</ObjectId>
+    <foreign-key id="72" parent="18" name="fk_29aa6432b281be2e">
+      <ObjectId>41154</ObjectId>
       <ColNames>trick_id</ColNames>
-      <RefTableId>33238</RefTableId>
+      <RefTableId>41100</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>tricks</RefTableName>
       <RefKeyName>tricks_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
     </foreign-key>
   </database-model>
 </dataSource>

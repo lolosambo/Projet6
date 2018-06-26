@@ -41,13 +41,13 @@ interface TricksRepositoryInterface
     public function findTrick(string $id);
 
     /**
-     * @param string  $id
+     * @param string  $slug
      *
      * @return mixed
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findTrickDetails(string $id);
+    public function findTrickDetails(string $slug);
 
     /**
      * @param string  $content
