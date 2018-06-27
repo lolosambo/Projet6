@@ -18,11 +18,14 @@ h3 {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   color: white;
-  text-align: center; }
+  text-align: center;
+}
 
 h4 {
   font-family: 'Roboto', sans-serif;
-  font-size: 20px; }
+  font-size: 20px;
+}
+
 
 h5 {
   font-family: 'Roboto', sans-serif;
@@ -110,7 +113,50 @@ label {
   font-size: 18px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 60px; }
+  }
+
+.content_wrapper strong{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.content_wrapper h1{
+  font-family: 'Roboto', sans-serif;
+  color: #0D47A1;
+  font-size: 34px;
+  font-weight: bolder;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.content_wrapper h2{
+  font-family: 'Roboto', sans-serif;
+  color: #0D47A1;
+  font-size: 28px;
+  font-weight: bolder;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.content_wrapper h3{
+  font-family: 'Roboto', sans-serif;
+  color: #0D47A1;
+  font-size: 22px;
+  font-weight: bolder;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.content_wrapper h4{
+  font-family: 'Roboto', sans-serif;
+  color: #0D47A1;
+  font-size: 18px;
+  font-weight: bolder;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 .videos {
   padding-left: 10px;
@@ -129,13 +175,23 @@ label {
 .title {
   background-color: #01579b;
   width: 100%;
-  margin-top: 10px; }
+  margin-top: 10px;
+}
+
 
 .description {
   background-color: #01579b;
   text-align: center;
-  margin-top: -20px;
-  line-height: 10px; }
+  margin-top: -50px;
+  line-height: 10px;
+  color: #ffffff !important;
+}
+
+.description h4 {
+  color: #ffffff;
+  text-align: center;
+}
+
 
 .author {
   background-color: #5a5a5a;
@@ -149,13 +205,10 @@ label {
   margin-top: -20px;
 }
 
-.comments em {
-  font-size: 11px;
-  color: #ffffff; }
-
 .comment_author {
   height: 40px;
   line-height: 40px;
+  color: #ffffff
 }
 
 .avatar {
@@ -175,6 +228,11 @@ label {
 .comment_row > [class*='col-'] {
   display: flex;
   flex-direction: column;
+}
+.comments strong{
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 .comment_avatar {

@@ -18,10 +18,8 @@
 {% endblock %}
 
 {% block textarea_widget %}
-    <textarea class="materialize-textarea" {{ block('widget_attributes') }}>{{ value }}</textarea>
-    <script type="text/javascript">
-        M.textareaAutoResize($('#textarea1'));
-    </script>
+    {% set type = type|default('CKEditor') %}
+    <textarea>{{ value }}</textarea>
 {% endblock %}
 
 {% block choice_widget_collapsed %}

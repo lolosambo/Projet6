@@ -15,8 +15,8 @@ namespace App\Domain\Form\Type;
 
 use App\Domain\DTO\CommentDTO;
 use App\Domain\Form\Type\Interfaces\FormTypeInterface;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -34,7 +34,10 @@ class CommentType extends AbstractType implements FormTypeInterface
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('content', TextareaType::class, ['label' => 'Votre commentaire']);
+        $builder->add('content', CKEditorType::class, [
+            'config' =>['toolbar' => 'my_toolbar_1'],
+            'label' => 'Votre commentaire'
+        ]);
     }
 
     /**

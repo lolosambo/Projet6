@@ -1,48 +1,46 @@
-{% if app.session.get('userId') is not null %}
-    <div class="row grey darken-2">
-        <div class="col l10 offset-l1 s12">
-            {% form_theme addCommentForm 'form/theme.html.twig' %}
-            {{ form_start(addCommentForm) }}
-            <div class="input-field col s12">
-                <i class="material-icons prefix white-text">comment</i>
-                <label class="active">{{ form_label(addCommentForm.content) }}</label>
-                {{ form_widget(addCommentForm.content) }}
-                {{ form_errors(addCommentForm.content) }}
-            </div><br>
-                <button type="submit" name="Comment" class="waves-effect waves-light btn-small green darken-1">Commenter</button>
-                <button type="reset" name="reset" class="waves-effect waves-light btn-small pink darken-1">Effacer</button><br><br>
-            {{ form_end(addCommentForm) }}
-        </div>
-    </div>
-{% endif %}
-
 <div class="row grey darken-2 comments">
-    <div class="col l7 offset-l1 s12">
+    <div class="col l8 offset-l1 s12">
         {% for comment in trick.getComments.toArray |reverse %}
             <div class="row comment_row">
-                <div class="col s12">
+                <div class="col l12  s10 offset-s1">
                     <div class="row comment_row">
-                        <div class="col l2 m2 s3 comment_avatar">
+                        <div class="col l2  m2 s6 offset-s3 comment_avatar">
                             {% if comment.user.avatar is empty %}
                                 <img class="circle responsive-img avatar z-depth-3" src="{{ asset('../images/avatar.png')}}"/>
                             {% else %}
                                 <img class="circle responsive-img avatar z-depth-3" src="{{ asset('../avatars/'~comment.user.avatar)}}"/><br>
                             {% endif %}
                         </div>
-                        <div class="col l10 m10 s9">
+                        <div class="col l10 m10 s12">
                             <div class="row">
                                 <div class="col s12 comment_author grey darken-3">
                                     <em>{{ comment.user.pseudo | upper}} - {{ comment.commentDate | date ('d/m/Y \\- H\\hi')}}</em>
                                 </div>
                                 <div class="col s12 comment_content grey lighten-2 z-depth-3">
-                                    <blockquote>{{ comment.content }}</blockquote>
+                                    <blockquote>{{ comment.content|raw }}</blockquote>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         {% endfor %}
     </div>
+{% if app.session.get('userId') is not null %}
+    <div class="row grey darken-2">
+        <div class="col l8 offset-l1 m10 offset-m1 s10 offset-s1">
+            {% form_theme addCommentForm 'form/theme.html.twig' %}
+            {{ form_start(addCommentForm) }}
+            <div class="input-field col s12">
+                <i class="material-icons prefix white-text">comment</i>
+                <label class="active">{{ form_label(addCommentForm.content) }}</label><br><br>
+                {{ form_widget(addCommentForm.content) }}
+                {{ form_errors(addCommentForm.content) }}
+            </div><br>
+            <button type="submit" name="Comment" class="waves-effect waves-light btn-small green darken-1">Commenter</button>
+            <button type="reset" name="reset" class="waves-effect waves-light btn-small pink darken-1">Effacer</button><br><br>
+            {{ form_end(addCommentForm) }}
+        </div>
+    </div>
+{% endif %}
 </div>

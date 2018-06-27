@@ -104,8 +104,8 @@ class Tricks implements TricksInterface
         string $group = null,
         string $content = null
     ) {
-        $this->setName(htmlspecialchars($name));
-        $this->setContent(htmlspecialchars($content));
+        $this->setName($name);
+        $this->setContent($content);
         $this->groupId = $group;
         $this->images = new ArrayCollection();
         $this->comments = new ArrayCollection();
@@ -292,7 +292,7 @@ class Tricks implements TricksInterface
      */
     public function setName($name)
     {
-        $this->name = htmlspecialchars($name);
+        $this->name = $name;
     }
 
     /**
@@ -324,7 +324,7 @@ class Tricks implements TricksInterface
      */
     public function setContent($content)
     {
-        $this->content = htmlspecialchars($content);
+        $this->content = $content;
     }
 
     /**

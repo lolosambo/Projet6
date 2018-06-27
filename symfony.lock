@@ -20,6 +20,9 @@
     "composer/semver": {
         "version": "1.4.2"
     },
+    "composer/xdebug-handler": {
+        "version": "1.1.0"
+    },
     "container-interop/container-interop": {
         "version": "1.2.0"
     },
@@ -115,6 +118,9 @@
             "version": "2.2",
             "ref": "81dee417d2cc60cd1c9d6208dff2ec22a1103e93"
         }
+    },
+    "friendsofsymfony/ckeditor-bundle": {
+        "version": "1.1.0"
     },
     "gitonomy/gitlib": {
         "version": "v1.0.4"

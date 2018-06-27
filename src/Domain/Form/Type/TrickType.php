@@ -15,6 +15,7 @@ namespace App\Domain\Form\Type;
 
 use App\Domain\DTO\TrickAddDTO;
 use App\Domain\Form\Type\Interfaces\FormTypeInterface;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -50,7 +51,10 @@ class TrickType extends AbstractType implements FormTypeInterface
                     'multiple' => false,
                 ]
             )
-            ->add('content', TextareaType::class, ['label' => 'Description'])
+            ->add('content', CKEditorType::class, [
+                'config' =>['toolbar' => 'my_toolbar_1'],
+                'label' => 'Description'
+            ])
             ->add('image', FileType::class, [
                 'multiple' => true,
             ])

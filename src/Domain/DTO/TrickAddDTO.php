@@ -69,7 +69,7 @@ class TrickAddDTO implements TricksAddDTOInterface
      *
      * @param string|null     $name
      * @param Groups|null     $group
-     * @param string|null     $content
+     * @param                 $content
      * @param \SplFileInfo[]  $image
      * @param string|null     $address1
      * @param string|null     $address2
@@ -79,7 +79,7 @@ class TrickAddDTO implements TricksAddDTOInterface
     public function __construct(
         string $name = null,
         Groups $group = null,
-        string $content = null,
+        $content = null,
         array $image = null,
         string $address1 = null,
         string $address2 = null,

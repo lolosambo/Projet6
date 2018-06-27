@@ -27,8 +27,8 @@ interface TricksAddDTOInterface
      *
      * @param string|null $name
      * @param Groups|null $group
-     * @param string|null $content
-     * @param array|null $image
+     * @param             $content
+     * @param array|null  $image
      * @param string|null $address1
      * @param string|null $address2
      * @param string|null $address3
@@ -37,7 +37,7 @@ interface TricksAddDTOInterface
     public function __construct(
         string $name = null,
         Groups $group = null,
-        string $content = null,
+        $content = null,
         array $image = null,
         string $address1 = null,
         string $address2 = null,
