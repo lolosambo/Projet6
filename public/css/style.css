@@ -7,7 +7,7 @@ body {
 h1 {
   font-family: 'Roboto', sans-serif;
   font-size: 35px;
-  color: #d81b60; }
+  color: #ffffff; }
 
 h2 {
   font-family: 'Roboto', sans-serif;
@@ -112,13 +112,9 @@ label {
   padding-right: 20px;
   padding-top: 60px; }
 
-.media_wrapper {
-  background-color: #2e3436;
-}
-
 .videos {
   padding-left: 10px;
-  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .thumbnail {
@@ -150,22 +146,48 @@ label {
 
 .comments {
   padding-top: 20px;
-  margin-top: -20px; }
+  margin-top: -20px;
+}
 
 .comments em {
   font-size: 11px;
   color: #ffffff; }
 
 .comment_author {
-  background-color: #01579b;
-  height: 20px;
-  line-height: 20px; }
+  height: 40px;
+  line-height: 40px;
+}
 
-.comment_content {
-  min-height: 20px; }
+.avatar {
+  border: 4px #ffffff solid;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-.single_comment {
-  background-color: #eeeeee; }
+.comment_row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.comment_row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment_avatar {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+}
 
 .form-errors {
   margin-top: 20px;

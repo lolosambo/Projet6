@@ -43,11 +43,13 @@ class ImagesRepository extends ServiceEntityRepository implements ImagesReposito
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findImageALaUne(string $trickId)
+    public function findImageALaUne(string $slug)
     {
         return $this->createQueryBuilder('i')
-            ->where('i.trickId = :trickId AND i.aLaUne = 1')
-            ->setParameter(':trickId', $trickId)
+            ->leftJoin('i.trick', 'it')
+            ->where('it.slug = :slug')
+            ->andWhere('i.aLaUne = 1')
+            ->setParameter(':slug', $slug)
             ->setCacheable(true)
             ->getQuery()
             ->getOneOrNullResult();

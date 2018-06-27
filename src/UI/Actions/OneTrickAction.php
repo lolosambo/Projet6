@@ -97,13 +97,13 @@ class OneTrickAction implements OneTrickActionInterface
             return $oneTrickResponder($request, [
                 'trick' => $trick,
                 'addCommentForm' => $addCommentForm->createView(),
-                'aLaUne' => $this->imagesRepository->findImageALaUne($trick->getId()->toString()),
+                'aLaUne' => $this->imagesRepository->findImageALaUne($trick->getSlug()),
                 ]
             );
         }
         return $oneTrickResponder($request, [
                 'trick' => $trick,
-                'aLaUne' => $this->imagesRepository->findImageALaUne($trick->getId()->toString()),
+                'aLaUne' => $this->imagesRepository->findImageALaUne($trick->getSlug()),
             ]
         );
     }

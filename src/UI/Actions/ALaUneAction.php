@@ -52,12 +52,11 @@ class ALaUneAction implements ALaUneActionInterface
         Request $request,
         UrlGeneratorInterface $urlGenerator
     ) {
-        $id = $request->get('id');
         $image = $this->imagesRepository->findImageALaUne($request->get('slug'));
         if ($image) {
             $image->setALaUne(0);
         }
-        $aLaUne = $this->imagesRepository->findById($id);
+        $aLaUne = $this->imagesRepository->findById($request->get('id'));
         $aLaUne->setALaUne(1);
         $this->imagesRepository->flush();
         $request->getSession()->getFlashBag()->add(

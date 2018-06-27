@@ -16,24 +16,33 @@
     </div>
 {% endif %}
 
-<div class="row grey darken-3 comments">
-    <div class="col l10 offset-l1 s12">
+<div class="row grey darken-2 comments">
+    <div class="col l7 offset-l1 s12">
         {% for comment in trick.getComments.toArray |reverse %}
-            <div class="row single_comment">
-                <div class="col l1 m1 s3 grey lighten-2">
-                    {% if comment.user.avatar is empty %}
-                        <img class="circle responsive-img" src="{{ asset('../images/avatar.png')}}"/>
-                    {% else %}
-                    <img class="circle responsive-img" src="{{ asset('../avatars/'~comment.user.avatar)}}"/><br>
-                    {% endif %}
+            <div class="row comment_row">
+                <div class="col s12">
+                    <div class="row comment_row">
+                        <div class="col l2 m2 s3 comment_avatar">
+                            {% if comment.user.avatar is empty %}
+                                <img class="circle responsive-img avatar z-depth-3" src="{{ asset('../images/avatar.png')}}"/>
+                            {% else %}
+                                <img class="circle responsive-img avatar z-depth-3" src="{{ asset('../avatars/'~comment.user.avatar)}}"/><br>
+                            {% endif %}
+                        </div>
+                        <div class="col l10 m10 s9">
+                            <div class="row">
+                                <div class="col s12 comment_author grey darken-3">
+                                    <em>{{ comment.user.pseudo | upper}} - {{ comment.commentDate | date ('d/m/Y \\- H\\hi')}}</em>
+                                </div>
+                                <div class="col s12 comment_content grey lighten-2 z-depth-3">
+                                    <blockquote>{{ comment.content }}</blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col l11 m11 s9">
-                    {{ comment.content }}<br>
-                </div>
-                <div class="col s12 comment_author">
-                    <em>écrit par {{ comment.user.pseudo }} le {{ comment.commentDate | date ('d/m/Y \\à H\\hi')}}</em>
-                </div>
-            </div><br>
+            </div>
+
         {% endfor %}
-    </div><br><br>
+    </div>
 </div>
