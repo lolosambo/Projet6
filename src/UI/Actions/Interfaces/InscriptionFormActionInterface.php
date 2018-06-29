@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace App\UI\Actions\Interfaces;
 
 use App\Domain\Form\FormHandler\InscriptionTypeHandler;
+use App\Domain\Services\Interfaces\MailerServiceInterface;
 use App\UI\Responders\Interfaces\InscriptionFormResponderInterface;
-use Swift_Mailer;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -42,7 +42,7 @@ interface InscriptionFormActionInterface
     /**
      * @param Request                            $request
      * @param InscriptionTypeHandler             $InscriptionTypeHandler
-     * @param Swift_Mailer                       $mailer
+     * @param MailerServiceInterface             $mailer
      * @param UrlGeneratorInterface              $urlGenerator,
      * @param InscriptionFormResponderInterface  $inscriptionFormResponder
      *
@@ -51,7 +51,7 @@ interface InscriptionFormActionInterface
     public function __invoke(
         Request $request,
         InscriptionTypeHandler $InscriptionTypeHandler,
-        Swift_Mailer $mailer,
+        MailerServiceInterface $mailer,
         UrlGeneratorInterface $urlGenerator,
         InscriptionFormResponderInterface $inscriptionFormResponder
     );

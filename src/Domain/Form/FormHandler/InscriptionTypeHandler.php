@@ -16,8 +16,7 @@ namespace App\Domain\Form\FormHandler;
 use App\Domain\Form\FormHandler\Interfaces\InscriptionTypeHandlerInterface;
 use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
-use Swift_Mailer;
-use Swift_Message;
+use App\Domain\Services\Interfaces\MailerServiceInterface;
 use Symfony\Component\Form\FormInterface;
 use Twig\Environment;
 
@@ -59,7 +58,7 @@ class InscriptionTypeHandler implements InscriptionTypeHandlerInterface
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function handle(FormInterface $inscriptionType, Swift_Mailer $mailer)
+    public function handle(FormInterface $inscriptionType, MailerServiceInterface $mailer)
     {
         if ($inscriptionType->isSubmitted() && $inscriptionType->isValid()) {
             $user = new Users(
@@ -74,15 +73,12 @@ class InscriptionTypeHandler implements InscriptionTypeHandlerInterface
                 $inscriptionType->getData()->mail
             )->getId()->toString();
 
-            $message = (new Swift_Message('Nouvelle inscription'))
-                ->setFrom('lolosambo2@gmail.com')
-                ->setTo($inscriptionType->getData()->mail)
-                ->setBody($this->twig->render('email_inscription.html.twig', [
-                    'name' => $inscriptionType->getData()->pseudo,
-                    'token' => $uuid
-                ]))
-                ->setContentType("text/html");
-            $mailer->send($message);
+            $mailer(
+                'Votre inscription sur le site communautaire Snowtricks',
+                $inscriptionType->getData()->mail,
+                $inscriptionType->getData()->pseudo,
+                $uuid,
+                'email_inscription.html.twig');
             return true;
         }
         return false;

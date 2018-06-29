@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Domain\Form\FormHandler\Interfaces;
 
 use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
+use App\Domain\Services\Interfaces\MailerServiceInterface;
 use Swift_Mailer;
 use Symfony\Component\Form\FormInterface;
 use Twig\Environment;
@@ -38,9 +39,9 @@ interface ForgotPasswordTypeHandlerInterface
     /**
      * @param FormInterface $ForgotPasswordType
      *
-     * @param Swift_Mailer $mailer
+     * @param MailerServiceInterface $mailer
      * @return mixed
      */
-    public function handle(FormInterface $ForgotPasswordType, Swift_Mailer $mailer);
+    public function handle(FormInterface $ForgotPasswordType, MailerServiceInterface $mailer);
 
 }

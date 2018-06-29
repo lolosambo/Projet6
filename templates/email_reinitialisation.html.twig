@@ -3,29 +3,29 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="{{ absolute_url(asset('public/css/materialize.css'))}}" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="{{ absolute_url(asset('public/css/style.css'))}}">
     <script
             src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
             crossorigin="anonymous"></script>
-    <title>Réinitilalisation du mot de passe</title>
+    <title>Bienvenue sur Snowtricks !</title>
 </head>
 <body>
-<div class="row grey darken-1">
-    <div class="col-l12">
-        <img src="{{ absolute_url(asset('public/images/logo.png')) }}"><br><br>
+    <div class="row grey darken-1">
+        <div class="col-l12">
+            <img src="{{ logo }}" style="margin: auto; width: 350px;" ><br><br>
+        </div>
+    </div><br><br>
+
+    <div class="row" id="content">
+        <div class="col l12 content">
+            <div style="font-size: 16px; font-family: 'Roboto', sans-serif; ">
+                <h3 style="color: #01579b;">Réinitilalisation du mot de passe Snowtricks</h3>
+                <p>Bonjour {{ name }}! Vous avez souhaité réinitialiser votre mot de passe.</p>
+                <p>Veuillez cliquer sur le lien ci-dessous.</p>
+                <p><a style="font-size: 16px; color: #d81b60" href="{{ url('reinitialize_password', {id : token }) }}">Réinitialisez votre mot de passe</a></p>
+            </div>
+        </div>
     </div>
-</div><br><br>
-
-<div class="row" id="content">
-    <div class="col l12 content">
-        <h3>Réinitilalisation du mot de passe Snowtricks</h3>
-        <p> Bonjour {{ name }}! Vous avez souhaité réinitialiser votre mot de passe. Veuillez cliquer sur le lien ci-dessous.</p>
-        <p><a href="{{root_path}}/reinitialize/{{ token }}">Réinitialisez votre mot de passe</a></p>
-    </div>
-</div>
-
-
 </body>
 </html>
+

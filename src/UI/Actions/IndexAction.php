@@ -39,7 +39,10 @@ class IndexAction implements IndexActionInterface
     /**
      * @Route("/", name="homepage")
      */
-    public function __invoke(Request $request, IndexResponderInterface $indexResponder)
+    public function __invoke(
+        Request $request,
+        IndexResponderInterface $indexResponder
+    )
     {
         $tricks = $this->tricksRepository->findAllTricksWithMediasByDate();
         return $indexResponder($request, ['tricks' => $tricks]);

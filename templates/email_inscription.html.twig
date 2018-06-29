@@ -3,8 +3,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="{{ absolute_url(asset('public/css/materialize.css'))}}" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="{{ absolute_url(asset('public/css/style.css'))}}">
     <script
             src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -14,19 +12,19 @@
 <body>
     <div class="row grey darken-1">
         <div class="col-l12">
-            <img src="{{ absolute_url(asset('public/images/logo.png')) }}"><br><br>
+            <img src="{{ logo }}" style="margin: auto; width: 350px;" ><br><br>
         </div>
     </div><br><br>
 
     <div class="row" id="content">
         <div class="col l12 content">
-            <h3>Bienvenue {{ name }}!</h3>
-            <p> Bonjour {{ name }}! Vous êtes désormais enregistré en tant que membre de Snowtricks.</p>
-            <p>Afin d'activer votre compte définitivement, veuillez cliquer sur le lien ci-dessous.</p>
-            <p><a href="{{root_path}}/validation-compte/{{ token }}">Valider votre compte</a></p>
+            <div style="font-size: 16px; font-family: 'Roboto', sans-serif; ">
+                <h3 style="color: #01579b;">Bienvenue {{ name }}!</h3>
+                <p>Vous êtes désormais enregistré en tant que membre de Snowtricks.</p>
+                <p>Afin d'activer votre compte définitivement, veuillez cliquer sur le lien ci-dessous.</p>
+                <p><a style="font-size: 16px; color: #d81b60" href="{{ url('account-validation', {id : token }) }}">Valider votre compte</a></p>
+            </div>
         </div>
     </div>
-
-
 </body>
 </html>

@@ -46,7 +46,10 @@ final class OneTrickResponder implements OneTrickResponderInterface
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function __invoke(Request $request, $data)
+    public function __invoke(
+        Request $request,
+        $data
+    )
     {
         $response = new Response(
             $this->twig->render('oneTrick.html.twig', $data)

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Form\FormHandler\Interfaces;
 
-use Swift_Mailer;
+use App\Domain\Services\Interfaces\MailerServiceInterface;
 use Symfony\Component\Form\FormInterface;
 
 /**
@@ -25,6 +25,9 @@ interface InscriptionTypeHandlerInterface
 {
     /**
      * @param FormInterface $formType
+     * @param MailerServiceInterface $mailer
+     *
+     * @return mixed
      */
-    public function handle(FormInterface $formType, Swift_Mailer $mailer);
+    public function handle(FormInterface $formType, MailerServiceInterface $mailer);
 }

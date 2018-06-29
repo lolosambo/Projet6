@@ -16,6 +16,7 @@ namespace App\UI\Actions;
 use App\Domain\Form\FormHandler\Interfaces\ForgotPasswordTypeHandlerInterface;
 use App\Domain\Form\Type\ForgotPasswordType;
 use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
+use App\Domain\Services\Interfaces\MailerServiceInterface;
 use App\UI\Actions\Interfaces\ForgotPasswordActionInterface;
 use App\UI\Responders\Interfaces\ForgotPasswordResponderInterface;
 use Swift_Mailer;
@@ -48,7 +49,7 @@ class ForgotPasswordAction implements ForgotPasswordActionInterface
      *
      * @param Request $request
      * @param ForgotPasswordTypeHandlerInterface $handler
-     * @param Swift_Mailer $mailer
+     * @param MailerServiceInterface $mailer
      * @param UrlGeneratorInterface $urlGenerator
      *
      * @return mixed|Response
@@ -56,7 +57,7 @@ class ForgotPasswordAction implements ForgotPasswordActionInterface
     public function __invoke(
         Request $request,
         ForgotPasswordTypeHandlerInterface $handler,
-        Swift_Mailer $mailer,
+        MailerServiceInterface $mailer,
         UrlGeneratorInterface $urlGenerator,
         ForgotPasswordResponderInterface $responder
     ) {

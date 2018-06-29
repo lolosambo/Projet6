@@ -15,6 +15,8 @@ namespace App\Domain\Form\FormHandler;
 
 use App\Domain\Form\FormHandler\Interfaces\ForgotPasswordTypeHandlerInterface;
 use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
+use App\Domain\Services\Interfaces\MailerServiceInterface;
+use Swift_Image;
 use Swift_Mailer;
 use Swift_Message;
 use Symfony\Component\Form\FormInterface;
@@ -58,22 +60,19 @@ class ForgotPasswordTypeHandler implements ForgotPasswordTypeHandlerInterface
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function handle(FormInterface $forgotPasswordType, Swift_Mailer $mailer)
+    public function handle(FormInterface $forgotPasswordType, MailerServiceInterface $mailer)
     {
         if ($forgotPasswordType->isSubmitted() && $forgotPasswordType->isValid()) {
             $user = $this->usersRepository->findOneByPseudoAndMail(
                 $forgotPasswordType->getData()->pseudo,
                 $forgotPasswordType->getData()->mail
             );
-            $message = (new Swift_Message('Réinitialisation du mot de passe Snowtricks'))
-                ->setFrom('lolosambo2@gmail.com')
-                ->setTo($forgotPasswordType->getData()->mail)
-                ->setBody($this->twig->render('email_reinitialisation.html.twig', [
-                    'name' => $forgotPasswordType->getData()->pseudo,
-                    'token' => $user->getid()->toString()
-                ]))
-                ->setContentType("text/html");
-            $mailer->send($message);
+            $mailer(
+                'Réinitialisation du mot de passe Snowtricks',
+                $forgotPasswordType->getData()->mail,
+                $forgotPasswordType->getData()->pseudo,
+                $user->getid()->toString(),
+                'email_reinitialisation.html.twig');
             return true;
         }
         return false;

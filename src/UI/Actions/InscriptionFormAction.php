@@ -15,11 +15,10 @@ namespace App\UI\Actions;
 
 use App\Domain\Form\FormHandler\InscriptionTypeHandler;
 use App\Domain\Form\Type\InscriptionType;
+use App\Domain\Services\Interfaces\MailerServiceInterface;
 use App\UI\Actions\Interfaces\InscriptionFormActionInterface;
 use App\UI\Responders\Interfaces\InscriptionFormResponderInterface;
-use App\UI\Responders\Interfaces\InscriptionStatusResponderInterface;
 use Swift_Mailer;
-use Swift_Message;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -76,7 +75,7 @@ class InscriptionFormAction implements InscriptionFormActionInterface
     public function __invoke(
         Request $request,
         InscriptionTypeHandler $InscriptionTypeHandler,
-        Swift_Mailer $mailer,
+        MailerServiceInterface $mailer,
         UrlGeneratorInterface $urlGenerator,
         InscriptionFormResponderInterface $inscriptionFormResponder
     ) {

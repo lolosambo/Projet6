@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Actions\Interfaces;
 
 use App\Domain\Form\FormHandler\Interfaces\ForgotPasswordTypeHandlerInterface;
+use App\Domain\Services\Interfaces\MailerServiceInterface;
 use App\UI\Responders\Interfaces\ForgotPasswordResponderInterface;
 use Swift_Mailer;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -36,18 +37,18 @@ interface ForgotPasswordActionInterface
     /**
      * @Route("/change-password", name = "change_password")
      *
-     * @param Request                                 $request
-     * @param ForgotPasswordTypeHandlerInterface    $handler
-     * @param Swift_Mailer                            $mailer
-     * @param UrlGeneratorInterface                   $urlGenerator
-     * @param ForgotPasswordResponderInterface  $responder
+     * @param Request                              $request
+     * @param ForgotPasswordTypeHandlerInterface   $handler
+     * @param MailerServiceInterface               $mailer
+     * @param UrlGeneratorInterface                $urlGenerator
+     * @param ForgotPasswordResponderInterface     $responder
      *
      * @return mixed
      */
     public function __invoke(
         Request $request,
         ForgotPasswordTypeHandlerInterface $handler,
-        Swift_Mailer $mailer,
+        MailerServiceInterface $mailer,
         UrlGeneratorInterface $urlGenerator,
         ForgotPasswordResponderInterface $responder
     );
