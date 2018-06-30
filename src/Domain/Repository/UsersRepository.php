@@ -91,6 +91,25 @@ class UsersRepository extends ServiceEntityRepository implements UsersRepository
     }
 
     /**
+     * @param $pseudo
+     * @param $mail
+     * @return mixed
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function verifyPseudoAndMail($pseudo, $mail)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.pseudo = :pseudo')
+            ->setParameter('pseudo', $pseudo)
+            ->orWhere('u.mail = :mail')
+            ->setParameter('mail', $mail)
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    /**
      * @param $user
      *
      * @throws \Doctrine\ORM\ORMException

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MEDIA AJOUTE{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col l10 offset-l1 s12">
+            <p>L'utilisateur ou l'adresse email est déja enregistré(e).</p>
+            <p><a href="{{ path('inscription') }}">Revenir au formulaire d'inscription</a></p>
+            <p><a href="{{ path('homepage') }}">Revenir à la page d'accueil</a></p>
+        </div>
+    </div>
+{% endblock %}

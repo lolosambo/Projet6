@@ -18,7 +18,7 @@ use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
 use App\Domain\Services\Interfaces\MailerServiceInterface;
 use Symfony\Component\Form\FormInterface;
-use Twig\Environment;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class InscriptionTypeHandler.
@@ -33,52 +33,62 @@ class InscriptionTypeHandler implements InscriptionTypeHandlerInterface
     private $usersRepository;
 
     /**
-     * @var Environment
-     */
-    private $twig;
-
-    /**
      * InscriptionTypeHandler constructor.
      *
-     * @param UsersRepositoryInterface    $userRepository
+     * @param UsersRepositoryInterface $usersRepository
      */
-    public function __construct(UsersRepositoryInterface $usersRepository, Environment $twig)
-    {
+    public function __construct(
+        UsersRepositoryInterface $usersRepository
+    ) {
         $this->usersRepository = $usersRepository;
-        $this->twig = $twig;
     }
 
     /**
+     * @param Request $request
      * @param FormInterface $inscriptionType
-     * @param Swift_Mailer $mailer
+     * @param MailerServiceInterface $mailer
      *
-     * @return bool
+     * @return bool|mixed
      *
+     * @throws \Exception
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function handle(FormInterface $inscriptionType, MailerServiceInterface $mailer)
-    {
+    public function handle(
+        Request $request,
+        FormInterface $inscriptionType,
+        MailerServiceInterface $mailer
+    ) {
         if ($inscriptionType->isSubmitted() && $inscriptionType->isValid()) {
+            $pseudo = $inscriptionType->getData()->pseudo;
+            $mail = $inscriptionType->getData()->mail;
+            $password = $inscriptionType->getData()->password;
             $user = new Users(
-                $inscriptionType->getData()->pseudo,
-                sha1($inscriptionType->getData()->password),
-                $inscriptionType->getData()->mail
+                $pseudo,
+                sha1($password),
+                $mail
             );
             $user->setInscrDate(new \DateTime('NOW'));
-            $this->usersRepository->save($user);
-            $uuid = $this->usersRepository->findOneByPseudoAndMail(
-                $inscriptionType->getData()->pseudo,
-                $inscriptionType->getData()->mail
-            )->getId()->toString();
 
+            if($this->usersRepository->verifyPseudoAndMail(
+                $user->getPseudo(),
+                $user->getMail()
+            )) {
+                throw new \Exception();
+            }
+
+            $this->usersRepository->save($user);
+            $uuid = $this->usersRepository->findOneByPseudoAndMail($pseudo, $mail)
+                ->getId()
+                ->toString();
             $mailer(
                 'Votre inscription sur le site communautaire Snowtricks',
-                $inscriptionType->getData()->mail,
-                $inscriptionType->getData()->pseudo,
+                $mail,
+                $pseudo,
                 $uuid,
-                'email_inscription.html.twig');
+                'email_inscription.html.twig'
+            );
             return true;
         }
         return false;

@@ -46,6 +46,14 @@ interface UsersRepositoryInterface
     public function findOneByPseudoAndMail($pseudo, $mail);
 
     /**
+     * @param $pseudo
+     * @param $mail
+     *
+     * @return mixed
+     */
+    public function verifyPseudoAndMail($pseudo, $mail);
+
+    /**
      * @param $user
      *
      * @return mixed

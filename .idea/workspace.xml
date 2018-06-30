@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a09f211-d698-4561-add8-044fe8ed5f34" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Domain/Services/Interfaces/MailerServiceInterface.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Domain/Services/MailerService.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Listeners/Interfaces/LoginExceptionListenerInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Listeners/LoginExceptionListener.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/404_user_already_registered.html.twig" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" afterPath="$PROJECT_DIR$/config/services.yaml" />
       <change beforePath="$PROJECT_DIR$/docker/nginx/logs/smartfact_prod_access.log" afterPath="$PROJECT_DIR$/docker/nginx/logs/smartfact_prod_access.log" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/ForgotPasswordTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/ForgotPasswordTypeHandler.php" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/ForgotPasswordTypeHandlerInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/ForgotPasswordTypeHandlerInterface.php" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/InscriptionTypeHandlerInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/InscriptionTypeHandlerInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/ForgotPasswordAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/ForgotPasswordAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/IndexAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/IndexAction.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/UsersRepositoryInterface.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/Interfaces/UsersRepositoryInterface.php" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Repository/UsersRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Repository/UsersRepository.php" />
       <change beforePath="$PROJECT_DIR$/src/UI/Actions/InscriptionFormAction.php" afterPath="$PROJECT_DIR$/src/UI/Actions/InscriptionFormAction.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/ForgotPasswordActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/ForgotPasswordActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/Interfaces/InscriptionFormActionInterface.php" afterPath="$PROJECT_DIR$/src/UI/Actions/Interfaces/InscriptionFormActionInterface.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/IndexResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/IndexResponder.php" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responders/OneTrickResponder.php" afterPath="$PROJECT_DIR$/src/UI/Responders/OneTrickResponder.php" />
-      <change beforePath="$PROJECT_DIR$/templates/email_inscription.html.twig" afterPath="$PROJECT_DIR$/templates/email_inscription.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/email_reinitialisation.html.twig" afterPath="$PROJECT_DIR$/templates/email_reinitialisation.html.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/added_medias.html.twig" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/templates/added_trick.html.twig" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/templates/updated_trick.html.twig" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -96,51 +93,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Makefile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="videos_view.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/videos_view.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email_inscription.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/email_inscription.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ForgotPasswordTypeHandler.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/ForgotPasswordTypeHandler.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="74" column="52" lean-forward="false" selection-start-line="69" selection-start-column="12" selection-end-line="74" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="InscriptionTypeHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="76" column="60" lean-forward="false" selection-start-line="76" selection-start-column="60" selection-end-line="76" selection-end-column="60" />
+            <state relative-caret-position="-665">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#307#382#0#PHP" expanded="true" />
               </folding>
@@ -148,11 +105,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users" pinned="false" current-in-tab="true">
-        <entry file="das://table:/df87ba53/27115a66-1b7a-4e26-ab17-5f407477478c/snowtricks.public.users">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="InscriptionTypeHandlerInterface.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/InscriptionTypeHandlerInterface.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="31" column="6" lean-forward="false" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,18 +118,18 @@
       <file leaf-file-name="InscriptionFormAction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UI/Actions/InscriptionFormAction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1108">
+            <state relative-caret-position="-1240">
               <caret line="19" column="67" lean-forward="false" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email_reinitialisation.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/email_reinitialisation.html.twig">
+      <file leaf-file-name="LoginExceptionListener.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Listeners/LoginExceptionListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="24" column="118" lean-forward="false" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="118" />
+            <state relative-caret-position="-589">
+              <caret line="17" column="68" lean-forward="false" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -191,6 +149,7 @@
       <find>card-image</find>
       <find>blockquote</find>
       <find>'</find>
+      <find>User404Event</find>
     </findStrings>
     <replaceStrings>
       <replace>mdc</replace>
@@ -198,6 +157,7 @@
       <replace>'Roboto', sans-serif;</replace>
       <replace>string</replace>
       <replace>&quot;</replace>
+      <replace>UserCreatedEvent</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -206,25 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/UpdateTrickTypeHandler.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/Interfaces/UpdateTrickActionInterface.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/AddTrickAction.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/UpdateTrickAction.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/DeleteVideoAction.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/DeleteImageAction.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/AddImagesAction.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/ShareVideosAction.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/CommentTypeHandler.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/DeleteTrickAction.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Form/Type/ImagesType.php" />
-        <option value="$PROJECT_DIR$/templates/home.html.twig" />
-        <option value="$PROJECT_DIR$/src/Domain/Repository/ImagesRepository.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/ALaUneAction.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/OneTrickAction.php" />
-        <option value="$PROJECT_DIR$/public/css/materialize.css" />
-        <option value="$PROJECT_DIR$/templates/medias.html.twig" />
-        <option value="$PROJECT_DIR$/templates/add_trick.html.twig" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/src/Domain/DTO/TrickAddDTO.php" />
         <option value="$PROJECT_DIR$/src/Domain/DTO/Interfaces/TricksAddDTOInterface.php" />
@@ -253,10 +194,29 @@
         <option value="$PROJECT_DIR$/src/UI/Actions/ForgotPasswordAction.php" />
         <option value="$PROJECT_DIR$/src/UI/Actions/Interfaces/ForgotPasswordActionInterface.php" />
         <option value="$PROJECT_DIR$/src/Domain/Services/MailerService.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/InscriptionTypeHandlerInterface.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php" />
         <option value="$PROJECT_DIR$/src/UI/Actions/Interfaces/InscriptionFormActionInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/UsersRepository.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Repository/Interfaces/UsersRepositoryInterface.php" />
+        <option value="$PROJECT_DIR$/templates/404.html.twig" />
+        <option value="$PROJECT_DIR$/src/UI/Events/User404Event.php" />
+        <option value="$PROJECT_DIR$/src/Subscribers/User404Subscriber.php" />
+        <option value="$PROJECT_DIR$/src/Subscribers/Interfaces/User404SubscriberInterface.php" />
+        <option value="$PROJECT_DIR$/src/Events/Interfaces/User404EventInterface.php" />
+        <option value="$PROJECT_DIR$/src/Events/User404Event.php" />
+        <option value="$PROJECT_DIR$/src/Subscribers/UserCreatedSubscriber.php" />
+        <option value="$PROJECT_DIR$/src/Subscribers/Interfaces/UserCreatedSubscriberInterface.php" />
+        <option value="$PROJECT_DIR$/src/Events/Interfaces/UserCreatedEventInterface.php" />
+        <option value="$PROJECT_DIR$/src/Events/UserCreatedEvent.php" />
+        <option value="$PROJECT_DIR$/src/Events/Interfaces/LoginExceptionEventInterface.php" />
+        <option value="$PROJECT_DIR$/src/Listeners/Interfaces/UserCreatedListenerInterface.php" />
+        <option value="$PROJECT_DIR$/src/Listeners/UserCreatedListener.php" />
+        <option value="$PROJECT_DIR$/src/Listeners/Interfaces/LoginExceptionListenerInterface.php" />
+        <option value="$PROJECT_DIR$/templates/404_user_already_registered.html.twig" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/UI/Actions/InscriptionFormAction.php" />
+        <option value="$PROJECT_DIR$/src/Listeners/LoginExceptionListener.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/InscriptionTypeHandlerInterface.php" />
       </list>
     </option>
   </component>
@@ -383,8 +343,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="152" />
-    <option name="y" value="23" />
+    <option name="x" value="235" />
+    <option name="y" value="54" />
     <option name="width" value="2233" />
     <option name="height" value="1355" />
   </component>
@@ -469,44 +429,14 @@
               <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Listeners" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Listeners" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Security" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
@@ -520,29 +450,6 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Actions" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Actions" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Responders" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Responders" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
@@ -554,6 +461,17 @@
               <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="form" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="var" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snowtricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snowtricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="var" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="log" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -570,11 +488,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public/avatars" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/tests/Unit/UI/Actions" />
-      <recent name="$PROJECT_DIR$/tests/Unit" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -657,15 +575,15 @@
       <workItem from="1526045758935" duration="22941000" />
       <workItem from="1526363073865" duration="149757000" />
       <workItem from="1529126383392" duration="115284000" />
-      <workItem from="1530089255564" duration="36376000" />
+      <workItem from="1530089255564" duration="57716000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="676397000" />
+    <option name="totallyTimeSpent" value="697737000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="152" y="23" width="2233" height="1355" extended-state="0" />
+    <frame x="235" y="54" width="2233" height="1355" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20678587" sideWeight="0.5968992" order="0" side_tool="false" content_ui="combo" />
@@ -673,10 +591,11 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18707015" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33613446" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48319328" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18705358" sideWeight="0.4031008" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -685,7 +604,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32895887" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329698" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -700,111 +618,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Domain/DTO/TrickAddDTO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="81" column="24" lean-forward="false" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/form/theme.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/TrickTypeHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="91" column="46" lean-forward="false" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-482">
-          <caret line="318" column="29" lean-forward="false" selection-start-line="318" selection-start-column="29" selection-end-line="318" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="33" column="96" lean-forward="false" selection-start-line="33" selection-start-column="96" selection-end-line="33" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Form/Type/CommentType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="38" column="41" lean-forward="false" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
-          <folding>
-            <element signature="e#300#330#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Form/Type/UpdateTrickType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="53" column="54" lean-forward="false" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Form/Type/TrickType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="54" column="54" lean-forward="false" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/oneTrick.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/comments.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/df87ba53/efe8c9b8-2760-4246-8399-ec1e6980b688/snowtricks.public.comments">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="51" lean-forward="false" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/avatars/tudor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1061,24 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/ForgotPasswordTypeHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="74" column="52" lean-forward="false" selection-start-line="69" selection-start-column="12" selection-end-line="74" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/InscriptionTypeHandlerInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="e#318#376#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Actions/Interfaces/InscriptionFormActionInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-303">
@@ -1087,21 +882,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/InscriptionFormAction.php">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/Interfaces/UsersRepositoryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1108">
-          <caret line="19" column="67" lean-forward="false" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
+        <state relative-caret-position="561">
+          <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/UsersRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="76" column="60" lean-forward="false" selection-start-line="76" selection-start-column="60" selection-end-line="76" selection-end-column="60" />
-          <folding>
-            <element signature="e#307#382#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="386">
+          <caret line="99" column="26" lean-forward="true" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/added_medias.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/SPL/SPL.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="61" column="6" lean-forward="false" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/Exception/HttpException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/Exception/NotFoundHttpException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="16" column="42" lean-forward="true" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/ForgotPasswordTypeHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="74" column="52" lean-forward="false" selection-start-line="69" selection-start-column="12" selection-end-line="74" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/var/log/dev.log">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-95579">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Events/Interfaces/LoginExceptionEventInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Events/LoginExceptionEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-101">
+          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1109,6 +965,66 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Listeners/Interfaces/LoginExceptionListenerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#304#354#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/404_user_already_registered.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/Interfaces/InscriptionTypeHandlerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="31" column="6" lean-forward="false" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Form/FormHandler/InscriptionTypeHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-665">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#307#382#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/InscriptionFormAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1240">
+          <caret line="19" column="67" lean-forward="false" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Listeners/LoginExceptionListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-589">
+          <caret line="17" column="68" lean-forward="false" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
+          <folding />
         </state>
       </provider>
     </entry>

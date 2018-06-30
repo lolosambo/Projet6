@@ -15,6 +15,8 @@ namespace App\Domain\Form\FormHandler\Interfaces;
 
 use App\Domain\Services\Interfaces\MailerServiceInterface;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Interface FormTypeHandlerInterface.
@@ -24,10 +26,15 @@ use Symfony\Component\Form\FormInterface;
 interface InscriptionTypeHandlerInterface
 {
     /**
-     * @param FormInterface $formType
+     * @param Request $request
+     * @param FormInterface $inscriptionType
      * @param MailerServiceInterface $mailer
      *
      * @return mixed
      */
-    public function handle(FormInterface $formType, MailerServiceInterface $mailer);
+    public function handle(
+        Request $request,
+        FormInterface $inscriptionType,
+        MailerServiceInterface $mailer
+    );
 }

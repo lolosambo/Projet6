@@ -18,7 +18,6 @@ use App\Domain\Form\Type\InscriptionType;
 use App\Domain\Services\Interfaces\MailerServiceInterface;
 use App\UI\Actions\Interfaces\InscriptionFormActionInterface;
 use App\UI\Responders\Interfaces\InscriptionFormResponderInterface;
-use Swift_Mailer;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -60,14 +59,15 @@ class InscriptionFormAction implements InscriptionFormActionInterface
     /**
      * @Route("/inscription", name="inscription")
      *
-     * @param Request                            $request
-     * @param InscriptionTypeHandler             $InscriptionTypeHandler
-     * @param Swift_Mailer                       $mailer
-     * @param UrlGeneratorInterface              $urlGenerator
-     * @param InscriptionFormResponderInterface  $inscriptionFormResponder
+     * @param Request $request
+     * @param InscriptionTypeHandler $InscriptionTypeHandler
+     * @param MailerServiceInterface $mailer
+     * @param UrlGeneratorInterface $urlGenerator
+     * @param InscriptionFormResponderInterface $inscriptionFormResponder
      *
-     * @return mixed
+     * @return mixed|RedirectResponse
      *
+     * @throws \Exception
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
@@ -83,7 +83,7 @@ class InscriptionFormAction implements InscriptionFormActionInterface
             ->create(InscriptionType::class)
             ->handleRequest($request);
 
-        if ($InscriptionTypeHandler->handle($form, $mailer)) {
+        if ($InscriptionTypeHandler->handle($request, $form, $mailer, $urlGenerator)) {
             $request->getSession()->getFlashBag()->add(
                 'notice', "Votre inscription a bien été prise en compte.\r\n
                 Veuillez vérifier votre messagerie afin d'activer votre compte !"

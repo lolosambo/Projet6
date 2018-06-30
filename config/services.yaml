@@ -25,6 +25,11 @@ services:
         resource: '../src/UI/Actions'
         tags: ['controller.service_arguments']
 
+    listener.login_exception:
+            class: App\Listeners\LoginExceptionListener
+            tags:
+                - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
 
 
 
