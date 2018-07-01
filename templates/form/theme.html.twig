@@ -39,4 +39,18 @@
     <script type="text/javascript">$(document).ready(function(){$('select').formSelect();});</script>
 {% endblock choice_widget_collapsed %}
 
+{% block _trick_address1_widget %}
+    <input type="text" class="validate white-text" value="{{ value }}"{{ block('widget_attributes') }}></input>
+{% endblock %}
 
+{% block _trick_address2_widget %}
+    <input type="text" class="validate white-text" value="{{ value }}"{{ block('widget_attributes') }}></input>
+{% endblock %}
+
+{% block _trick_address3_widget %}
+    <input type="text" class="validate white-text" value="{{ value }}"{{ block('widget_attributes') }}></input>
+{% endblock %}
+
+{% block _trick_address4_widget %}
+    <input type="text" class="validate white-text" value="{{ value }}"{{ block('widget_attributes') }}></input>
+{% endblock %}

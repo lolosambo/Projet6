@@ -38,22 +38,14 @@ class InscriptionFormAction implements InscriptionFormActionInterface
     private $formFactory;
 
     /**
-     * @var Environment
-     */
-    private $twig;
-
-    /**
      * InscriptionFormAction constructor.
      *
      * @param FormFactoryInterface $formFactory
-     * @param Environment          $twig
      */
     public function __construct(
-        FormFactoryInterface $formFactory,
-        Environment $twig
+        FormFactoryInterface $formFactory
     ) {
         $this->formFactory = $formFactory;
-        $this->twig = $twig;
     }
 
     /**

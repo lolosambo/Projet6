@@ -19,7 +19,6 @@ use App\UI\Responders\Interfaces\InscriptionFormResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Twig\Environment;
 
 /**
  * Interface InscriptionFormActionInterface
@@ -32,12 +31,8 @@ interface InscriptionFormActionInterface
      * InscriptionFormActionInterface constructor.
      *
      * @param FormFactoryInterface  $formFactory
-     * @param Environment           $twig
      */
-    public function __construct(
-        FormFactoryInterface $formFactory,
-        Environment $twig
-    );
+    public function __construct(FormFactoryInterface $formFactory);
 
     /**
      * @param Request                            $request
