@@ -34,10 +34,11 @@ interface ReinitializePasswordTypeHandlerInterface
 
 
     /**
-     * @param Request $request
-     * @param FormInterface $reinitializePasswordType
+     * @param Request        $request
+     * @param FormInterface  $form
+     *
      * @return bool
      */
-    public function handle(FormInterface $reinitializePasswordType, Request $request);
+    public function handle(FormInterface $form, Request $request);
 }
 

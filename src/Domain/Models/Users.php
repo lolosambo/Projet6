@@ -136,11 +136,9 @@ class Users implements UserInterface, \Serializable, UsersInterface
     {
         if (preg_match('#^([0-9a-zA-Z-_]+)@([0-9a-zA-Z-_]+).([a-z]+)$#', $mail)) {
             $this->mail = $mail;
-
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     /**

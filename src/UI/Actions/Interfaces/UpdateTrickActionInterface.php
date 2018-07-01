@@ -47,8 +47,8 @@ interface UpdateTrickActionInterface
     public function __invoke(
         Request $request,
         Tricks $trick,
-        UpdateTrickTypeHandler $updateTrickTypeHandler,
-        UpdateTrickResponderInterface $updateTrickResponder,
+        UpdateTrickTypeHandler $handler,
+        UpdateTrickResponderInterface $responder,
         UrlGeneratorInterface $urlGenerator
     );
 }

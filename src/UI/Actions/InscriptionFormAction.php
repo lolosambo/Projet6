@@ -66,23 +66,23 @@ class InscriptionFormAction implements InscriptionFormActionInterface
      */
     public function __invoke(
         Request $request,
-        InscriptionTypeHandler $InscriptionTypeHandler,
+        InscriptionTypeHandler $handler,
         MailerServiceInterface $mailer,
         UrlGeneratorInterface $urlGenerator,
-        InscriptionFormResponderInterface $inscriptionFormResponder
+        InscriptionFormResponderInterface $responder
     ) {
         $form = $this->formFactory
             ->create(InscriptionType::class)
             ->handleRequest($request);
 
-        if ($InscriptionTypeHandler->handle($request, $form, $mailer, $urlGenerator)) {
+        if ($handler->handle($request, $form, $mailer, $urlGenerator)) {
             $request->getSession()->getFlashBag()->add(
                 'notice', "Votre inscription a bien été prise en compte.\r\n
                 Veuillez vérifier votre messagerie afin d'activer votre compte !"
             );
             return new RedirectResponse($urlGenerator->generate('homepage'));
         }
-        return  $inscriptionFormResponder(['form' => $form->createView()]);
+        return  $responder(['form' => $form->createView()]);
     }
 }
 

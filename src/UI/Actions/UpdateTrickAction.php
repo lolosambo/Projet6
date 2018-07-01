@@ -55,20 +55,20 @@ class UpdateTrickAction implements UpdateTrickActionInterface
     public function __invoke(
         Request $request,
         Tricks $trick,
-        UpdateTrickTypeHandler $updateTrickTypeHandler,
-        UpdateTrickResponderInterface $updateTrickResponder,
+        UpdateTrickTypeHandler $handler,
+        UpdateTrickResponderInterface $responder,
         UrlGeneratorInterface $urlGenerator
     ) {
         $form = $this->formFactory
             ->create(UpdateTrickType::class, $trick)
             ->handleRequest($request);
-        if ($updateTrickTypeHandler->handle($form, $request->get('slug'))) {
+        if ($handler->handle($form, $request->get('slug'))) {
             $request->getSession()->getFlashBag()->add(
                 'notice', 'La figure a bien été modifiée !'
             );
             return new RedirectResponse($urlGenerator->generate('single_trick', ['slug' => $request->get('slug')]));
         }
-        return $updateTrickResponder(['form' => $form->createView()]);
+        return $responder(['form' => $form->createView()]);
     }
 }
 

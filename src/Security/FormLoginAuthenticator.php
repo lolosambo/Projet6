@@ -73,9 +73,8 @@ class FormLoginAuthenticator extends AbstractGuardAuthenticator
         $this->password = $request->request->get('password');
         if ((null === $this->pseudo) && (null === $this->password)) {
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
     /**

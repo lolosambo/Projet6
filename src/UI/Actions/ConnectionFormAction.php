@@ -25,14 +25,23 @@ class ConnectionFormAction implements ConnectionFormActionInterface
     /**
      * @Route("/connexion", name="login")
      *
+     * @param Request $request
+     * @param AuthenticationUtils $authenticationUtils
+     * @param ConnectionFormResponder $Responder
+     *
+     * @return mixed|Response
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function __invoke(
         Request $request,
         AuthenticationUtils $authenticationUtils,
-        ConnectionFormResponder $connectionFormResponder
+        ConnectionFormResponder $Responder
     ) {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-        return $connectionFormResponder(['error' => $error]);
+        return $Responder(['error' => $error]);
     }
 }

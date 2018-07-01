@@ -53,11 +53,11 @@ class ReinitializePasswordTypeHandler implements ReinitializePasswordTypeHandler
      * @param FormInterface $reinitializePasswordType
      * @return bool
      */
-    public function handle(FormInterface $reinitializePasswordType, Request $request)
+    public function handle(FormInterface $form, Request $request)
     {
-        if ($reinitializePasswordType->isSubmitted() && $reinitializePasswordType->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->usersRepository->findUser($request->get('id'));
-            $user->setPassword(sha1($reinitializePasswordType->getData()->password));
+            $user->setPassword(sha1($form->getData()->password));
             $this->usersRepository->flush();
             return true;
         }

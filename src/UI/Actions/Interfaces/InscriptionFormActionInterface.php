@@ -45,9 +45,9 @@ interface InscriptionFormActionInterface
      */
     public function __invoke(
         Request $request,
-        InscriptionTypeHandler $InscriptionTypeHandler,
+        InscriptionTypeHandler $handler,
         MailerServiceInterface $mailer,
         UrlGeneratorInterface $urlGenerator,
-        InscriptionFormResponderInterface $inscriptionFormResponder
+        InscriptionFormResponderInterface $responder
     );
 }
