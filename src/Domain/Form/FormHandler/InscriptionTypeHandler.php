@@ -17,6 +17,7 @@ use App\Domain\Form\FormHandler\Interfaces\InscriptionTypeHandlerInterface;
 use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\UsersRepositoryInterface;
 use App\Domain\Services\Interfaces\MailerServiceInterface;
+use App\Exceptions\RegisterException;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -75,7 +76,7 @@ class InscriptionTypeHandler implements InscriptionTypeHandlerInterface
                 $user->getPseudo(),
                 $user->getMail()
             )) {
-                throw new \Exception();
+                throw new RegisterException();
             }
 
             $this->usersRepository->save($user);

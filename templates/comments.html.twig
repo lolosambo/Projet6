@@ -26,7 +26,7 @@
             </div>
         {% endfor %}
     </div>
-{% if app.session.get('userId') is not null %}
+{% if app.session.get('pseudo') is not null %}
     <div class="row grey darken-2">
         <div class="col l8 offset-l1 m10 offset-m1 s10 offset-s1">
             {% form_theme addCommentForm 'form/theme.html.twig' %}

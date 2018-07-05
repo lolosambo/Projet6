@@ -6,20 +6,12 @@
     <div class="row" id="top">
         <div class="col l11">
             {% if app.session.get('pseudo') is not null %}
-                <a href="{{ path('add_trick') }}">
-                    <br><button href="{{ path('add_trick') }}" class="waves-effect waves-light btn pink darken-1" name="add">
+                <a href="{{ path('add_trick') }}" id="add">
+                    <br><button class="waves-effect waves-light btn pink darken-1">
                         Ajouter une Figure
                     </button>
                 </a><br><br>
             {% endif %}
-        </div>
-        <div class="col l1">
-             <div class="arrow">
-                <a href="#content" class="scroll">
-                    <button class="btn-floating btn waves-effect waves-light pink darken-1">
-                        <i class="material-icons center">keyboard_arrow_down</i>
-                    </button></a>
-            </div>
         </div>
     </div>
     <div class="row">
@@ -40,7 +32,7 @@
                     </div>
                     <div class="row">
                         <div class="col s6 card-content">
-                            <a href="{{ path('single_trick', {'slug' : trick.slug }) }}">
+                            <a href="{{ path('single_trick', {'slug' : trick.slug }) }}" id="detail{{ trick.slug }}">
                                 <p>Voir le détail</p>
                             </a>
                         </div>
@@ -50,7 +42,9 @@
                                     <button class="waves-effect waves-light btn-small pink darken-1">
                                         <i class="material-icons">create</i>
                                     </button></a>
-                                <button class="waves-effect waves-light btn-small green darken-1 modal-trigger" href="#modal{{ trick.slug }}">
+                                <button class="waves-effect waves-light btn-small green darken-1 modal-trigger"
+                                        href="#modal{{ trick.slug }}"
+                                        id="delete{{ trick.slug }}">
                                     <i class="material-icons">clear</i>
                                 </button>
                                 <div id="modal{{ trick.slug }}" class="modal">

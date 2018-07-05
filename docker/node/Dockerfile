@@ -12,4 +12,4 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 
 RUN apt-get update -y && apt-get install yarn -y
 
-WORKDIR /var/www/marketReminder
+WORKDIR /var/www/snowtricks

@@ -23,16 +23,15 @@ use App\Domain\DTO\Interfaces\ImagesDTOInterface;
 class ImagesDTO implements ImagesDTOInterface
 {
     /**
-     * @var \SplFileInfo
+     * @var array
      */
     public $image;
 
     /**
      * ImagesDTO constructor.
-     *
-     * @param array|null $image
+     * @param UploadedFile $image
      */
-    public function __construct(array $image = null)
+    public function __construct(array $image)
     {
         $this->image = $image;
     }

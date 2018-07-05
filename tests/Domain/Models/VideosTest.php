@@ -18,6 +18,9 @@ class VideosTest extends WebTestCase
         $this->video = $video;
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityMustBeInstancied()
     {
         static::assertInstanceOf(Videos::class, $this->video);
@@ -27,6 +30,9 @@ class VideosTest extends WebTestCase
         static::assertObjectHasAttribute('trick', $this->video);
     }
 
+    /**
+     * @group unit
+     */
     public function testYoutubeUrlAttributeMustBeCompatibleWithRegex()
     {
         $this->video->setUrl('https://www.youtube.com/embed/LR4UE6isrLU');
@@ -35,6 +41,9 @@ class VideosTest extends WebTestCase
         );
     }
 
+    /**
+     * @group unit
+     */
     public function testDailyMotionUrlAttributeMustBeCompatibleWithRegex()
     {
         $this->video->setUrl('https://www.dailymotion.com/embed/LR4UE6isrLU');

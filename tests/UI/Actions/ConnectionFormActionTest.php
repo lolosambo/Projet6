@@ -39,12 +39,18 @@ class ConnectionFormActionTest extends WebTestCase
         $this->responder = new ConnectionFormResponder($this->createMock(Environment::class));
     }
 
+    /**
+     * @group unit
+     */
     public function testConstruct()
     {
         $action = new ConnectionFormAction();
         static::assertInstanceOf(ConnectionFormAction::class, $action);
     }
 
+    /**
+     * @group unit
+     */
     public function testConnectionFormMustBeShowed() {
 
         $client = static::createClient();

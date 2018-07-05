@@ -1,29 +1,3 @@
-{% if app.session.get('pseudo') == trick.user.pseudo %}
-    <div class="col l10 offset-l1 s12 alaune_wrapper no-padding">
-        <a href="{{ path('update_trick', {'slug' : trick.slug}) }}">
-            <button class="waves-effect waves-light btn-small green darken-1">
-                Editer la figure
-                <i class="material-icons left">create</i>
-            </button></a>
-        <button class="waves-effect waves-light btn-small pink darken-1 modal-trigger" href="#modal1">
-            Supprimer la figure
-            <i class="material-icons left">clear</i>
-        </button>
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Suppression de Figure</h4>
-                <p>Etes-vous certain de vouloir supprimer cette figure ? Cette manipulation est irréversible.</p>
-            </div>
-            <div class="modal-footer">
-                <a href="{{ path('delete_trick', {'slug' : trick.slug}) }}"
-                   class="modal-close waves-effect waves-green btn-flat">Confirmer la suppression
-                </a>
-            </div>
-        </div>
-        <br><br>
-    </div>
-{% endif %}
-
 <div class="row">
     <div class="col l10 offset-l1 s12 grey darken-2">
         <div class="row">
@@ -33,21 +7,21 @@
                         <img class="materialboxed thumbnail" width="100%" height="150"
                              src="{{ asset('../uploads/' ~ image.url)}}"/></a>
                     {% if app.session.get('pseudo') == trick.user.pseudo %}
-                        <a href="{{ path('frontPage_image', {'slug' : trick.slug, 'id' : image.id}) }}">
-                            <button class="waves-effect waves-light btn btn-small green darken-1 modal-trigger">
-                                <i class="material-icons white-text" title="Mettre l'image à la une">aspect_ratio</i>
+                        <a href="{{ path('frontPage_image', {'slug' : trick.slug, 'id' : image.id}) }}" id="une{{ image.id }}">
+                            <button type="submit" class="waves-effect waves-light btn btn-small green darken-1 modal-trigger" >
+                                <i class="material-icons white-text">aspect_ratio</i>
                             </button>
                         </a>
-                        <button class="waves-effect waves-light btn btn-small pink darken-1 modal-trigger" href="#modal{{ image.id }}">
+                        <button class="waves-effect waves-light btn btn-small pink darken-1 modal-trigger" href="#modal{{ image.id.toString }}">
                             <i class="material-icons white-text" title="Supprimer l'image">cancel</i>
                         </button>
-                        <div id="modal{{ image.id }}" class="modal">
+                        <div id="modal{{ image.id.toString }}" class="modal">
                             <div class="modal-content">
                                 <h4>Suppression d'image</h4>
                                 <p>Etes-vous certain de vouloir supprimer cette image ? Cette manipulation est irréversible.</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="{{ path('delete_images', {'slug' : trick.slug, 'mediaId' : image.id}) }}"
+                                <a href="{{ path('delete_images', {'slug' : trick.slug, 'mediaId' : image.id}) }}" id="remove{{ image.id }}"
                                    class="modal-close waves-effect waves-green btn-flat">Confirmer la suppression
                                 </a>
                             </div>
@@ -72,17 +46,17 @@
                             <iframe class="thumbnail" width="100%" height="250" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
                         </div>
                         {% if app.session.get('pseudo') == trick.user.pseudo %}
-                            <button class="waves-effect waves-light btn btn-small pink darken-1 modal-trigger" href="#modal{{ video.id }}">
+                            <button class="waves-effect waves-light btn btn-small pink darken-1 modal-trigger" href="#modal{{ video.id.toString }}">
                                 <i class="material-icons white-text" title="Supprimer la vidéo">cancel</i>
                             </button>
-                            <div id="modal{{ video.id }}" class="modal">
+                            <div id="modal{{ video.id.toString }}" class="modal">
                                 <div class="modal-content">
                                     <h4>Suppression de vidéo</h4>
                                     <p>Etes-vous certain de vouloir supprimer cette video ?
                                         Cette manipulation est irréversible.</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="{{ path('delete_videos', {'slug' : trick.slug, 'mediaId' : video.id}) }}"
+                                    <a href="{{ path('delete_videos', {'slug' : trick.slug, 'mediaId' : video.id}) }}" id="remove{{ video.id }}"
                                        class="modal-close waves-effect waves-green btn-flat">Confirmer la suppression
                                     </a>
                                 </div>
@@ -101,3 +75,5 @@
         </div>
     </div>
 </div>
+
+

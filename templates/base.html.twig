@@ -34,7 +34,7 @@
             <ul class="sidenav" id="mobile-demo">
                 <li><a href="{{ path('homepage') }}">Accueil</a></li>
                 <li><a href="{{ path('homepage') }}">Tricks</a></li>
-                {% if app.session.pseudo is not defined %}
+                {% if app.user.pseudo is not defined %}
                     <li><a href="{{ path('login') }}">Se connecter</a></li>
                     <li><a href="{{ path('inscription') }}">S'inscrire</a></li>
                 {% else %}

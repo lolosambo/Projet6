@@ -34,17 +34,26 @@ class ALaUneDTOTest extends WebTestCase
         $this->dto = $dto;
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityMustBeInstancied()
     {
         static::assertObjectHasAttribute('aLaUne', $this->dto);
     }
 
+    /**
+     * @group unit
+     */
     public function testALaUneAttributeMustBe0Or1()
     {
         $this->dto->ALaUne = 1;
         static::assertEquals(1, $this->dto->aLaUne);
     }
 
+    /**
+     * @group unit
+     */
     public function testALaUneAttributeReturn0IfOthersValues()
     {
         $dto = new ALaUneDTO("3");

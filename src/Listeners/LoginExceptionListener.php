@@ -51,7 +51,7 @@ class LoginExceptionListener implements LoginExceptionListenerInterface
      */
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
-        if ( ! $event->getException() instanceof \Exception) {
+        if ( ! $event->getException() instanceof RegisterException) {
             return;
         }
         $response = new Response($this->twig->render('404_user_already_registered.html.twig'));

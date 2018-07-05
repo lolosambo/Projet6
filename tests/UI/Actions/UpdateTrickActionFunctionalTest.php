@@ -33,7 +33,7 @@ class UpdateTrickActionFunctionalTest extends WebTestCase
     public function testGetStatusCode()
     {
         $client = static::createClient();
-        $client->request('POST', '/modifier/figure/2');
+        $client->request('POST', '/modifier/figure/Figure_0');
         static::assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
     }
 

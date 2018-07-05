@@ -70,7 +70,7 @@ class TrickAddDTO implements TricksAddDTOInterface
      * @param string|null     $name
      * @param Groups|null     $group
      * @param                 $content
-     * @param \SplFileInfo[]  $image
+     * @param array  $image
      * @param string|null     $address1
      * @param string|null     $address2
      * @param string|null     $address3

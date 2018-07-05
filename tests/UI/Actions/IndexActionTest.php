@@ -56,37 +56,49 @@ class IndexActionTest extends WebTestCase
         $this->action = new IndexAction($this->createMock(TricksRepository::class));
         $this->responder = new IndexResponder($this->createMock(Environment::class));
     }
+    /**
+     * @group unit
+     */
     public function testCountAllTricksFromTheDatabase()
     {
         $tricks = $this->entityManager
             ->getRepository(Tricks::class)
             ->findAll();
 
-        $this->assertCount(30, $tricks);
+        $this->assertCount(31, $tricks);
     }
 
+    /**
+     * @group unit
+     */
     public function testDatabaseTrickMustBeAnInstanceOfTrickEntity()
     {
         $trick = $this->entityManager
             ->getRepository(Tricks::class)
-            ->find(1);
+            ->find('7be62c85-8da9-4422-bb4f-828ef119abe5');
 
         $this->assertInstanceOf(Tricks::class, $trick);
     }
 
+    /**
+     * @group unit
+     */
     public function testTrickMustContainsTitle()
     {
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)
-            ->find(1);
-        $this->assertContains('Figure0', $this->trick->getName());
+            ->find('7be62c85-8da9-4422-bb4f-828ef119abe5');
+        $this->assertContains('Figure 0', $this->trick->getName());
     }
 
+    /**
+     * @group unit
+     */
     public function testTrickMustContainsGroup()
     {
         $this->trick = $this->entityManager
             ->getRepository(Tricks::class)
-            ->find(1);
+            ->find('7be62c85-8da9-4422-bb4f-828ef119abe5');
         $this->assertInstanceOf(Groups::class, $this->trick->getGroup());
     }
 

@@ -40,18 +40,26 @@ class TrickAddDTOTest extends WebTestCase
         $this->dto = $dto;
     }
 
-
+    /**
+     * @group unit
+     */
     public function testNameAttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->name);
     }
 
 
+    /**
+     * @group unit
+     */
     public function testGroupAttributeMustBeAnInstanceOfGroups()
     {
         static::assertInstanceOf(Groups::class, $this->dto->group);
     }
 
+    /**
+     * @group unit
+     */
     public function testContentAttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->content);

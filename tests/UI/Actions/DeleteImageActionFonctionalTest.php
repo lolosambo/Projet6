@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Tests\UI\Actions;
 
+use App\Domain\Models\Images;
+use App\Domain\Models\Tricks;
 use Blackfire\Bridge\PhpUnit\TestCaseTrait;
 use Blackfire\Profile\Configuration;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -27,14 +29,57 @@ class DeleteImageActionFunctionalTest extends WebTestCase
 {
     use TestCaseTrait;
 
+    private $client;
+
+    private $em;
+
+    private $image;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->client = static::createClient();
+        $this->em = $this->client->getContainer()->get('doctrine')->getManager();
+        $repository = $this->em->getRepository(Tricks::class);
+        $trick = $repository->createQueryBuilder('t')
+            ->where('t.id = ?1')
+            ->setParameter(1, "9687e2bd-3fa3-4cce-90fc-a3146f3ac3e1")
+            ->getQuery()
+            ->getOneOrNullResult();
+        $this->image = new Images();
+        $this->image->setUrl('OnlyForTheTest.jpg');
+        $this->image->setTrick($trick);
+        $repository->save($this->image);
+        $repository = $this->em->getRepository(Images::class);
+        $this->image = $repository->createQueryBuilder('i')
+            ->where('i.url = ?1')
+            ->setParameter(1, 'OnlyForTheTest.jpg')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     /**
      * @group functional
      */
-    public function testGetStatusCode()
+    public function testDeleteImageGetStatusCode()
     {
-        $client = static::createClient();
-        $client->request('POST', '/supprimer/trick/1/images/5');
-        static::assertEquals(Response::HTTP_FOUND, $client->getResponse()->getStatusCode());
+        $uuid=$this->image->getId()->toString();
+        $this->client->request('GET', '/supprimer/trick/Figure_27/images/'.$uuid);
+        static::assertEquals(Response::HTTP_FOUND, $this->client->getResponse()->getStatusCode());
+    }
+
+    /**
+     * @group functional
+     */
+    public function testDeleteImageFunctional()
+    {
+        $session = $this->client->getContainer()->get('session');
+        $session->set('pseudo', 'User1');
+        $crawler = $this->client->request('GET', '/trick/Figure_27');
+        $link = $crawler->filter('#remove'.$this->image->getId())->link();
+        $crawler = $this->client->click($link);
+        $crawler = $this->client->followRedirect();
+        static::assertSame(1, $crawler->filter('div.flash-notice')->count());
     }
 
     /**
@@ -44,11 +89,12 @@ class DeleteImageActionFunctionalTest extends WebTestCase
     {
         $config = new Configuration();
         $config->assert('main.peak_memory < 100kB', 'AddImages memory usage');
-        $config->assert('main.wall_time < 45ms', 'AddImages walltime');
         $config->assert('metrics.sql.queries.count = 0', 'AddImages walltime');
         $this->assertBlackfire($config, function(){
-            $client = static::createClient();
-            $client->request('POST', '/supprimer/trick/1/images/5');
+            $this->client = static::createClient();
+            $this->client->request('POST', '/supprimer/trick/1/images/5');
         });
     }
+
+
 }

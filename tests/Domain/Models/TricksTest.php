@@ -31,12 +31,15 @@ class TricksTest extends WebTestCase
     private $trick;
 
     public function setUp() {
-        $trick = new Tricks( 'Japan Air', 1,  'japan ou japan air : saisie de l\'avant de la planche, 
+        $trick = new Tricks( 'Japan Air', "dff27a4d-23af-47e3-bd80-9b8f3ceac63d",  'japan ou japan air : saisie de l\'avant de la planche, 
         avec la main avant, du côté de la carre frontside. Un grab est d\'autant plus réussi que la saisie est longue. 
         De plus, le saut est d\'autant plus esthétique que la saisie du snowboard est franche');
         $this->trick = $trick;
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityMustBeInstancied()
     {
         static::assertInstanceOf(Tricks::class, $this->trick);
@@ -53,15 +56,18 @@ class TricksTest extends WebTestCase
         static::assertObjectHasAttribute('user', $this->trick);
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityMustHaveValidAttributes()
     {
-        $this->trick->setTrickDate('2018-03-04T16:56:29.328371+0000');
-        $this->trick->setTrickUpdate('2018-03-05T11:36:14.328371+0000');
+        $this->trick->setTrickDate(new \DateTime('NOW'));
+        $this->trick->setTrickUpdate(new \DateTime('NOW'));
         static::assertContains('Japan Air', $this->trick->getName());
         static::assertContains('japan ou japan air : saisie de l\'avant de la planche, 
         avec la main avant, du côté de la carre frontside. Un grab est d\'autant plus réussi que la saisie est longue. 
         De plus, le saut est d\'autant plus esthétique que la saisie du snowboard est franche', $this->trick->getContent());
-        static::assertEquals('2018-03-04T16:56:29.328371+0000', $this->trick->getTrickDate());
-        static::assertEquals('2018-03-05T11:36:14.328371+0000', $this->trick->getTrickUpdate());
+        static::assertInstanceOf(\DateTime::class, $this->trick->getTrickDate());
+        static::assertInstanceOf(\DateTime::class, $this->trick->getTrickUpdate());
     }
 }

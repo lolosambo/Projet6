@@ -64,9 +64,12 @@ class CommentTypeHandler implements CommentTypeHandlerInterface
     }
 
     /**
+     * @param Request $request
      * @param FormInterface $commentType
      *
      * @return bool
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function handle(Request $request, FormInterface $commentType)
     {

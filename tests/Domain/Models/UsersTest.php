@@ -32,13 +32,20 @@ class UsersTest extends WebTestCase
     {
         $user = new Users('TestUser', 'ASimplePassword', 'test@gmail.com');
         $this->user = $user;
+        $this->user->setAvatar('avatar.png');
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityMustBeInstancied()
     {
         static::assertInstanceOf(Users::class, $this->user);
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityMustHaveGoodAttributes()
     {
         static::assertObjectHasAttribute('id', $this->user);
@@ -50,6 +57,9 @@ class UsersTest extends WebTestCase
         static::assertObjectHasAttribute('avatar', $this->user);
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityMustHaveValidAttributes()
     {
         $this->user->setInscrDate('2018-03-04T16:56:29.328371+0000');
@@ -57,21 +67,33 @@ class UsersTest extends WebTestCase
         static::assertEquals('2018-03-04T16:56:29.328371+0000', $this->user->getInscrDate());
     }
 
+    /**
+     * @group unit
+     */
     public function testPasswordMustBeCrypted()
     {
         static::assertContains('ASimplePassword', $this->user->getPassword());
     }
 
+    /**
+     * @group unit
+     */
     public function testEmailAddressMustMatchWithPattern()
     {
         static::assertTrue($this->user->setMail('test@gmail.com'));
     }
 
+    /**
+     * @group unit
+     */
     public function testEmailAddressMustReturnNullWithBadPattern()
     {
         static::assertFalse($this->user->setMail('tes/t@gmail.com51'));
     }
 
+    /**
+     * @group unit
+     */
     public function testVerifiedAttributeMustHave0Or1AsValue()
     {
         static::assertSame(0, $this->user->getVerified());
@@ -80,27 +102,31 @@ class UsersTest extends WebTestCase
 
     }
 
+    /**
+     * @group unit
+     */
     public function testVerifiedAttributeMustReturnFalseWithBadValues()
     {
         $this->user->setVerified(3);
         static::assertSame(0, $this->user->getVerified());
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityMustHaveADefaultAvatar()
     {
-        static::assertContains('../images/avatar.png', $this->user->getAvatar());
+        static::assertContains('avatar.png', $this->user->getAvatar());
     }
 
+    /**
+     * @group unit
+     */
     public function testAvatarAddressMustBeValid()
     {
-        $this->user->setAvatar('../uploads/avatars/exemple.jpg');
-        static::assertContains('../uploads/avatars/exemple.jpg', $this->user->getAvatar());
+        $this->user->setAvatar('exemple.jpg');
+        static::assertContains('exemple.jpg', $this->user->getAvatar());
     }
 
-    public function testAvatarWrongAddressMustReturnDefaultAvatar()
-    {
-        $this->user->setAvatar('../upload/avatar/bad_exemple.gif');
-        static::assertContains('../images/avatar.png', $this->user->getAvatar());
-    }
 }
 

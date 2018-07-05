@@ -4,6 +4,10 @@
 namespace Tests\UI\Actions;
 
 use App\Domain\Form\FormHandler\ImagesTypeHandler;
+use App\Domain\Form\FormHandler\Interfaces\ImagesTypeHandlerInterface;
+use App\Domain\Repository\Interfaces\ImagesRepositoryInterface;
+use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Repository\TricksRepository;
 use App\UI\Actions\AddImagesAction;
 use App\UI\Responders\AddedImagesResponder;
 use App\UI\Responders\AddImagesResponder;
@@ -11,36 +15,27 @@ use Blackfire\Bridge\PhpUnit\TestCaseTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
 class AddImagesActionTest extends WebTestCase
 {
     use TestCaseTrait;
 
-    /**
-     * @var
-     */
     protected static $container;
 
-    /**
-     * @var
-     */
     private $factory;
 
-    /**
-     * @var
-     */
     private $addImagesResponder;
 
-    /**
-     * @var
-     */
-    private $addedImagesResponder;
+    private $handler;
+
+    private $imagesRepository;
 
     /**
      * @var
      */
-    private $handler;
+    private $urlGenerator;
 
 
     public function setUp()
@@ -48,11 +43,15 @@ class AddImagesActionTest extends WebTestCase
         static::bootKernel();
         self::$container = static::$kernel->getContainer();
         $this->factory = self::$container->get('form.factory');
-        $this->addedImagesResponder = new AddedImagesResponder($this->createMock(Environment::class));
+        $this->imagesRepository = $this->createMock(ImagesRepositoryInterface::class);
         $this->addImagesResponder = new AddImagesResponder($this->createMock(Environment::class));
-        $this->handler = $this->createMock(ImagesTypeHandler::class);
+        $this->urlGenerator = $this->createMock( UrlGeneratorInterface::class);
+        $this->handler = $this->createMock( ImagesTypeHandlerInterface::class);
     }
 
+    /**
+     * @group unit
+     */
     public function testConstruct()
     {
         $action = new AddImagesAction($this->factory);
@@ -63,6 +62,9 @@ class AddImagesActionTest extends WebTestCase
         );
     }
 
+    /**
+     * @group Blackfire
+     */
     public function testBadFormHandler()
     {
         $request = Request::create(
@@ -75,7 +77,7 @@ class AddImagesActionTest extends WebTestCase
         static::assertInstanceOf(Response::class,
             $action(
                 $request,
-                $this->addedImagesResponder,
+                $this->urlGenerator,
                 $this->addImagesResponder,
                 $this->handler
             )
@@ -98,7 +100,7 @@ class AddImagesActionTest extends WebTestCase
         static::assertInstanceOf(Response::class,
             $action(
                 $request,
-                $this->addedImagesResponder,
+                $this->urlGenerator,
                 $this->addImagesResponder,
                 $this->handler
             )

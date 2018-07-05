@@ -35,6 +35,9 @@ class GroupsTest extends WebTestCase
         $this->group = $group;
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityShouldBeInstancied()
     {
         static::assertInstanceOf(Groups::class, $this->group);
@@ -42,6 +45,9 @@ class GroupsTest extends WebTestCase
         static::assertObjectHasAttribute('name', $this->group);
     }
 
+    /**
+     * @group unit
+     */
     public function testEntityShouldHaveValidAttributes()
     {
         static::assertContains('Grabs', $this->group->getName());

@@ -37,21 +37,30 @@ class DeleteTrickActionTest extends WebTestCase
         $this->generator = $this->createMock(UrlGenerator::class);
     }
 
+    /**
+     * @group unit
+     */
     public function testConstruct()
     {
         $action = new DeleteTrickAction( $this->repository);
         static::assertInstanceOf(DeleteTrickAction::class, $action);
     }
 
+    /**
+     * @group functional
+     */
     public function testDeleteTrickAction()
     {
         $request = Request::create(
-            '/supprimer/trick/1',
+            '/supprimer/trick/Figure_0',
             'POST'
         );
         $action = new DeleteTrickAction($this->repository);
-        $this->generator->method('generate')->willReturn('homepage');
 
-        static::assertInstanceOf(RedirectResponse::class, $action($request, $this->generator));
+        static::assertInstanceOf(RedirectResponse::class, $action(
+            $request,
+            $this->generator
+            )
+        );
     }
 }

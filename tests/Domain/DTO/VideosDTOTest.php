@@ -39,26 +39,41 @@ class VideosDTOTest extends WebTestCase
         $this->dto = $dto;
     }
 
+    /**
+     * @group unit
+     */
     public function testAddress1AttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->address1);
     }
 
+    /**
+     * @group unit
+     */
     public function testAddress2AttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->address2);
     }
 
+    /**
+     * @group unit
+     */
     public function testAddress3AttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->address3);
     }
 
+    /**
+     * @group unit
+     */
     public function testAddress4AttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->address4);
     }
 
+    /**
+     * @group unit
+     */
     public function testAddress1AttributeMustBeCompatibleWithRegexForYoutube()
     {
         static::assertRegExp(
@@ -67,6 +82,9 @@ class VideosDTOTest extends WebTestCase
         );
     }
 
+    /**
+     * @group unit
+     */
     public function testAddress2AttributeMustBeCompatibleWithRegexForYoutube()
     {
         static::assertRegExp(
@@ -75,6 +93,9 @@ class VideosDTOTest extends WebTestCase
         );
     }
 
+    /**
+     * @group unit
+     */
     public function testAddress3AttributeMustBeCompatibleWithRegexForDailyMotion()
     {
         static::assertRegExp(
@@ -83,6 +104,9 @@ class VideosDTOTest extends WebTestCase
         );
     }
 
+    /**
+     * @group unit
+     */
     public function testAddress4AttributeMustBeCompatibleWithRegexForDailyMotion()
     {
         static::assertRegExp(

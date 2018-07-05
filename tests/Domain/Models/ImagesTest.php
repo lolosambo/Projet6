@@ -18,7 +18,9 @@ class ImagesTest extends WebTestCase
         $this->image = $image;
     }
 
-
+    /**
+     * @group unit
+     */
     public function testEntityMustBeInstancied()
     {
         static::assertInstanceOf(Images::class, $this->image);
@@ -29,6 +31,9 @@ class ImagesTest extends WebTestCase
         static::assertObjectHasAttribute('aLaUne', $this->image);
     }
 
+    /**
+     * @group unit
+     */
     public function testALaUneAttributeMustBe0Or1()
     {
         $this->image->setALaUne(1);
@@ -38,12 +43,18 @@ class ImagesTest extends WebTestCase
         static::assertEquals(0, $this->image->getALaUne());
     }
 
+    /**
+     * @group unit
+     */
     public function testALaUneAttributeReturn0IfOthersValues()
     {
         $this->image->setALaUne(3);
         static::assertEquals(0, $this->image->getALaUne());
     }
 
+    /**
+     * @group unit
+     */
     public function testUrlAttributeMustBeCompatibleWithRegex()
     {
         $this->image->setUrl('testimage.jpg');

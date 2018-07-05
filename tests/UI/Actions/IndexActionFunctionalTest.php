@@ -33,7 +33,7 @@ class IndexActionFunctionalTest extends WebTestCase
     public function testGetStatusCode()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/');
+        $client->request('GET', '/');
         static::assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
     }
 
@@ -43,13 +43,18 @@ class IndexActionFunctionalTest extends WebTestCase
     public function testLinksAndButtons()
     {
         $client = static::createClient();
+        $session = $client->getContainer()->get('session');
+        $session->set('pseudo', 'User1');
         $crawler = $client->request('GET', '/');
-        $addTrickButton = $crawler->selectLink('Ajouter une Figure')->link();
+        $addTrickButton = $crawler->filter('#add')->link();
         $addTrickButtonSubmitted = $client->click($addTrickButton);
         static::assertContains('ajouter/figure', $addTrickButtonSubmitted->getUri());
-        $seeDetailsLink = $crawler->selectLink('Voir le détail')->link();
+        $seeDetailsLink = $crawler->filter('#detailFigure_29')->link();
         $seeDetailsLinkClicked = $client->click($seeDetailsLink);
-        static::assertContains('trick/30', $seeDetailsLinkClicked->getUri());
+        static::assertContains('trick/Figure_29', $seeDetailsLinkClicked->getUri());
+        $deleteTrickLink = $crawler->filter('#detailFigure_29')->link();
+        $seeDetailsLinkClicked = $client->click($seeDetailsLink);
+        static::assertContains('trick/Figure_29', $seeDetailsLinkClicked->getUri());
     }
 
     /**
@@ -69,13 +74,11 @@ class IndexActionFunctionalTest extends WebTestCase
     {
         $config = new Configuration();
         $config->assert('main.peak_memory < 100kB', 'AddImages memory usage');
-        $config->assert('main.wall_time < 45ms', 'AddImages walltime');
         $config->assert('metrics.sql.queries.count = 0', 'AddImages walltime');
         $this->assertBlackfire($config, function(){
             $client = static::createClient();
             $client->request('GET', '/');
         });
     }
-
-
 }
+

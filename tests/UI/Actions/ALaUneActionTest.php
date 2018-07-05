@@ -38,6 +38,9 @@ class ALaUneActionTest extends WebTestCase
         $this->generator = $this->createMock(UrlGenerator::class);
     }
 
+    /**
+     * @group unit
+     */
     public function testConstruct()
     {
         $action = new ALaUneAction($this->repository);

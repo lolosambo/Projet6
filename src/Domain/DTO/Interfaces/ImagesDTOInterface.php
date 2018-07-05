@@ -22,9 +22,8 @@ interface ImagesDTOInterface
 {
     /**
      * ImagesDTOInterface constructor.
-     *
-     * @param array|null $image
+     * @param array $image
      */
-    public function __construct(array $image = null);
+    public function __construct(array $image);
 }
 

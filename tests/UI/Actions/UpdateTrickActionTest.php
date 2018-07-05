@@ -50,8 +50,6 @@ class UpdateTrickActionTest extends WebTestCase
 
     private $trick;
 
-    private $updatedTrickResponder;
-
     private $updateTrickResponder;
 
     public function setUp()
@@ -61,7 +59,6 @@ class UpdateTrickActionTest extends WebTestCase
         $this->factory = self::$container->get('form.factory');
         $this->handler = $this->createMock(UpdateTrickTypeHandler::class);
         $this->trick = $this->createMock(Tricks::class);
-        $this->updatedTrickResponder = new UpdatedTrickResponder($this->createMock(Environment::class));
         $this->updateTrickResponder = new UpdateTrickResponder($this->createMock(Environment::class));
         $this->blackfireClient = new Client();
         $this->config = new Configuration();
@@ -87,8 +84,7 @@ class UpdateTrickActionTest extends WebTestCase
             $request,
             $this->trick,
             $this->handler,
-            $this->updateTrickResponder,
-            $this->updatedTrickResponder
+            $this->updateTrickResponder
         );
         $this->blackfireClient->endProbe($probe);
 
@@ -99,8 +95,7 @@ class UpdateTrickActionTest extends WebTestCase
                 $request,
                 $this->trick,
                 $this->handler,
-                $this->updateTrickResponder,
-                $this->updatedTrickResponder
+                $this->updateTrickResponder
             )
         );
     }
@@ -118,8 +113,7 @@ class UpdateTrickActionTest extends WebTestCase
             $request,
             $this->trick,
             $this->handler,
-            $this->updateTrickResponder,
-            $this->updatedTrickResponder
+            $this->updateTrickResponder
         );
         $this->blackfireClient->endProbe($probe);
         static::assertInstanceOf(
@@ -129,8 +123,7 @@ class UpdateTrickActionTest extends WebTestCase
                 $request,
                 $this->trick,
                 $this->handler,
-                $this->updateTrickResponder,
-                $this->updatedTrickResponder
+                $this->updateTrickResponder
             )
         );
     }

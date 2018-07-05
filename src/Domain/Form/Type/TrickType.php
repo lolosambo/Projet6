@@ -57,7 +57,8 @@ class TrickType extends AbstractType implements FormTypeInterface
             ])
             ->add('image', FileType::class, [
                 'multiple' => true,
-            ])
+                'required' => false
+             ])
             ->add('address1', TextType::class, [
                 'label' => 'Lien vidéo 1',
                 'required' => false,])

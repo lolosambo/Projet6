@@ -30,26 +30,30 @@ class AddImagesActionFunctionalTest extends WebTestCase
     /**
      * @group functional
      */
-    public function testGetStatusCode()
+    public function testAddImagesGetStatusCode()
     {
         $client = static::createClient();
-        $client->request('GET', '/ajout-medias/2');
+        $client->request('GET', '/ajout-medias/Figure_27');
         static::assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
     }
 
     /**
      * @group functional
      */
-//    public function testUploadImagesForm()
-//    {
-//        $client = static::createClient();
-//        $crawler = $client->request('GET', '/ajout-medias/2');
-//        $form = $crawler->selectButton('publier')->form();
-//        $form['image']->upload('uploads/test1.jpg');
-//        $client->submit($form);
-//        static::assertInstanceOf(\SplFileInfo::class, $form->getFiles());
-//        static::assertTrue($client->getResponse()->isRedirect());
-//    }
+    public function testAddImagesForm()
+    {
+        $client = static::createClient();
+        $session = $client->getContainer()->get('session');
+        $session->set('pseudo', 'User1');
+        $crawler = $client->request('GET', '/ajout-medias/Figure_27');
+        $form = $crawler->filter('#publier')->form();
+        foreach($form['images[image]'] as $image) {
+            $image = "exemple.png";
+        }
+        $crawler = $client->submit($form);
+        $crawler = $client->followRedirect();
+        static::assertSame(1, $crawler->filter('div.flash-notice')->count());
+    }
 
     /**
      * @group Blackfire

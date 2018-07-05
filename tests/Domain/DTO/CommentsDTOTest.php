@@ -28,12 +28,16 @@ class CommentsDTOTest extends WebTestCase
      */
     private $dto;
 
+
     public function setUp()
     {
         $dto = new CommentDTO('Essai de commentaire avec chaine de carctères valide');
         $this->dto = $dto;
     }
 
+    /**
+     * @group unit
+     */
     public function testContentAttributeMustBeAString()
     {
         static::assertInternalType('string', $this->dto->content);

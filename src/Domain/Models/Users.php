@@ -55,7 +55,7 @@ class Users implements UserInterface, \Serializable, UsersInterface
     private $inscrDate;
 
     /**
-     * @var string string
+     * @var string
      */
     private $avatar;
 

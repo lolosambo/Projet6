@@ -12,15 +12,13 @@ declare(strict_types=1);
  */
 namespace Tests\UI\Actions;
 
-use App\Domain\Form\FormHandler\TrickTypeHandler;
+
 use App\Domain\Repository\TricksRepository;
 use App\UI\Actions\AddTrickAction;
-use App\UI\Responders\AddedTrickResponder;
-use App\UI\Responders\AddTrickResponder;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Twig\Environment;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
+
 
 /**
  * Class AddTrickActionTest
@@ -34,70 +32,29 @@ class AddTrickActionTest extends WebTestCase
 
     private $factory;
 
-    private $addTrickResponder;
-
-    private $addedTrickResponder;
-
-    private $handler;
-
     private $repository;
+
+    private $session;
 
     public function setUp()
     {
         static::bootKernel();
         self::$container = static::$kernel->getContainer();
         $this->factory = self::$container->get('form.factory');
+        $this->session = new Session(new MockArraySessionStorage());
         $this->repository = $this->createMock(TricksRepository::class);
-        $this->addedTrickResponder = new AddedTrickResponder($this->createMock(Environment::class));
-        $this->addTrickResponder = new AddTrickResponder($this->createMock(Environment::class));
-        $this->handler = $this->createMock(TrickTypeHandler::class);
     }
 
+    /**
+     * @group unit
+     */
     public function testConstruct()
     {
         $action = new AddTrickAction($this->repository, $this->factory);
-
         static::assertInstanceOf(
             AddTrickAction::class,
             $action
         );
     }
-
-    public function testBadFormHandler()
-    {
-        $request = Request::create(
-            '/ajouter/figure',
-            'POST'
-        );
-        $this->handler->method('handle')->willReturn(false);
-        $action = new AddTrickAction($this->repository, $this->factory);
-
-        static::assertInstanceOf(Response::class,
-            $action(
-                $request,
-                $this->addedTrickResponder,
-                $this->addTrickResponder,
-                $this->handler
-            )
-        );
-    }
-
-    public function testGoodFormHandler()
-    {
-        $request = Request::create(
-            '/ajout-medias/1',
-            'POST'
-        );
-        $this->handler->method('handle')->willReturn(true);
-        $action = new AddtrickAction($this->repository, $this->factory);
-        ;
-        static::assertInstanceOf(Response::class,
-            $action(
-                $request,
-                $this->addedTrickResponder,
-                $this->addTrickResponder,
-                $this->handler
-            )
-        );
-    }
 }
+

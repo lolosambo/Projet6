@@ -37,20 +37,30 @@ class DeleteVideoActionTest extends WebTestCase
         $this->generator = $this->createMock(UrlGenerator::class);
     }
 
+    /**
+     * @group unit
+     */
     public function testConstruct()
     {
         $action = new DeleteVideoAction( $this->repository);
         static::assertInstanceOf(DeleteVideoAction::class, $action);
     }
 
+    /**
+     * @group functional
+     */
     public function testDeleteVideoAction()
     {
         $request = Request::create(
-            '/supprimer/trick/1',
+            '/supprimer/trick/Figure_0',
             'POST'
         );
         $action = new DeleteVideoAction($this->repository);
-        $this->generator->method('generate')->willReturn('single_trick', ['id' => 1]);
-        static::assertInstanceOf(RedirectResponse::class, $action($request, $this->generator));
+
+        static::assertInstanceOf(RedirectResponse::class, $action(
+            $request,
+            $this->generator
+            )
+        );
     }
 }

@@ -56,6 +56,9 @@ class CommentsActionTest extends WebTestCase
         );
     }
 
+    /**
+     * @group unit
+     */
     public function testConstruct()
     {
         $action = new CommentsAction($this->factory, $this->session);
@@ -66,6 +69,9 @@ class CommentsActionTest extends WebTestCase
         );
     }
 
+    /**
+     * @group unit
+     */
     public function testNoFormHandler()
     {
 
@@ -75,6 +81,9 @@ class CommentsActionTest extends WebTestCase
         static::assertNull($result);
     }
 
+    /**
+     * @group unit
+     */
     public function testBadFormHandler()
     {
         $this->handler->method('handle')->willReturn(false);
@@ -87,6 +96,9 @@ class CommentsActionTest extends WebTestCase
         );
     }
 
+    /**
+     * @group unit
+     */
     public function testGoodFormHandler()
     {
         $this->handler->method('handle')->willReturn(true);

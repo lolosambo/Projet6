@@ -33,7 +33,7 @@ class OneTrickActionFunctionalTest extends WebTestCase
     public function testGetStatusCode()
     {
         $client = static::createClient();
-        $client->request('GET', '/trick/2');
+        $client->request('GET', '/trick/Figure_0');
         static::assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
     }
 
@@ -48,7 +48,7 @@ class OneTrickActionFunctionalTest extends WebTestCase
         $config->assert('metrics.sql.queries.count = 0', 'AddImages walltime');
         $this->assertBlackfire($config, function(){
             $client = static::createClient();
-            $client->request('GET', '/trick/1');
+            $client->request('GET', '/trick/Figure_0');
         });
     }
 }

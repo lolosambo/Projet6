@@ -30,11 +30,25 @@ class ALaUneActionFunctionalTest extends WebTestCase
     /**
      * @group functional
      */
-    public function testGetStatusCode()
+    public function testALaUneImage()
     {
         $client = static::createClient();
-        $client->request('GET', '/trick/2/image_a_la_une/1');
-        static::assertEquals(Response::HTTP_FOUND, $client->getResponse()->getStatusCode());
+        $session = $client->getContainer()->get('session');
+        $session->set('pseudo', 'User1');
+        $crawler = $client->request('GET', '/trick/Figure_27');
+        $link = $crawler->filter('#une9164ad23-743d-4cda-9d28-553ad55773aa')->link();
+        $crawler = $client->click($link);
+        $crawler = $client->followRedirect();
+        static::assertSame(1, $crawler->filter('div.flash-notice')->count());
+    }
+    /**
+     * @group functional
+     */
+    public function testALaUneGetStatusCode()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/trick/Figure_27/image_a_la_une/9164ad23-743d-4cda-9d28-553ad55773aa');
+        static::assertSame(Response::HTTP_FOUND, $client->getResponse()->getStatusCode());
     }
 
     /**
@@ -44,11 +58,10 @@ class ALaUneActionFunctionalTest extends WebTestCase
     {
         $config = new Configuration();
         $config->assert('main.peak_memory < 100kB', 'AddImages memory usage');
-        $config->assert('main.wall_time < 45ms', 'AddImages walltime');
         $config->assert('metrics.sql.queries.count = 0', 'AddImages walltime');
         $this->assertBlackfire($config, function(){
             $client = static::createClient();
-            $client->request('POST', '/trick/2/image_a_la_une/1');
+            $client->request('POST', '/trick/Figure_0/image_a_la_une/9164ad23-743d-4cda-9d28-553ad55773aa');
         });
     }
 }

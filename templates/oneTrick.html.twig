@@ -12,15 +12,48 @@
                 <img src="{{ asset('../images/empty_alaune.png')}}"/>
             {% endif %}
         </div>
-        <div class="col l10 offset-l1 hide-on-med-and-up" >
-            <button id="show_medias" class="waves-effect waves-light btn-small green darken-1">
-                <i class="material-icons left">photo_camera</i>
-                   Voir les médias associés
+    </div>
+    {% if app.session.get('pseudo') == trick.user.pseudo %}
+        <div class="col l10 offset-l1 s12 alaune_wrapper no-padding">
+            <a href="{{ path('update_trick', {'slug' : trick.slug}) }}">
+                <button class="waves-effect waves-light btn-small green darken-1">
+                    Editer la figure
+                    <i class="material-icons left">create</i>
+                </button></a><br><br>
+            <button class="waves-effect waves-light btn-small pink darken-1 modal-trigger" href="#modal1">
+                Supprimer la figure
+                <i class="material-icons left">clear</i>
             </button>
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Suppression de Figure</h4>
+                    <p>Etes-vous certain de vouloir supprimer cette figure ? Cette manipulation est irréversible.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ path('delete_trick', {'slug' : trick.slug}) }}"
+                       class="modal-close waves-effect waves-green btn-flat">Confirmer la suppression
+                    </a>
+                </div>
+            </div>
+            <br><br>
+        </div><br>
+        <div class="row">
+            <div class="col l10 offset-l1 hide-on-med-and-up" >
+                <button id="show_medias" class="waves-effect waves-light btn-small blue darken-3 center-block">
+                    <i class="material-icons left">photo_camera</i>
+                    Voir les médias associés
+                </button>
+            </div>
         </div>
+    {% endif %}
+    <div class="row">
         <div class="col l12 hide-on-small-and-down" >
             {% include 'medias.html.twig' %}
         </div>
+        <div id="medias" class="col s12" >
+            {% include 'medias.html.twig' %}
+        </div><br>
+    </div>
     <div class="row">
         <div class="col l10 offset-l1 s12 content_wrapper">
             <div class="row">
@@ -36,6 +69,7 @@
     </div><br><br>
     {% include 'comments.html.twig' %}
 
+    <script src="/js/hideMedias.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){$('.materialboxed').materialbox();});
         $(document).ready(function(){$('.modal').modal();});

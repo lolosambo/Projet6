@@ -27,12 +27,16 @@ class ImagesDTOTest
      */
     private $dto;
 
+
     public function setUp()
     {
         $dto = new ImagesDTO();
         $this->dto = $dto;
     }
 
+    /**
+     * @group unit
+     */
     public function testImageAttributeMustBeAnImageFile()
     {
         static::assertInternalType('\SplFileInfo', $this->dto->image);

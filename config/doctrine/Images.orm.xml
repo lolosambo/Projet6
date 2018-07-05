@@ -9,12 +9,15 @@
             <generator strategy="CUSTOM" />
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
+
+        <many-to-one field="trick" target-entity="App\Domain\Models\Tricks" inversed-by="images" >
+            <cascade><cascade-remove /></cascade>
+            <join-column name="trick_id" referenced-column-name="id" on-delete="CASCADE" />
+        </many-to-one>
         <field name="trickId" type="uuid" />
         <field name="url" type="string" length="255" />
         <field name="aLaUne" type="integer" length="255" />
-        <many-to-one field="trick" target-entity="App\Domain\Models\Tricks" inversed-by="images" >
-            <join-column name="trick_id" referenced-column-name="id" />
-        </many-to-one>
+
 
     </entity>
 </doctrine-mapping>
