@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Listeners;
 
+use App\Exceptions\RegisterException;
 use App\Listeners\Interfaces\LoginExceptionListenerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
